@@ -1842,6 +1842,8 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./nav */ "./resources/js/nav.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -1872,6 +1874,55 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/nav.js":
+/*!*****************************!*\
+  !*** ./resources/js/nav.js ***!
+  \*****************************/
+/***/ (() => {
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Navbar's dropdown toggle
+  var ocscEvent = document.getElementById('ocsc-event');
+  var ocscEventDropdown = document.getElementById('ocsc-event-dropdown');
+  var ocscEventDropdownContent = document.getElementById('ocsc-event-dropdown-content');
+  ocscEvent.addEventListener('mouseover', function () {
+    ocscEventDropdownContent.classList.replace('hidden', 'block');
+  });
+  ocscEvent.addEventListener('mouseleave', function () {
+    ocscEventDropdownContent.classList.replace('block', 'hidden');
+  });
+  var convoys = document.getElementById('convoys');
+  var convoysDropdown = document.getElementById('convoys-dropdown');
+  var convoysDropdownContent = document.getElementById('convoys-dropdown-content');
+  convoys.addEventListener('mouseover', function () {
+    convoysDropdownContent.classList.replace('hidden', 'block');
+  });
+  convoys.addEventListener('mouseleave', function () {
+    convoysDropdownContent.classList.replace('block', 'hidden');
+  });
+  var recruitment = document.getElementById('recruitment');
+  var recruitmentDropdown = document.getElementById('recruitment-dropdown');
+  var recruitmentDropdownContent = document.getElementById('recruitment-dropdown-content');
+  recruitment.addEventListener('mouseover', function () {
+    recruitmentDropdownContent.classList.replace('hidden', 'block');
+  });
+  recruitment.addEventListener('mouseleave', function () {
+    recruitmentDropdownContent.classList.replace('block', 'hidden');
+  }); // Responsive navbar toggle
+
+  var responsiveButtonOpenNav = document.getElementById('responsive-button-open-nav');
+  var responsiveButtonCloseNav = document.getElementById('responsive-button-close-nav');
+  var responsiveMenu = document.getElementById('responsive-menu');
+  responsiveButtonOpenNav.addEventListener('click', function () {
+    responsiveMenu.classList.replace('hidden', 'block');
+  });
+  responsiveButtonCloseNav.addEventListener('click', function () {
+    responsiveMenu.classList.replace('block', 'hidden');
+  });
+});
 
 /***/ }),
 
