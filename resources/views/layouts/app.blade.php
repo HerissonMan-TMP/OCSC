@@ -11,7 +11,7 @@
 
         <title>@yield("title") - {{ config("app.name") }}</title>
     </head>
-    <body>
+    <body class="bg-gray-700">
         <header>
             <div class="relative bg-gray-700">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -322,7 +322,7 @@
                                 </div>
                             </div>
 
-                            <a href="#" class="text-base font-medium text-gray-200 hover:text-gray-300">
+                            <a href="{{ route('contact.show') }}" class="text-base font-medium text-gray-200 hover:text-gray-300">
                                 Contact
                             </a>
                         </nav>
@@ -434,7 +434,15 @@
             </div>
         </header>
 
-        <main class="h-screen bg-gray-800">
+        <main class="h-screen text-gray-200">
+            @hasSection('breadcrumb')
+            <div class="w-full bg-gray-800 py-6">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                    <h2 class="font-light text-2xl">@yield('breadcrumb')</h2>
+                </div>
+            </div>
+            @endif
+
             @yield("content")
         </main>
 
