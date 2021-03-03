@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="{{ asset("css/app.css") }}">
         <script src="https://kit.fontawesome.com/6cbe367b1a.js" crossorigin="anonymous"></script>
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
         <title>@yield("title") - {{ config("app.name") }}</title>
     </head>
     <body class="bg-gray-700">
@@ -229,77 +232,31 @@
                                 <div id="recruitment-dropdown-content" class="hidden absolute z-10 -ml-4 pt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
                                     <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                                         <div class="relative grid gap-6 bg-gray-700 px-5 py-6 sm:gap-8 sm:p-8">
-                                            <a href="#" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
+                                            @foreach($recruitableRoles as $role)
+                                            <a @if($role->recruitments()->open()->exists()) href="{{ route('recruitments.show', $role->recruitments()->open()->first()) }}" @endif class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                 <!-- Heroicon name: outline/chart-bar -->
-                                                <i class="flex-shrink-0 text-primary fas fa-car fa-fw fa-lg mt-2"></i>
+                                                <i class="flex-shrink-0 text-primary fas fa-{{ $role->icon_name }} fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
                                                     <div class="flex justify-between">
                                                         <p class="text-base font-medium text-gray-200">
-                                                            Convoy Control Team
+                                                            {{ $role->name }}
                                                         </p>
+                                                        @if($role->recruitments()->open()->exists())
                                                         <p class="rounded px-2 text-sm font-bold text-gray-200 bg-green-500 uppercase">
                                                             Open
                                                         </p>
-                                                    </div>
-                                                    <p class="mt-1 text-sm text-gray-400">
-                                                        In charge of supervising convoys and participating VTCs.
-                                                    </p>
-                                                </div>
-                                            </a>
-
-                                            <a href="#" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
-                                                <!-- Heroicon name: outline/cursor-click -->
-                                                <i class="flex-shrink-0 text-primary fas fa-map fa-fw fa-lg mt-2"></i>
-                                                <div class="w-full ml-4">
-                                                    <div class="flex justify-between">
-                                                        <p class="text-base font-medium text-gray-200">
-                                                            Event Team
-                                                        </p>
+                                                        @else
                                                         <p class="rounded px-2 text-sm font-bold text-gray-200 bg-red-500 uppercase">
                                                             Closed
                                                         </p>
+                                                        @endif
                                                     </div>
                                                     <p class="mt-1 text-sm text-gray-400">
-                                                        In charge of creating future convoy routes / events.
+                                                        {{ $role->description }}
                                                     </p>
                                                 </div>
                                             </a>
-
-                                            <a href="#" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
-                                                <!-- Heroicon name: outline/shield-check -->
-                                                <i class="flex-shrink-0 text-primary fas fa-camera fa-fw fa-lg mt-2"></i>
-                                                <div class="w-full ml-4">
-                                                    <div class="flex justify-between">
-                                                        <p class="text-base font-medium text-gray-200">
-                                                            Media Team
-                                                        </p>
-                                                        <p class="rounded px-2 text-sm font-bold text-gray-200 bg-red-500 uppercase">
-                                                            Closed
-                                                        </p>
-                                                    </div>
-                                                    <p class="mt-1 text-sm text-gray-400">
-                                                        In charge of taking photos and videos during our convoys and events.
-                                                    </p>
-                                                </div>
-                                            </a>
-
-                                            <a href="#" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
-                                                <!-- Heroicon name: outline/view-grid -->
-                                                <i class="flex-shrink-0 text-primary fas fa-language fa-fw fa-lg mt-2"></i>
-                                                <div class="w-full ml-4">
-                                                    <div class="flex justify-between">
-                                                        <p class="text-base font-medium text-gray-200">
-                                                            Translation Team
-                                                        </p>
-                                                        <p class="rounded px-2 text-sm font-bold text-gray-200 bg-red-500 uppercase">
-                                                            Closed
-                                                        </p>
-                                                    </div>
-                                                    <p class="mt-1 text-sm text-gray-400">
-                                                        In charge of translating official content (news post, convoy information, ...).
-                                                    </p>
-                                                </div>
-                                            </a>
+                                            @endforeach
                                         </div>
                                         <div class="px-5 py-5 bg-gray-800 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
                                             <div class="flow-root">
@@ -327,7 +284,7 @@
                             </a>
                         </nav>
                         <div class="hidden lg:flex items-center justify-end lg:flex-1 xl:w-0">
-                            <a href="#" class="transition duration-200 ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-gray-700 font-bold bg-primary hover:text-gray-800 hover:bg-primary-dark">
+                            <a href="{{ route('staff.hub') }}" class="transition duration-200 ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-gray-700 font-bold bg-primary hover:text-gray-800 hover:bg-primary-dark">
                                 Staff Hub
                             </a>
                         </div>
@@ -437,8 +394,13 @@
         <main class="h-screen text-gray-200">
             @hasSection('breadcrumb')
             <div class="w-full bg-gray-800 py-6">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between">
                     <h2 class="font-light text-2xl">@yield('breadcrumb')</h2>
+                    @hasSection('breadcrumb-additional-content')
+                    <div>
+                        @yield('breadcrumb-additional-content')
+                    </div>
+                    @endif
                 </div>
             </div>
             @endif
