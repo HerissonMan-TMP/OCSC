@@ -20,7 +20,7 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6">
                     <div class="flex justify-between items-center py-6 lg:justify-start lg:space-x-10">
                         <div class="flex justify-start lg:w-0 lg:flex-1">
-                            <a href="#">
+                            <a href="{{ route('homepage') }}">
                                 <span class="sr-only">{{ config('app.name') }}</span>
                                 <img class="max-h-16 hidden lg:block rounded-lg" src="{{ asset('img/ocsc_extended_logo.png') }}" alt="">
                                 <img class="max-h-16 block lg:hidden rounded-lg" src="{{ asset('img/ocsc_logo.png') }}" alt="">
