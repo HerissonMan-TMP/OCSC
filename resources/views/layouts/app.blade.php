@@ -279,7 +279,7 @@
                                 </div>
                             </div>
 
-                            <a href="{{ route('contact.show') }}" class="text-base font-medium text-gray-200 hover:text-gray-300">
+                            <a href="{{ route('contact-messages.create') }}" class="text-base font-medium text-gray-200 hover:text-gray-300">
                                 Contact
                             </a>
                         </nav>

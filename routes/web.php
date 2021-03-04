@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\ApplicationController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\Staff\RecruitmentController;
@@ -48,7 +47,13 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::get('/convoy-management', [StaffHubController::class, 'showHub'])->name('convoy-management');
         Route::get('/partnership-management', [StaffHubController::class, 'showHub'])->name('partnership-management');
         Route::get('/gallery-management', [StaffHubController::class, 'showHub'])->name('gallery-management');
+
         Route::get('/contact-messages', [StaffHubController::class, 'showHub'])->name('contact-messages');
+        Route::get('/contact-messages/{contactMessage}', [ContactMessageController::class, 'show'])->name('contact-messages.show');
+        Route::post('/contact-messages/{contactMessage}/mark-as-read', [ContactMessageController::class, 'markAsRead'])->name('contact-messages.mark-as-read');
+        Route::post('/contact-messages/{contactMessage}/mark-as-unread', [ContactMessageController::class, 'markAsUnread'])->name('contact-messages.mark-as-unread');
+        Route::delete('/contact-messages/{contactMessage}', [ContactMessageController::class, 'destroy'])->name('contact-messages.destroy');
+
         Route::get('/role-permission-management', [StaffHubController::class, 'showHub'])->name('role-permission-management');
 
         Route::get('/recruitment-management', [RecruitmentController::class, 'index'])->name('recruitment-management');
@@ -75,5 +80,6 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
     });
 });
 
-Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
-Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+Route::get('/contact', [ContactMessageController::class, 'create'])->name('contact-messages.create');
+Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact-messages.store');
+Route::get('/contact/success', [ContactMessageController::class, 'showSuccess'])->name('contact-messages.show-success');
