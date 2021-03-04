@@ -9,50 +9,48 @@
     <form action="{{ route('staff.recruitments.update', $recruitment) }}" method="POST" class="mb-10">
         @method('PATCH')
         @csrf
-        <div class="shadow overflow-hidden rounded-md">
-            <h3 class="font-bold text-2xl text-gray-300 mt-2 mb-6">Edit Recruitment #{{ $recruitment->id }}</h3>
-            <div class="grid grid-cols-6 gap-6">
-                <div class="col-span-full sm:col-span-3">
-                    <label class="block text-sm font-medium text-gray-300">Opened By</label>
-                    <input type="text" disabled style="color: {{ $recruitment->user->roles->first()->color }}" class="text-gray-300 bg-gray-700 font-bold mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $recruitment->user->name }}">
-                </div>
+        <h3 class="font-bold text-2xl text-gray-300 mt-2 mb-6">Edit Recruitment #{{ $recruitment->id }}</h3>
+        <div class="grid grid-cols-6 gap-6">
+            <div class="col-span-full sm:col-span-3">
+                <label class="block text-sm font-medium text-gray-300">Opened By</label>
+                <input type="text" disabled style="color: {{ $recruitment->user->roles->first()->color }}" class="text-gray-300 bg-gray-700 font-bold mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $recruitment->user->name }}">
+            </div>
 
-                <div class="col-span-full sm:col-span-full">
-                    <label for="role_id" class="block text-sm font-medium text-gray-300">Role <span class="text-red-500 italic">You can no longer change the role.</span></label>
-                    <select id="role_id" disabled style="color: {{ $recruitment->role->color }}" class="text-gray-300 bg-gray-700 mt-1 block w-full py-2 px-3 border border-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-dark focus:border-primary-dark sm:text-sm" required>
-                        <option selected>{{ $recruitment->role->name }}</option>
-                    </select>
-                </div>
+            <div class="col-span-full sm:col-span-full">
+                <label for="role_id" class="block text-sm font-medium text-gray-300">Role <span class="text-red-500 italic">You can no longer change the role.</span></label>
+                <select id="role_id" disabled style="color: {{ $recruitment->role->color }}" class="text-gray-300 bg-gray-700 mt-1 block w-full py-2 px-3 border border-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-dark focus:border-primary-dark sm:text-sm" required>
+                    <option selected>{{ $recruitment->role->name }}</option>
+                </select>
+            </div>
 
-                <div class="col-span-full sm:col-span-3">
-                    <label for="start_datetime" class="block text-sm font-medium text-gray-300">Start Date (UTC) <span class="text-red-500 font-bold">*</span></label>
-                    <input id="" type="text" name="start_datetime" id="start_datetime" class="flatpickr text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $recruitment->start_at }}" required>
-                    @error('start_datetime')
-                    <span class="pt-2 text-sm text-red-500">
-                        {{ $message }}
-                    </span>
-                    @enderror
-                </div>
+            <div class="col-span-full sm:col-span-3">
+                <label for="start_datetime" class="block text-sm font-medium text-gray-300">Start Date (UTC) <span class="text-red-500 font-bold">*</span></label>
+                <input type="text" name="start_datetime" id="start_datetime" class="flatpickr text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $recruitment->start_at }}" required>
+                @error('start_datetime')
+                <span class="pt-2 text-sm text-red-500">
+                    {{ $message }}
+                </span>
+                @enderror
+            </div>
 
-                <div class="col-span-full sm:col-span-3">
-                    <label for="end_datetime" class="block text-sm font-medium text-gray-300">End Date (UTC) <span class="text-red-500 font-bold">*</span></label>
-                    <input type="text" name="end_datetime" id="end_datetime" class="flatpickr text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $recruitment->end_at }}" required>
-                    @error('end_datetime')
-                    <span class="pt-2 text-sm text-red-500">
-                        {{ $message }}
-                    </span>
-                    @enderror
-                </div>
+            <div class="col-span-full sm:col-span-3">
+                <label for="end_datetime" class="block text-sm font-medium text-gray-300">End Date (UTC) <span class="text-red-500 font-bold">*</span></label>
+                <input type="text" name="end_datetime" id="end_datetime" class="flatpickr text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $recruitment->end_at }}" required>
+                @error('end_datetime')
+                <span class="pt-2 text-sm text-red-500">
+                    {{ $message }}
+                </span>
+                @enderror
+            </div>
 
-                <div class="col-span-full">
-                    <label for="note" class="block text-sm font-medium text-gray-300">Additional Note</label>
-                    <textarea name="note" id="note" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" cols="30" rows="3">{{ $recruitment->note }}</textarea>
-                    @error('note')
-                    <span class="pt-2 text-sm text-red-500">
-                        {{ $message }}
-                    </span>
-                    @enderror
-                </div>
+            <div class="col-span-full">
+                <label for="note" class="block text-sm font-medium text-gray-300">Additional Note</label>
+                <textarea name="note" id="note" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" cols="30" rows="3">{{ $recruitment->note }}</textarea>
+                @error('note')
+                <span class="pt-2 text-sm text-red-500">
+                    {{ $message }}
+                </span>
+                @enderror
             </div>
         </div>
         <div class="mt-6 bg-gray-800 text-right grid grid-cols-6 gap-6">
