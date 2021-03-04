@@ -14,7 +14,7 @@
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-full sm:col-span-3">
                     <label class="block text-sm font-medium text-gray-300">Opened By</label>
-                    <input type="text" disabled style="color: {{ $recruitment->user->roles()->first()->color }}" class="text-gray-300 bg-gray-700 font-bold mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $recruitment->user->name }}">
+                    <input type="text" disabled style="color: {{ $recruitment->user->roles->first()->color }}" class="text-gray-300 bg-gray-700 font-bold mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $recruitment->user->name }}">
                 </div>
 
                 <div class="col-span-full sm:col-span-full">
@@ -85,7 +85,7 @@
             <hr class="my-6 order-b border-gray-700">
 
 
-            @foreach($questions as $question)
+            @foreach($recruitment->questions as $question)
             <form action="{{ route('staff.recruitments.questions.update', [$recruitment, $question]) }}" method="POST">
                 @csrf
                 @method('PATCH')

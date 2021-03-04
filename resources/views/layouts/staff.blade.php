@@ -13,10 +13,10 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-16">
     <div class="px-4 py-5 sm:p-6 bg-gray-800 rounded-md flex justify-between">
         <div>
-            <span class="font-bold">{{ Auth::user()->name }}</span> / {{ Auth::user()->email }}
+            <span class="font-bold">{{ $authUser->name }}</span> / {{ $authUser->email }}
         </div>
-        <div style="background-color: {{ Auth::user()->roles()->first()->color }}" class="px-2 py-1 rounded-md leading-3">
-            <span class="font-bold text-gray-800 text-sm">{{ Auth::user()->roles()->first()->name }}</span>
+        <div style="background-color: {{ $authUser->roles->first()->color }}" class="px-2 py-1 rounded-md leading-3">
+            <span class="font-bold text-gray-800 text-sm">{{ $authUser->roles->first()->name }}</span>
         </div>
     </div>
 @yield('content-staff')

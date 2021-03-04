@@ -34,12 +34,12 @@ Route::get('/recruitments/success', [RecruitmentController::class, 'showSuccess'
 Route::get('/recruitments/{recruitment}', [RecruitmentController::class, 'show'])->name('recruitments.show');
 Route::post('recruitments/{recruitment}/applications', [ApplicationController::class, 'store'])->name('recruitments.applications.store');
 
-Route::middleware(['auth'])->group(function() {
+Route::middleware(['auth', 'temporary_password'])->group(function() {
     Route::get('/staff/temporary-password/edit', [UserController::class, 'editTemporaryPassword'])->name('staff.temporary-password.edit');
     Route::post('/staff/temporary-password/update', [UserController::class, 'updateTemporaryPassword'])->name('staff.temporary-password.update');
 });
 
-Route::middleware(['auth', 'temporary_password'])->group(function () {
+Route::middleware(['auth', 'not_temporary_password'])->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::prefix('staff')->name('staff.')->group(function () {

@@ -233,7 +233,7 @@
                                     <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                                         <div class="relative grid gap-6 bg-gray-700 px-5 py-6 sm:gap-8 sm:p-8">
                                             @foreach($recruitableRoles as $role)
-                                            <a @if($role->recruitments()->open()->exists()) href="{{ route('recruitments.show', $role->recruitments()->open()->first()) }}" @endif class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
+                                            <a @if($role->recruitments->isNotEmpty()) href="{{ route('recruitments.show', $role->recruitments->first()) }}" @endif class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                 <!-- Heroicon name: outline/chart-bar -->
                                                 <i class="flex-shrink-0 text-primary fas fa-{{ $role->icon_name }} fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
@@ -241,7 +241,7 @@
                                                         <p class="text-base font-medium text-gray-200">
                                                             {{ $role->name }}
                                                         </p>
-                                                        @if($role->recruitments()->open()->exists())
+                                                        @if($role->recruitments->isNotEmpty())
                                                         <p class="rounded px-2 text-sm font-bold text-gray-200 bg-green-500 uppercase">
                                                             Open
                                                         </p>

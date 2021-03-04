@@ -30,6 +30,7 @@ class ApplicationController extends Controller
      */
     public function show(Recruitment $recruitment, Application $application)
     {
+        $recruitment = $recruitment->load(['role', 'questions']);
         return view('staff.recruitment.application.show')
                     ->with('recruitment', $recruitment)
                     ->with('application', $application);

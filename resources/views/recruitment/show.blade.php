@@ -28,7 +28,7 @@
 
                 <hr class="col-span-full border-b border-gray-700">
 
-                @foreach($questions as $question)
+                @foreach($recruitment->questions as $question)
                 <div class="col-span-full mb-4">
                     @if($question->type === 'inline')
                     <label for="question-{{ $question->id }}" class="block text-2xl font-light text-gray-300 mb-3">{{ $question->name }}</label>

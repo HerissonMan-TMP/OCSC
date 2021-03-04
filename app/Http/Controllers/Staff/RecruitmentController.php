@@ -17,7 +17,13 @@ class RecruitmentController extends Controller
     public function index()
     {
 
-        $recruitments = Recruitment::latest()->withCount('applications')->get();
+        $recruitments = Recruitment::latest()
+                                    ->with([
+                                        'role',
+                                        'user',
+                                        'user.roles'
+                                    ])
+                                    ->withCount('applications')->get();
 
         return view('staff.recruitment.index')
                     ->with('recruitments', $recruitments);
@@ -32,11 +38,10 @@ class RecruitmentController extends Controller
     {
         //Check if recruitment open
 
-        $questions = $recruitment->questions()->get();
+        $recruitment = $recruitment->load(['role', 'questions']);
 
         return view('recruitment.show')
-                    ->with('recruitment', $recruitment)
-                    ->with('questions', $questions);
+                    ->with('recruitment', $recruitment);
     }
 
     /**
@@ -89,13 +94,10 @@ class RecruitmentController extends Controller
      */
     public function edit(Recruitment $recruitment)
     {
-        $recruitableRoles = Role::recruitable()->get();
-        $questions = $recruitment->questions()->get();
+        $recruitment = $recruitment->load(['role', 'questions', 'user.roles']);
 
         return view('staff.recruitment.edit')
-                ->with('recruitment', $recruitment)
-                ->with('roles', $recruitableRoles)
-                ->with('questions', $questions);
+                ->with('recruitment', $recruitment);
     }
 
     /**

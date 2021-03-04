@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CheckIfPasswordIsTemporary
+class PasswordIsTemporary
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,8 @@ class CheckIfPasswordIsTemporary
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->has_temporary_password) {
-            return redirect()->route('staff.temporary-password.edit');
+        if (!Auth::user()->has_temporary_password) {
+            return redirect()->route('staff.hub');
         }
 
         return $next($request);

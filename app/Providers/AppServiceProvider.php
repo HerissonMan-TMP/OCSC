@@ -25,8 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-        $roles = Role::recruitable()->get();
+        $roles = Role::recruitable()->with(['recruitments' => function ($query) {
+            return $query->open();
+        }])->get();
         View::share('recruitableRoles', $roles);
     }
 }

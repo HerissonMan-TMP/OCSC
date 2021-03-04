@@ -13,7 +13,7 @@
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-full sm:col-span-3">
                     <label class="block text-sm font-medium text-gray-300">Opened By</label>
-                    <input type="text" disabled style="color: {{ Auth::user()->roles()->first()->color }}" class="text-gray-300 bg-gray-700 font-bold mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ Auth::user()->name }}">
+                    <input type="text" disabled style="color: {{ $authUser->roles->first()->color }}" class="text-gray-300 bg-gray-700 font-bold mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $authUser->name }}">
                 </div>
 
                 <div class="col-span-full sm:col-span-full">
