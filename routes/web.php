@@ -60,6 +60,7 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
 
         Route::post('/recruitments/{recruitment}/questions/store', [QuestionController::class, 'store'])->name('recruitments.questions.store');
         Route::patch('/recruitments/{recruitment}/questions/{question}', [QuestionController::class, 'update'])->name('recruitments.questions.update');
+        Route::delete('/recruitments/{recruitment}/questions/{question}', [QuestionController::class, 'destroy'])->name('recruitments.questions.destroy');
 
         Route::get('/recruitments/{recruitment}/applications', [ApplicationController::class, 'index'])->name('recruitments.applications.index');
         Route::get('/recruitments/{recruitment}/applications/{application}', [ApplicationController::class, 'show'])->name('recruitments.applications.show');

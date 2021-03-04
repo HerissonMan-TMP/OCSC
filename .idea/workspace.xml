@@ -6,6 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ApplicationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ApplicationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Staff/RecruitmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Staff/RecruitmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/recruitment/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitment/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/staff/edit-temporary-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/staff/edit-temporary-password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/staff/recruitment/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/staff/recruitment/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/staff/recruitment/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/staff/recruitment/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/staff/user/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/staff/user/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +28,13 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -174,6 +194,8 @@
       <recent name="C:\xampp\htdocs\TTFR\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TTFR\app\Http\Requests\Question" />
+      <recent name="C:\xampp\htdocs\TTFR\app\Http\Requests\User" />
       <recent name="C:\xampp\htdocs\TTFR\resources\views\layouts" />
     </key>
   </component>
@@ -197,7 +219,7 @@
       <workItem from="1614587243688" duration="35358000" />
       <workItem from="1614670867390" duration="41658000" />
       <workItem from="1614759901992" duration="37999000" />
-      <workItem from="1614845811366" duration="13488000" />
+      <workItem from="1614845811366" duration="34099000" />
     </task>
     <servers />
   </component>

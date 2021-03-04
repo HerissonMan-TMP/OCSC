@@ -17,13 +17,23 @@
             </div>
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-full sm:col-span-3">
-                    <label for="discord_username" class="block font-medium text-gray-300">Discord username</label>
-                    <input type="text" name="discord_username" id="discord_username" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" placeholder="MyUsername#1234" maxlength="100">
+                    <label for="discord_username" class="block font-medium text-gray-300">Discord username <span class="text-red-500">*</span></label>
+                    <input type="text" name="discord_username" id="discord_username" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" placeholder="MyUsername#1234" maxlength="50" value="{{ old('discord_username') }}" required>
+                    @error('discord_username')
+                    <span class="pt-2 text-sm text-red-500">
+                        {{ $message }}
+                    </span>
+                    @enderror
                 </div>
 
                 <div class="col-span-full sm:col-span-3">
-                    <label for="email_address" class="block font-medium text-gray-300">Email address</label>
-                    <input type="text" name="email_address" id="email_address" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" placeholder="myemail@example.com" maxlength="300">
+                    <label for="email_address" class="block font-medium text-gray-300">Email address <span class="text-red-500">*</span></label>
+                    <input type="email" name="email_address" id="email_address" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" placeholder="myemail@example.com" maxlength="300" value="{{ old('email_address') }}" required>
+                    @error('email_address')
+                    <span class="pt-2 text-sm text-red-500">
+                        {{ $message }}
+                    </span>
+                    @enderror
                 </div>
 
                 <hr class="col-span-full border-b border-gray-700">
@@ -31,12 +41,35 @@
                 @foreach($recruitment->questions as $question)
                 <div class="col-span-full mb-4">
                     @if($question->type === 'inline')
-                    <label for="question-{{ $question->id }}" class="block text-2xl font-light text-gray-300 mb-3">{{ $question->name }}</label>
-                    <input type="text" name="{{ $question->id }}" id="question-{{ $question->id }}" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md">
+                    <div class="flex justify-between items-center">
+                        <label for="question-{{ $question->id }}" class="block text-2xl font-light text-gray-300 mb-3">{{ $question->name }} <span class="text-red-500">*</span></label>
+                        <span id="question-{{ $question->id }}-counter" class="text-xs @if($question->min_length > 0) text-red-500 @else text-green-500 @endif">
+                            @if($question->min_length > 0)
+                            <span>Minimum: {{ $question->min_length }} |</span>
+                            @endif
+                            <span id="question-{{ $question->id }}-counter-number">0</span>
+                            <span> / {{ $question->max_length }}</span>
+                        </span>
+                    </div>
+                    <input type="text" name="question_{{ $question->id }}" id="question-{{ $question->id }}" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ old('question_' . $question->id) }}" required>
                     @elseif($question->type === 'multiline')
-                        <label for="question-{{ $question->id }}" class="block text-2xl font-light text-gray-300 mb-3">{{ $question->name }}</label>
-                        <textarea name="{{ $question->id }}" id="question-{{ $question->id }}" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" cols="30" rows="8"></textarea>
+                    <div class="flex justify-between items-center">
+                        <label for="question-{{ $question->id }}" class="block text-2xl font-light text-gray-300 mb-3">{{ $question->name }} <span class="text-red-500">*</span></label>
+                        <span id="question-{{ $question->id }}-counter" class="text-xs @if($question->min_length > 0) text-red-500 @else text-green-500 @endif">
+                            @if($question->min_length > 0)
+                            <span>Minimum: {{ $question->min_length }} |</span>
+                            @endif
+                            <span id="question-{{ $question->id }}-counter-number">0</span>
+                            <span> / {{ $question->max_length }}</span>
+                        </span>
+                    </div>
+                    <textarea name="question_{{ $question->id }}" id="question-{{ $question->id }}" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" cols="30" rows="8" required>{{ old('question_' . $question->id) }}</textarea>
                     @endif
+                    @error('question_' . $question->id)
+                    <span class="pt-2 text-sm text-red-500">
+                    {{ $message }}
+                    </span>
+                    @enderror
                 </div>
                 @endforeach
             </div>
@@ -49,3 +82,34 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+//Character counter
+@foreach($recruitment->questions as $question)
+
+    var questionInput = document.getElementById('question-{{ $question->id }}');
+    var questionCounter = document.getElementById('question-{{ $question->id }}-counter');
+    var questionCounterNumber = document.getElementById('question-{{ $question->id }}-counter-number');
+
+    questionCounterNumber.innerHTML = questionInput.value.length;
+
+    questionInput.addEventListener('input', function() {
+        var questionInput = document.getElementById('question-{{ $question->id }}');
+        var questionCounter = document.getElementById('question-{{ $question->id }}-counter');
+        var questionCounterNumber = document.getElementById('question-{{ $question->id }}-counter-number');
+
+        questionCounterNumber.innerHTML = questionInput.value.length;
+
+        if (questionInput.value.length > {{ $question->max_length }} || questionInput.value.length < {{ $question->min_length }}) {
+            questionCounter.classList.add('text-red-500');
+            questionCounter.classList.remove('text-green-500');
+        } else {
+            questionCounter.classList.add('text-green-500');
+            questionCounter.classList.remove('text-red-500');
+        }
+    });
+
+@endforeach
+</script>
+@endpush

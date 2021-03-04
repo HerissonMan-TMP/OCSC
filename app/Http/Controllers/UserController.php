@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\StoreUserRequest;
+use App\Http\Requests\User\UpdateTemporaryPasswordRequest;
 use App\Models\Application;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,13 +25,15 @@ class UserController extends Controller
     {
         $characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
         $temporary_password = substr(str_shuffle($characters), 0, 8);
+        $roles = Role::all();
 
         return view('staff.user.create')
                     ->with('email', $request->email)
-                    ->with('temporary_password', $temporary_password);
+                    ->with('temporary_password', $temporary_password)
+                    ->with('roles', $roles);
     }
 
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
         //Ensure the email doesn't already exist.
 
@@ -50,7 +55,7 @@ class UserController extends Controller
         return view('staff.edit-temporary-password');
     }
 
-    public function updateTemporaryPassword(Request $request)
+    public function updateTemporaryPassword(UpdateTemporaryPasswordRequest $request)
     {
         $user = Auth::user();
 

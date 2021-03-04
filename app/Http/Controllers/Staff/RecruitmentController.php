@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Staff;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Recruitment\StoreRecruitmentRequest;
+use App\Http\Requests\Recruitment\UpdateRecruitmentRequest;
 use App\Models\Recruitment;
 use App\Models\Role;
 use Carbon\Carbon;
@@ -57,29 +59,25 @@ class RecruitmentController extends Controller
      */
     public function create()
     {
-        $recruitableRoles = Role::recruitable()->get();
+        $roles = Role::recruitable()->NotCurrentlyRecruiting()->get();
 
         return view('staff.recruitment.create')
-                    ->with('roles', $recruitableRoles);
+                    ->with('recruitableRolesNotCurrentlyRecruiting', $roles);
     }
 
     /**
      * Store a recruitment session.
      *
-     * @param Request $request
+     * @param StoreRecruitmentRequest $request
      */
-    public function store(Request $request)
+    public function store(StoreRecruitmentRequest $request)
     {
-        if (Recruitment::where('role_id', $request->role)->open()->exists()) {
-            abort(403);
-        }
-
         $recruitment = new Recruitment;
 
         $recruitment->start_at = $request->start_datetime;
         $recruitment->end_at = $request->end_datetime;
         $recruitment->note = $request->note;
-        $recruitment->role()->associate($request->role);
+        $recruitment->role()->associate($request->role_id);
         $recruitment->user()->associate(Auth::user()->id);
 
         $recruitment->save();
@@ -103,20 +101,14 @@ class RecruitmentController extends Controller
     /**
      * Update basic information of the given recruitment session.
      *
-     * @param Request $request
+     * @param UpdateRecruitmentRequest $request
      * @param Recruitment $recruitment
      */
-    public function update(Request $request, Recruitment $recruitment)
+    public function update(UpdateRecruitmentRequest $request, Recruitment $recruitment)
     {
-        if (($recruitment->is_open && $request->role != $recruitment->role_id)) {
-            abort(403);
-        }
-
         $recruitment->start_at = $request->start_datetime;
         $recruitment->end_at = $request->end_datetime;
         $recruitment->note = $request->note;
-        $recruitment->role()->associate($request->role);
-        $recruitment->user()->associate(Auth::user()->id);
 
         $recruitment->save();
 

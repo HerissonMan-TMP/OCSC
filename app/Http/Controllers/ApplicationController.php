@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Application\StoreApplicationRequest;
 use App\Models\Answer;
 use App\Models\Application;
 use App\Models\Recruitment;
@@ -40,9 +41,9 @@ class ApplicationController extends Controller
      * Store the user's contact information and his answers.
      *
      * @param Recruitment $recruitment
-     * @param Request $request
+     * @param StoreApplicationRequest $request
      */
-    public function store(Recruitment $recruitment, Request $request)
+    public function store(Recruitment $recruitment, StoreApplicationRequest $request)
     {
         $application = new Application;
 
@@ -56,7 +57,9 @@ class ApplicationController extends Controller
 
         $answers = $request->except(['_token', 'discord_username', 'email_address']);
 
-        foreach ($answers as $question_id => $text) {
+        foreach ($answers as $question_name => $text) {
+            $question_id = str_replace('question_', '', $question_name);
+
             if (in_array($question_id, $questions)) {
                 $answer = new Answer;
 

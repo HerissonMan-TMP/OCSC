@@ -17,27 +17,47 @@
                 </div>
 
                 <div class="col-span-full sm:col-span-full">
-                    <label for="role" class="block text-sm font-medium text-gray-300">Role <span class="text-red-500 font-bold">*</span></label>
-                    <select id="role" name="role" class="text-gray-300 bg-gray-700 mt-1 block w-full py-2 px-3 border border-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-dark focus:border-primary-dark sm:text-sm" required>
-                        @foreach($recruitableRoles as $role)
-                        <option value="{{ $role->id }}" style="color: {{ $role->color }}">{{ $role->name }}</option>
+                    <label for="role_id" class="block text-sm font-medium text-gray-300">Role <span class="text-red-500 font-bold">*</span></label>
+                    <select id="role_id" name="role_id" class="text-gray-300 bg-gray-700 mt-1 block w-full py-2 px-3 border border-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-dark focus:border-primary-dark sm:text-sm" required>
+                        @foreach($recruitableRolesNotCurrentlyRecruiting as $role)
+                        <option value="{{ $role->id }}" @if(old('role_id') == $role->id) selected @endif style="color: {{ $role->color }}">{{ $role->name }}</option>
                         @endforeach
                     </select>
+                    @error('role_id')
+                    <span class="pt-2 text-sm text-red-500">
+                        {{ $message }}
+                    </span>
+                    @enderror
                 </div>
 
                 <div class="col-span-full sm:col-span-3">
                     <label for="start_date" class="block text-sm font-medium text-gray-300">Start Date (UTC) <span class="text-red-500 font-bold">*</span></label>
-                    <input id="" type="datetime-local" name="start_datetime" id="start_date" class="flatpickr text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" required>
+                    <input id="" type="datetime-local" name="start_datetime" id="start_date" class="flatpickr text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ old('start_datetime') }}" required>
+                    @error('start_datetime')
+                    <span class="pt-2 text-sm text-red-500">
+                        {{ $message }}
+                    </span>
+                    @enderror
                 </div>
 
                 <div class="col-span-full sm:col-span-3">
                     <label for="end_date" class="block text-sm font-medium text-gray-300">End Date (UTC) <span class="text-red-500 font-bold">*</span></label>
-                    <input id="" type="datetime-local" name="end_datetime" id="end_date" class="flatpickr text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" required>
+                    <input id="" type="datetime-local" name="end_datetime" id="end_date" class="flatpickr text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ old('end_datetime') }}" required>
+                    @error('end_datetime')
+                    <span class="pt-2 text-sm text-red-500">
+                        {{ $message }}
+                    </span>
+                    @enderror
                 </div>
 
                 <div class="col-span-full">
                     <label for="note" class="block text-sm font-medium text-gray-300">Additional Note</label>
-                    <textarea name="note" id="note" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" cols="30" rows="3"></textarea>
+                    <textarea name="note" id="note" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" cols="30" rows="3">{{ old('note') }}</textarea>
+                    @error('note')
+                    <span class="pt-2 text-sm text-red-500">
+                        {{ $message }}
+                    </span>
+                    @enderror
                 </div>
             </div>
         </div>

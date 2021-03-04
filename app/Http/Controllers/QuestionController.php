@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Question\StoreQuestionRequest;
+use App\Http\Requests\Question\UpdateQuestionRequest;
 use App\Models\Question;
 use App\Models\Recruitment;
 use Illuminate\Http\Request;
@@ -14,7 +16,7 @@ class QuestionController extends Controller
      * @param Recruitment $recruitment
      * @param Request $request
      */
-    public function store(Recruitment $recruitment, Request $request)
+    public function store(Recruitment $recruitment, StoreQuestionRequest $request)
     {
         $question = new Question;
 
@@ -34,12 +36,19 @@ class QuestionController extends Controller
      * @param Question $question
      * @param Request $request
      */
-    public function update(Recruitment $recruitment, Question $question, Request $request)
+    public function update(Recruitment $recruitment, Question $question, UpdateQuestionRequest $request)
     {
         $question->name = $request->name;
         $question->type = $request->type;
 
         $question->save();
+
+        return redirect()->route('staff.recruitments.edit', $recruitment);
+    }
+
+    public function destroy(Recruitment $recruitment, Question $question)
+    {
+        $question->delete();
 
         return redirect()->route('staff.recruitments.edit', $recruitment);
     }
