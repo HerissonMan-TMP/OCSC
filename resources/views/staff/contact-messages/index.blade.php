@@ -35,20 +35,20 @@
                     </thead>
                     <tbody class="bg-gray-700 divide-y divide-gray-700">
                     @forelse($contactMessages as $contactMessage)
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                        <tr class="@if($contactMessage->status === 'read') text-gray-500 @endif">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
                                 {{ $contactMessage->id }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
                                 {{ $contactMessage->discord }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
                                 {{ $contactMessage->email }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
                                 {{ $contactMessage->created_at }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm capitalize @switch($contactMessage->status) @case('unread') font-bold text-blue-500 @break @case('read') text-gray-500 @break @endswitch">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm capitalize @if($contactMessage->status === 'unread') font-bold text-blue-500 @endif">
                                 {{ $contactMessage->status }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

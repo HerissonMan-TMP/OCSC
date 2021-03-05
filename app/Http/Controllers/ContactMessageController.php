@@ -11,7 +11,7 @@ class ContactMessageController extends Controller
 {
     public function index()
     {
-        $contactMessages = ContactMessage::with('category')->get();
+        $contactMessages = ContactMessage::with('category')->latest()->get();
 
         return view('staff.contact-messages.index')
                 ->with('contactMessages', $contactMessages);

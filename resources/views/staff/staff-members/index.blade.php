@@ -31,7 +31,7 @@
                         </tr>
                         </thead>
                         <tbody class="bg-gray-700 divide-y divide-gray-700">
-                        @forelse($users as $user)
+                        @forelse($users->sortByDesc('roles') as $user)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                                     {{ $user->id }}

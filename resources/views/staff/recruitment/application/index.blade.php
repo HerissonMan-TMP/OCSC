@@ -38,7 +38,7 @@
                     </tr>
                     </thead>
                     <tbody class="bg-gray-700 divide-y divide-gray-700">
-                    @forelse($recruitment->applications as $application)
+                    @forelse($recruitment->applications->sortByDesc('created_at') as $application)
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                                 {{ $application->id }}
