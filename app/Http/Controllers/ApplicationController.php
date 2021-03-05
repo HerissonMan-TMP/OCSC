@@ -7,6 +7,7 @@ use App\Models\Answer;
 use App\Models\Application;
 use App\Models\Recruitment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ApplicationController extends Controller
 {
@@ -17,6 +18,8 @@ class ApplicationController extends Controller
      */
     public function index(Recruitment $recruitment)
     {
+        Gate::authorize('manage-recruitments');
+
         $recruitment = $recruitment->load(['role', 'applications']);
 
         return view('staff.recruitment.application.index')
@@ -31,6 +34,8 @@ class ApplicationController extends Controller
      */
     public function show(Recruitment $recruitment, Application $application)
     {
+        Gate::authorize('manage-recruitments');
+
         $recruitment = $recruitment->load(['role', 'questions']);
         return view('staff.recruitment.application.show')
                     ->with('recruitment', $recruitment)
@@ -76,7 +81,7 @@ class ApplicationController extends Controller
 
     public function accept(Recruitment $recruitment, Application $application)
     {
-        //Check if status is new
+        Gate::authorize('manage-recruitments');
 
         $application->status = 'accepted';
         $application->save();
@@ -89,7 +94,7 @@ class ApplicationController extends Controller
 
     public function decline(Recruitment $recruitment, Application $application)
     {
-        //Check if status is new
+        Gate::authorize('manage-recruitments');
 
         $application->status = 'declined';
         $application->save();

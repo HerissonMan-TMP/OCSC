@@ -46,5 +46,19 @@ class AuthServiceProvider extends ServiceProvider
                 ? Response::allow()
                 : Response::deny('You are not allowed to manage recruitments.');
         });
+
+        $ability = 'see-staff-members-list';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to see the Staff members list.');
+        });
+
+        $ability = 'see-temporary-password-of-new-staff-members';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to see the new Staff members\' temporary password.');
+        });
     }
 }

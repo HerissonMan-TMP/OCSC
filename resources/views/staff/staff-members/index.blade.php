@@ -42,6 +42,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                                     {{ $user->email }}
                                 </td>
+                                @can('see-temporary-password-of-new-staff-members')
                                 @if($user->has_temporary_password)
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-300">
                                     Yes ({{ $user->temporary_password_without_hash }})
@@ -51,6 +52,11 @@
                                     No
                                 </td>
                                 @endif
+                                @else
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                                    ***
+                                </td>
+                                @endcan
                                 <td style="color: {{ $user->roles->first()->color }}" class="px-6 py-4 whitespace-nowrap text-sm capitalize">
                                     {{ $user->roles->first()->name }}
                                 </td>
