@@ -33,6 +33,13 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
+        $ability = 'has-admin-rights';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You do not have Admin Rights.');
+        });
+
         $ability = 'manage-recruitments';
         Gate::define($ability, function (User $user) use ($ability) {
             return $user->hasPermission($ability)
