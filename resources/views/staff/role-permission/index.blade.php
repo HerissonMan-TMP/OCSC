@@ -27,7 +27,7 @@
                         @method('PATCH')
                         @foreach($permissions as $permission)
                             <div>
-                                <input type="checkbox" id="{{ $role->name }}-{{ $permission->slug }}" name="permissions[]" value="{{ $permission->id }}" class="@if($role->hasPermission('has-admin-rights')) cursor-not-allowed @endif" @if($role->hasPermission($permission)) checked @endif>
+                                <input type="checkbox" id="{{ $role->name }}-{{ $permission->slug }}" name="permissions[]" value="{{ $permission->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none cursor-pointer focus:ring-offset-0 focus:ring-0 @if($role->hasPermission('has-admin-rights')) cursor-not-allowed @endif" @if($role->hasPermission($permission)) checked @endif>
                                 <label for="{{ $role->name }}-{{ $permission->slug }}" class="@if($permission->slug === 'has-admin-rights') text-red-500 @endif">{{ $permission->name }}</label>
                             </div>
                         @endforeach
