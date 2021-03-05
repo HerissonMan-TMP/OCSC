@@ -48,7 +48,7 @@ Staff Hub
             Contact Messages
         </div>
     </a>
-    <a href="{{ route('staff.role-permission-management') }}" class="col-span-full md:col-span-2">
+    <a @can('has-admin-rights') href="{{ route('staff.role-permission-management') }}" @endcan class="col-span-full md:col-span-2 @cannot('has-admin-rights') opacity-30 @endcannot">
         <div class="p-8 text-gray-300 bg-gray-900 hover:bg-gray rounded-md text-center font-light tracking-wide">
             <div class="mb-5">
                 <i class="flex-shrink-0 text-gray-300 fas fa-shield-alt fa-fw fa-5x"></i>
