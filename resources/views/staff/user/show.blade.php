@@ -16,8 +16,8 @@
             @endforeach
         </div>
     </div>
-    <div class="grid grid-cols-3 gap-6">
-        <div class="col-span-full md:col-span-1 mt-6 bg-gray-700 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
+    <div class="mt-6 grid grid-cols-3 gap-6">
+        <div class="col-span-full md:col-span-1 bg-gray-700 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
             <h4 class="font-bold text-2xl text-gray-300 mb-6"><i class="fas fa-id-card fa-fw"></i> User Information</h4>
             <div class="flex flex-col">
                 <div class="flex">
@@ -67,13 +67,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-span-full md:col-span-2 mt-6 bg-gray-700 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
+        <div class="col-span-full md:col-span-2 bg-gray-700 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
             <h4 class="font-bold text-2xl text-gray-300 mb-6"><i class="fas fa-wrench fa-fw"></i> Activity</h4>
             <div class="text-gray-300 italic">
                 Feature planned in the future...
             </div>
         </div>
-        <div class="col-span-full mt-6 bg-gray-700 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
+        <div class="col-span-full bg-gray-700 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
             <h4 class="font-bold text-2xl text-gray-300 mb-6"><i class="fas fa-user-shield fa-fw"></i> Administration</h4>
             <form action="{{ route('staff.users.roles.update', $user) }}" method="POST">
                 @cannot('assign-roles', $user)
@@ -81,7 +81,7 @@
                 @endcannot
                 @csrf
                 @method('PATCH')
-                <label for="role" class="block text-sm font-medium text-gray-300">Roles <span class="text-red-500 font-bold">*</span></label>
+                <label for="roles" class="mb-2 block text-sm font-medium text-gray-300">Roles <span class="text-red-500 font-bold">*</span></label>
                 @foreach($roles->sortBy('order') as $role)
                 <div>
                     <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 @cannot('assign-roles', $user) cursor-not-allowed @else cursor-pointer @endcannot" @if($user->hasRole($role)) checked @endif>
