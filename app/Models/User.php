@@ -77,4 +77,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Recruitment::class);
     }
+
+    public function hasPermission($permission)
+    {
+        foreach ($this->roles as $role) {
+            if ($role->hasPermission($permission)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function hasRole($role)
+    {
+        return $this->roles->contains($role->id);
+    }
 }

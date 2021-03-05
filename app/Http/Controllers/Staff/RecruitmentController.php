@@ -10,6 +10,7 @@ use App\Models\Role;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class RecruitmentController extends Controller
 {
@@ -18,6 +19,7 @@ class RecruitmentController extends Controller
      */
     public function index()
     {
+        Gate::authorize('manage-recruitments');
 
         $recruitments = Recruitment::latest()
                                     ->with([
@@ -59,6 +61,8 @@ class RecruitmentController extends Controller
      */
     public function create()
     {
+        Gate::authorize('manage-recruitments');
+
         $roles = Role::recruitable()->NotCurrentlyRecruiting()->get();
 
         return view('staff.recruitment.create')
@@ -72,6 +76,8 @@ class RecruitmentController extends Controller
      */
     public function store(StoreRecruitmentRequest $request)
     {
+        Gate::authorize('manage-recruitments');
+
         $recruitment = new Recruitment;
 
         $recruitment->start_at = $request->start_datetime;
@@ -92,6 +98,8 @@ class RecruitmentController extends Controller
      */
     public function edit(Recruitment $recruitment)
     {
+        Gate::authorize('manage-recruitments');
+
         $recruitment = $recruitment->load(['role', 'questions', 'user.roles']);
 
         return view('staff.recruitment.edit')
@@ -106,6 +114,8 @@ class RecruitmentController extends Controller
      */
     public function update(UpdateRecruitmentRequest $request, Recruitment $recruitment)
     {
+        Gate::authorize('manage-recruitments');
+
         $recruitment->start_at = $request->start_datetime;
         $recruitment->end_at = $request->end_datetime;
         $recruitment->note = $request->note;
@@ -122,6 +132,8 @@ class RecruitmentController extends Controller
      */
     public function destroy(Recruitment $recruitment)
     {
+        Gate::authorize('manage-recruitments');
+
         $recruitment->delete();
 
         return redirect()->route('staff.recruitment-management');

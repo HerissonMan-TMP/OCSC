@@ -80,4 +80,14 @@ class Role extends Model
             $query->open();
         });
     }
+
+    public function hasPermission($permission)
+    {
+        if (gettype($permission) === 'string') {
+            $permissionId = Permission::where('slug', $permission)->pluck('id')->first();
+        } else {
+            $permissionId = $permission->id;
+        }
+        return $this->permissions->contains($permissionId);
+    }
 }

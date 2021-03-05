@@ -3,7 +3,9 @@
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\Staff\RecruitmentController;
 use App\Http\Controllers\staffHubController;
 use App\Http\Controllers\UserController;
@@ -54,7 +56,8 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::post('/contact-messages/{contactMessage}/mark-as-unread', [ContactMessageController::class, 'markAsUnread'])->name('contact-messages.mark-as-unread');
         Route::delete('/contact-messages/{contactMessage}', [ContactMessageController::class, 'destroy'])->name('contact-messages.destroy');
 
-        Route::get('/role-permission-management', [StaffHubController::class, 'showHub'])->name('role-permission-management');
+        Route::get('/role-permission-management', [RoleController::class, 'index'])->name('role-permission-management');
+        Route::patch('/roles/{role}/permissions', [PermissionController::class, 'update'])->name('roles.permissions.update');
 
         Route::get('/recruitment-management', [RecruitmentController::class, 'index'])->name('recruitment-management');
         Route::get('/recruitments/create', [RecruitmentController::class, 'create'])->name('recruitments.create');
