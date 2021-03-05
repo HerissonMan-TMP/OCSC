@@ -53,7 +53,7 @@
                                     <div class="flex-shrink-0 h-10 w-10 flex items-center">
                                         <i style="color: {{ $recruitment->role->color }}" class="flex-shrink-0 fas fa-{{ $recruitment->role->icon_name }} fa-fw fa-2x"></i>
                                     </div>
-                                    <div class="ml-4 text-sm text-gray-300">
+                                    <div style="color: {{ $recruitment->role->color }}" class="ml-4 text-sm text-gray-300 font-bold">
                                         {{ $recruitment->role->name }}
                                     </div>
                                 </div>
