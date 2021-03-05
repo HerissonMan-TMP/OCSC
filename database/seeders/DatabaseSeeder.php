@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             RoleSeeder::class,
             RecruitmentSeeder::class,
+            ContactCategorySeeder::class,
+            ContactMessageSeeder::class,
         ]);
     }
 }
