@@ -29,10 +29,10 @@
                                 Status
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
-                                Start date (UTC)
+                                Start datetime (UTC)
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
-                                End date (UTC)
+                                End datetime (UTC)
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                                 Opened by
