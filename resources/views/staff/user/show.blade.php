@@ -9,7 +9,7 @@
     <div class="flex items-center flex-wrap">
         <h3 class="inline-block flex-shrink-0 font-bold text-2xl text-gray-300 mr-4">{{ $user->name }}</h3>
         <div>
-            @foreach($user->roles as $role)
+            @foreach($user->roles->sortBy('order') as $role)
             <div style="background-color: {{ $role->color }}" class="inline-block px-2 py-1 rounded-md leading-3 mr-2 my-2">
                 <span class="font-bold text-gray-200 text-sm">{{ $role->name }}</span>
             </div>
@@ -75,28 +75,28 @@
         </div>
         <div class="col-span-full mt-6 bg-gray-700 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
             <h4 class="font-bold text-2xl text-gray-300 mb-6"><i class="fas fa-user-shield fa-fw"></i> Administration</h4>
-            <form action="{{ route('staff.users.roles.update', $user) }}" method="POST" class="grid grid-cols-6 gap-6 items-end">
+            <form action="{{ route('staff.users.roles.update', $user) }}" method="POST">
                 @cannot('assign-roles', $user)
                 <fieldset class="opacity-50" disabled>
                 @endcannot
                 @csrf
                 @method('PATCH')
-                <div class="col-span-full md:col-span-5">
-                    <label for="role" class="block text-sm font-medium text-gray-300">Roles <span class="text-red-500 font-bold">*</span></label>
-                    @foreach($roles->sortBy('order') as $role)
-                    <div>
-                        <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 @cannot('assign-roles', $user) cursor-not-allowed @else cursor-pointer @endcannot" @if($user->hasRole($role)) checked @endif>
-                        <label for="role-{{ $role->id }}" style="color: {{ $role->color }}">{{ $role->name }}</label>
-                    </div>
-                    @endforeach
-                    @error('roles')
-                    <span class="pt-2 text-sm text-red-500">
-                        {{ $message }}
-                    </span>
-                    @enderror
+                <label for="role" class="block text-sm font-medium text-gray-300">Roles <span class="text-red-500 font-bold">*</span></label>
+                @foreach($roles->sortBy('order') as $role)
+                <div>
+                    <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 @cannot('assign-roles', $user) cursor-not-allowed @else cursor-pointer @endcannot" @if($user->hasRole($role)) checked @endif>
+                    <label for="role-{{ $role->id }}" style="color: {{ $role->color }}">{{ $role->name }}</label>
                 </div>
-                <div class="col-span-full md:col-span-1">
-                    <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary focus:outline-none @cannot('assign-roles', $user) cursor-not-allowed @else cursor-pointer hover:text-gray-700 hover:bg-primary-dark @endcannot">
+                @endforeach
+                <div class="flex justify-between flex-wrap md:flex-nowrap items-end mt-6">
+                    <div class="mb-2 md:mb-0">
+                        @error('roles')
+                        <span class="text-sm text-red-500">
+                        {{ $message }}
+                        </span>
+                        @enderror
+                    </div>
+                    <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary focus:outline-none @cannot('assign-roles', $user) cursor-not-allowed @else cursor-pointer hover:text-gray-700 hover:bg-primary-dark @endcannot">
                         Update the roles
                     </button>
                 </div>

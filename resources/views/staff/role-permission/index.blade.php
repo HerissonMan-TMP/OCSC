@@ -27,13 +27,15 @@
                         @csrf
                         @method('PATCH')
                         @foreach($permissions as $permission)
-                            <div>
-                                <input type="checkbox" id="{{ $role->name }}-{{ $permission->slug }}" name="permissions[]" value="{{ $permission->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none cursor-pointer focus:ring-offset-0 focus:ring-0 @if($roleHasAdminRights) cursor-not-allowed @endif" @if($role->hasPermission($permission)) checked @endif>
+                            <div class="flex">
+                                <div class="mr-2">
+                                    <input type="checkbox" id="{{ $role->name }}-{{ $permission->slug }}" name="permissions[]" value="{{ $permission->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none cursor-pointer focus:ring-offset-0 focus:ring-0 @if($roleHasAdminRights) cursor-not-allowed @endif" @if($role->hasPermission($permission)) checked @endif>
+                                </div>
                                 <label for="{{ $role->name }}-{{ $permission->slug }}" class="@if($permission->slug === 'has-admin-rights') text-red-500 @endif">{{ $permission->name }}</label>
                             </div>
                         @endforeach
-                        <div class="px-4 py-3 bg-gray-800 text-right sm:px-6">
-                            <button type="submit" style="background-color: {{ $role->color }}" class="@if($roleHasAdminRights) cursor-not-allowed @endif transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md focus:outline-none">
+                        <div class="text-right mt-6">
+                            <button type="submit" style="background-color: {{ $role->color }}" class="w-full md:w-auto @if($roleHasAdminRights) cursor-not-allowed @endif transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md focus:outline-none">
                                 Update Permissions
                             </button>
                         </div>
