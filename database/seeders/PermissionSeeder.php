@@ -43,5 +43,11 @@ class PermissionSeeder extends Seeder
         $permission4->slug = 'see-temporary-password-of-new-staff-members';
         $permission4->save();
         $permission4->roles()->attach([5, 6]);
+
+        $permission5 = new Permission;
+        $permission5->name = 'Assign Roles';
+        $permission5->slug = 'assign-roles';
+        $permission5->save();
+        $permission5->roles()->attach([5, 6]);
     }
 }

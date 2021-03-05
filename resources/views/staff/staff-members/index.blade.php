@@ -1,8 +1,8 @@
 @extends('layouts.staff')
 
-@section('title', 'Recruitment Management')
+@section('title', 'Staff Members List')
 
-@section('breadcrumb', "Staff - Staff Members Management")
+@section('breadcrumb', "Staff - Staff Members List")
 
 @section('content-staff')
     <div class="mt-6 px-4 py-5 sm:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
@@ -17,7 +17,7 @@
                                 ID
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
-                                Discord username
+                                Name
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                                 Email address
@@ -37,7 +37,7 @@
                                     {{ $user->id }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                                    {{ $user->name }}
+                                    <a href="{{ route('staff.users.show', $user) }}" class="transition duration-200 hover:text-gray-400">{{ $user->name }}</a>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                                     {{ $user->email }}

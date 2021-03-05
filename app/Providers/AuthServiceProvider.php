@@ -60,5 +60,14 @@ class AuthServiceProvider extends ServiceProvider
                 ? Response::allow()
                 : Response::deny('You are not allowed to see the new Staff members\' temporary password.');
         });
+
+        $ability = 'assign-roles';
+        Gate::define($ability, function (User $user, User $targetUser) use ($ability) {
+            return $user->hasPermission($ability)
+                && $user->roles->first()->group_level < $targetUser->roles->first()->group_level
+                && $user->isNot($targetUser)
+                ? Response::allow()
+                : Response::deny('You are not allowed to assign roles.');
+        });
     }
 }

@@ -77,7 +77,9 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::post('/recruitments/{recruitment}/applications/{application}/decline', [ApplicationController::class, 'decline'])->name('recruitments.applications.decline');
 
         Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+        Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
         Route::post('/users', [UserController::class, 'store'])->name('users.store');
+        Route::patch('/users/{user}/roles', [UserController::class, 'updateRoles'])->name('users.roles.update');
 
         Route::get('/staff-members-management', [UserController::class, 'index'])->name('staff-members-management');
     });

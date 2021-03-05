@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateTemporaryPasswordRequest;
+use App\Http\Requests\User\UpdateUserRolesRequest;
 use App\Models\Application;
 use App\Models\Role;
 use App\Models\User;
@@ -22,6 +23,15 @@ class UserController extends Controller
 
         return view('staff.staff-members.index')
                     ->with('users', $users);
+    }
+
+    public function show(User $user)
+    {
+        $user = $user->load('roles');
+        $roles = Role::all();
+        return view('staff.user.show')
+                ->with('user', $user)
+                ->with('roles', $roles);
     }
 
     public function create(Request $request)
@@ -69,5 +79,12 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route('staff.hub');
+    }
+
+    public function updateRoles(User $user, UpdateUserRolesRequest $request)
+    {
+        $user->roles()->sync($request->roles);
+
+        return back();
     }
 }

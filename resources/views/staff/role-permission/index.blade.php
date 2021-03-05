@@ -9,7 +9,7 @@
         <h3 class="inline font-bold text-2xl text-gray-300 mr-4">Role & Permission Management</h3>
 
         <div class="grid grid-cols-1 gap-6 mt-10">
-            @foreach($roles as $role)
+            @foreach($roles->sortBy('order') as $role)
             @php($roleHasAdminRights = $role->hasPermission('has-admin-rights'))
             <div class="overflow-hidden rounded-t-md">
                 <div class="p-4 flex items-center border" style="background-color: {{ $role->color }}; border-color: {{ $role->color }}">

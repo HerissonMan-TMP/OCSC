@@ -19,7 +19,7 @@
                 <div class="col-span-full sm:col-span-full">
                     <label for="role_id" class="block text-sm font-medium text-gray-300">Role <span class="text-red-500 font-bold">*</span></label>
                     <select id="role_id" name="role_id" class="text-gray-300 bg-gray-700 mt-1 block w-full py-2 px-3 border border-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-dark focus:border-primary-dark sm:text-sm" required>
-                        @foreach($recruitableRolesNotCurrentlyRecruiting as $role)
+                        @foreach($recruitableRolesNotCurrentlyRecruiting->sortBy('order') as $role)
                         <option value="{{ $role->id }}" @if(old('role_id') == $role->id) selected @endif style="color: {{ $role->color }}">{{ $role->name }}</option>
                         @endforeach
                     </select>
