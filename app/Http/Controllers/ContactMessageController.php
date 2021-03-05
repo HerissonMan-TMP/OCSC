@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 
 class ContactMessageController extends Controller
 {
+    public function index()
+    {
+        $contactMessages = ContactMessage::with('category')->get();
+
+        return view('staff.contact-messages.index')
+                ->with('contactMessages', $contactMessages);
+    }
+
     public function show(ContactMessage $contactMessage)
     {
         $contactMessage = $contactMessage->load('category');
@@ -47,18 +55,18 @@ class ContactMessageController extends Controller
 
     public function markAsRead(ContactMessage $contactMessage)
     {
-        $contactMessage->is_marked_as_read = true;
+        $contactMessage->status = 'read';
         $contactMessage->save();
 
-        return back();
+        return redirect()->route('staff.contact-messages.index');
     }
 
     public function markAsUnread(ContactMessage $contactMessage)
     {
-        $contactMessage->is_marked_as_read = false;
+        $contactMessage->status = 'unread';
         $contactMessage->save();
 
-        return back();
+        return redirect()->route('staff.contact-messages.index');
     }
 
     public function destroy(ContactMessage $contactMessage)

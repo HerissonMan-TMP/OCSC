@@ -8,8 +8,8 @@
     <div class="mt-6 px-4 py-5 sm:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
         <div class="mb-6">
             <h3 class="inline font-bold text-2xl text-gray-300 mr-4">Contact Message #{{ $contactMessage->id }}</h3>
-            @if($contactMessage->is_marked_as_read)
-            <div class="inline px-2 py-1 rounded-md bg-blue-500">
+            @if($contactMessage->status === 'read')
+            <div class="inline px-2 py-1 rounded-md bg-gray-500">
                 <span class="font-bold text-gray-200 text-sm">Already read</span>
             </div>
             @endif
@@ -50,7 +50,7 @@
         </div>
         <div class="grid grid-cols-6 gap-6 mt-10">
             <div class="sm:col-span-4"></div>
-            @if($contactMessage->is_marked_as_read)
+            @if($contactMessage->status === 'read')
             <form class="col-span-full sm:col-span-1" action="{{ route('staff.contact-messages.mark-as-unread', $contactMessage) }}" method="POST">
                 @csrf
                 <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-blue-200 bg-blue-700 hover:text-blue-300 hover:bg-blue-800 focus:outline-none">

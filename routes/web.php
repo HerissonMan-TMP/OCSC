@@ -48,7 +48,7 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::get('/partnership-management', [StaffHubController::class, 'showHub'])->name('partnership-management');
         Route::get('/gallery-management', [StaffHubController::class, 'showHub'])->name('gallery-management');
 
-        Route::get('/contact-messages', [StaffHubController::class, 'showHub'])->name('contact-messages');
+        Route::get('/contact-messages', [ContactMessageController::class, 'index'])->name('contact-messages.index');
         Route::get('/contact-messages/{contactMessage}', [ContactMessageController::class, 'show'])->name('contact-messages.show');
         Route::post('/contact-messages/{contactMessage}/mark-as-read', [ContactMessageController::class, 'markAsRead'])->name('contact-messages.mark-as-read');
         Route::post('/contact-messages/{contactMessage}/mark-as-unread', [ContactMessageController::class, 'markAsUnread'])->name('contact-messages.mark-as-unread');

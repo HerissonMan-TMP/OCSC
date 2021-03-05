@@ -14,7 +14,7 @@ class AddIsMarkedAsReadColumnToContactMessagesTable extends Migration
     public function up()
     {
         Schema::table('contact_messages', function (Blueprint $table) {
-            $table->boolean('is_marked_as_read')->after('message')->default(false);
+            $table->string('status')->after('message')->default('unread');
         });
     }
 
@@ -26,7 +26,7 @@ class AddIsMarkedAsReadColumnToContactMessagesTable extends Migration
     public function down()
     {
         Schema::table('contact_messages', function (Blueprint $table) {
-            $table->dropColumn('is_marked_as_read');
+            $table->dropColumn('status');
         });
     }
 }
