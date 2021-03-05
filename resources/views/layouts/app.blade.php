@@ -320,7 +320,7 @@
                             </div>
                             <div class="mt-6">
                                 <nav class="grid gap-y-8">
-                                    <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-800">
+                                    <a href="{{ route('homepage') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-800">
                                         <!-- Heroicon name: outline/chart-bar -->
                                         <i class="flex-shrink-0 text-primary fas fa-home fa-fw fa-lg"></i>
                                         <span class="ml-3 text-base font-medium text-gray-200">
@@ -376,12 +376,12 @@
                                     Gallery
                                 </a>
 
-                                <a href="#" class="text-base font-medium text-gray-200 hover:text-gray-300">
+                                <a href="{{ route('contact-messages.create') }}" class="text-base font-medium text-gray-200 hover:text-gray-300">
                                     Contact
                                 </a>
                             </div>
                             <div>
-                                <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-bold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
+                                <a href="{{ route('staff.hub') }}" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-bold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
                                     Staff Hub
                                 </a>
                             </div>
