@@ -5,22 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Services/TemporaryPasswordService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/AnswerSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/ApplicationSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/QuestionSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PermissionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_04_143706_add_min_length_column_and_max_length_column_to_questions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_04_143706_add_min_length_column_and_max_length_column_to_questions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/ContactCategorySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ContactCategorySeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/ContactMessageSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ContactMessageSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/RecruitmentSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/RecruitmentSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/RoleSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/RoleSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/staff/hub.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/staff/hub.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/staff/role-permission/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/staff/role-permission/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +216,7 @@
       <workItem from="1614759901992" duration="37999000" />
       <workItem from="1614845811366" duration="39982000" />
       <workItem from="1614928276900" duration="39631000" />
-      <workItem from="1615016255930" duration="6554000" />
+      <workItem from="1615016255930" duration="19733000" />
     </task>
     <servers />
   </component>

@@ -13,7 +13,7 @@ class RoleController extends Controller
 {
     public function index()
     {
-        Gate::authorize('has-admin-rights');
+        Gate::authorize('update-permissions');
 
         $roles = Role::with('permissions')->get();
         $permissions = Permission::all();

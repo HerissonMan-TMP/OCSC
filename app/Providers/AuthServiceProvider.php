@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -27,8 +28,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::before(function ($user, $ability) {
-            if ($user->hasPermission('has-admin-rights')) {
+        $abilitiesWithoutBypass = [
+            'update-permissions-for-role'
+        ];
+        Gate::before(function (User $user, $ability) use ($abilitiesWithoutBypass) {
+            if (!in_array($ability, $abilitiesWithoutBypass) && $user->hasPermission('has-admin-rights')) {
                 return true;
             }
         });
@@ -68,6 +72,22 @@ class AuthServiceProvider extends ServiceProvider
                 && $user->isNot($targetUser)
                 ? Response::allow()
                 : Response::deny('You are not allowed to assign roles.');
+        });
+
+        $ability = 'update-permissions';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to update permissions.');
+        });
+
+        $ability = 'update-permissions-for-role';
+        Gate::define($ability, function (User $user, Role $targetRole) use ($ability) {
+           return ($user->hasPermission('update-permissions') || $user->hasPermission('has-admin-rights'))
+               && !$targetRole->hasPermission('has-admin-rights')
+               && $user->roles->first()->order < $targetRole->order
+               ? Response::allow()
+               : Response::deny('You are not allowed to update the permissions for this role.');
         });
     }
 }
