@@ -18,10 +18,13 @@ class ContactCategorySeeder extends Seeder
             'name' => 'Question'
         ]);
         ContactCategory::create([
-            'name' => 'Report a Bug'
+            'name' => 'I want OCSC to supervise my convoy'
         ]);
         ContactCategory::create([
-            'name' => 'I want OCSC to supervise my convoy'
+            'name' => 'Report a Bug (Website / Discord)'
+        ]);
+        ContactCategory::create([
+            'name' => 'Report a Staff member'
         ]);
     }
 }

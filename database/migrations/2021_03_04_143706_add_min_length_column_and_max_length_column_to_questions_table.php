@@ -14,8 +14,8 @@ class AddMinLengthColumnAndMaxLengthColumnToQuestionsTable extends Migration
     public function up()
     {
         Schema::table('questions', function (Blueprint $table) {
-            $table->integer('max_length')->nullable()->after('type');
-            $table->integer('min_length')->nullable()->after('type');
+            $table->integer('max_length')->after('type');
+            $table->integer('min_length')->after('type');
         });
     }
 

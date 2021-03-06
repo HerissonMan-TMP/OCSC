@@ -14,32 +14,41 @@ class RecruitmentSeeder extends Seeder
      */
     public function run()
     {
-        $recruitment1 = new Recruitment;
-        $recruitment1->start_at = now();
-        $recruitment1->end_at = now()->addDays(15);
-        $recruitment1->role()->associate(1);
-        $recruitment1->user()->associate(10);
-        $recruitment1->save();
+        $recruitment = new Recruitment;
+        $recruitment->fill([
+            'start_at' => now(),
+            'end_at' => now()->addDays(15),
+        ]);
+        $recruitment->role()->associate(1);
+        $recruitment->user()->associate(10);
+        $recruitment->save();
 
-        $recruitment2 = new Recruitment;
-        $recruitment2->start_at = now();
-        $recruitment2->end_at = now()->addDays(15);
-        $recruitment2->role()->associate(4);
-        $recruitment2->user()->associate(9);
-        $recruitment2->save();
+        $recruitment = new Recruitment;
+        $recruitment->fill([
+            'start_at' => now(),
+            'end_at' => now()->addDays(15),
+            'note' => 'Good luck!'
+        ]);
+        $recruitment->role()->associate(4);
+        $recruitment->user()->associate(9);
+        $recruitment->save();
 
-        $recruitment3 = new Recruitment;
-        $recruitment3->start_at = now();
-        $recruitment3->end_at = now()->addDays(20);
-        $recruitment3->role()->associate(3);
-        $recruitment3->user()->associate(9);
-        $recruitment3->save();
+        $recruitment = new Recruitment;
+        $recruitment->fill([
+            'start_at' => now(),
+            'end_at' => now()->addDays(20)
+        ]);
+        $recruitment->role()->associate(3);
+        $recruitment->user()->associate(9);
+        $recruitment->save();
 
-        $recruitment4 = new Recruitment;
-        $recruitment4->start_at = now()->subDays(40);
-        $recruitment4->end_at = now()->subDays(20);
-        $recruitment4->role()->associate(2);
-        $recruitment4->user()->associate(9);
-        $recruitment4->save();
+        $recruitment = new Recruitment;
+        $recruitment->fill([
+            'start_at' => now()->subDays(40),
+            'end_at' => now()->subDays(20)
+        ]);
+        $recruitment->role()->associate(2);
+        $recruitment->user()->associate(9);
+        $recruitment->save();
     }
 }

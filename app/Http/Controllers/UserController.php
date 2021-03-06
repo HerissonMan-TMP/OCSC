@@ -8,6 +8,7 @@ use App\Http\Requests\User\UpdateUserRolesRequest;
 use App\Models\Application;
 use App\Models\Role;
 use App\Models\User;
+use App\Services\TemporaryPasswordService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -36,8 +37,7 @@ class UserController extends Controller
 
     public function create(Request $request)
     {
-        $characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-        $temporary_password = substr(str_shuffle($characters), 0, 8);
+        $temporary_password = TemporaryPasswordService::generate();
         $roles = Role::all();
 
         return view('staff.user.create')

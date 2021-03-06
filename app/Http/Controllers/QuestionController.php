@@ -22,6 +22,13 @@ class QuestionController extends Controller
 
         $question->name = $request->name;
         $question->type = $request->type;
+        if ($request->type === 'inline') {
+            $question->min_length = 0;
+            $question->min_length = 200;
+        } else {
+            $question->min_length = 200;
+            $question->min_length = 5000;
+        }
         $question->recruitment()->associate($recruitment->id);
 
         $question->save();
