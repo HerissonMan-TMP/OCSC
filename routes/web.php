@@ -81,7 +81,7 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::post('/users', [UserController::class, 'store'])->name('users.store');
         Route::patch('/users/{user}/roles', [UserController::class, 'updateRoles'])->name('users.roles.update');
 
-        Route::get('/staff-members-management', [UserController::class, 'index'])->name('staff-members-management');
+        Route::get('/staff-members-list', [UserController::class, 'index'])->name('staff-members-list');
     });
 });
 

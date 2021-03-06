@@ -18,6 +18,8 @@ class UserController extends Controller
 {
     public function index()
     {
+        dd(Auth::user()->permissions()->get());
+
         Gate::authorize('see-staff-members-list');
 
         $users = User::with('roles')->get();

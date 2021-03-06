@@ -59,16 +59,6 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the permissions a user has.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
-     */
-    public function permissions()
-    {
-        return $this->hasManyThrough(Permission::class, Role::class);
-    }
-
-    /**
      * Get the recruitment sessions created by the user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

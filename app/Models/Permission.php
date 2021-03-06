@@ -24,14 +24,4 @@ class Permission extends Model
     {
         return $this->belongsToMany(Role::class);
     }
-
-    /**
-     * Get the users having the permission.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
-     */
-    public function users()
-    {
-        return $this->hasManyThrough(User::class, Role::class);
-    }
 }

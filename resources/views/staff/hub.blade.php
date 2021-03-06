@@ -64,7 +64,7 @@ Staff Hub
             Recruitment Management
         </div>
     </a>
-    <a @can('see-staff-members-list') href="{{ route('staff.staff-members-management') }}" @endcan class="col-span-full md:col-span-2 @cannot('see-staff-members-list') opacity-30 @endcannot">
+    <a @can('see-staff-members-list') href="{{ route('staff.staff-members-list') }}" @endcan class="col-span-full md:col-span-2 @cannot('see-staff-members-list') opacity-30 @endcannot">
         <div class="w-full h-full p-8 text-gray-300 bg-gray-900 hover:bg-gray rounded-md text-center font-light tracking-wide">
             <div class="mb-5">
                 <i class="flex-shrink-0 text-gray-300 fas fa-users fa-fw fa-5x"></i>

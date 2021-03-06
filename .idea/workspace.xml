@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Services/TemporaryPasswordService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/AnswerSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/ApplicationSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/QuestionSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
@@ -220,7 +224,7 @@
       <workItem from="1614759901992" duration="37999000" />
       <workItem from="1614845811366" duration="39982000" />
       <workItem from="1614928276900" duration="39631000" />
-      <workItem from="1615016255930" duration="6205000" />
+      <workItem from="1615016255930" duration="6554000" />
     </task>
     <servers />
   </component>
