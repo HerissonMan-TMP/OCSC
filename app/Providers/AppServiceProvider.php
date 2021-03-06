@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Role;
+use App\Models\User;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,7 +16,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton('users', function ($app) {
+            return User::with('roles.permissions')->get();
+        });
+
+        $this->app->singleton('roles', function ($app) {
+            return Role::with('permissions')->get();
+        });
     }
 
     /**

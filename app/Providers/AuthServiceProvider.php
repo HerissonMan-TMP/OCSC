@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
@@ -29,10 +31,12 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         $abilitiesWithoutBypass = [
-            'update-permissions-for-role'
+            'update-permissions-for-role',
+            'update-permission-for-role'
         ];
         Gate::before(function (User $user, $ability) use ($abilitiesWithoutBypass) {
-            if (!in_array($ability, $abilitiesWithoutBypass) && $user->hasPermission('has-admin-rights')) {
+            if (!in_array($ability, $abilitiesWithoutBypass)
+                && $user->hasPermission('has-admin-rights')) {
                 return true;
             }
         });
@@ -83,11 +87,29 @@ class AuthServiceProvider extends ServiceProvider
 
         $ability = 'update-permissions-for-role';
         Gate::define($ability, function (User $user, Role $targetRole) use ($ability) {
-           return ($user->hasPermission('update-permissions') || $user->hasPermission('has-admin-rights'))
+           return ($user->hasPermission('update-permissions')
+               || $user->hasPermission('has-admin-rights'))
                && !$targetRole->hasPermission('has-admin-rights')
                && $user->roles->first()->order < $targetRole->order
                ? Response::allow()
                : Response::deny('You are not allowed to update the permissions for this role.');
+        });
+
+        $ability = 'update-permission-for-role';
+        Gate::define($ability, function (User $user, Role $targetRole, Permission $targetPermission) use ($ability) {
+            $result = false;
+            if ($user->can('update-permissions-for-role', $targetRole)) {
+                if ($targetPermission->slug === 'has-admin-rights') {
+                    if ($user->hasPermission('has-admin-rights') && !$targetRole->hasPermission('has-admin-rights')) {
+                        $result = true;
+                    }
+                } else {
+                    $result = true;
+                }
+            }
+            return $result
+                ? Response::allow()
+                : Response::deny('You are not allowed to update this permission.');
         });
     }
 }

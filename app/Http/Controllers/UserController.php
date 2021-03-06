@@ -6,6 +6,7 @@ use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateTemporaryPasswordRequest;
 use App\Http\Requests\User\UpdateUserRolesRequest;
 use App\Models\Application;
+use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
 use App\Services\TemporaryPasswordService;

@@ -70,7 +70,7 @@ class User extends Authenticatable
 
     public function hasPermission($permission)
     {
-        foreach ($this->roles as $role) {
+        foreach (app('users')->find($this->id)->roles as $role) {
             if ($role->hasPermission($permission)) {
                 return true;
             }

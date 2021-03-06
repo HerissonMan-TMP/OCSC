@@ -29,8 +29,6 @@ class UpdatePermissionRequest extends FormRequest
         return [
             'permissions.*' => [
                 Rule::in(Permission::pluck('id')->toArray()),
-                Auth::user()->hasPermission('has-admin-rights') ? null :
-                Rule::notIn(Permission::where('slug', 'has-admin-rights')->pluck('id')->toArray())
             ]
         ];
     }
@@ -44,7 +42,6 @@ class UpdatePermissionRequest extends FormRequest
     {
         return [
             'permissions.*.in' => 'The permissions are not valid.',
-            'permissions.*.not_in' => 'You cannot assign Admin rights.',
         ];
     }
 }

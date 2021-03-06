@@ -83,8 +83,14 @@ class Role extends Model
 
     public function hasPermission($permission)
     {
+
         if (gettype($permission) === 'string') {
-            $permissionId = Permission::where('slug', $permission)->pluck('id')->first();
+            $permissions = [];
+            foreach (app('roles')->find($this->id)->permissions as $permissionItem) {
+                array_push($permissions, $permissionItem);
+            }
+            $collection = collect($permissions);
+            return $collection->where('slug', $permission)->isNotEmpty();
         } else {
             $permissionId = $permission->id;
         }
