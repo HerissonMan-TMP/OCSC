@@ -38,18 +38,20 @@ class UserController extends Controller
 
     public function create(Request $request)
     {
-        $temporary_password = TemporaryPasswordService::generate();
+        Gate::authorize('create-new-users');
+
+        $temporaryPassword = TemporaryPasswordService::generate();
         $roles = Role::all();
 
         return view('staff.user.create')
                     ->with('email', $request->email)
-                    ->with('temporary_password', $temporary_password)
+                    ->with('temporaryPassword', $temporaryPassword)
                     ->with('roles', $roles);
     }
 
     public function store(StoreUserRequest $request)
     {
-        //Ensure the email doesn't already exist.
+        Gate::authorize('create-new-users');
 
         $user = new User;
         $user->name = $request->name;

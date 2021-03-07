@@ -1,6 +1,6 @@
 @extends('layouts.staff')
 
-@section('title', 'Recruitment Management')
+@section('title', 'Create a user')
 
 @section('breadcrumb', "Staff - Create a user")
 
@@ -32,8 +32,8 @@
 
             <div class="col-span-full">
                 <label for="temporary_password" class="block text-sm font-medium text-gray-300">Password <span class="text-red-500 font-bold">*</span> <span class="text-blue-500 italic">Give this temporary password to the person you are creating the account for. He will then be able to change it.</span></label>
-                <input type="text" disabled id="temporary_password" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $temporary_password }}" required>
-                <input type="hidden" name="temporary_password" value="{{ $temporary_password }}">
+                <input type="text" disabled id="temporary_password" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $temporaryPassword }}" required>
+                <input type="hidden" name="temporary_password" value="{{ $temporaryPassword }}">
                 @error('temporary_password')
                 <span class="pt-2 text-sm text-red-500">
                     {{ $message }}

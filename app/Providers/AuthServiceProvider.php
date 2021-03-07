@@ -111,5 +111,12 @@ class AuthServiceProvider extends ServiceProvider
                 ? Response::allow()
                 : Response::deny('You are not allowed to update this permission.');
         });
+
+        $ability = 'create-new-users';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to add a new Staff member.');
+        });
     }
 }

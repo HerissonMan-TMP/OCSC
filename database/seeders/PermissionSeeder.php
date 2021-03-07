@@ -55,5 +55,12 @@ class PermissionSeeder extends Seeder
         ]);
         $permission->save();
         $permission->roles()->attach([6]);
+
+        $permission = Permission::create([
+            'name' => 'Create new users',
+            'slug' => 'create-new-users'
+        ]);
+        $permission->save();
+        $permission->roles()->attach([5, 6]);
     }
 }

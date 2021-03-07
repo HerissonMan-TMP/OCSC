@@ -6,7 +6,18 @@
 
 @section('content-staff')
     <div class="mt-6 px-4 py-5 sm:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
-        <h3 class="font-bold text-2xl text-gray-300 mt-2 mb-6">Staff Members List</h3>
+        <div class="flex justify-between items-center">
+            <div>
+                <h3 class="font-bold text-2xl text-gray-300 mt-2 mb-6">Staff Members List</h3>
+            </div>
+            @can('create-new-users')
+            <div>
+                <a href="{{ route('staff.users.create') }}" class="transition duration-200 ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-gray-700 font-bold bg-primary hover:text-gray-800 hover:bg-primary-dark">
+                    Create a new user
+                </a>
+            </div>
+            @endcan
+        </div>
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-700 rounded-lg">
