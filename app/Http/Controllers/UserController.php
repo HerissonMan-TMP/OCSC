@@ -29,6 +29,8 @@ class UserController extends Controller
 
     public function show(User $user)
     {
+        Gate::authorize('see-staff-members-list');
+
         $user = $user->load('roles');
         $roles = Role::orderBy('order')->get();
 

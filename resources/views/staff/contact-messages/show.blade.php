@@ -50,6 +50,7 @@
         </div>
         <div class="grid grid-cols-6 gap-6 mt-10">
             <div class="sm:col-span-4"></div>
+            @can('change-contact-messages-status')
             @if($contactMessage->status === 'read')
             <form class="col-span-full sm:col-span-1" action="{{ route('staff.contact-messages.mark-as-unread', $contactMessage) }}" method="POST">
                 @csrf
@@ -65,6 +66,8 @@
                 </button>
             </form>
             @endif
+            @endcan
+            @can('delete-contact-messages')
             <form class="col-span-full sm:col-span-1" action="{{ route('staff.contact-messages.destroy', $contactMessage) }}" method="POST">
                 @csrf
                 @method('DELETE')
@@ -72,6 +75,7 @@
                     Delete
                 </button>
             </form>
+            @endcan
         </div>
     </div>
 @endsection

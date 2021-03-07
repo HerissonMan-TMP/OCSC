@@ -6,11 +6,14 @@ use App\Http\Requests\Contact\StoreContactMessageRequest;
 use App\Models\ContactCategory;
 use App\Models\ContactMessage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ContactMessageController extends Controller
 {
     public function index()
     {
+        Gate::authorize('read-contact-messages');
+
         $contactMessages = ContactMessage::with('category')->latest()->get();
 
         return view('staff.contact-messages.index')
@@ -19,6 +22,8 @@ class ContactMessageController extends Controller
 
     public function show(ContactMessage $contactMessage)
     {
+        Gate::authorize('read-contact-messages');
+
         $contactMessage = $contactMessage->load('category');
 
         return view('staff.contact-messages.show')
@@ -55,6 +60,8 @@ class ContactMessageController extends Controller
 
     public function markAsRead(ContactMessage $contactMessage)
     {
+        Gate::authorize('change-contact-messages-status');
+
         $contactMessage->status = 'read';
         $contactMessage->save();
 
@@ -63,6 +70,8 @@ class ContactMessageController extends Controller
 
     public function markAsUnread(ContactMessage $contactMessage)
     {
+        Gate::authorize('change-contact-messages-status');
+
         $contactMessage->status = 'unread';
         $contactMessage->save();
 
@@ -71,6 +80,8 @@ class ContactMessageController extends Controller
 
     public function destroy(ContactMessage $contactMessage)
     {
+        Gate::authorize('delete-contact-messages');
+
         $contactMessage->delete();
 
         return redirect()->route('staff.hub');

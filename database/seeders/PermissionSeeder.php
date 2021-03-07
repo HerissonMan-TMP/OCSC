@@ -62,5 +62,26 @@ class PermissionSeeder extends Seeder
         ]);
         $permission->save();
         $permission->roles()->attach([5, 6]);
+
+        $permission = Permission::create([
+            'name' => 'Read contact messages',
+            'slug' => 'read-contact-messages'
+        ]);
+        $permission->save();
+        $permission->roles()->attach([5, 6]);
+
+        $permission = Permission::create([
+            'name' => 'Change contact messages status',
+            'slug' => 'change-contact-messages-status'
+        ]);
+        $permission->save();
+        $permission->roles()->attach([5, 6]);
+
+        $permission = Permission::create([
+            'name' => 'Delete contact messages',
+            'slug' => 'delete-contact-messages'
+        ]);
+        $permission->save();
+        $permission->roles()->attach([5, 6]);
     }
 }

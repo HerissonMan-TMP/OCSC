@@ -7,6 +7,7 @@ use App\Http\Requests\Question\UpdateQuestionRequest;
 use App\Models\Question;
 use App\Models\Recruitment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class QuestionController extends Controller
 {
@@ -18,6 +19,8 @@ class QuestionController extends Controller
      */
     public function store(Recruitment $recruitment, StoreQuestionRequest $request)
     {
+        Gate::authorize('manage-recruitments');
+
         $question = new Question;
 
         $question->name = $request->name;
@@ -45,6 +48,8 @@ class QuestionController extends Controller
      */
     public function update(Recruitment $recruitment, Question $question, UpdateQuestionRequest $request)
     {
+        Gate::authorize('manage-recruitments');
+
         $question->name = $request->name;
         $question->type = $request->type;
 
@@ -55,6 +60,8 @@ class QuestionController extends Controller
 
     public function destroy(Recruitment $recruitment, Question $question)
     {
+        Gate::authorize('manage-recruitments');
+
         $question->delete();
 
         return redirect()->route('staff.recruitments.edit', $recruitment);

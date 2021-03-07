@@ -152,5 +152,26 @@ class AuthServiceProvider extends ServiceProvider
                 ? Response::allow()
                 : Response::deny('You are not allowed to add a new Staff member.');
         });
+
+        $ability = 'read-contact-messages';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to read contact messages.');
+        });
+
+        $ability = 'change-contact-messages-status';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to change contact messages status.');
+        });
+
+        $ability = 'delete-contact-messages';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to delete contact messages.');
+        });
     }
 }
