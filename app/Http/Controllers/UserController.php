@@ -30,7 +30,8 @@ class UserController extends Controller
     public function show(User $user)
     {
         $user = $user->load('roles');
-        $roles = Role::all();
+        $roles = Role::orderBy('order')->get();
+
         return view('staff.user.show')
                 ->with('user', $user)
                 ->with('roles', $roles);

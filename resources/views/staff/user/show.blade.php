@@ -100,7 +100,7 @@
                 @csrf
                 @method('PATCH')
                 <label for="roles" class="mb-2 block text-sm font-medium text-gray-300">Roles <span class="text-red-500 font-bold">*</span></label>
-                @foreach($roles->sortBy('order') as $role)
+                @foreach($roles as $role)
                     <div>
                     @cannot('assign-role-to-user', [$user, $role])
                         <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 opacity-50 cursor-not-allowed" disabled @if($user->hasRole($role)) checked @endif>

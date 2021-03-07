@@ -17,7 +17,7 @@
             </div>
         @enderror
 
-        @foreach($roles->sortBy('order') as $role)
+        @foreach($roles as $role)
         @php
             $cannotUpdatePermissions = $authUser->cannot('update-permissions-for-role', $role);
             $roleHasAdminRights = $role->hasPermission('has-admin-rights');
