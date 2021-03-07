@@ -43,18 +43,18 @@ class PermissionSeeder extends Seeder
         $permission->roles()->attach([5, 6]);
 
         $permission = Permission::create([
-            'name' => 'Assign Roles',
-            'slug' => 'assign-roles',
-        ]);
-        $permission->save();
-        $permission->roles()->attach([5, 6]);
-
-        $permission = Permission::create([
-           'name' => 'Update Permissions',
+           'name' => 'Update permissions (only for roles with a group level below)',
            'slug' => 'update-permissions'
         ]);
         $permission->save();
         $permission->roles()->attach([6]);
+
+        $permission = Permission::create([
+            'name' => 'Assign roles (only to users with a role group level below)',
+            'slug' => 'assign-roles',
+        ]);
+        $permission->save();
+        $permission->roles()->attach([5, 6]);
 
         $permission = Permission::create([
             'name' => 'Create new users',

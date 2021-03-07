@@ -42,7 +42,7 @@ class UpdateUserRolesRequest extends FormRequest
     public function messages()
     {
         return [
-            'roles.required' => 'If you don\'t want to assign any role to the user, please delete his account.',
+            'roles.required' => 'The user must have at least one role.',
             'roles.array' => 'The roles must be sent in an array format.',
             'roles.in' => 'The roles are not valid.',
         ];

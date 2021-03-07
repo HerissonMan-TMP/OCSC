@@ -31,6 +31,8 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         $abilitiesWithoutBypass = [
+            'assign-roles-to-user',
+            'assign-role-to-user',
             'update-permissions-for-role',
             'update-permission-for-role'
         ];
@@ -70,12 +72,44 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $ability = 'assign-roles';
-        Gate::define($ability, function (User $user, User $targetUser) use ($ability) {
+        Gate::define($ability, function (User $user) use ($ability) {
             return $user->hasPermission($ability)
-                && $user->roles->first()->group_level < $targetUser->roles->first()->group_level
-                && $user->isNot($targetUser)
                 ? Response::allow()
                 : Response::deny('You are not allowed to assign roles.');
+        });
+
+        $ability = 'assign-role';
+        Gate::define($ability, function (User $user, Role $role) use ($ability) {
+            return $user->hasPermission('assign-roles')
+                && $user->roles->first()->group_level < $role->group_level
+                ? Response::allow()
+                : Response::deny('You are not allowed to assign this role.');
+        });
+
+        $ability = 'assign-roles-to-user';
+        Gate::define($ability, function (User $user, User $targetUser) use ($ability) {
+            return ($user->hasPermission('assign-roles')
+                || $user->hasPermission('has-admin-rights'))
+                && ($user->roles->first()->group_level < $targetUser->roles->first()->group_level
+                || $user->hasPermission('has-admin-rights'))
+                && !$targetUser->hasPermission('has-admin-rights')
+                ? Response::allow()
+                : Response::deny('You are not allowed to assign roles for this user.');
+        });
+
+        $ability = 'assign-role-to-user';
+        Gate::define($ability, function (User $user, User $targetUser, Role $role) use ($ability) {
+            $result = false;
+            if ($user->can('assign-roles-to-user', $targetUser)) {
+                if ($user->hasPermission('has-admin-rights') && !$targetUser->hasPermission('has-admin-rights')) {
+                    $result = true;
+                } elseif ($user->roles->first()->group_level < $role->group_level && !$role->hasPermission('has-admin-rights')) {
+                    $result = true;
+                }
+            }
+            return $result
+                ? Response::allow()
+                : Response::deny('You are not allowed to assign this role to this user.');
         });
 
         $ability = 'update-permissions';
@@ -90,7 +124,7 @@ class AuthServiceProvider extends ServiceProvider
            return ($user->hasPermission('update-permissions')
                || $user->hasPermission('has-admin-rights'))
                && !$targetRole->hasPermission('has-admin-rights')
-               && $user->roles->first()->order < $targetRole->order
+               && ($user->roles->first()->group_level < $targetRole->group_level || $user->hasPermission('has-admin-rights'))
                ? Response::allow()
                : Response::deny('You are not allowed to update the permissions for this role.');
         });

@@ -41,7 +41,7 @@ class UserController extends Controller
         Gate::authorize('create-new-users');
 
         $temporaryPassword = TemporaryPasswordService::generate();
-        $roles = Role::all();
+        $roles = Role::orderBy('order')->get();
 
         return view('staff.user.create')
                     ->with('email', $request->email)
@@ -52,6 +52,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         Gate::authorize('create-new-users');
+        Gate::authorize('assign-role', Role::find($request->role_id));
 
         $user = new User;
         $user->name = $request->name;
@@ -63,7 +64,7 @@ class UserController extends Controller
 
         $user->roles()->attach($request->role_id);
 
-        return redirect()->route('staff.staff-members-management');
+        return redirect()->route('staff.staff-members-list');
     }
 
     public function editTemporaryPassword()
@@ -86,6 +87,10 @@ class UserController extends Controller
 
     public function updateRoles(User $user, UpdateUserRolesRequest $request)
     {
+        foreach ($request->roles as $roleId) {
+            Gate::authorize('assign-role-to-user', [$user, Role::find($roleId)]);
+        }
+
         $user->roles()->sync($request->roles);
 
         return back();

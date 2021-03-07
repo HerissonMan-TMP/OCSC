@@ -45,7 +45,9 @@
                 <label for="role_id" class="block text-sm font-medium text-gray-300">Role <span class="text-red-500 font-bold">*</span></label>
                 <select id="role_id" name="role_id" class="text-gray-300 bg-gray-700 mt-1 block w-full py-2 px-3 border border-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-dark focus:border-primary-dark sm:text-sm" required>
                     @foreach($roles as $role)
+                        @can('assign-role', $role)
                         <option @if($role->id == request()->role_id || old('role_id') == $role->id) selected @endif value="{{ $role->id }}" style="color: {{ $role->color }}">{{ $role->name }}</option>
+                        @endcan
                     @endforeach
                 </select>
                 @error('role_id')

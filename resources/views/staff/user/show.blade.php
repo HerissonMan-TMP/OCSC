@@ -73,38 +73,60 @@
                 Feature planned in the future...
             </div>
         </div>
+        @canany(['assign-roles'])
         <div class="col-span-full bg-gray-700 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
             <h4 class="font-bold text-2xl text-gray-300 mb-6"><i class="fas fa-user-shield fa-fw"></i> Administration</h4>
-            <form action="{{ route('staff.users.roles.update', $user) }}" method="POST">
-                @cannot('assign-roles', $user)
+            @cannot('assign-roles-to-user', $user)
+            <form>
                 <fieldset class="opacity-50" disabled>
-                @endcannot
+                    <label for="roles" class="mb-2 block text-sm font-medium text-gray-300">Roles <span class="text-red-500 font-bold">*</span></label>
+                    @foreach($roles->sortBy('order') as $role)
+                        <div>
+                            <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 cursor-not-allowed" @if($user->hasRole($role)) checked @endif>
+                            <label for="role-{{ $role->id }}" style="color: {{ $role->color }}">{{ $role->name }}</label>
+                        </div>
+                    @endforeach
+                    <div class="flex justify-between flex-wrap md:flex-nowrap items-end mt-6">
+                        <div class="mb-2 md:mb-0">
+                        </div>
+                        <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary focus:outline-none cursor-not-allowed">
+                            Update the roles
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+            @else
+            <form action="{{ route('staff.users.roles.update', $user) }}" method="POST">
                 @csrf
                 @method('PATCH')
                 <label for="roles" class="mb-2 block text-sm font-medium text-gray-300">Roles <span class="text-red-500 font-bold">*</span></label>
                 @foreach($roles->sortBy('order') as $role)
-                <div>
-                    <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 @cannot('assign-roles', $user) cursor-not-allowed @else cursor-pointer @endcannot" @if($user->hasRole($role)) checked @endif>
-                    <label for="role-{{ $role->id }}" style="color: {{ $role->color }}">{{ $role->name }}</label>
-                </div>
+                    <div>
+                    @cannot('assign-role-to-user', [$user, $role])
+                        <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 opacity-50 cursor-not-allowed" disabled @if($user->hasRole($role)) checked @endif>
+                        <label for="role-{{ $role->id }}" style="color: {{ $role->color }}" class="opacity-50">{{ $role->name }}</label>
+                    @else
+                        <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 cursor-pointer" @if($user->hasRole($role)) checked @endif>
+                        <label for="role-{{ $role->id }}" style="color: {{ $role->color }}">{{ $role->name }}</label>
+                    @endcannot
+                    </div>
                 @endforeach
                 <div class="flex justify-between flex-wrap md:flex-nowrap items-end mt-6">
                     <div class="mb-2 md:mb-0">
-                        @error('roles')
+                    @error('roles')
                         <span class="text-sm text-red-500">
                         {{ $message }}
                         </span>
-                        @enderror
+                    @enderror
                     </div>
                     <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary focus:outline-none @cannot('assign-roles', $user) cursor-not-allowed @else cursor-pointer hover:text-gray-700 hover:bg-primary-dark @endcannot">
                         Update the roles
                     </button>
                 </div>
-                @cannot('assign-roles', $user)
-                </fieldset>
-                @endcannot
             </form>
+            @endcannot
         </div>
+        @endcanany
     </div>
 </div>
 @endsection
