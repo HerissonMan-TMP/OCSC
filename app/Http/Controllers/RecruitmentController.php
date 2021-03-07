@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Staff;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Recruitment\StoreRecruitmentRequest;
@@ -29,7 +29,7 @@ class RecruitmentController extends Controller
                                     ])
                                     ->withCount('applications')->get();
 
-        return view('staff.recruitment.index')
+        return view('recruitments.index')
                     ->with('recruitments', $recruitments);
     }
 
@@ -44,16 +44,8 @@ class RecruitmentController extends Controller
 
         $recruitment = $recruitment->load(['role', 'questions']);
 
-        return view('recruitment.show')
+        return view('recruitments.show')
                     ->with('recruitment', $recruitment);
-    }
-
-    /**
-     * Display the success page, after the application has been submitted.
-     */
-    public function showSuccess()
-    {
-        return view('recruitment.success-page');
     }
 
     /**
@@ -65,7 +57,7 @@ class RecruitmentController extends Controller
 
         $roles = Role::recruitable()->NotCurrentlyRecruiting()->get();
 
-        return view('staff.recruitment.create')
+        return view('recruitments.create')
                     ->with('recruitableRolesNotCurrentlyRecruiting', $roles);
     }
 
@@ -88,7 +80,7 @@ class RecruitmentController extends Controller
 
         $recruitment->save();
 
-        return redirect()->route('staff.recruitment-management');
+        return redirect()->route('staff.recruitments.edit', $recruitment);
     }
 
     /**
@@ -102,7 +94,7 @@ class RecruitmentController extends Controller
 
         $recruitment = $recruitment->load(['role', 'questions', 'user.roles']);
 
-        return view('staff.recruitment.edit')
+        return view('recruitments.edit')
                 ->with('recruitment', $recruitment);
     }
 

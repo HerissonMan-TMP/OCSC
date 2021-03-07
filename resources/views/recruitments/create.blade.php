@@ -1,6 +1,6 @@
 @extends('layouts.staff')
 
-@section('title', 'Recruitment Management')
+@section('title', 'Create a Recruitment')
 
 @section('breadcrumb', 'Staff - Create a Recruitment')
 

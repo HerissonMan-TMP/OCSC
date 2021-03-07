@@ -1,8 +1,8 @@
 @extends('layouts.staff')
 
-@section('title', 'Recruitment Management')
+@section('title', "Edit Recruitment #{$recruitment->id}")
 
-@section('breadcrumb', 'Staff - Create a Recruitment')
+@section('breadcrumb', "Staff - Edit Recruitment #{$recruitment->id}")
 
 @section('content-staff')
 <div class="mt-6 bg-gray-800 rounded-md px-4 py-5 bg-gray-800 sm:p-6 shadow overflow-hidden">

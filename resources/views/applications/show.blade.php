@@ -1,8 +1,8 @@
 @extends('layouts.staff')
 
-@section('title', 'Recruitment Management')
+@section('title', "{$application->discord}'s Application for {$recruitment->role->name}")
 
-@section('breadcrumb', "Staff - Recruitment #$recruitment->id - Applications")
+@section('breadcrumb', "Staff - Recruitment #{$recruitment->id} - Application #{$application->id}")
 
 @section('content-staff')
 <div class="mt-6 px-4 py-5 sm:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
@@ -14,12 +14,12 @@
     <div class="grid grid-cols-6 gap-6">
         <div class="col-span-full sm:col-span-3">
             <label for="discord_username" class="block font-medium text-gray-300">Discord username</label>
-            <input type="text" name="discord_username" disabled id="discord_username" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $application->discord }}" maxlength="100">
+            <input type="text" disabled id="discord_username" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $application->discord }}">
         </div>
 
         <div class="col-span-full sm:col-span-3">
             <label for="email_address" class="block font-medium text-gray-300">Email address</label>
-            <input type="text" name="email_address" disabled id="email_address" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $application->email }}" maxlength="300">
+            <input type="text" disabled id="email_address" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ $application->email }}">
         </div>
 
         <hr class="col-span-full border-b border-gray-700">
@@ -28,10 +28,10 @@
             <div class="col-span-full mb-4">
                 @if($question->type === 'inline')
                     <label for="question-{{ $question->id }}" class="block text-2xl font-light text-gray-300 mb-3">{{ $question->name }}</label>
-                    <input type="text" name="{{ $question->id }}" disabled id="question-{{ $question->id }}" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ optional($application->answerForQuestion($question))->text }}">
+                    <input type="text" disabled id="question-{{ $question->id }}" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" value="{{ optional($application->answerForQuestion($question))->text }}">
                 @elseif($question->type === 'multiline')
                     <label for="question-{{ $question->id }}" class="block text-2xl font-light text-gray-300 mb-3">{{ $question->name }}</label>
-                    <textarea name="{{ $question->id }}" disabled id="question-{{ $question->id }}" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md resize-none" cols="30" rows="8">{{ optional($application->answerForQuestion($question))->text }}</textarea>
+                    <textarea disabled id="question-{{ $question->id }}" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" cols="30" rows="8">{{ optional($application->answerForQuestion($question))->text }}</textarea>
                 @endif
             </div>
         @endforeach
@@ -57,7 +57,7 @@
             <span class="col-span-full sm:col-span-2 text-sm">You have already <span class="text-green-600">accepted</span> this application.</span>
         @break
         @case('declined')
-        <span class="col-span-full sm:col-span-2 text-sm">You have already <span class="text-red-600">declined</span> this application.</span>
+            <span class="col-span-full sm:col-span-2 text-sm">You have already <span class="text-red-600">declined</span> this application.</span>
         @break
         @endswitch
     </div>

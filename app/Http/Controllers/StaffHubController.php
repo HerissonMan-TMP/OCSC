@@ -12,6 +12,6 @@ class StaffHubController extends Controller
      */
     public function showHub()
     {
-        return view('staff.hub');
+        return view('hub');
     }
 }

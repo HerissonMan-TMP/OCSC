@@ -22,7 +22,7 @@ class ApplicationController extends Controller
 
         $recruitment = $recruitment->load(['role', 'applications']);
 
-        return view('staff.recruitment.application.index')
+        return view('applications.index')
                     ->with('recruitment', $recruitment);
     }
 
@@ -37,7 +37,7 @@ class ApplicationController extends Controller
         Gate::authorize('manage-recruitments');
 
         $recruitment = $recruitment->load(['role', 'questions']);
-        return view('staff.recruitment.application.show')
+        return view('applications.show')
                     ->with('recruitment', $recruitment)
                     ->with('application', $application);
     }
@@ -76,7 +76,15 @@ class ApplicationController extends Controller
             }
         }
 
-        return redirect()->route('recruitments.showSuccess');
+        return redirect()->route('applications.success-page');
+    }
+
+    /**
+     * Display the success page, after the application has been submitted.
+     */
+    public function showSuccess()
+    {
+        return view('applications.success-page');
     }
 
     public function accept(Recruitment $recruitment, Application $application)

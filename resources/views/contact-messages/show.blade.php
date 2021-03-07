@@ -45,7 +45,7 @@
 
             <div class="col-span-full">
                 <label for="message" class="block text-sm font-medium text-gray-300">Message <span class="text-red-500 font-bold">*</span></label>
-                <textarea disabled id="message" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md resize-none">{{ $contactMessage->message }}</textarea>
+                <textarea disabled id="message" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" cols="30" rows="8">{{ $contactMessage->message }}</textarea>
             </div>
         </div>
         <div class="grid grid-cols-6 gap-6 mt-10">

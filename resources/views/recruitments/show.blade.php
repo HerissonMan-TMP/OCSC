@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Contact')
+@section('title', "Apply for {$recruitment->role->name}")
 
 @section('breadcrumb')
     Recruitment for <span style="color: {{ $recruitment->role->color }}">{{ $recruitment->role->name }}</span>

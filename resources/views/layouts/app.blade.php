@@ -6,13 +6,14 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+        <link rel="icon" type="image/png" href="{{ asset("img/ocsc_logo.png") }}">
         <link rel="stylesheet" href="{{ asset("css/app.css") }}">
         <script src="https://kit.fontawesome.com/6cbe367b1a.js" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-        <title>@yield("title") - {{ config("app.name") }}</title>
+        <title>@hasSection('title') @yield("title") - @endif {{ config("app.name") }}</title>
     </head>
     <body class="bg-gray-700">
         <header>
@@ -39,7 +40,7 @@
                             <div id="ocsc-event" class="relative">
                                 <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
                                 <button id="ocsc-event-dropdown" type="button" class="text-gray-200 group rounded-md inline-flex items-center text-base font-medium hover:text-gray-300 focus:outline-none" aria-expanded="false">
-                                    <span>OCSC Event</span>
+                                    <span>{{ config("app.name") }}</span>
                                     <!--
                                       Heroicon name: solid/chevron-down
 

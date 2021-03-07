@@ -2,7 +2,7 @@
 
 @section('title', "{$user->name}'s Profile")
 
-@section('breadcrumb', "Staff - {$user->name}")
+@section('breadcrumb', "Staff - {$user->name}'s profile")
 
 @section('content-staff')
 <div class="mt-6 bg-gray-800 rounded-md px-4 py-5 sm:p-6 shadow overflow-hidden">

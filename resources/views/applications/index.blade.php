@@ -1,6 +1,6 @@
 @extends('layouts.staff')
 
-@section('title', 'Recruitment Management')
+@section('title', "Applications - {$recruitment->role->name} Recruitment")
 
 @section('breadcrumb', "Staff - Recruitment #$recruitment->id - Applications")
 

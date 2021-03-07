@@ -16,7 +16,7 @@ class ContactMessageController extends Controller
 
         $contactMessages = ContactMessage::with('category')->latest()->get();
 
-        return view('staff.contact-messages.index')
+        return view('contact-messages.index')
                 ->with('contactMessages', $contactMessages);
     }
 
@@ -26,7 +26,7 @@ class ContactMessageController extends Controller
 
         $contactMessage = $contactMessage->load('category');
 
-        return view('staff.contact-messages.show')
+        return view('contact-messages.show')
                 ->with('contactMessage', $contactMessage);
     }
 
@@ -34,13 +34,8 @@ class ContactMessageController extends Controller
     {
         $categories = ContactCategory::all();
 
-        return view('contact.create')
+        return view('contact-messages.create')
                 ->with('categories', $categories);
-    }
-
-    public function showSuccess()
-    {
-        return view('contact.success-page');
     }
 
     public function store(StoreContactMessageRequest $request)
@@ -56,6 +51,11 @@ class ContactMessageController extends Controller
         $contactMessage->save();
 
         return redirect()->route('contact-messages.show-success');
+    }
+
+    public function showSuccess()
+    {
+        return view('contact-messages.success-page');
     }
 
     public function markAsRead(ContactMessage $contactMessage)

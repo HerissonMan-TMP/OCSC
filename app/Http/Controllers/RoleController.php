@@ -18,7 +18,7 @@ class RoleController extends Controller
         $roles = Role::with('permissions')->orderBy('order')->get();
         $permissions = Permission::all();
 
-        return view('staff.role-permission.index')
+        return view('roles-permissions.index')
                 ->with('roles', $roles)
                 ->with('permissions', $permissions);
     }

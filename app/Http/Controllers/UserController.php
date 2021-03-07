@@ -23,7 +23,7 @@ class UserController extends Controller
 
         $users = User::with('roles')->get();
 
-        return view('staff.staff-members.index')
+        return view('users.index')
                     ->with('users', $users);
     }
 
@@ -34,7 +34,7 @@ class UserController extends Controller
         $user = $user->load('roles');
         $roles = Role::orderBy('order')->get();
 
-        return view('staff.user.show')
+        return view('users.show')
                 ->with('user', $user)
                 ->with('roles', $roles);
     }
@@ -46,7 +46,7 @@ class UserController extends Controller
         $temporaryPassword = TemporaryPasswordService::generate();
         $roles = Role::orderBy('order')->get();
 
-        return view('staff.user.create')
+        return view('users.create')
                     ->with('email', $request->email)
                     ->with('temporaryPassword', $temporaryPassword)
                     ->with('roles', $roles);
@@ -72,7 +72,7 @@ class UserController extends Controller
 
     public function editTemporaryPassword()
     {
-        return view('staff.edit-temporary-password');
+        return view('edit-temporary-password');
     }
 
     public function updateTemporaryPassword(UpdateTemporaryPasswordRequest $request)

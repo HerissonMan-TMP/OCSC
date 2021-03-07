@@ -36,7 +36,7 @@ class QuestionController extends Controller
 
         $question->save();
 
-        return redirect()->route('staff.recruitments.edit', $recruitment);
+        return back();
     }
 
     /**
@@ -55,7 +55,7 @@ class QuestionController extends Controller
 
         $question->save();
 
-        return redirect()->route('staff.recruitments.edit', $recruitment);
+        return back();
     }
 
     public function destroy(Recruitment $recruitment, Question $question)
@@ -64,6 +64,6 @@ class QuestionController extends Controller
 
         $question->delete();
 
-        return redirect()->route('staff.recruitments.edit', $recruitment);
+        return back();
     }
 }

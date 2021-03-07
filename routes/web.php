@@ -6,8 +6,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\Staff\RecruitmentController;
-use App\Http\Controllers\staffHubController;
+use App\Http\Controllers\RecruitmentController;
+use App\Http\Controllers\StaffHubController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,9 +35,13 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 });
 
-Route::get('/recruitments/success', [RecruitmentController::class, 'showSuccess'])->name('recruitments.showSuccess');
 Route::get('/recruitments/{recruitment}', [RecruitmentController::class, 'show'])->name('recruitments.show');
 Route::post('recruitments/{recruitment}/applications', [ApplicationController::class, 'store'])->name('recruitments.applications.store');
+Route::get('/applications/success', [ApplicationController::class, 'showSuccess'])->name('applications.success-page');
+
+Route::get('/contact', [ContactMessageController::class, 'create'])->name('contact-messages.create');
+Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact-messages.store');
+Route::get('/contact/success', [ContactMessageController::class, 'showSuccess'])->name('contact-messages.show-success');
 
 Route::middleware(['auth', 'temporary_password'])->group(function() {
     Route::get('/staff/temporary-password/edit', [UserController::class, 'editTemporaryPassword'])->name('staff.temporary-password.edit');
@@ -70,7 +74,7 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::patch('/recruitments/{recruitment}', [RecruitmentController::class, 'update'])->name('recruitments.update');
         Route::delete('/recruitments/{recruitment}', [RecruitmentController::class, 'destroy'])->name('recruitments.destroy');
 
-        Route::post('/recruitments/{recruitment}/questions/store', [QuestionController::class, 'store'])->name('recruitments.questions.store');
+        Route::post('/recruitments/{recruitment}/questions', [QuestionController::class, 'store'])->name('recruitments.questions.store');
         Route::patch('/recruitments/{recruitment}/questions/{question}', [QuestionController::class, 'update'])->name('recruitments.questions.update');
         Route::delete('/recruitments/{recruitment}/questions/{question}', [QuestionController::class, 'destroy'])->name('recruitments.questions.destroy');
 
@@ -88,7 +92,3 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::get('/staff-members-list', [UserController::class, 'index'])->name('staff-members-list');
     });
 });
-
-Route::get('/contact', [ContactMessageController::class, 'create'])->name('contact-messages.create');
-Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact-messages.store');
-Route::get('/contact/success', [ContactMessageController::class, 'showSuccess'])->name('contact-messages.show-success');

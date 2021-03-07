@@ -25,8 +25,10 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['staff.*'], function ($view) {
-            $view->with('authUser', Auth::user()->load('roles'));
+        View::composer(['*'], function ($view) {
+            if (Auth::check()) {
+                $view->with('authUser', Auth::user()->load('roles'));
+            }
         });
     }
 }
