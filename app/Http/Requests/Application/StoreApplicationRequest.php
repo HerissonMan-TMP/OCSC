@@ -25,11 +25,11 @@ class StoreApplicationRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'discord_username' => [
+            'discord' => [
                 'required',
                 'max:50',
             ],
-            'email_address' => [
+            'email' => [
                 'required',
                 'email',
                 'max:300'
@@ -55,11 +55,11 @@ class StoreApplicationRequest extends FormRequest
     public function messages()
     {
         $messages = [
-            'discord_username.required' => 'A Discord username is required.',
-            'discord_username.max' => 'The Discord username must not be longer than :max characters.',
-            'email_address.required' => 'An Email address is required.',
-            'email_address.email' => 'The provided Email address is not valid.',
-            'email_address.max' => 'The Email address must not be longer than :max characters.',
+            'discord.required' => 'A Discord username is required.',
+            'discord.max' => 'The Discord username must not be longer than :max characters.',
+            'email.required' => 'An Email address is required.',
+            'email.email' => 'The provided Email address is not valid.',
+            'email.max' => 'The Email address must not be longer than :max characters.',
         ];
 
         $questions = request()->route('recruitment')->questions;

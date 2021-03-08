@@ -17,6 +17,24 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    /**
+     * A User instance.
+     *
+     * @var User
+     */
+    protected $user;
+
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * Display the staff members' list.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function index()
     {
         Gate::authorize('see-staff-members-list');
@@ -27,6 +45,13 @@ class UserController extends Controller
                     ->with('users', $users);
     }
 
+    /**
+     * Display the user's profile and information.
+     *
+     * @param User $user
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function show(User $user)
     {
         Gate::authorize('see-staff-members-list');
@@ -39,6 +64,13 @@ class UserController extends Controller
                 ->with('roles', $roles);
     }
 
+    /**
+     * Display the form to add a new user (staff member).
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function create(Request $request)
     {
         Gate::authorize('create-new-users');
@@ -52,29 +84,34 @@ class UserController extends Controller
                     ->with('roles', $roles);
     }
 
+    /**
+     * Store a new user (staff member).
+     *
+     * @param StoreUserRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function store(StoreUserRequest $request)
     {
         Gate::authorize('create-new-users');
         Gate::authorize('assign-role', Role::find($request->role_id));
 
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->temporary_password);
-        $user->has_temporary_password = true;
-        $user->temporary_password_without_hash = $request->temporary_password;
-        $user->save();
-
-        $user->roles()->attach($request->role_id);
+        $this->user->email = $request->email;
+        $this->user->name = $request->name;
+        $this->user->password = Hash::make($request->temporary_password);
+        $this->user->has_temporary_password = true;
+        $this->user->save();
+        $this->user->roles()->attach($request->role_id);
 
         return redirect()->route('staff.staff-members-list');
     }
 
-    public function editTemporaryPassword()
-    {
-        return view('edit-temporary-password');
-    }
-
+    /**
+     * Update the temporary password of the authenticated user.
+     *
+     * @param UpdateTemporaryPasswordRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateTemporaryPassword(UpdateTemporaryPasswordRequest $request)
     {
         $user = Auth::user();
@@ -82,12 +119,19 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->has_temporary_password = false;
         $user->temporary_password_without_hash = null;
-
         $user->save();
 
         return redirect()->route('staff.hub');
     }
 
+    /**
+     * Update the roles of the given user.
+     *
+     * @param User $user
+     * @param UpdateUserRolesRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function updateRoles(User $user, UpdateUserRolesRequest $request)
     {
         foreach ($request->roles as $roleId) {

@@ -16,6 +16,16 @@ class Question extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'type'
+    ];
+
+    /**
      * Get the recruitment session the question belongs to.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

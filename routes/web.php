@@ -31,20 +31,20 @@ Route::get('/', function () {
 })->name('homepage');
 
 Route::middleware(['guest'])->group(function () {
-    Route::get('/login', [LoginController::class, 'showForm'])->name('login.showForm');
+    Route::view('/login', 'login')->name('login.showForm');
     Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 });
 
 Route::get('/recruitments/{recruitment}', [RecruitmentController::class, 'show'])->name('recruitments.show');
 Route::post('recruitments/{recruitment}/applications', [ApplicationController::class, 'store'])->name('recruitments.applications.store');
-Route::get('/applications/success', [ApplicationController::class, 'showSuccess'])->name('applications.success-page');
+Route::view('/applications/success', 'applications.success-page')->name('applications.success-page');
 
 Route::get('/contact', [ContactMessageController::class, 'create'])->name('contact-messages.create');
 Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact-messages.store');
-Route::get('/contact/success', [ContactMessageController::class, 'showSuccess'])->name('contact-messages.show-success');
+Route::view('/contact/success', 'contact-messages.success-page')->name('contact-messages.show-success');
 
 Route::middleware(['auth', 'temporary_password'])->group(function() {
-    Route::get('/staff/temporary-password/edit', [UserController::class, 'editTemporaryPassword'])->name('staff.temporary-password.edit');
+    Route::view('/staff/temporary-password/edit', 'edit-temporary-password')->name('staff.temporary-password.edit');
     Route::post('/staff/temporary-password/update', [UserController::class, 'updateTemporaryPassword'])->name('staff.temporary-password.update');
 });
 
@@ -52,11 +52,11 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::prefix('staff')->name('staff.')->group(function () {
-        Route::get('/', [StaffHubController::class, 'showHub'])->name('hub');
-        Route::get('/news-management', [StaffHubController::class, 'showHub'])->name('news-management');
-        Route::get('/convoy-management', [StaffHubController::class, 'showHub'])->name('convoy-management');
-        Route::get('/partnership-management', [StaffHubController::class, 'showHub'])->name('partnership-management');
-        Route::get('/gallery-management', [StaffHubController::class, 'showHub'])->name('gallery-management');
+        Route::view('/', 'hub')->name('hub');
+        Route::view('/news-management', '')->name('news-management');
+        Route::view('/convoy-management', '')->name('convoy-management');
+        Route::view('/partnership-management', '')->name('partnership-management');
+        Route::view('/gallery-management', '')->name('gallery-management');
 
         Route::get('/contact-messages', [ContactMessageController::class, 'index'])->name('contact-messages.index');
         Route::get('/contact-messages/{contactMessage}', [ContactMessageController::class, 'show'])->name('contact-messages.show');
@@ -84,11 +84,11 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::post('/recruitments/{recruitment}/applications/{application}/accept', [ApplicationController::class, 'accept'])->name('recruitments.applications.accept');
         Route::post('/recruitments/{recruitment}/applications/{application}/decline', [ApplicationController::class, 'decline'])->name('recruitments.applications.decline');
 
+        Route::get('/staff-members-list', [UserController::class, 'index'])->name('staff-members-list');
+
         Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
         Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
         Route::post('/users', [UserController::class, 'store'])->name('users.store');
         Route::patch('/users/{user}/roles', [UserController::class, 'updateRoles'])->name('users.roles.update');
-
-        Route::get('/staff-members-list', [UserController::class, 'index'])->name('staff-members-list');
     });
 });

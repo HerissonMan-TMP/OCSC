@@ -17,8 +17,8 @@
             </div>
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-full sm:col-span-3">
-                    <label for="discord_username" class="block font-medium text-gray-300">Discord username <span class="text-red-500">*</span></label>
-                    <input type="text" name="discord_username" id="discord_username" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" placeholder="MyUsername#1234" maxlength="50" value="{{ old('discord_username') }}" required>
+                    <label for="discord" class="block font-medium text-gray-300">Discord username <span class="text-red-500">*</span></label>
+                    <input type="text" name="discord" id="discord" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" placeholder="MyUsername#1234" maxlength="50" value="{{ old('discord_username') }}" required>
                     @error('discord_username')
                     <span class="pt-2 text-sm text-red-500">
                         {{ $message }}
@@ -27,8 +27,8 @@
                 </div>
 
                 <div class="col-span-full sm:col-span-3">
-                    <label for="email_address" class="block font-medium text-gray-300">Email address <span class="text-red-500">*</span></label>
-                    <input type="email" name="email_address" id="email_address" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" placeholder="myemail@example.com" maxlength="300" value="{{ old('email_address') }}" required>
+                    <label for="email" class="block font-medium text-gray-300">Email address <span class="text-red-500">*</span></label>
+                    <input type="email" name="email" id="email" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm sm:text-sm border-gray-600 rounded-md" placeholder="myemail@example.com" maxlength="300" value="{{ old('email_address') }}" required>
                     @error('email_address')
                     <span class="pt-2 text-sm text-red-500">
                         {{ $message }}

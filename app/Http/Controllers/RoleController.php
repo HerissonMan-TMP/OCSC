@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Gate;
 
 class RoleController extends Controller
 {
+    /**
+     * Display the roles list.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function index()
     {
         Gate::authorize('update-permissions');

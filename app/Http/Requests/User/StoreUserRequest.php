@@ -58,9 +58,9 @@ class StoreUserRequest extends FormRequest
             'name.required' => 'A name is required.',
             'name.string' => 'The name must be a string.',
             'name.between' => 'The name length must be between :min and :max characters.',
-            'temporary_password.required' => 'A temporary password is required.',
-            'temporary_password.size' => 'The temporary password must have 8 characters.',
-            'temporary_password.alpha_num' => 'The temporary password must only have alphanumeric characters.',
+            'temporary_password_without_hash.required' => 'A temporary password is required.',
+            'temporary_password_without_hash.size' => 'The temporary password must have 8 characters.',
+            'temporary_password_without_hash.alpha_num' => 'The temporary password must only have alphanumeric characters.',
             'role_id.in' => 'This role does not exist.'
         ];
     }

@@ -9,31 +9,18 @@
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ApplicationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ApplicationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactMessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactMessageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PermissionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecruitmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecruitmentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Staff/RecruitmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecruitmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StaffHubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StaffHubController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StaffHubController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/ViewServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/ViewServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact/success-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/success-page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recruitment/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recruitment/success-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/applications/success-page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/staff/contact-messages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/staff/contact-messages/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/staff/edit-temporary-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/edit-temporary-password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/staff/hub.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/hub.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/staff/recruitment/application/accept.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/applications/accept.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/staff/recruitment/application/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/applications/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/staff/recruitment/application/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/applications/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/staff/recruitment/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/staff/recruitment/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/staff/recruitment/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/staff/role-permission/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/roles-permissions/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/staff/staff-members/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/staff/user/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/staff/user/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Application/StoreApplicationRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Application/StoreApplicationRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Contact/StoreContactMessageRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Contact/StoreContactMessageRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/User/StoreUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/User/StoreUserRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Question.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -242,7 +229,9 @@
       <workItem from="1614928276900" duration="39631000" />
       <workItem from="1615016255930" duration="35978000" />
       <workItem from="1615060120521" duration="1432000" />
-      <workItem from="1615104510474" duration="23306000" />
+      <workItem from="1615104510474" duration="23664000" />
+      <workItem from="1615198964342" duration="528000" />
+      <workItem from="1615223402499" duration="6393000" />
     </task>
     <servers />
   </component>

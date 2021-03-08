@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Permission;
+use App\Models\Recruitment;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
@@ -170,6 +171,13 @@ class AuthServiceProvider extends ServiceProvider
         $ability = 'delete-contact-messages';
         Gate::define($ability, function (User $user) use ($ability) {
             return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to delete contact messages.');
+        });
+
+        $ability = 'see-recruitment-form';
+        Gate::define($ability, function (User $user, Recruitment $recruitment) use ($ability) {
+            return $recruitment->is_open
                 ? Response::allow()
                 : Response::deny('You are not allowed to delete contact messages.');
         });

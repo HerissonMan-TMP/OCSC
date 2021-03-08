@@ -9,17 +9,10 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     /**
-     * Display the login view.
-     */
-    public function showForm()
-    {
-        return view('login');
-    }
-
-    /**
      * Handle an authentication attempt.
      *
      * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function authenticate(Request $request)
     {
@@ -40,13 +33,13 @@ class LoginController extends Controller
      * Log the user out.
      *
      * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function logout(Request $request)
     {
         Auth::logout();
 
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
         return redirect()->route('homepage');
