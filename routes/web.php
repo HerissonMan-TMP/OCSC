@@ -58,8 +58,8 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::view('/partnership-management', '')->name('partnership-management');
         Route::view('/gallery-management', '')->name('gallery-management');
 
-        Route::view('/website-settings', 'show')->name('website-settings');
-        Route::view('/discord-settings', 'show')->name('discord-settings');
+        Route::view('/website-settings', 'website-settings.show')->name('website-settings');
+        Route::view('/discord-settings', 'discord-settings.show')->name('discord-settings');
 
         Route::get('/contact-messages', [ContactMessageController::class, 'index'])->name('contact-messages.index');
         Route::get('/contact-messages/{contactMessage}', [ContactMessageController::class, 'show'])->name('contact-messages.show');
