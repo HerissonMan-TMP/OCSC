@@ -181,5 +181,19 @@ class AuthServiceProvider extends ServiceProvider
                 ? Response::allow()
                 : Response::deny('You are not allowed to delete contact messages.');
         });
+
+        $ability = 'manage-website-settings';
+        Gate::define($ability, function (User $user, Recruitment $recruitment) use ($ability) {
+            return $user->hasPermission('has-admin-rights')
+                ? Response::allow()
+                : Response::deny('You are not allowed to manage the website settings.');
+        });
+
+        $ability = 'manage-discord-settings';
+        Gate::define($ability, function (User $user, Recruitment $recruitment) use ($ability) {
+            return $user->hasPermission('has-admin-rights')
+                ? Response::allow()
+                : Response::deny('You are not allowed to manage the Discord server settings.');
+        });
     }
 }

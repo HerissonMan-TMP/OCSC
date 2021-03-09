@@ -58,6 +58,9 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::view('/partnership-management', '')->name('partnership-management');
         Route::view('/gallery-management', '')->name('gallery-management');
 
+        Route::view('/website-settings', 'show')->name('website-settings');
+        Route::view('/discord-settings', 'show')->name('discord-settings');
+
         Route::get('/contact-messages', [ContactMessageController::class, 'index'])->name('contact-messages.index');
         Route::get('/contact-messages/{contactMessage}', [ContactMessageController::class, 'show'])->name('contact-messages.show');
         Route::post('/contact-messages/{contactMessage}/mark-as-read', [ContactMessageController::class, 'markAsRead'])->name('contact-messages.mark-as-read');
