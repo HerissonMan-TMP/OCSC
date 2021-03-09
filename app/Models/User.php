@@ -55,7 +55,7 @@ class User extends Authenticatable
      */
     public function getHasTemporaryPasswordAttribute()
     {
-        return $this->temporary_password_without_hash === null;
+        return $this->temporary_password_without_hash !== null;
     }
 
     /**
