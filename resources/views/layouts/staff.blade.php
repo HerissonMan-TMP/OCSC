@@ -10,8 +10,8 @@
 @endsection
 
 @section('content')
-<div class="max-w-7xl mx-auto px-4 sm:px-6 mt-16">
-    <div class="px-4 py-5 sm:p-6 bg-gray-800 rounded-md flex flex-col md:flex-row justify-between">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 my-16">
+    <div class="px-4 py-5 sm:p-6 mb-6 bg-gray-800 rounded-md flex flex-col md:flex-row justify-between">
         <div>
             <span class="font-bold">{{ $authUser->name }}</span> / {{ $authUser->email }}
         </div>
@@ -23,6 +23,6 @@
             @endforeach
         </div>
     </div>
-@yield('content-staff')
+    @yield('content-staff')
 </div>
 @endsection

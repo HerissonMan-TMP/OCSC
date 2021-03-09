@@ -5,7 +5,7 @@
 @section('breadcrumb', "Staff - {$user->name}'s profile")
 
 @section('content-staff')
-<div class="mt-6 bg-gray-800 rounded-md px-4 py-5 sm:p-6 shadow overflow-hidden">
+<div class="px-4 py-5 md:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
     <div class="flex items-center flex-wrap">
         <h3 class="inline-block flex-shrink-0 font-bold text-2xl text-gray-300 mr-4">{{ $user->name }}</h3>
         <div>

@@ -2,12 +2,10 @@
 
 @section('title', 'Staff Hub')
 
-@section('breadcrumb')
-Staff Hub
-@endsection
+@section('breadcrumb', 'Staff Hub')
 
 @section('content-staff')
-<div class="mt-6 px-4 py-5 sm:p-6 bg-gray-800 rounded-md shadow overflow-hidden grid grid-cols-6 gap-4">
+<div class="px-4 py-5 md:p-6 bg-gray-800 rounded-md shadow overflow-hidden grid grid-cols-6 gap-4">
     <a href="{{ route('staff.news-management') }}" class="col-span-full md:col-span-3">
         <div class="w-full h-full p-8 text-gray-300 bg-gray-900 hover:bg-gray rounded-md text-center font-light tracking-wide">
             <div class="mb-5">

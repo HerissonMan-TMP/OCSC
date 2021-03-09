@@ -5,7 +5,7 @@
 @section('breadcrumb', 'Staff - Recruitment Management')
 
 @section('content-staff')
-<div class="mt-6 px-4 py-5 sm:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
+<div class="px-4 py-5 md:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
     <div class="flex justify-between items-center">
         <div>
             <h3 class="font-bold text-2xl text-gray-300 mt-2 mb-6">Recruitment Sessions</h3>
@@ -16,8 +16,8 @@
             </a>
         </div>
     </div>
-    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+    <div class="overflow-x-auto md:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full md:px-6 lg:px-8">
             <div class="shadow overflow-hidden border-b border-gray-700 rounded-lg">
                 <table class="min-w-full divide-y divide-gray-900">
                     <thead class="bg-gray-900">
