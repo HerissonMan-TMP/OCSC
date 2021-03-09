@@ -49,6 +49,16 @@ class User extends Authenticatable
     ];
 
     /**
+     * Get if the user has a temporary password.
+     *
+     * @return bool
+     */
+    public function getHasTemporaryPasswordAttribute()
+    {
+        return $this->temporary_password_without_hash === null;
+    }
+
+    /**
      * Get the roles a user has.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

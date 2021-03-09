@@ -99,7 +99,7 @@ class UserController extends Controller
         $this->user->email = $request->email;
         $this->user->name = $request->name;
         $this->user->password = Hash::make($request->temporary_password);
-        $this->user->has_temporary_password = true;
+        $this->user->temporary_password_without_hash = $request->temporary_password;
         $this->user->save();
         $this->user->roles()->attach($request->role_id);
 
@@ -117,7 +117,6 @@ class UserController extends Controller
         $user = Auth::user();
 
         $user->password = Hash::make($request->password);
-        $user->has_temporary_password = false;
         $user->temporary_password_without_hash = null;
         $user->save();
 
