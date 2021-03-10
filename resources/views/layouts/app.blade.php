@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -392,7 +392,7 @@
             </div>
         </header>
 
-        <main class="h-screen text-gray-200">
+        <main class="text-gray-200">
             @hasSection('breadcrumb')
             <div class="w-full bg-gray-800 py-6">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between">
@@ -409,8 +409,25 @@
             @yield("content")
         </main>
 
-        <footer>
-
+        <footer class="bg-gray-800 py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-3 gap-16 md:gap-20 text-gray-300 text-sm">
+                <div class="col-span-full md:col-span-1">
+                    Section 1
+                </div>
+                <div class="col-span-full md:col-span-1">
+                    Section 2
+                </div>
+                <div class="col-span-full md:col-span-1">
+                    Section 3
+                </div>
+            </div>
+            <div class="text-center mt-16 text-gray-300 text-sm">
+                ©2021 par OCSC Event. Touts droits réservés.
+                <div class="mt-2">
+                    <a href="" class="underline">Mentions Légales</a>
+                    <a href="" class="underline">Politique de Confidentialité</a>
+                </div>
+            </div>
         </footer>
 
         <script src="{{ asset('js/app.js') }}"></script>
