@@ -35,6 +35,7 @@ class ApplicationController extends Controller
      *
      * @param Recruitment $recruitment
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index(Recruitment $recruitment)
     {
@@ -52,6 +53,7 @@ class ApplicationController extends Controller
      * @param Recruitment $recruitment
      * @param Application $application
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function show(Recruitment $recruitment, Application $application)
     {

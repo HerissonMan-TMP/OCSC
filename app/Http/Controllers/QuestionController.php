@@ -27,8 +27,9 @@ class QuestionController extends Controller
      * Store a question for the given recruitment session.
      *
      * @param Recruitment $recruitment
-     * @param Request $request
+     * @param StoreQuestionRequest $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(Recruitment $recruitment, StoreQuestionRequest $request)
     {
@@ -57,8 +58,9 @@ class QuestionController extends Controller
      *
      * @param Recruitment $recruitment
      * @param Question $question
-     * @param Request $request
+     * @param UpdateQuestionRequest $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(Recruitment $recruitment, Question $question, UpdateQuestionRequest $request)
     {

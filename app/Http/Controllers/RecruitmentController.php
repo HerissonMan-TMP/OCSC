@@ -57,8 +57,6 @@ class RecruitmentController extends Controller
      */
     public function show(Recruitment $recruitment)
     {
-        Gate::authorize('see-recruitment-form', $recruitment);
-
         $recruitment = $recruitment->load(['role', 'questions']);
 
         return view('recruitments.show')
@@ -86,6 +84,7 @@ class RecruitmentController extends Controller
      *
      * @param StoreRecruitmentRequest $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(StoreRecruitmentRequest $request)
     {
@@ -103,6 +102,7 @@ class RecruitmentController extends Controller
      *
      * @param Recruitment $recruitment
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(Recruitment $recruitment)
     {
@@ -120,6 +120,7 @@ class RecruitmentController extends Controller
      * @param UpdateRecruitmentRequest $request
      * @param Recruitment $recruitment
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(UpdateRecruitmentRequest $request, Recruitment $recruitment)
     {
@@ -135,6 +136,7 @@ class RecruitmentController extends Controller
      *
      * @param Recruitment $recruitment
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function destroy(Recruitment $recruitment)
     {

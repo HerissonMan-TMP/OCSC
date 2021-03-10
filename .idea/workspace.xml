@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/applications/accept.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/applications/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/applications/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/applications/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/applications/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/applications/success-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/applications/success-page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact-messages/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact-messages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact-messages/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact-messages/success-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/success-page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/edit-temporary-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/edit-temporary-password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/errors/403.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/errors/403.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/errors/404.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/errors/404.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/hub.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/hub.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/staff.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/staff.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/roles-permissions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/roles-permissions/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/show.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -238,7 +214,7 @@
       <workItem from="1615104510474" duration="23664000" />
       <workItem from="1615198964342" duration="528000" />
       <workItem from="1615223402499" duration="9390000" />
-      <workItem from="1615310330355" duration="6347000" />
+      <workItem from="1615310330355" duration="6782000" />
     </task>
     <servers />
   </component>
