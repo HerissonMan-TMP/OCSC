@@ -422,10 +422,10 @@
                 </div>
             </div>
             <div class="text-center mt-16 text-gray-300 text-sm">
-                ©2021 par OCSC Event. Touts droits réservés.
+                ©2021 by OCSC Event. All rights reserved.
                 <div class="mt-2">
-                    <a href="" class="underline">Mentions Légales</a>
-                    <a href="" class="underline">Politique de Confidentialité</a>
+                    <a href="" class="underline">Legal Notice</a>
+                    <a href="" class="underline">Privacy Policy</a>
                 </div>
             </div>
         </footer>
