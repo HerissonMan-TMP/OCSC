@@ -61,6 +61,11 @@ class ConvoyController extends Controller
             ->with('events', $events);
     }
 
+    public function showRules()
+    {
+        return view('convoys.rules');
+    }
+
     public function show(Convoy $convoy)
     {
 

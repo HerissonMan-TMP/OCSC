@@ -35,6 +35,7 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::get('/upcoming-convoys', [ConvoyController::class, 'showUpcoming'])->name('convoys.show-upcoming');
+Route::get('/convoy-rules', [ConvoyController::class, 'showRules'])->name('convoys.show-rules');
 
 Route::get('/recruitments/{recruitment}', [RecruitmentController::class, 'show'])->name('recruitments.show');
 Route::post('recruitments/{recruitment}/applications', [ApplicationController::class, 'store'])->name('recruitments.applications.store');
