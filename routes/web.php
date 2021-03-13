@@ -10,6 +10,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RecruitmentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WebsiteSettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,6 +64,8 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::get('/convoys/{convoy}/edit', [ConvoyController::class, 'edit'])->name('convoys.edit');
         Route::patch('/convoys/{convoy}', [ConvoyController::class, 'update'])->name('convoys.update');
         Route::delete('/convoys/{convoy}', [ConvoyController::class, 'destroy'])->name('convoys.destroy');
+
+        Route::patch('/website-settings/{websiteSetting:key}', [WebsiteSettingController::class, 'update'])->name('website-settings.update');
 
         Route::view('/partnership-management', '')->name('partnership-management');
         Route::view('/gallery-management', '')->name('gallery-management');

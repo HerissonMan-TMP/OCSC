@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Convoy\StoreConvoyRequest;
 use App\Http\Requests\Convoy\UpdateConvoyRequest;
 use App\Models\Convoy;
+use App\Models\WebsiteSetting;
 use App\Services\TruckersMPAPI;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -40,7 +41,8 @@ class ConvoyController extends Controller
         }
 
         return view('convoys.index')
-                ->with('events', $events);
+                ->with('events', $events)
+                ->with('convoyRules', WebsiteSetting::where('key', 'convoy-rules')->pluck('value')->first());
     }
 
     public function showUpcoming()
@@ -63,7 +65,8 @@ class ConvoyController extends Controller
 
     public function showRules()
     {
-        return view('convoys.rules');
+        return view('convoys.rules')
+                ->with('convoyRules', WebsiteSetting::where('key', 'convoy-rules')->pluck('value')->first());
     }
 
     public function show(Convoy $convoy)

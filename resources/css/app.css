@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1 {
+    @apply text-4xl font-semibold mt-6 mb-2
+}
+
+h2 {
+    @apply text-3xl font-semibold mt-6 mb-2
+}
+
+h3 {
+    @apply text-2xl font-semibold mt-6 mb-2
+}
+
+h4 {
+    @apply text-xl font-semibold mt-6 mb-2
+}
+
+h5 {
+    @apply text-lg font-semibold mt-6 mb-2
+}
+
+h6 {
+    @apply text-base font-semibold mt-6 mb-2
+}
+
+hr {
+    @apply opacity-30 my-2
+}
+
+a {
+    @apply transition duration-200 font-medium text-primary hover:text-primary-dark focus:outline-none
+}
+
+p {
+    @apply mb-6 text-gray-300
+}
+
+blockquote {
+    @apply border-l-4 border-gray-500 pl-4
+}
+
+ul {
+    @apply list-inside
+}
+
+li {
+    @apply list-disc
+}
+
+table {
+    @apply border-collapse bg-gray-700
+}
+
+table, th, td {
+    @apply border border-gray-800 p-4
+}

@@ -70,5 +70,23 @@
             <span class="text-sm italic text-gray-300">No convoys registered on the website yet...</span>
         @endforelse
         </div>
+
+        <div class="mt-10">
+            <h3 class="font-bold text-2xl text-gray-300">Convoy Rules</h3>
+            <form action="{{ route('staff.website-settings.update', 'convoy-rules') }}" method="POST">
+                @csrf
+                @method('PATCH')
+                <label for="value" class="block text-sm font-medium text-gray-300">Convoy Rules <span class="text-red-500 font-bold">*</span></label>
+                <textarea name="value" id="value" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="30">{{ old('value') ?? $convoyRules }}</textarea>
+                @error('value')
+                <span class="pt-2 text-sm text-red-500">
+                    {{ $message }}
+                </span>
+                @enderror
+                <div class="mt-6 text-right">
+                    <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">Update the rules</button>
+                </div>
+            </form>
+        </div>
     </div>
 @endsection

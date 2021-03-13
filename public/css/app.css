@@ -31913,6 +31913,120 @@ select {
           animation: bounce 1s infinite;
 }
 
+h1 {
+  font-weight: 600;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem
+}
+
+h5 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem
+}
+
+h6 {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem
+}
+
+hr {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.3
+}
+
+a {
+  font-weight: 500
+}
+
+a:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+a {
+  --tw-text-opacity: 1;
+  color: rgba(0, 255, 175, var(--tw-text-opacity));
+}
+
+a:hover {
+  --tw-text-opacity: 1;
+  color: rgba(0, 214, 147, var(--tw-text-opacity));
+}
+
+a {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-duration: 200ms;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  --tw-text-opacity: 1;
+  color: rgba(209, 213, 219, var(--tw-text-opacity))
+}
+
+blockquote {
+  --tw-border-opacity: 1;
+  border-color: rgba(107, 114, 128, var(--tw-border-opacity));
+  border-left-width: 4px;
+  padding-left: 1rem
+}
+
+ul {
+  list-style-position: inside
+}
+
+li {
+  list-style-type: disc
+}
+
+table {
+  --tw-bg-opacity: 1;
+  background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
+  border-collapse: collapse
+}
+
+table, th, td {
+  --tw-border-opacity: 1;
+  border-color: rgba(31, 41, 55, var(--tw-border-opacity));
+  border-width: 1px;
+  padding: 1rem
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
