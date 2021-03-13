@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Convoy;
 use App\Models\Permission;
 use App\Models\Recruitment;
 use App\Models\Role;
@@ -35,7 +36,8 @@ class AuthServiceProvider extends ServiceProvider
             'assign-roles-to-user',
             'assign-role-to-user',
             'update-permissions-for-role',
-            'update-permission-for-role'
+            'update-permission-for-role',
+            'create-convoys'
         ];
         Gate::before(function (User $user, $ability) use ($abilitiesWithoutBypass) {
             if (!in_array($ability, $abilitiesWithoutBypass)
@@ -183,17 +185,31 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $ability = 'manage-website-settings';
-        Gate::define($ability, function (User $user, Recruitment $recruitment) use ($ability) {
+        Gate::define($ability, function (User $user) use ($ability) {
             return $user->hasPermission('has-admin-rights')
                 ? Response::allow()
                 : Response::deny('You are not allowed to manage the website settings.');
         });
 
         $ability = 'manage-discord-settings';
-        Gate::define($ability, function (User $user, Recruitment $recruitment) use ($ability) {
+        Gate::define($ability, function (User $user) use ($ability) {
             return $user->hasPermission('has-admin-rights')
                 ? Response::allow()
                 : Response::deny('You are not allowed to manage the Discord server settings.');
+        });
+
+        $ability = 'manage-convoys';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to manage convoys.');
+        });
+
+        $ability = 'create-convoys';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return Convoy::count() < 5
+                ? Response::allow()
+                : Response::deny('You cannot store more than 5 convoys at the same time.');
         });
     }
 }

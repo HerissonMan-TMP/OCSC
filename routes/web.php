@@ -2,12 +2,13 @@
 
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\ContactMessageController;
+use App\Http\Controllers\ConvoyController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RecruitmentController;
-use App\Http\Controllers\StaffHubController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,14 +27,14 @@ Route::get('/test', function () {
     return view('test');
 });
 
-Route::get('/', function () {
-    return view('homepage');
-})->name('homepage');
+Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 
 Route::middleware(['guest'])->group(function () {
     Route::view('/login', 'login')->name('login.showForm');
     Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 });
+
+Route::get('/upcoming-convoys', [ConvoyController::class, 'showUpcoming'])->name('convoys.show-upcoming');
 
 Route::get('/recruitments/{recruitment}', [RecruitmentController::class, 'show'])->name('recruitments.show');
 Route::post('recruitments/{recruitment}/applications', [ApplicationController::class, 'store'])->name('recruitments.applications.store');
@@ -54,7 +55,14 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
     Route::prefix('staff')->name('staff.')->group(function () {
         Route::view('/', 'hub')->name('hub');
         Route::view('/news-management', '')->name('news-management');
-        Route::view('/convoy-management', '')->name('convoy-management');
+
+        Route::get('/convoys', [ConvoyController::class, 'index'])->name('convoys.index');
+        Route::get('/convoys/create', [ConvoyController::class, 'create'])->name('convoys.create');
+        Route::post('/convoys/store', [ConvoyController::class, 'store'])->name('convoys.store');
+        Route::get('/convoys/{convoy}/edit', [ConvoyController::class, 'edit'])->name('convoys.edit');
+        Route::patch('/convoys/{convoy}', [ConvoyController::class, 'update'])->name('convoys.update');
+        Route::delete('/convoys/{convoy}', [ConvoyController::class, 'destroy'])->name('convoys.destroy');
+
         Route::view('/partnership-management', '')->name('partnership-management');
         Route::view('/gallery-management', '')->name('gallery-management');
 

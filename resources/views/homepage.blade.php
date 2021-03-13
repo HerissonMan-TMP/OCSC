@@ -43,102 +43,46 @@
 </div>
 <section id="next-convoys" class="w-full h-1/4">
     <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16 grid grid-cols-3 gap-16 md:gap-20">
-        <div class="col-span-full md:col-span-1 w-full">
-            <div class="bg-gray-800 rounded-md">
+        @forelse($events as $event)
+        <div class="col-span-full md:col-span-1 bg-gray-800 rounded-md w-full h-full">
+            <div class="h-1/4">
+                <img class="rounded-t-md w-full h-full" src="{{ $event['banner'] ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="">
+            </div>
+            <div class="p-6">
+                <h3 class="font-semibold text-xl mb-4">
+                    <a href="{{ 'https://truckersmp.com' . $event['url'] }}" target="_blank" class="transition duration-200 hover:opacity-80">{{ $event['name'] }}</a>
+                </h3>
                 <div>
-                    <img class="rounded-t-md" src="https://cdn.discordapp.com/attachments/785605081449103371/801489516585156678/Second_Affiinity_Photos_Edits.png" alt="">
-                </div>
-                <div class="p-6">
-                    <h3 class="font-semibold text-xl mb-6">
-                        <a href="" class="transition duration-200 hover:opacity-80">Anonymous Truckers ITA Convoy</a>
-                    </h3>
                     <div class="flex justify-between">
                         <div>
-                            <i class="fas fa-map-marker-alt fa-fw fa-sm"></i><span class="ml-2 text-sm">Munich</span>
+                            <i class="fas fa-map-marker-alt fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $event['departure']['city'] }}</span>
                         </div>
                         <div>
-                            <span class="ml-2 text-sm opacity-60">1176 km</span>
-                        </div>
-                        <div>
-                            <span class="mr-2 text-sm">Wroclaw</span><i class="fas fa-map-marker-alt fa-fw fa-sm"></i>
+                            <span class="mr-2 text-sm">{{ $event['arrive']['city'] }}</span> <i class="fas fa-map-marker-alt fa-fw fa-sm"></i>
                         </div>
                     </div>
                     <div>
-                        <i class="fas fa-server fa-fw fa-sm"></i><span class="ml-2 text-sm">Simulation 2</span>
+                        <i class="fas fa-route fa-fw fa-sm"></i> @if($event['distance'] !== null) <span class="ml-2 text-sm"> {{ $event['distance'] }} km</span> @else <span class="ml-2 text-sm italic"> Not set yet</span> @endif
                     </div>
                     <div>
-                        <i class="fas fa-calendar fa-fw fa-sm"></i><span class="ml-2 text-sm">21/03/2021 - 20:30 UTC</span>
+                        @if(str_contains($event['server']['name'], 'OPEN'))
+                            <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm text-primary font-bold uppercase">Event server</span>
+                        @else
+                            <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm @if($event['server']['name'] === null) italic @endif">{{ $event['server']['name'] ?? 'To be determined' }}</span>
+                        @endif
                     </div>
-                    <a href="{{ route('staff.hub') }}" class="mt-4 transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
+                    <div>
+                        <i class="fas fa-calendar fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $event['start_at'] }} UTC</span>
+                    </div>
+                    <a href="{{ 'https://truckersmp.com' . $event['url'] }}" target="_blank" class="mt-4 transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
                         Register on TruckersMP
                     </a>
                 </div>
             </div>
         </div>
-        <div class="col-span-full md:col-span-1 w-full">
-            <div class="bg-gray-800 rounded-md">
-                <div>
-                    <img class="rounded-t-md" src="https://cdn.discordapp.com/attachments/785605081449103371/801489516585156678/Second_Affiinity_Photos_Edits.png" alt="">
-                </div>
-                <div class="p-6">
-                    <h3 class="font-semibold text-xl mb-6">
-                        <a href="" class="transition duration-200 hover:opacity-80">Monthly April - MEGA</a>
-                    </h3>
-                    <div class="flex justify-between">
-                        <div>
-                            <i class="fas fa-map-marker-alt fa-fw fa-sm"></i><span class="ml-2 text-sm">Paris</span>
-                        </div>
-                        <div>
-                            <span class="ml-2 text-sm opacity-60">1281 km</span>
-                        </div>
-                        <div>
-                            <span class="mr-2 text-sm">Bastia</span><i class="fas fa-map-marker-alt fa-fw fa-sm"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <i class="fas fa-server fa-fw fa-sm"></i><span class="ml-2 text-sm text-primary font-bold">Event Server</span>
-                    </div>
-                    <div>
-                        <i class="fas fa-calendar fa-fw fa-sm"></i><span class="ml-2 text-sm">17/04/2021 - 18:00 UTC</span>
-                    </div>
-                    <a href="{{ route('staff.hub') }}" class="mt-4 transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
-                        Register on TruckersMP
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-span-full md:col-span-1 w-full">
-            <div class="bg-gray-800 rounded-md">
-                <div>
-                    <img class="rounded-t-md" src="https://cdn.discordapp.com/attachments/785605081449103371/801489516585156678/Second_Affiinity_Photos_Edits.png" alt="">
-                </div>
-                <div class="p-6">
-                    <h3 class="font-semibold text-xl mb-6">
-                        <a href="" class="transition duration-200 hover:opacity-80">TTFR Convoy</a>
-                    </h3>
-                    <div class="flex justify-between">
-                        <div>
-                            <i class="fas fa-map-marker-alt fa-fw fa-sm"></i><span class="ml-2 text-sm">Dusseldorf</span>
-                        </div>
-                        <div>
-                            <span class="ml-2 text-sm opacity-60">920 km</span>
-                        </div>
-                        <div>
-                            <span class="mr-2 text-sm">Prague</span><i class="fas fa-map-marker-alt fa-fw fa-sm"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <i class="fas fa-server fa-fw fa-sm"></i><span class="ml-2 text-sm">Promods</span>
-                    </div>
-                    <div>
-                        <i class="fas fa-calendar fa-fw fa-sm"></i><span class="ml-2 text-sm">05/05/2021 - 20:00 UTC</span>
-                    </div>
-                    <a href="{{ route('staff.hub') }}" class="mt-4 transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
-                        Register on TruckersMP
-                    </a>
-                </div>
-            </div>
-        </div>
+        @empty
+        <span class="text-sm italic text-gray-300">No convoys registered on the website yet...</span>
+        @endforelse
     </div>
 </section>
 

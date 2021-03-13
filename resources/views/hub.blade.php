@@ -14,7 +14,7 @@
             News Management
         </div>
     </a>
-    <a href="{{ route('staff.convoy-management') }}" class="col-span-full md:col-span-3">
+    <a @can('manage-convoys') href="{{ route('staff.convoys.index') }}" @endcan class="col-span-full md:col-span-3 @cannot('manage-convoys') opacity-30 @endcannot">
         <div class="w-full h-full p-8 text-gray-300 bg-gray-900 hover:bg-gray rounded-md text-center font-light tracking-wide">
             <div class="mb-5">
                 <i class="flex-shrink-0 text-gray-300 fas fa-truck-moving fa-fw fa-5x"></i>

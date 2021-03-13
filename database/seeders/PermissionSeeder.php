@@ -83,5 +83,12 @@ class PermissionSeeder extends Seeder
         ]);
         $permission->save();
         $permission->roles()->attach([5, 6]);
+
+        $permission = Permission::create([
+            'name' => 'Manage convoys',
+            'slug' => 'manage-convoys'
+        ]);
+        $permission->save();
+        $permission->roles()->attach([5, 6]);
     }
 }
