@@ -68,10 +68,10 @@
                                                 <!-- Heroicon name: outline/calendar -->
                                                 <i class="flex-shrink-0 text-primary fas fa-home fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
-                                                    <p class="text-base font-medium text-gray-200">
+                                                    <p class="mb-0 text-base font-medium text-gray-200">
                                                         Home
                                                     </p>
-                                                    <p class="mt-1 text-sm text-gray-400">
+                                                    <p class="mb-0 mt-1 text-sm text-gray-400">
                                                         Homepage of our website, and services we provide.
                                                     </p>
                                                 </div>
@@ -81,10 +81,10 @@
                                                 <!-- Heroicon name: outline/shield-check -->
                                                 <i class="flex-shrink-0 text-primary fas fa-newspaper fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
-                                                    <p class="text-base font-medium text-gray-200">
+                                                    <p class="mb-0 text-base font-medium text-gray-200">
                                                         News
                                                     </p>
-                                                    <p class="mt-1 text-sm text-gray-400">
+                                                    <p class="mb-0 mt-1 text-sm text-gray-400">
                                                         General news regarding our group.
                                                     </p>
                                                 </div>
@@ -94,10 +94,10 @@
                                                 <!-- Heroicon name: outline/shield-check -->
                                                 <i class="flex-shrink-0 text-primary fas fa-handshake fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
-                                                    <p class="text-base font-medium text-gray-200">
+                                                    <p class="mb-0 text-base font-medium text-gray-200">
                                                         Partnership
                                                     </p>
-                                                    <p class="mt-1 text-sm text-gray-400">
+                                                    <p class="mb-0 mt-1 text-sm text-gray-400">
                                                         All of OCSC's partners. We are very proud to have them and we are looking forward to work with them.
                                                     </p>
                                                 </div>
@@ -107,10 +107,10 @@
                                                 <!-- Heroicon name: outline/shield-check -->
                                                 <i class="flex-shrink-0 text-primary fas fa-images fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
-                                                    <p class="text-base font-medium text-gray-200">
+                                                    <p class="mb-0 text-base font-medium text-gray-200">
                                                         Gallery
                                                     </p>
-                                                    <p class="mt-1 text-sm text-gray-400">
+                                                    <p class="mb-0 mt-1 text-sm text-gray-400">
                                                         Photos and videos made by OCSC Event during our convoys and events. Take a look!
                                                     </p>
                                                 </div>
@@ -151,10 +151,10 @@
                                                 <!-- Heroicon name: outline/calendar -->
                                                 <i class="flex-shrink-0 text-primary fas fa-calendar-alt fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
-                                                    <p class="text-base font-medium text-gray-200">
+                                                    <p class="mb-0 text-base font-medium text-gray-200">
                                                         Upcoming Convoys
                                                     </p>
-                                                    <p class="mt-1 text-sm text-gray-400">
+                                                    <p class="mb-0 mt-1 text-sm text-gray-400">
                                                         See our future convoys and events.
                                                     </p>
                                                 </div>
@@ -164,10 +164,10 @@
                                                 <!-- Heroicon name: outline/shield-check -->
                                                 <i class="flex-shrink-0 text-primary fas fa-list-alt fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
-                                                    <p class="text-base font-medium text-gray-200">
+                                                    <p class="mb-0 text-base font-medium text-gray-200">
                                                         Convoy Rules
                                                     </p>
-                                                    <p class="mt-1 text-sm text-gray-400">
+                                                    <p class="mb-0 mt-1 text-sm text-gray-400">
                                                         Understand our convoy rules so that everyone can have a safe, real, and enjoyable trucking experience.
                                                     </p>
                                                 </div>
@@ -239,20 +239,20 @@
                                                 <i class="flex-shrink-0 text-primary fas fa-{{ $role->icon_name }} fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
                                                     <div class="flex justify-between">
-                                                        <p class="text-base font-medium text-gray-200">
+                                                        <p class="mb-0 text-base font-medium text-gray-200">
                                                             {{ $role->name }}
                                                         </p>
                                                         @if($role->recruitments->isNotEmpty())
-                                                        <p class="rounded px-2 text-sm font-bold text-gray-200 bg-green-500 uppercase">
+                                                        <p class="mb-0 rounded px-2 text-sm font-bold text-gray-200 bg-green-500 uppercase">
                                                             Open
                                                         </p>
                                                         @else
-                                                        <p class="rounded px-2 text-sm font-bold text-gray-200 bg-red-500 uppercase">
+                                                        <p class="mb-0 rounded px-2 text-sm font-bold text-gray-200 bg-red-500 uppercase">
                                                             Closed
                                                         </p>
                                                         @endif
                                                     </div>
-                                                    <p class="mt-1 text-sm text-gray-400">
+                                                    <p class="mb-0 mt-1 text-sm text-gray-400">
                                                         {{ $role->description }}
                                                     </p>
                                                 </div>
@@ -396,7 +396,7 @@
             @hasSection('breadcrumb')
             <div class="w-full bg-gray-800 py-6">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between">
-                    <h2 class="font-light text-2xl">@yield('breadcrumb')</h2>
+                    <h2 class="m-0 font-light text-2xl">@yield('breadcrumb')</h2>
                     @hasSection('breadcrumb-additional-content')
                     <div>
                         @yield('breadcrumb-additional-content')

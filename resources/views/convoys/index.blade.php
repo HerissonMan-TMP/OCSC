@@ -8,7 +8,7 @@
     <div class="px-4 py-5 md:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
         <div class="flex justify-between items-center mt-2 mb-6">
             <div>
-                <h3 class="font-bold text-2xl text-gray-300">All Registered Convoys <span class="ml-4 @if(count($events) >= 5) text-red-500 @endif">{{ count($events) }} / 5</span></h3>
+                <h3 class="m-0 font-bold text-2xl text-gray-300">All Registered Convoys <span class="ml-4 @if(count($events) >= 5) text-red-500 @endif">{{ count($events) }} / 5</span></h3>
             </div>
             <div>
                 <a href="{{ route('staff.convoys.create') }}" class="transition duration-200 ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-gray-700 font-bold bg-primary hover:text-gray-800 hover:bg-primary-dark">
@@ -23,8 +23,8 @@
                     <img class="rounded-t-md w-full h-full" src="{{ $event['banner'] ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="">
                 </div>
                 <div class="p-6">
-                    <h3 class="font-semibold text-xl mb-4">
-                        <a href="{{ 'https://truckersmp.com' . $event['url'] }}" target="_blank" class="transition duration-200 hover:opacity-80">{{ $event['name'] }}</a>
+                    <h3 class="font-semibold text-xl mt-0 mb-4">
+                        <a href="{{ 'https://truckersmp.com' . $event['url'] }}" target="_blank" class="text-gray-200 font-semibold transition duration-200 hover:text-gray-400">{{ $event['name'] }}</a>
                     </h3>
                     <div>
                         <div class="flex justify-between">

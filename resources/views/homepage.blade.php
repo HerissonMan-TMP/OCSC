@@ -49,8 +49,8 @@
                 <img class="rounded-t-md w-full h-full" src="{{ $event['banner'] ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="">
             </div>
             <div class="p-6">
-                <h3 class="font-semibold text-xl mb-4">
-                    <a href="{{ 'https://truckersmp.com' . $event['url'] }}" target="_blank" class="transition duration-200 hover:opacity-80">{{ $event['name'] }}</a>
+                <h3 class="font-semibold text-xl mt-0 mb-4">
+                    <a href="{{ 'https://truckersmp.com' . $event['url'] }}" target="_blank" class="text-gray-200 font-semibold transition duration-200 hover:text-gray-400">{{ $event['name'] }}</a>
                 </h3>
                 <div>
                     <div class="flex justify-between">

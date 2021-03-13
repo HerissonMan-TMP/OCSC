@@ -6,8 +6,8 @@
 
 @section('content-staff')
 <div class="px-4 py-5 md:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
-    <div class="mb-10 flex justify-between items-center">
-        <h3 class="font-bold text-2xl text-gray-300">Recruitment #{{ $recruitment->id }} - Application #{{ $application->id }} for <span style="color: {{ $recruitment->role->color }}">{{ $recruitment->role->name }}</span></h3>
+    <div class="flex justify-between items-center mt-2 mb-6">
+        <h3 class="m-0 font-bold text-2xl text-gray-300">Recruitment #{{ $recruitment->id }} - Application #{{ $application->id }} for <span style="color: {{ $recruitment->role->color }}">{{ $recruitment->role->name }}</span></h3>
         <i style="color: {{ $recruitment->role->color }}" class="flex-shrink-0 text-primary fas fa-{{ $recruitment->role->icon_name }} fa-fw fa-2x"></i>
     </div>
 

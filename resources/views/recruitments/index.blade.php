@@ -19,28 +19,28 @@
     <div class="overflow-x-auto md:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full md:px-6 lg:px-8">
             <div class="shadow overflow-hidden border-b border-gray-700 rounded-lg">
-                <table class="min-w-full divide-y divide-gray-900">
+                <table class="min-w-full divide-y divide-gray-900 border-none">
                     <thead class="bg-gray-900">
                         <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                            <th scope="col" class="border-none px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                                 Name
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                            <th scope="col" class="border-none px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                                 Status
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                            <th scope="col" class="border-none px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                                 Start datetime (UTC)
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                            <th scope="col" class="border-none px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                                 End datetime (UTC)
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                            <th scope="col" class="border-none px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                                 Opened by
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                            <th scope="col" class="border-none px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                                 Applications sent
                             </th>
-                            <th scope="col" class="relative px-6 py-3">
+                            <th scope="col" class="border-none relative px-6 py-3">
                                 <span class="sr-only">Edit</span>
                             </th>
                         </tr>
@@ -48,7 +48,7 @@
                     <tbody class="bg-gray-700 divide-y divide-gray-700">
                         @foreach($recruitments as $recruitment)
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="border-none px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0 h-10 w-10 flex items-center">
                                         <i style="color: {{ $recruitment->role->color }}" class="flex-shrink-0 fas fa-{{ $recruitment->role->icon_name }} fa-fw fa-2x"></i>
@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="border-none px-6 py-4 whitespace-nowrap">
                                 @if($recruitment->is_open)
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                     Open
@@ -69,19 +69,19 @@
                                 </span>
                                 @endif
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                            <td class="border-none px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                                 {{ $recruitment->start_at }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                            <td class="border-none px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                                 {{ $recruitment->end_at }}
                             </td>
-                            <td style="color: {{ $recruitment->user->roles->first()->color }}" class="px-6 py-4 whitespace-nowrap text-sm">
+                            <td style="color: {{ $recruitment->user->roles->first()->color }}" class="border-none px-6 py-4 whitespace-nowrap text-sm">
                                 {{ $recruitment->user->name }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                                <a href="{{ route('staff.recruitments.applications.index', $recruitment) }}">See applications</a> ({{ $recruitment->applications_count }})
+                            <td class="border-none px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                                <a href="{{ route('staff.recruitments.applications.index', $recruitment) }}" class="text-gray-300 hover:text-gray-400">See applications</a> ({{ $recruitment->applications_count }})
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <td class="border-none px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <a href="{{ route('staff.recruitments.edit', $recruitment) }}" class="transition duration-200 text-primary hover:text-primary-dark">Edit</a>
                             </td>
                         </tr>
