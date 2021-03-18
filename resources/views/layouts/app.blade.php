@@ -411,13 +411,13 @@
 
         <footer class="bg-gray-800 py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-3 gap-16 md:gap-20 text-gray-300 text-sm">
-                <div class="col-span-full md:col-span-1">
+                <div class="col-span-full md:col-span-1 text-center">
                     Section 1
                 </div>
-                <div class="col-span-full md:col-span-1">
+                <div class="col-span-full md:col-span-1 text-center">
                     Section 2
                 </div>
-                <div class="col-span-full md:col-span-1">
+                <div class="col-span-full md:col-span-1 text-center">
                     Section 3
                 </div>
             </div>
