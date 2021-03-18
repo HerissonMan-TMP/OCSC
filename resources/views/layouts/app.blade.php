@@ -179,19 +179,19 @@
                                                     Convoy News
                                                 </h3>
                                                 <ul class="mt-4 space-y-4">
-                                                    <li class="text-base truncate">
+                                                    <li class="list-none text-base truncate">
                                                         <a href="#" class="transition duration-200 font-medium text-gray-300 hover:text-gray-400 capitalize">
                                                             AT Convoy (23/02/2021) - Thank you for your attendance!
                                                         </a>
                                                     </li>
 
-                                                    <li class="text-base truncate">
+                                                    <li class="list-none text-base truncate">
                                                         <a href="#" class="transition duration-200 font-medium text-gray-300 hover:text-gray-400 capitalize">
                                                             What's new in our convoy rules ?
                                                         </a>
                                                     </li>
 
-                                                    <li class="text-base truncate">
+                                                    <li class="list-none text-base truncate">
                                                         <a href="#" class="transition duration-200 font-medium text-gray-300 hover:text-gray-400 capitalize">
                                                             Answer our OCSC Community Survey
                                                         </a>
