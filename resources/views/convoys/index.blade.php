@@ -8,7 +8,7 @@
     <div class="px-4 py-5 md:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
         <div class="flex justify-between items-center mt-2 mb-6">
             <div>
-                <h3 class="m-0 font-bold text-2xl text-gray-300">All Registered Convoys <span class="ml-4 @if(count($events) >= 5) text-red-500 @endif">{{ count($events) }} / 5</span></h3>
+                <h3 class="m-0 font-bold text-2xl text-gray-300">All Registered Convoys</h3>
             </div>
             <div>
                 <a href="{{ route('staff.convoys.create') }}" class="transition duration-200 ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-gray-700 font-bold bg-primary hover:text-gray-800 hover:bg-primary-dark">
@@ -17,47 +17,44 @@
             </div>
         </div>
         <div class="grid grid-cols-3 gap-16 md:gap-20">
-        @forelse($events as $event)
-            <div class="col-span-full md:col-span-1 rounded-md bg-gray-900 w-full h-full @if($event['meetup_date'] < now()) transition duration-200 opacity-50 hover:opacity-100 @endif">
+        @forelse($convoys as $convoy)
+            <div class="col-span-full md:col-span-1 rounded-md bg-gray-900 w-full h-full @if($convoy->meetup_date < now()) transition duration-200 opacity-50 hover:opacity-100 @endif">
                 <div>
-                    <img class="rounded-t-md w-full h-full" src="{{ $event['banner'] ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="">
+                    <img class="rounded-t-md w-full h-full" src="{{ $convoy->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="">
                 </div>
                 <div class="p-6">
                     <h3 class="font-semibold text-xl mt-0 mb-4">
-                        <a href="{{ 'https://truckersmp.com' . $event['url'] }}" target="_blank" class="text-gray-200 font-semibold transition duration-200 hover:text-gray-400">{{ $event['name'] }}</a>
+                        <a href="{{ 'https://truckersmp.com/events/' . $convoy->truckersmp_event_id }}" target="_blank" class="text-gray-200 font-semibold transition duration-200 hover:text-gray-400">{{ $convoy->title }}</a>
                     </h3>
                     <div>
                         <div class="flex justify-between">
                             <div>
-                                <i class="fas fa-map-marker-alt fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $event['departure']['city'] }}</span>
+                                <i class="fas fa-map-marker-alt fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $convoy->location }}</span>
                             </div>
                             <div>
-                                <span class="mr-2 text-sm">{{ $event['arrive']['city'] }}</span> <i class="fas fa-map-marker-alt fa-fw fa-sm"></i>
+                                <span class="mr-2 text-sm">{{ $convoy->destination }}</span> <i class="fas fa-map-marker-alt fa-fw fa-sm"></i>
                             </div>
                         </div>
                         <div>
-                            <i class="fas fa-route fa-fw fa-sm"></i> @if($event['distance'] !== null) <span class="ml-2 text-sm"> {{ $event['distance'] }} km</span> @else <span class="ml-2 text-sm italic"> Not set yet</span> @endif
+                            <i class="fas fa-route fa-fw fa-sm"></i> @if($convoy->distance !== null) <span class="ml-2 text-sm"> {{ $convoy->distance }} km</span> @else <span class="ml-2 text-sm italic"> Not set yet</span> @endif
                         </div>
                         <div>
-                            @if(str_contains($event['server']['name'], 'OPEN'))
+                            @if($convoy->server === 'Event Server')
                                 <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm text-primary font-bold uppercase">Event server</span>
                             @else
-                                <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm @if($event['server']['name'] === null) italic @endif">{{ $event['server']['name'] ?? 'To be determined' }}</span>
+                                <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm @if($convoy->server === 'To be determined') italic @endif">{{ $convoy->server }}</span>
                             @endif
                         </div>
                         <div>
-                            <i class="fas fa-calendar fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $event['start_at'] }} UTC</span>
-                        </div>
-                        <div class="mt-2">
-                            <span class="text-xs">Registered Meetup date: {{ $event['meetup_date'] }}</span>
+                            <i class="fas fa-calendar fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $convoy->meetup_date }} UTC</span>
                         </div>
                         <div class="grid grid-cols-3 gap-6 mt-4">
                             <div class="col-span-2">
-                                <a href="{{ route('staff.convoys.edit', $event['convoy_id']) }}" class="transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
+                                <a href="{{ route('staff.convoys.edit', $convoy) }}" class="transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
                                     Edit
                                 </a>
                             </div>
-                            <form action="{{ route('staff.convoys.destroy', $event['convoy_id']) }}" method="POST" class="col-span-1">
+                            <form action="{{ route('staff.convoys.destroy', $convoy) }}" method="POST" class="col-span-1">
                                 @csrf
                                 @method('DELETE')
                                 <button type="Submit" class="h-full transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-200 bg-red-500 hover:text-gray-300 hover:bg-red-600"><i class="fas fa-trash-alt fa-fw fa-md"></i></button>

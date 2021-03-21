@@ -29,19 +29,8 @@ class ConvoyController extends Controller
 
         $convoys = Convoy::latest('meetup_date')->get();
 
-        $events = [];
-
-        $counter = 0;
-        foreach ($convoys->pluck('truckersmp_event_id') as $convoy) {
-            array_push($events, $this->eventRequest->event($convoy)->get()['response']);
-            $events[$counter]['convoy_id'] = $convoys->pluck('id')->get($counter);
-            $events[$counter]['distance'] = $convoys->pluck('distance')->get($counter);
-            $events[$counter]['meetup_date'] = $convoys->pluck('meetup_date')->get($counter);
-            $counter++;
-        }
-
         return view('convoys.index')
-                ->with('events', $events)
+                ->with('convoys', $convoys)
                 ->with('convoyRules', WebsiteSetting::where('key', 'convoy-rules')->pluck('value')->first());
     }
 
@@ -49,18 +38,8 @@ class ConvoyController extends Controller
     {
         $convoys = Convoy::where('meetup_date', '>', now())->oldest('meetup_date')->get();
 
-        $events = [];
-
-        $counter = 0;
-        foreach ($convoys->pluck('truckersmp_event_id') as $convoy) {
-            array_push($events, $this->eventRequest->event($convoy)->get()['response']);
-            $events[$counter]['convoy_id'] = $convoys->pluck('id')->get($counter);
-            $events[$counter]['distance'] = $convoys->pluck('distance')->get($counter);
-            $counter++;
-        }
-
         return view('convoys.upcoming-convoys')
-            ->with('events', $events);
+            ->with('convoys', $convoys);
     }
 
     public function showRules()
@@ -77,7 +56,6 @@ class ConvoyController extends Controller
     public function create()
     {
         Gate::authorize('manage-convoys');
-        Gate::authorize('create-convoys');
 
         return view('convoys.create');
     }
@@ -85,7 +63,6 @@ class ConvoyController extends Controller
     public function store(StoreConvoyRequest $request)
     {
         Gate::authorize('manage-convoys');
-        Gate::authorize('create-convoys');
 
         $this->convoy->fill($request->validated());
         $this->convoy->save();

@@ -37,7 +37,6 @@ class AuthServiceProvider extends ServiceProvider
             'assign-role-to-user',
             'update-permissions-for-role',
             'update-permission-for-role',
-            'create-convoys'
         ];
         Gate::before(function (User $user, $ability) use ($abilitiesWithoutBypass) {
             if (!in_array($ability, $abilitiesWithoutBypass)
@@ -203,13 +202,6 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasPermission($ability)
                 ? Response::allow()
                 : Response::deny('You are not allowed to manage convoys.');
-        });
-
-        $ability = 'create-convoys';
-        Gate::define($ability, function (User $user) use ($ability) {
-            return Convoy::count() < 5
-                ? Response::allow()
-                : Response::deny('You cannot store more than 5 convoys at the same time.');
         });
     }
 }
