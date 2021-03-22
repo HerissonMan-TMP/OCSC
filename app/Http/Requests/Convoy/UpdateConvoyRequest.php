@@ -34,7 +34,7 @@ class UpdateConvoyRequest extends FormRequest
                 'max:50'
             ],
             'banner_url' => [
-                'required',
+                'nullable',
                 'url'
             ],
             'location' => [
@@ -75,7 +75,6 @@ class UpdateConvoyRequest extends FormRequest
             'title.required' => 'A title is required.',
             'title.max' => 'The title must not exceed :max characters.',
 
-            'banner_url.required' => 'A banner URL is required.',
             'banner_url.url' => 'The banner URL format is not valid.',
 
             'location.required' => 'A location is required.',

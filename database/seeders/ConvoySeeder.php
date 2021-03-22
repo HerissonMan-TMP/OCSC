@@ -48,7 +48,7 @@ class ConvoySeeder extends Seeder
         ]);
 
         Convoy::create([
-            'truckersmp_event_id' => 904,
+            'truckersmp_event_id' => 1,
             'title' => 'OCSC Event🚕🚚🚛| Test',
             'location' => 'Paris',
             'distance' => 1000,

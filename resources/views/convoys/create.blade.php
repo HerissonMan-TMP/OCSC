@@ -20,7 +20,7 @@
                     @enderror
                 </div>
                 <div class="col-span-full md:col-span-2 self-end">
-                    <button class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
+                    <button type="button" class="button-load-data w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
                         Load data
                     </button>
                 </div>
@@ -37,8 +37,8 @@
                 </div>
 
                 <div class="col-span-full md:col-span-5">
-                    <label for="banner_url" class="block text-sm font-medium text-gray-300">Banner URL <span class="text-red-500 font-bold">*</span></label>
-                    <input type="text" name="banner_url" id="banner_url" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ old('banner_url') }}" required>
+                    <label for="banner_url" class="block text-sm font-medium text-gray-300">Banner URL</label>
+                    <input type="text" name="banner_url" id="banner_url" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ old('banner_url') }}">
                     @error('banner_url')
                     <span class="pt-2 text-sm text-red-500">
                         {{ $message }}
