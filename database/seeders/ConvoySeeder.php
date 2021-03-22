@@ -16,26 +16,46 @@ class ConvoySeeder extends Seeder
     {
         Convoy::create([
             'truckersmp_event_id' => 896,
-            'distance' => 1524,
+            'title' => 'OCSC Event🚕🚚🚛| International Women\'s Day',
+            'banner_url' => 'https://static.truckersmp.com/images/event/cover/896.1613262466.jpeg',
+            'location' => 'Frankfurt',
+            'distance' => 1142,
+            'destination' => 'Civaux',
+            'server' => 'Simulation 2',
             'meetup_date' => '2021-03-08 20:30',
         ]);
 
         Convoy::create([
-            'truckersmp_event_id' => 1526,
-            'distance' => 950,
-            'meetup_date' => '2021-03-21 13:10',
-        ]);
-
-        Convoy::create([
             'truckersmp_event_id' => 1577,
-            'distance' => 1276,
+            'title' => 'OCSC Event🚕🚚🚛| Truck Brand Event : SCANIA !',
+            'banner_url' => 'https://static.truckersmp.com/images/event/cover/1577.1615296677.jpeg',
+            'location' => 'Other',
+            'distance' => 1270,
+            'destination' => 'Other',
+            'server' => 'ProMods',
             'meetup_date' => '2021-03-27 20:30',
         ]);
 
         Convoy::create([
             'truckersmp_event_id' => 904,
-            'distance' => 1109,
-            'meetup_date' => '2021-04-17 20:00',
+            'title' => 'OCSC Event🚕🚚🚛| Monthly Mega - April',
+            'banner_url' => 'https://static.truckersmp.com/images/event/cover/904.1612746219.jpeg',
+            'location' => 'Munich',
+            'distance' => 1176,
+            'destination' => 'Wrocław',
+            'server' => 'To be determined',
+            'meetup_date' => '2021-04-17 19:00',
+        ]);
+
+        Convoy::create([
+            'truckersmp_event_id' => 904,
+            'title' => 'OCSC Event🚕🚚🚛| Test',
+            'banner_url' => '',
+            'location' => 'Paris',
+            'distance' => 1000,
+            'destination' => 'Marseille',
+            'server' => 'Event Server',
+            'meetup_date' => '2021-04-25 19:00',
         ]);
     }
 }
