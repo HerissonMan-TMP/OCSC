@@ -15,7 +15,7 @@ class AddColumnsInConvoysTable extends Migration
     {
         Schema::table('convoys', function (Blueprint $table) {
             $table->string('location')->after('truckersmp_event_id');
-            $table->string('banner_url')->after('truckersmp_event_id');
+            $table->string('banner_url')->nullable()->after('truckersmp_event_id');
             $table->string('title')->after('truckersmp_event_id');
             $table->string('server')->after('distance');
             $table->string('destination')->after('distance');

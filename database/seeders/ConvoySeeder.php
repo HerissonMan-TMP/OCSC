@@ -50,7 +50,6 @@ class ConvoySeeder extends Seeder
         Convoy::create([
             'truckersmp_event_id' => 904,
             'title' => 'OCSC Event🚕🚚🚛| Test',
-            'banner_url' => '',
             'location' => 'Paris',
             'distance' => 1000,
             'destination' => 'Marseille',
