@@ -18,7 +18,7 @@
     </div>
     <div class="mt-6 grid grid-cols-3 gap-6">
         <div class="col-span-full md:col-span-1 bg-gray-700 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
-            <h4 class="font-bold text-2xl text-gray-300 mb-6"><i class="fas fa-id-card fa-fw"></i> User Information</h4>
+            <h4 class="font-bold text-2xl text-gray-300 mt-0 mb-6"><i class="fas fa-id-card fa-fw"></i> User Information</h4>
             <div class="flex flex-col">
                 <div class="flex">
                     <div class="mr-1">
@@ -68,14 +68,14 @@
             </div>
         </div>
         <div class="col-span-full md:col-span-2 bg-gray-700 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
-            <h4 class="font-bold text-2xl text-gray-300 mb-6"><i class="fas fa-wrench fa-fw"></i> Activity</h4>
+            <h4 class="font-bold text-2xl text-gray-300 mt-0 mb-6"><i class="fas fa-wrench fa-fw"></i> Activity</h4>
             <div class="text-gray-300 italic">
                 Feature planned in the future...
             </div>
         </div>
         @canany(['assign-roles'])
         <div class="col-span-full bg-gray-700 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
-            <h4 class="font-bold text-2xl text-gray-300 mb-6"><i class="fas fa-user-shield fa-fw"></i> Administration</h4>
+            <h4 class="font-bold text-2xl text-gray-300 mt-0 mb-6"><i class="fas fa-user-shield fa-fw"></i> Administration</h4>
             @cannot('assign-roles-to-user', $user)
             <form>
                 <fieldset class="opacity-50" disabled>
