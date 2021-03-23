@@ -41,6 +41,7 @@ Route::get('/convoy-rules', [ConvoyController::class, 'showRules'])->name('convo
 Route::get('/recruitments/{recruitment}', [RecruitmentController::class, 'show'])->name('recruitments.show');
 Route::post('recruitments/{recruitment}/applications', [ApplicationController::class, 'store'])->name('recruitments.applications.store');
 Route::view('/applications/success', 'applications.success-page')->name('applications.success-page');
+Route::get('/global-requirements', [RecruitmentController::class, 'showGlobalRequirements'])->name('recruitments.show-global-requirements');
 
 Route::get('/contact', [ContactMessageController::class, 'create'])->name('contact-messages.create');
 Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact-messages.store');

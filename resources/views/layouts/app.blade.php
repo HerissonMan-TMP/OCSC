@@ -261,7 +261,7 @@
                                         </div>
                                         <div class="px-5 py-5 bg-gray-800 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
                                             <div class="flow-root">
-                                                <a href="#" class="transition duration-200 -m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-300 hover:bg-gray-900">
+                                                <a href="{{ route('recruitments.show-global-requirements') }}" class="transition duration-200 -m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-300 hover:bg-gray-900">
                                                     <!-- Heroicon name: outline/play -->
                                                     <i class="flex-shrink-0 text-primary-dark fas fa-tasks fa-fw fa-lg"></i>
                                                     <span class="ml-3 text-sm">Global requirements</span>
