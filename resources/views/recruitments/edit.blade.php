@@ -168,7 +168,7 @@
 
     <div class="mt-6 w-full bg-gray-700 rounded-md border border-red-500">
         <div class="p-4 bg-red-500">
-            <h3 class="font-semibold text-2xl text-ged-200">Danger Zone</h3>
+            <h3 class="font-semibold text-2xl text-ged-200 m-0">Danger Zone</h3>
         </div>
         <div class="p-4">
             <form action="{{ route('staff.recruitments.destroy', $recruitment) }}" method="POST">
