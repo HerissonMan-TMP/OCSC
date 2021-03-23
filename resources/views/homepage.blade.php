@@ -44,15 +44,14 @@
 <section id="next-convoys" class="w-full h-1/4">
     <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16 grid grid-cols-3 gap-16 md:gap-20">
         @forelse($convoys as $convoy)
-        <div class="col-span-full md:col-span-1 bg-gray-800 rounded-md w-full h-full">
-
+        <div class="col-span-full md:col-span-1 bg-gray-800 rounded-md w-full h-full flex flex-col justify-between">
             <div>
                 <img class="rounded-t-md w-full h-full" src="{{ $convoy->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="">
             </div>
+            <h3 class="pt-6 px-6 font-semibold text-xl m-0">
+                {{ $convoy->title }}
+            </h3>
             <div class="p-6">
-                <h3 class="font-semibold text-xl mt-0 mb-4">
-                    {{ $convoy->title }}
-                </h3>
                 <div>
                     <div class="flex justify-between">
                         <div>
