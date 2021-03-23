@@ -6,8 +6,10 @@ use App\Http\Controllers\ConvoyController;
 use App\Http\Controllers\ConvoyRulesController;
 use App\Http\Controllers\GlobalRequirementsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LegalNoticeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RecruitmentController;
@@ -48,6 +50,9 @@ Route::get('/contact', [ContactMessageController::class, 'create'])->name('conta
 Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact-messages.store');
 Route::view('/contact/success', 'contact-messages.success-page')->name('contact-messages.show-success');
 
+Route::view('/legal-notice', 'legal-notice')->name('legal-notice');
+Route::view('/privacy-policy', 'privacy-policy')->name('privacy-policy');
+
 Route::middleware(['auth', 'temporary_password'])->group(function() {
     Route::view('/staff/temporary-password/edit', 'edit-temporary-password')->name('staff.temporary-password.edit');
     Route::post('/staff/temporary-password/update', [UserController::class, 'updateTemporaryPassword'])->name('staff.temporary-password.update');
@@ -72,6 +77,9 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::view('/gallery-management', '')->name('gallery-management');
 
         Route::view('/website-settings', 'website-settings.show')->name('website-settings');
+        Route::patch('/legal-notice', [LegalNoticeController::class, 'update'])->name('legal-notice.update');
+        Route::patch('/privacy-policy', [PrivacyPolicyController::class, 'update'])->name('privacy-policy.update');
+
         Route::view('/discord-settings', 'discord-settings.show')->name('discord-settings');
 
         Route::get('/contact-messages', [ContactMessageController::class, 'index'])->name('contact-messages.index');
