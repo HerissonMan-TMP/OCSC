@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Convoy\StoreConvoyRequest;
 use App\Http\Requests\Convoy\UpdateConvoyRequest;
 use App\Models\Convoy;
-use App\Services\TruckersMPAPI;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
@@ -14,12 +13,9 @@ class ConvoyController extends Controller
 {
     protected $convoy;
 
-    protected $eventRequest;
-
-    public function __construct(Convoy $convoy, TruckersMPAPI\EventRequest $eventRequest)
+    public function __construct(Convoy $convoy)
     {
         $this->convoy = $convoy;
-        $this->eventRequest = $eventRequest;
     }
 
     public function index()
