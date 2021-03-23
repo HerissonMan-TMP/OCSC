@@ -13,7 +13,7 @@
         </div>
         <div class="grid grid-cols-3 gap-16 md:gap-20">
             @forelse($convoys as $convoy)
-                <div class="col-span-full md:col-span-1 rounded-md bg-gray-900 w-full h-full flex flex-col justify-between @if($convoy->meetup_date < now()) transition duration-200 opacity-50 hover:opacity-100 @endif">
+                <div class="col-span-full md:col-span-1 rounded-md bg-gray-900 w-full h-full flex flex-col justify-between">
                     <div>
                         <img class="rounded-t-md w-full h-full" src="{{ $convoy->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="">
                     </div>
