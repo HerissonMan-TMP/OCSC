@@ -4,8 +4,75 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8b8fb9a2de5de4f0d3eb0c7475d273d",
+    "content-hash": "836aa60ed8f07bac5e9570c4c3503701",
     "packages": [
+        {
+            "name": "akaunting/laravel-setting",
+            "version": "1.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akaunting/laravel-setting.git",
+                "reference": "6faedfebd866c3f30efeda58e8a142979ed554b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akaunting/laravel-setting/zipball/6faedfebd866c3f30efeda58e8a142979ed554b2",
+                "reference": "6faedfebd866c3f30efeda58e8a142979ed554b2",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=5.3",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "laravel/framework": ">=5.3",
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": ">=4.8"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Akaunting\\Setting\\Provider"
+                    ],
+                    "aliases": {
+                        "Setting": "Akaunting\\Setting\\Facade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Akaunting\\Setting\\": "./src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Denis Duliçi",
+                    "email": "info@akaunting.com",
+                    "homepage": "https://akaunting.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Persistent settings package for Laravel",
+            "keywords": [
+                "Settings",
+                "config",
+                "laravel",
+                "persistent"
+            ],
+            "support": {
+                "issues": "https://github.com/akaunting/laravel-setting/issues",
+                "source": "https://github.com/akaunting/laravel-setting/tree/1.2.5"
+            },
+            "time": "2021-03-05T12:10:57+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.9.2",

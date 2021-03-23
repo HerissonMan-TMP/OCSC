@@ -24,7 +24,8 @@ class Recruitment extends Model
     protected $fillable = [
         'start_at',
         'end_at',
-        'note'
+        'note',
+        'specific_requirements'
     ];
 
     /**

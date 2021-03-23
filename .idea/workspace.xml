@@ -5,8 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/TTFR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TTFR.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ConvoyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ConvoyController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecruitmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecruitmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Recruitment/StoreRecruitmentRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Recruitment/StoreRecruitmentRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Recruitment/UpdateRecruitmentRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Recruitment/UpdateRecruitmentRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Recruitment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Recruitment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/WebsiteSetting.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/convoys/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoys/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/convoys/rules.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoy-rules.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/global-requirements.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-requirements.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,6 +169,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/graham-campbell/markdown" />
+      <path value="$PROJECT_DIR$/vendor/akaunting/laravel-setting" />
     </include_path>
   </component>
   <component name="ProjectId" id="1p6YDBYL3Y3S9kmyGf9YbXMIcr8" />
@@ -183,9 +201,9 @@
       <recent name="C:\xampp\htdocs\TTFR\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TTFR\resources\views" />
       <recent name="C:\xampp\htdocs\TTFR\app\Http\Controllers" />
       <recent name="C:\xampp\htdocs\TTFR\resources\views\applications" />
-      <recent name="C:\xampp\htdocs\TTFR\resources\views" />
       <recent name="C:\xampp\htdocs\TTFR\resources\views\staff\users" />
       <recent name="C:\xampp\htdocs\TTFR\resources\views\contact-messages" />
     </key>
@@ -228,7 +246,7 @@
       <workItem from="1616351800721" duration="5649000" />
       <workItem from="1616431557044" duration="5205000" />
       <workItem from="1616440332203" duration="3178000" />
-      <workItem from="1616495230082" duration="4177000" />
+      <workItem from="1616495230082" duration="10628000" />
     </task>
     <servers />
   </component>

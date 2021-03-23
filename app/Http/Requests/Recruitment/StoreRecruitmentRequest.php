@@ -44,6 +44,9 @@ class StoreRecruitmentRequest extends FormRequest
             'note' => [
                 'nullable',
                 'max:5000'
+            ],
+            'specific_requirements' => [
+                'nullable'
             ]
         ];
     }

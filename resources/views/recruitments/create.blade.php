@@ -59,8 +59,19 @@
                     </span>
                     @enderror
                 </div>
+
+                <div class="col-span-full">
+                    <label for="specific_requirements" class="block text-sm font-medium text-gray-300">Specific Requirements</label>
+                    <textarea name="specific_requirements" id="specific_requirements" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="10">{{ old('specific_requirements') }}</textarea>
+                    @error('specific_requirements')
+                    <span class="pt-2 text-sm text-red-500">
+                        {{ $message }}
+                    </span>
+                    @enderror
+                </div>
             </div>
         </div>
+
         <div class="mt-6 bg-gray-800 text-right">
             <button type="submit" class="transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
                 Send

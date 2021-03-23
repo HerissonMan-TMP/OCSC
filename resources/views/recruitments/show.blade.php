@@ -15,6 +15,23 @@
                 <h3 class="font-bold text-2xl text-gray-300 mt-2 mb-6">Recruitment #{{ $recruitment->id }} - Apply for <span style="color: {{ $recruitment->role->color }}">{{ $recruitment->role->name }}</span></h3>
                 <i style="color: {{ $recruitment->role->color }}" class="flex-shrink-0 text-primary fas fa-{{ $recruitment->role->icon_name }} fa-fw fa-2x"></i>
             </div>
+
+            <div>
+                <h4 class="font-bold text-gray-300 mt-2 mb-6">Requirements</h4>
+                @if(setting('global-requirements'))
+                <p>
+                    @markdown(setting('global-requirements'))
+                </p>
+                @endif
+                @if($recruitment->specific_requirements)
+                <p>
+                    @markdown($recruitment->specific_requirements)
+                </p>
+                @endif
+            </div>
+
+            <hr class="col-span-full border-b border-gray-700">
+
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-full md:col-span-3">
                     <label for="discord" class="block font-medium text-gray-300">Discord username <span class="text-red-500">*</span></label>
@@ -35,8 +52,6 @@
                 </span>
                     @enderror
                 </div>
-
-                <hr class="col-span-full border-b border-gray-700">
 
                 @foreach($recruitment->questions as $question)
                     <div class="col-span-full mb-4">

@@ -3,6 +3,8 @@
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\ConvoyController;
+use App\Http\Controllers\ConvoyRulesController;
+use App\Http\Controllers\GlobalRequirementsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PermissionController;
@@ -36,12 +38,12 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::get('/upcoming-convoys', [ConvoyController::class, 'showUpcoming'])->name('convoys.show-upcoming');
-Route::get('/convoy-rules', [ConvoyController::class, 'showRules'])->name('convoys.show-rules');
+Route::view('/convoy-rules', 'convoy-rules')->name('convoy-rules');
 
 Route::get('/recruitments/{recruitment}', [RecruitmentController::class, 'show'])->name('recruitments.show');
 Route::post('recruitments/{recruitment}/applications', [ApplicationController::class, 'store'])->name('recruitments.applications.store');
+Route::view('/global-requirements', 'global-requirements')->name('global-requirements');
 Route::view('/applications/success', 'applications.success-page')->name('applications.success-page');
-Route::get('/global-requirements', [RecruitmentController::class, 'showGlobalRequirements'])->name('recruitments.show-global-requirements');
 
 Route::get('/contact', [ContactMessageController::class, 'create'])->name('contact-messages.create');
 Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact-messages.store');
@@ -65,8 +67,7 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::get('/convoys/{convoy}/edit', [ConvoyController::class, 'edit'])->name('convoys.edit');
         Route::patch('/convoys/{convoy}', [ConvoyController::class, 'update'])->name('convoys.update');
         Route::delete('/convoys/{convoy}', [ConvoyController::class, 'destroy'])->name('convoys.destroy');
-
-        Route::patch('/website-settings/{websiteSetting:key}', [WebsiteSettingController::class, 'update'])->name('website-settings.update');
+        Route::patch('/convoy-rules', [ConvoyRulesController::class, 'update'])->name('convoy-rules.update');
 
         Route::view('/partnership-management', '')->name('partnership-management');
         Route::view('/gallery-management', '')->name('gallery-management');
@@ -99,6 +100,8 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
 
         Route::post('/recruitments/{recruitment}/applications/{application}/accept', [ApplicationController::class, 'accept'])->name('recruitments.applications.accept');
         Route::post('/recruitments/{recruitment}/applications/{application}/decline', [ApplicationController::class, 'decline'])->name('recruitments.applications.decline');
+
+        Route::patch('/global-requirements', [GlobalRequirementsController::class, 'update'])->name('global-requirements.update');
 
         Route::get('/staff-members-list', [UserController::class, 'index'])->name('staff-members-list');
 

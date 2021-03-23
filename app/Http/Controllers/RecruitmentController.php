@@ -8,7 +8,6 @@ use App\Http\Requests\Recruitment\UpdateRecruitmentRequest;
 use App\Models\Recruitment;
 use App\Models\Role;
 use App\Models\User;
-use App\Models\WebsiteSetting;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -59,9 +58,11 @@ class RecruitmentController extends Controller
     public function show(Recruitment $recruitment)
     {
         $recruitment = $recruitment->load(['role', 'questions']);
+        $globalRequirements = WebsiteSetting::where('key', 'global-requirements')->pluck('value')->first();
 
         return view('recruitments.show')
-                    ->with('recruitment', $recruitment);
+                    ->with('recruitment', $recruitment)
+                    ->with('globalRequirements', $globalRequirements);
     }
 
     /**
@@ -146,11 +147,5 @@ class RecruitmentController extends Controller
         $recruitment->delete();
 
         return redirect()->route('staff.recruitment-management');
-    }
-
-    public function showGlobalRequirements()
-    {
-        return view('recruitments.global-requirements')
-            ->with('globalRequirements', WebsiteSetting::where('key', 'global-requirements')->pluck('value')->first());
     }
 }

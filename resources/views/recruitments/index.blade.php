@@ -91,5 +91,22 @@
             </div>
         </div>
     </div>
+    <div class="mt-10">
+        <h3 class="font-bold text-2xl text-gray-300">Global Requirements</h3>
+        <form action="{{ route('staff.global-requirements.update') }}" method="POST">
+            @csrf
+            @method('PATCH')
+            <label for="global_requirements" class="block text-sm font-medium text-gray-300">Global Requirements <span class="text-red-500 font-bold">*</span></label>
+            <textarea name="global_requirements" id="global_requirements" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="10">{{ old('global_requirements') ?? setting('global-requirements') }}</textarea>
+            @error('global_requirements')
+            <span class="pt-2 text-sm text-red-500">
+                    {{ $message }}
+                </span>
+            @enderror
+            <div class="mt-6 text-right">
+                <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">Update the requirements</button>
+            </div>
+        </form>
+    </div>
 </div>
 @endsection
