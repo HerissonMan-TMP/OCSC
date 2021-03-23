@@ -236,10 +236,10 @@
                                             @foreach($recruitableRoles->sortBy('order') as $role)
                                             <a @if($role->recruitments->isNotEmpty()) href="{{ route('recruitments.show', $role->recruitments->first()) }}" @endif class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                 <!-- Heroicon name: outline/chart-bar -->
-                                                <i class="flex-shrink-0 text-primary fas fa-{{ $role->icon_name }} fa-fw fa-lg mt-2"></i>
+                                                <i class="flex-shrink-0 text-primary fas fa-{{ $role->icon_name }} fa-fw fa-lg mt-2" style="color: {{ $role->color }};"></i>
                                                 <div class="w-full ml-4">
                                                     <div class="flex justify-between">
-                                                        <p class="mb-0 text-base font-medium text-gray-200">
+                                                        <p class="mb-0 text-base font-bold" style="color: {{ $role->color }};">
                                                             {{ $role->name }}
                                                         </p>
                                                         @if($role->recruitments->isNotEmpty())
