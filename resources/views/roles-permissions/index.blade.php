@@ -24,7 +24,7 @@
         $roleHasAdminRights = $role->hasPermission('has-admin-rights');
     @endphp
         <div class="overflow-hidden rounded-t-md">
-            <div class="p-4 flex justify-between items-center border" style="background-color: {{ $role->color }}; border-color: {{ $role->color }}">
+            <div class="p-4 flex justify-between items-center border" style="background-color: {{ $role->color }}; color: {{ $role->contrast_color }}; border-color: {{ $role->color }}">
                 <div class="flex items-center">
                     <i class="flex-shrink-0 fas fa-{{ $role->icon_name }} fa-fw fa-lg mr-2"></i>
                     <h2 class="m-0 text-lg font-bold">{{ $role->name }}</h2>

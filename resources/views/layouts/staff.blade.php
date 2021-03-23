@@ -17,8 +17,8 @@
         </div>
         <div>
             @foreach($authUser->roles as $role)
-                <div style="background-color: {{ $role->color }}" class="inline-block px-2 py-1 rounded-md leading-3 mr-2 mt-2 md:my-0">
-                    <span class="font-bold text-gray-200 text-sm">{{ $role->name }}</span>
+                <div style="background-color: {{ $role->color }}; color: {{ $role->contrast_color }};" class="inline-block px-2 py-1 rounded-md leading-3 mr-2 mt-2 md:my-0">
+                    <span class="font-bold text-sm">{{ $role->name }}</span>
                 </div>
             @endforeach
         </div>

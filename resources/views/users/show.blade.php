@@ -10,8 +10,8 @@
         <h3 class="inline-block flex-shrink-0 font-bold text-2xl text-gray-300 mr-4">{{ $user->name }}</h3>
         <div>
             @foreach($user->roles->sortBy('order') as $role)
-            <div style="background-color: {{ $role->color }}" class="inline-block px-2 py-1 rounded-md leading-3 mr-2 my-2">
-                <span class="font-bold text-gray-200 text-sm">{{ $role->name }}</span>
+            <div style="background-color: {{ $role->color }}; color: {{ $role->contrast_color }};" class="inline-block px-2 py-1 rounded-md leading-3 mr-2 my-2">
+                <span class="font-bold text-sm">{{ $role->name }}</span>
             </div>
             @endforeach
         </div>
