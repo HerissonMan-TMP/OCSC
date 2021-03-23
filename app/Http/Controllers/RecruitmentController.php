@@ -58,11 +58,9 @@ class RecruitmentController extends Controller
     public function show(Recruitment $recruitment)
     {
         $recruitment = $recruitment->load(['role', 'questions']);
-        $globalRequirements = WebsiteSetting::where('key', 'global-requirements')->pluck('value')->first();
 
         return view('recruitments.show')
-                    ->with('recruitment', $recruitment)
-                    ->with('globalRequirements', $globalRequirements);
+                    ->with('recruitment', $recruitment);
     }
 
     /**
