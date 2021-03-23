@@ -54,7 +54,7 @@
             </div>
 
             <div class="col-span-full">
-                <label for="specific_requirements" class="block text-sm font-medium text-gray-300">Specific Requirements</label>
+                <label for="specific_requirements" class="block text-sm font-medium text-gray-300">Specific Requirements <i class="ml-1 flex-shrink-0 fab fa-markdown fa-fw"></i></label>
                 <textarea name="specific_requirements" id="specific_requirements" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="10">{{ old('specific_requirements') ?? $recruitment->specific_requirements }}</textarea>
                 @error('specific_requirements')
                 <span class="pt-2 text-sm text-red-500">

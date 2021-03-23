@@ -71,7 +71,7 @@
             <form action="{{ route('staff.convoy-rules.update') }}" method="POST">
                 @csrf
                 @method('PATCH')
-                <label for="convoy_rules" class="block text-sm font-medium text-gray-300">Convoy Rules <span class="text-red-500 font-bold">*</span></label>
+                <label for="convoy_rules" class="block text-sm font-medium text-gray-300">Convoy Rules <span class="text-red-500 font-bold">*</span> <i class="ml-1 flex-shrink-0 fab fa-markdown fa-fw"></i></label>
                 <textarea name="convoy_rules" id="convoy_rules" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="30">{{ old('convoy_rules') ?? setting('convoy-rules') }}</textarea>
                 @error('convoy_rules')
                 <span class="pt-2 text-sm text-red-500">

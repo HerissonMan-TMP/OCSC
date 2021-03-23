@@ -96,7 +96,7 @@
         <form action="{{ route('staff.global-requirements.update') }}" method="POST">
             @csrf
             @method('PATCH')
-            <label for="global_requirements" class="block text-sm font-medium text-gray-300">Global Requirements <span class="text-red-500 font-bold">*</span></label>
+            <label for="global_requirements" class="block text-sm font-medium text-gray-300">Global Requirements <span class="text-red-500 font-bold">*</span> <i class="ml-1 flex-shrink-0 fab fa-markdown fa-fw"></i></label>
             <textarea name="global_requirements" id="global_requirements" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="10">{{ old('global_requirements') ?? setting('global-requirements') }}</textarea>
             @error('global_requirements')
             <span class="pt-2 text-sm text-red-500">

@@ -16,7 +16,7 @@
             <form action="{{ route('staff.legal-notice.update') }}" method="POST">
                 @csrf
                 @method('PATCH')
-                <label for="legal_notice" class="block text-sm font-medium text-gray-300">Legal Notice <span class="text-red-500 font-bold">*</span></label>
+                <label for="legal_notice" class="block text-sm font-medium text-gray-300">Legal Notice <span class="text-red-500 font-bold">*</span> <i class="ml-1 flex-shrink-0 fab fa-markdown fa-fw"></i></label>
                 <textarea name="legal_notice" id="legal_notice" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="10">{{ old('legal_notice') ?? setting('legal-notice') }}</textarea>
                 @error('legal_notice')
                 <span class="pt-2 text-sm text-red-500">
@@ -32,7 +32,7 @@
             <form action="{{ route('staff.privacy-policy.update') }}" method="POST">
                 @csrf
                 @method('PATCH')
-                <label for="privacy_policy" class="block text-sm font-medium text-gray-300">Privacy Policy <span class="text-red-500 font-bold">*</span></label>
+                <label for="privacy_policy" class="block text-sm font-medium text-gray-300">Privacy Policy <span class="text-red-500 font-bold">*</span> <i class="ml-1 flex-shrink-0 fab fa-markdown fa-fw"></i></label>
                 <textarea name="privacy_policy" id="privacy_policy" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="10">{{ old('privacy_policy') ?? setting('privacy-policy') }}</textarea>
                 @error('privacy_policy')
                 <span class="pt-2 text-sm text-red-500">
