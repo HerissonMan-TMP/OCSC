@@ -8,6 +8,7 @@ use App\Http\Controllers\GlobalRequirementsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalNoticeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MaintenanceModeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\QuestionController;
@@ -79,6 +80,8 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::view('/website-settings', 'website-settings.show')->name('website-settings');
         Route::patch('/legal-notice', [LegalNoticeController::class, 'update'])->name('legal-notice.update');
         Route::patch('/privacy-policy', [PrivacyPolicyController::class, 'update'])->name('privacy-policy.update');
+        Route::post('/maintenance-mode/enable', [MaintenanceModeController::class, 'enable'])->name('maintenance-mode.enable');
+        Route::post('/maintenance-mode/disable', [MaintenanceModeController::class, 'disable'])->name('maintenance-mode.disable');
 
         Route::view('/discord-settings', 'discord-settings.show')->name('discord-settings');
 

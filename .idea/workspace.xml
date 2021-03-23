@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/SettingSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/SettingSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/website-settings/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website-settings/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -231,7 +229,8 @@
       <workItem from="1616351800721" duration="5649000" />
       <workItem from="1616431557044" duration="5205000" />
       <workItem from="1616440332203" duration="3178000" />
-      <workItem from="1616495230082" duration="16330000" />
+      <workItem from="1616495230082" duration="18684000" />
+      <workItem from="1616518630718" duration="3468000" />
     </task>
     <servers />
   </component>
@@ -264,6 +263,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Creation of a layout and homepage file" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
