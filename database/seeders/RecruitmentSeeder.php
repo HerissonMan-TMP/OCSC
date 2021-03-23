@@ -18,6 +18,7 @@ class RecruitmentSeeder extends Seeder
         $recruitment->fill([
             'start_at' => now(),
             'end_at' => now()->addDays(15),
+            'specific_requirements' => '- test requirement 1'
         ]);
         $recruitment->role()->associate(1);
         $recruitment->user()->associate(10);

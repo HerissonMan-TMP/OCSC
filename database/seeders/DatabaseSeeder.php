@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         DB::table('contact_messages')->truncate();
         DB::table('contact_categories')->truncate();
         DB::table('convoys')->truncate();
+        DB::table('settings')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
         $this->call([
@@ -40,6 +41,7 @@ class DatabaseSeeder extends Seeder
             ContactCategorySeeder::class,
             ContactMessageSeeder::class,
             ConvoySeeder::class,
+            SettingSeeder::class,
         ]);
     }
 }
