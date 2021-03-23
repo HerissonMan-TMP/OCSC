@@ -24,9 +24,12 @@
         $roleHasAdminRights = $role->hasPermission('has-admin-rights');
     @endphp
         <div class="overflow-hidden rounded-t-md">
-            <div class="p-4 flex items-center border" style="background-color: {{ $role->color }}; border-color: {{ $role->color }}">
-                <i class="flex-shrink-0 fas fa-{{ $role->icon_name }} fa-fw fa-lg mr-2"></i>
-                <h2 class="m-0 text-lg font-bold">{{ $role->name }}</h2>
+            <div class="p-4 flex justify-between items-center border" style="background-color: {{ $role->color }}; border-color: {{ $role->color }}">
+                <div class="flex items-center">
+                    <i class="flex-shrink-0 fas fa-{{ $role->icon_name }} fa-fw fa-lg mr-2"></i>
+                    <h2 class="m-0 text-lg font-bold">{{ $role->name }}</h2>
+                </div>
+                <div class="text-lg font-bold">{{ $role->group_level }}</div>
             </div>
             <div class="p-4 border-b border-l border-r rounded-b-md" style="border-color: {{ $role->color }}">
             @if($cannotUpdatePermissions)
