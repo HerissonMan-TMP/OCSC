@@ -6,8 +6,12 @@
 
 @section('content-staff')
 <div class="px-4 py-5 md:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
+    <h3 class="font-bold text-gray-300 m-0 mb-4">Website Settings</h3>
+
+    <hr class="col-span-full border-b border-gray-700 my-10">
+
     <div>
-        <h3 class="font-bold text-2xl text-gray-300 m-0 mb-4">Legal Notice & Privacy Policy</h3>
+        <h4 class="font-bold text-gray-300 m-0 mb-4">Legal Notice & Privacy Policy</h4>
         <div>
             <form action="{{ route('staff.legal-notice.update') }}" method="POST">
                 @csrf
@@ -42,10 +46,12 @@
         </div>
     </div>
 
-    <div class="mt-10">
+    <hr class="col-span-full border-b border-gray-700 my-10">
+
+    <div>
         <div class="bg-gray-700 rounded-md border border-yellow-500">
             <div class="p-4 bg-yellow-500">
-                <h3 class="font-semibold text-2xl text-yellow-100 m-0">Maintenance Mode</h3>
+                <h4 class="font-semibold text-yellow-100 m-0">Maintenance Mode</h4>
             </div>
             <div class="p-4">
                 <div class="text-sm mb-6 text-justify">
