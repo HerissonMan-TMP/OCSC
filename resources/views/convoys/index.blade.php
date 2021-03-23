@@ -26,7 +26,6 @@
                     <a href="{{ 'https://truckersmp.com/events/' . $convoy->truckersmp_event_id }}" target="_blank" class="text-gray-200 font-semibold transition duration-200 hover:text-gray-400">{{ $convoy->title }}</a>
                 </h3>
                 <div class="p-6">
-                    <div>
                         <div class="flex justify-between">
                             <div>
                                 <i class="fas fa-map-marker-alt fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $convoy->location }}</span>
@@ -60,7 +59,6 @@
                                 <button type="Submit" class="h-full transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-200 bg-red-500 hover:text-gray-300 hover:bg-red-600"><i class="fas fa-trash-alt fa-fw fa-md"></i></button>
                             </form>
                         </div>
-                    </div>
                 </div>
             </div>
         @empty

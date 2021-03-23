@@ -52,32 +52,30 @@
                 {{ $convoy->title }}
             </h3>
             <div class="p-6">
-                <div>
-                    <div class="flex justify-between">
-                        <div>
-                            <i class="fas fa-map-marker-alt fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $convoy->location }}</span>
-                        </div>
-                        <div>
-                            <span class="mr-2 text-sm">{{ $convoy->destination }}</span> <i class="fas fa-map-marker-alt fa-fw fa-sm"></i>
-                        </div>
+                <div class="flex justify-between">
+                    <div>
+                        <i class="fas fa-map-marker-alt fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $convoy->location }}</span>
                     </div>
                     <div>
-                        <i class="fas fa-route fa-fw fa-sm"></i> @if($convoy->distance !== null) <span class="ml-2 text-sm"> {{ $convoy->distance }} km</span> @else <span class="ml-2 text-sm italic"> Not set yet</span> @endif
+                        <span class="mr-2 text-sm">{{ $convoy->destination }}</span> <i class="fas fa-map-marker-alt fa-fw fa-sm"></i>
                     </div>
-                    <div>
-                        @if($convoy->server === 'Event Server')
-                            <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm text-primary font-bold uppercase">Event server</span>
-                        @else
-                            <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm @if($convoy->server === 'To be determined') italic @endif">{{ $convoy->server }}</span>
-                        @endif
-                    </div>
-                    <div>
-                        <i class="fas fa-calendar fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $convoy->meetup_date }} UTC</span>
-                    </div>
-                    <a href="{{ 'https://truckersmp.com/events/' . $convoy->truckersmp_event_id }}" target="_blank" class="mt-4 transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
-                        Register on TruckersMP
-                    </a>
                 </div>
+                <div>
+                    <i class="fas fa-route fa-fw fa-sm"></i> @if($convoy->distance !== null) <span class="ml-2 text-sm"> {{ $convoy->distance }} km</span> @else <span class="ml-2 text-sm italic"> Not set yet</span> @endif
+                </div>
+                <div>
+                    @if($convoy->server === 'Event Server')
+                        <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm text-primary font-bold uppercase">Event server</span>
+                    @else
+                        <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm @if($convoy->server === 'To be determined') italic @endif">{{ $convoy->server }}</span>
+                    @endif
+                </div>
+                <div>
+                    <i class="fas fa-calendar fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $convoy->meetup_date }} UTC</span>
+                </div>
+                <a href="{{ 'https://truckersmp.com/events/' . $convoy->truckersmp_event_id }}" target="_blank" class="mt-4 transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
+                    Register on TruckersMP
+                </a>
             </div>
         </div>
         @empty
