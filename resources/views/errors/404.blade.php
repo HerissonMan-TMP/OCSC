@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', "403 Not Authorized")
+@section('title', "404 Not Found")
 
-@section('breadcrumb', '404 - Not Found')
+@section('breadcrumb', '404 Not Found')
 
 @section('content')
 <div class="max-w-7xl mx-auto px-4 md:px-6 my-16">

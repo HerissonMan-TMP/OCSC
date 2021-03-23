@@ -2,7 +2,7 @@
 
 @section('title', "403 Not Authorized")
 
-@section('breadcrumb', '403 - Not Authorized')
+@section('breadcrumb', '403 Not Authorized')
 
 @section('content')
 <div class="max-w-7xl mx-auto px-4 md:px-6 my-16">
