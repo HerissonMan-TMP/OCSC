@@ -7,7 +7,7 @@
 @section('content-staff')
 <div class="px-4 py-5 md:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
     <div class="flex items-center flex-wrap">
-        <h3 class="inline-block flex-shrink-0 font-bold text-2xl text-gray-300 mr-4">{{ $user->name }}</h3>
+        <h3 class="inline-block flex-shrink-0 font-bold text-2xl text-gray-300 m-0 mr-4">{{ $user->name }}</h3>
         <div>
             @foreach($user->roles->sortBy('order') as $role)
             <div style="background-color: {{ $role->color }}; color: {{ $role->contrast_color }};" class="inline-block px-2 py-1 rounded-md leading-3 mr-2 my-2">
