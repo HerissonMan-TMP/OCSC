@@ -36,11 +36,6 @@ class ConvoyController extends Controller
             ->with('convoys', $convoys);
     }
 
-    public function show(Convoy $convoy)
-    {
-
-    }
-
     public function create()
     {
         Gate::authorize('manage-convoys');
