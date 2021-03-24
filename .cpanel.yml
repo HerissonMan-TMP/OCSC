@@ -1,36 +1,36 @@
 ---
 deployment:
   tasks:
-    - rm -r /home/cp1592537p25/public_html/css
-    - rm -r /home/cp1592537p25/public_html/img
-    - rm -r /home/cp1592537p25/public_html/js
-    - rm /home/cp1592537p25/public_html/.htaccess
-    - rm /home/cp1592537p25/public_html/favicon.ico
-    - rm /home/cp1592537p25/public_html/index.php
-    - rm /home/cp1592537p25/public_html/index_production.php
-    - rm /home/cp1592537p25/public_html/mix-manifest.json
-    - rm /home/cp1592537p25/public_html/robots.txt
-    - rm /home/cp1592537p25/public_html/web.config
+    - rm -rf /home/cp1592537p25/public_html/css
+    - rm -rf /home/cp1592537p25/public_html/img
+    - rm -rf /home/cp1592537p25/public_html/js
+    - rm -f /home/cp1592537p25/public_html/.htaccess
+    - rm -f /home/cp1592537p25/public_html/favicon.ico
+    - rm -f /home/cp1592537p25/public_html/index.php
+    - rm -f /home/cp1592537p25/public_html/index_production.php
+    - rm -f /home/cp1592537p25/public_html/mix-manifest.json
+    - rm -f /home/cp1592537p25/public_html/robots.txt
+    - rm -f /home/cp1592537p25/public_html/web.config
     - cp -R /home/cp1592537p25/OCSC_repo/public/. /home/cp1592537p25/public_html/
-    - rm -r /home/cp1592537p25/app
-    - rm -r /home/cp1592537p25/bootstrap
-    - rm -r /home/cp1592537p25/config
-    - rm -r /home/cp1592537p25/database
-    - rm -r /home/cp1592537p25/resources
-    - rm -r /home/cp1592537p25/routes
-    - rm -r /home/cp1592537p25/storage
-    - rm -r /home/cp1592537p25/tests
-    - rm /home/cp1592537p25/.env
-    - rm -v /home/cp1592537p25/artisan
-    - rm -v /home/cp1592537p25/composer.json
-    - rm -v /home/cp1592537p25/composer.lock
-    - rm -v /home/cp1592537p25/package.json
-    - rm -v /home/cp1592537p25/package-lock.json
-    - rm -v /home/cp1592537p25/phpunit.xml
-    - rm -v /home/cp1592537p25/README.md
-    - rm -v /home/cp1592537p25/server.php
-    - rm -v /home/cp1592537p25/tailwind.config.js
-    - rm -v /home/cp1592537p25/webpack.mix.js
+    - rm -rf /home/cp1592537p25/app
+    - rm -rf /home/cp1592537p25/bootstrap
+    - rm -rf /home/cp1592537p25/config
+    - rm -rf /home/cp1592537p25/database
+    - rm -rf /home/cp1592537p25/resources
+    - rm -rf /home/cp1592537p25/routes
+    - rm -rf /home/cp1592537p25/storage
+    - rm -rf /home/cp1592537p25/tests
+    - rm -f /home/cp1592537p25/.env
+    - rm -f /home/cp1592537p25/artisan
+    - rm -f /home/cp1592537p25/composer.json
+    - rm -f /home/cp1592537p25/composer.lock
+    - rm -f /home/cp1592537p25/package.json
+    - rm -f /home/cp1592537p25/package-lock.json
+    - rm -f /home/cp1592537p25/phpunit.xml
+    - rm -f /home/cp1592537p25/README.md
+    - rm -f /home/cp1592537p25/server.php
+    - rm -f /home/cp1592537p25/tailwind.config.js
+    - rm -f /home/cp1592537p25/webpack.mix.js
     - cp -R /home/cp1592537p25/OCSC_repo/app /home/cp1592537p25
     - cp -R /home/cp1592537p25/OCSC_repo/bootstrap /home/cp1592537p25
     - cp -R /home/cp1592537p25/OCSC_repo/config /home/cp1592537p25
