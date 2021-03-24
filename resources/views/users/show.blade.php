@@ -73,7 +73,6 @@
                 Feature planned in the future...
             </div>
         </div>
-        @canany(['assign-roles'])
         <div class="col-span-full bg-gray-700 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
             <h4 class="font-bold text-2xl text-gray-300 mt-0 mb-6"><i class="fas fa-user-shield fa-fw"></i> Administration</h4>
             @cannot('assign-roles-to-user', $user)
@@ -125,8 +124,31 @@
                 </div>
             </form>
             @endcannot
+            <div class="mt-6 w-full bg-gray-700 rounded-md border border-red-500">
+                <div class="p-4 bg-red-500">
+                    <h3 class="font-semibold text-2xl text-ged-200 m-0">Danger Zone</h3>
+                </div>
+                <div class="p-4">
+                    @can('delete-user', $user)
+                    <form action="{{ route('staff.users.destroy', $user) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-200 bg-red-500 hover:bg-red-700 focus:outline-none">
+                            Delete the user
+                        </button>
+                    </form>
+                    @else
+                    <form>
+                        <fieldset class="opacity-50" disabled>
+                            <button type="submit" class="transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-200 bg-red-500 focus:outline-none cursor-not-allowed">
+                                Delete the user
+                            </button>
+                        </fieldset>
+                    </form>
+                    @endcan
+                </div>
+            </div>
         </div>
-        @endcanany
     </div>
 </div>
 @endsection

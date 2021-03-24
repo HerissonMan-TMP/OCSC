@@ -141,4 +141,22 @@ class UserController extends Controller
 
         return back();
     }
+
+    /**
+     * Delete a user.
+     *
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function destroy(User $user)
+    {
+        Gate::authorize('delete-users');
+
+        $user->recruitments()->delete();
+        $user->roles()->detach();
+        $user->delete();
+
+        return redirect()->route('staff.staff-members-list');
+    }
 }

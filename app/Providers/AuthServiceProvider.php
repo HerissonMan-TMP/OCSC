@@ -37,6 +37,7 @@ class AuthServiceProvider extends ServiceProvider
             'assign-role-to-user',
             'update-permissions-for-role',
             'update-permission-for-role',
+            'delete-user'
         ];
         Gate::before(function (User $user, $ability) use ($abilitiesWithoutBypass) {
             if (!in_array($ability, $abilitiesWithoutBypass)
@@ -202,6 +203,14 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasPermission($ability)
                 ? Response::allow()
                 : Response::deny('You are not allowed to manage convoys.');
+        });
+
+        $ability = 'delete-user';
+        Gate::define($ability, function (User $user, User $targetUser) use ($ability) {
+            return $user->hasPermission('has-admin-rights')
+                && !$targetUser->hasPermission('has-admin-rights')
+                ? Response::allow()
+                : Response::deny('You are not allowed to delete this user.');
         });
     }
 }

@@ -118,6 +118,7 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
         Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
         Route::post('/users', [UserController::class, 'store'])->name('users.store');
+        Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
         Route::patch('/users/{user}/roles', [UserController::class, 'updateRoles'])->name('users.roles.update');
     });
 });
