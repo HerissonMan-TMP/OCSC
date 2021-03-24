@@ -12,3 +12,41 @@ deployment:
     - rm /home/cp1592537p25/public_html/robots.txt
     - rm /home/cp1592537p25/public_html/web.config
     - cp -R /home/cp1592537p25/OCSC_repo/public/. /home/cp1592537p25/public_html/
+    - rm -r /home/cp1592537p25/app
+    - rm -r /home/cp1592537p25/bootstrap
+    - rm -r /home/cp1592537p25/config
+    - rm -r /home/cp1592537p25/database
+    - rm -r /home/cp1592537p25/resources
+    - rm -r /home/cp1592537p25/routes
+    - rm -r /home/cp1592537p25/storage
+    - rm -r /home/cp1592537p25/tests
+    - rm /home/cp1592537p25/.env
+    - rm /home/cp1592537p25/artisan
+    - rm /home/cp1592537p25/composer.json
+    - rm /home/cp1592537p25/composer.lock
+    - rm /home/cp1592537p25/package.json
+    - rm /home/cp1592537p25/package-lock.json
+    - rm /home/cp1592537p25/php-unit.xml
+    - rm /home/cp1592537p25/README.md
+    - rm /home/cp1592537p25/server.php
+    - rm /home/cp1592537p25/tailwind.config.js
+    - rm /home/cp1592537p25/webpack.mix.js
+    - cp -R /home/cp1592537p25/OCSC_repo/app /home/cp1592537p25
+    - cp -R /home/cp1592537p25/OCSC_repo/bootstrap /home/cp1592537p25
+    - cp -R /home/cp1592537p25/OCSC_repo/config /home/cp1592537p25
+    - cp -R /home/cp1592537p25/OCSC_repo/database /home/cp1592537p25
+    - cp -R /home/cp1592537p25/OCSC_repo/resources /home/cp1592537p25
+    - cp -R /home/cp1592537p25/OCSC_repo/routes /home/cp1592537p25
+    - cp -R /home/cp1592537p25/OCSC_repo/storage /home/cp1592537p25
+    - cp -R /home/cp1592537p25/OCSC_repo/tests /home/cp1592537p25
+    - cp /home/cp1592537p25/OCSC_repo/.env
+    - cp /home/cp1592537p25/OCSC_repo/artisan
+    - cp /home/cp1592537p25/OCSC_repo/composer.json
+    - cp /home/cp1592537p25/OCSC_repo/composer.lock
+    - cp /home/cp1592537p25/OCSC_repo/package.json
+    - cp /home/cp1592537p25/OCSC_repo/package-lock.json
+    - cp /home/cp1592537p25/OCSC_repo/php-unit.xml
+    - cp /home/cp1592537p25/OCSC_repo/README.md
+    - cp /home/cp1592537p25/OCSC_repo/server.php
+    - cp /home/cp1592537p25/OCSC_repo/tailwind.config.js
+    - cp /home/cp1592537p25/OCSC_repo/webpack.mix.js
