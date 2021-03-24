@@ -21,7 +21,7 @@ class RoleController extends Controller
     {
         Gate::authorize('update-permissions');
 
-        $roles = Role::with('permissions')->orderBy('order')->get();
+        $roles = Role::with('permissions')->orderBy('group_level')->orderBy('order')->get();
         $permissions = Permission::all();
 
         return view('roles-permissions.index')
