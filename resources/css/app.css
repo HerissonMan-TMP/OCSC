@@ -43,7 +43,7 @@ blockquote {
 }
 
 ul {
-    @apply list-inside
+    @apply mb-6 list-inside
 }
 
 li {
