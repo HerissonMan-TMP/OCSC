@@ -1,4 +1,14 @@
 ---
 deployment:
   tasks:
+    - rm -r /home/cp1592537p25/public_html/css
+    - rm -r /home/cp1592537p25/public_html/img
+    - rm -r /home/cp1592537p25/public_html/js
+    - rm /home/cp1592537p25/public_html/.htaccess
+    - rm /home/cp1592537p25/public_html/favicon.ico
+    - rm /home/cp1592537p25/public_html/index.php
+    - rm /home/cp1592537p25/public_html/index_production.php
+    - rm /home/cp1592537p25/public_html/mix-manifest.json
+    - rm /home/cp1592537p25/public_html/robots.txt
+    - rm /home/cp1592537p25/public_html/web.config
     - cp -R /home/cp1592537p25/OCSC_repo/public/. /home/cp1592537p25/public_html/
