@@ -20,7 +20,7 @@ class PermissionController extends Controller
      */
     public function update(Role $role, UpdatePermissionRequest $request)
     {
-        foreach ($request->permissions as $permissionId) {
+        foreach ((array) $request->permissions as $permissionId) {
             Gate::authorize('update-permission-for-role', [$role, Permission::find($permissionId)]);
         }
 
