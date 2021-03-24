@@ -21,16 +21,16 @@ deployment:
     - rm -r /home/cp1592537p25/storage
     - rm -r /home/cp1592537p25/tests
     - rm /home/cp1592537p25/.env
-    - rm /home/cp1592537p25/artisan
-    - rm /home/cp1592537p25/composer.json
-    - rm /home/cp1592537p25/composer.lock
-    - rm /home/cp1592537p25/package.json
-    - rm /home/cp1592537p25/package-lock.json
-    - rm /home/cp1592537p25/phpunit.xml
-    - rm /home/cp1592537p25/README.md
-    - rm /home/cp1592537p25/server.php
-    - rm /home/cp1592537p25/tailwind.config.js
-    - rm /home/cp1592537p25/webpack.mix.js
+    - rm -v /home/cp1592537p25/artisan
+    - rm -v /home/cp1592537p25/composer.json
+    - rm -v /home/cp1592537p25/composer.lock
+    - rm -v /home/cp1592537p25/package.json
+    - rm -v /home/cp1592537p25/package-lock.json
+    - rm -v /home/cp1592537p25/phpunit.xml
+    - rm -v /home/cp1592537p25/README.md
+    - rm -v /home/cp1592537p25/server.php
+    - rm -v /home/cp1592537p25/tailwind.config.js
+    - rm -v /home/cp1592537p25/webpack.mix.js
     - cp -R /home/cp1592537p25/OCSC_repo/app /home/cp1592537p25
     - cp -R /home/cp1592537p25/OCSC_repo/bootstrap /home/cp1592537p25
     - cp -R /home/cp1592537p25/OCSC_repo/config /home/cp1592537p25
