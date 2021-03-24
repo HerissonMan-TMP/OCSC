@@ -1,4 +1,4 @@
 ---
 deployment:
   tasks:
-    - cp test.html /home/cp1592537p25/test
+    - cp -R /home/cp1592537p25/OCSC_repo/public/. /home/cp1592537p25/public_html/
