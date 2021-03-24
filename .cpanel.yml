@@ -39,6 +39,7 @@ deployment:
     - cp -R /home/cp1592537p25/OCSC_repo/routes /home/cp1592537p25
     - cp -R /home/cp1592537p25/OCSC_repo/storage /home/cp1592537p25
     - cp -R /home/cp1592537p25/OCSC_repo/tests /home/cp1592537p25
+    - mv /home/cp1592537p25/OCSC_repo/.env.example /home/cp1592537p25/OCSC_repo/.env
     - cp /home/cp1592537p25/OCSC_repo/.env /home/cp1592537p25
     - cp /home/cp1592537p25/OCSC_repo/artisan /home/cp1592537p25
     - cp /home/cp1592537p25/OCSC_repo/composer.json /home/cp1592537p25
