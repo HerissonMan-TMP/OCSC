@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.cpanel.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.cpanel.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +163,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/errors" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -231,7 +230,7 @@
       <workItem from="1616495230082" duration="18684000" />
       <workItem from="1616518630718" duration="11686000" />
       <workItem from="1616582589658" duration="5517000" />
-      <workItem from="1616605150440" duration="10018000" />
+      <workItem from="1616605150440" duration="10333000" />
     </task>
     <servers />
   </component>
