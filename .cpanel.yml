@@ -13,4 +13,5 @@ deployment:
     - cp -R /home/cp1592537p25/OCSC_repo/public/. /home/cp1592537p25/public_html/
     - rm -f /home/cp1592537p25/public_html/index.php
     - mv /home/cp1592537p25/public_html/index_production.php /home/cp1592537p25/public_html/index.php
-    - rsync -au --delete "/home/cp1592537p25/OCSC_repo" "/home/cp1592537p25/OCSC_deployment"
+    - cd ./OCSC_deployment
+    - git pull git@github.com:HerissonMan-TMP/OCSC.git
