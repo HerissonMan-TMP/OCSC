@@ -46,7 +46,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-gray-700 divide-y divide-gray-700">
-                        @foreach($recruitments as $recruitment)
+                        @forelse($recruitments as $recruitment)
                         <tr>
                             <td class="border-none px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
@@ -85,7 +85,11 @@
                                 <a href="{{ route('staff.recruitments.edit', $recruitment) }}" class="transition duration-200 text-primary hover:text-primary-dark">Edit</a>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                        <tr>
+                            <td colspan="6" class="border-none px-6 py-4 whitespace-nowrap text-sm italic text-gray-300">No recruitment sessions stored yet...</td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
