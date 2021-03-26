@@ -77,6 +77,32 @@
                                                 </div>
                                             </a>
 
+                                            <a href="https://forum.{{ request()->getHost() }}" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
+                                                <!-- Heroicon name: outline/calendar -->
+                                                <i class="flex-shrink-0 text-primary fas fa-comments fa-fw fa-lg mt-2"></i>
+                                                <div class="w-full ml-4">
+                                                    <p class="mb-0 text-base font-medium text-gray-200">
+                                                        Forum
+                                                    </p>
+                                                    <p class="mb-0 mt-1 text-sm text-gray-400">
+                                                        Forum of {{ config('app.name') }}.
+                                                    </p>
+                                                </div>
+                                            </a>
+
+                                            <a href="https://truckersmp.com/vtc/39908" target="_blank" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
+                                                <!-- Heroicon name: outline/calendar -->
+                                                <i class="flex-shrink-0 text-primary fas fa-truck fa-fw fa-lg mt-2"></i>
+                                                <div class="w-full ml-4">
+                                                    <p class="mb-0 text-base font-medium text-gray-200">
+                                                        OCSC VTC
+                                                    </p>
+                                                    <p class="mb-0 mt-1 text-sm text-gray-400">
+                                                        Our official TruckersMP VTC page.
+                                                    </p>
+                                                </div>
+                                            </a>
+
                                             <a href="#" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                 <!-- Heroicon name: outline/shield-check -->
                                                 <i class="flex-shrink-0 text-primary fas fa-newspaper fa-fw fa-lg mt-2"></i>
