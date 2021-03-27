@@ -191,13 +191,6 @@ class AuthServiceProvider extends ServiceProvider
                 : Response::deny('You are not allowed to manage the website settings.');
         });
 
-        $ability = 'manage-discord-settings';
-        Gate::define($ability, function (User $user) use ($ability) {
-            return $user->hasPermission('has-admin-rights')
-                ? Response::allow()
-                : Response::deny('You are not allowed to manage the Discord server settings.');
-        });
-
         $ability = 'manage-convoys';
         Gate::define($ability, function (User $user) use ($ability) {
             return $user->hasPermission($ability)

@@ -78,13 +78,5 @@
             Website Settings
         </div>
     </a>
-    <a @can('manage-discord-settings') href="{{ route('staff.discord-settings') }}" @endcan class="col-span-full md:col-span-2 @cannot('manage-discord-settings') opacity-30 @endcannot">
-        <div class="w-full h-full p-8 text-gray-300 bg-gray-900 hover:bg-gray rounded-md text-center font-light tracking-wide">
-            <div class="mb-5">
-                <i class="flex-shrink-0 text-gray-300 fab fa-discord fa-fw fa-5x"></i>
-            </div>
-            Discord Settings
-        </div>
-    </a>
 </div>
 @endsection

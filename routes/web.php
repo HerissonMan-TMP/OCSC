@@ -83,8 +83,6 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::post('/maintenance-mode/enable', [MaintenanceModeController::class, 'enable'])->name('maintenance-mode.enable');
         Route::post('/maintenance-mode/disable', [MaintenanceModeController::class, 'disable'])->name('maintenance-mode.disable');
 
-        Route::view('/discord-settings', 'discord-settings.show')->name('discord-settings');
-
         Route::get('/contact-messages', [ContactMessageController::class, 'index'])->name('contact-messages.index');
         Route::get('/contact-messages/{contactMessage}', [ContactMessageController::class, 'show'])->name('contact-messages.show');
         Route::post('/contact-messages/{contactMessage}/mark-as-read', [ContactMessageController::class, 'markAsRead'])->name('contact-messages.mark-as-read');
