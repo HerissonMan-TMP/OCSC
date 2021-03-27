@@ -4,6 +4,7 @@ use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\ConvoyController;
 use App\Http\Controllers\ConvoyRulesController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\GlobalRequirementsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalNoticeController;
@@ -118,5 +119,7 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::post('/users', [UserController::class, 'store'])->name('users.store');
         Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
         Route::patch('/users/{user}/roles', [UserController::class, 'updateRoles'])->name('users.roles.update');
+
+        Route::resource('downloads', DownloadController::class)->except('show');
     });
 });
