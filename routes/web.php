@@ -120,6 +120,6 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
         Route::patch('/users/{user}/roles', [UserController::class, 'updateRoles'])->name('users.roles.update');
 
-        Route::resource('downloads', DownloadController::class)->except('show');
+        Route::resource('downloads', DownloadController::class)->except('show', 'create');
     });
 });

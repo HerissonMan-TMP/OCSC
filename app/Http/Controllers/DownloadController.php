@@ -2,81 +2,75 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Download\StoreDownloadRequest;
+use App\Models\Download;
+use App\Models\Role;
+use Auth;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Gate;
 
 class DownloadController extends Controller
 {
+    /**
+     * A Download instance.
+     *
+     * @var Download
+     */
+    protected $download;
+
+    public function __construct(Download $download)
+    {
+        $this->download = $download;
+    }
+
     /**
      * Display a listing of the available downloads.
      */
     public function index()
     {
-        return view('downloads.index');
-    }
+        Gate::authorize('see-downloads');
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $downloads = Download::accessible()->with('roles')->get();
+        $roles = Role::orderBy('order')->get();
+
+        return view('downloads.index')
+                ->with('downloads', $downloads)
+                ->with('roles', $roles);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param StoreDownloadRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StoreDownloadRequest $request)
     {
-        //
+        Gate::authorize('manage-downloads');
+
+        $this->download->name = $request->name;
+        $this->download->link = $request->link;
+        $this->download->save();
+
+        $this->download->roles()->attach($request->roles);
+
+        return back();
     }
 
     /**
-     * Display the specified resource.
+     * Delete the given download.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Download $download
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function show($id)
+    public function destroy(Download $download)
     {
-        //
-    }
+        Gate::authorize('manage-downloads');
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $download->delete();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return back();
     }
 }

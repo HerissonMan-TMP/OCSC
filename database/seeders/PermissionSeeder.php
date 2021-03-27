@@ -90,5 +90,19 @@ class PermissionSeeder extends Seeder
         ]);
         $permission->save();
         $permission->roles()->attach([5, 6]);
+
+        $permission = Permission::create([
+            'name' => 'See Downloads',
+            'slug' => 'see-downloads'
+        ]);
+        $permission->save();
+        $permission->roles()->attach([1, 2, 3, 4, 5, 6]);
+
+        $permission = Permission::create([
+            'name' => 'Manage Downloads',
+            'slug' => 'manage-downloads'
+        ]);
+        $permission->save();
+        $permission->roles()->attach([5, 6]);
     }
 }

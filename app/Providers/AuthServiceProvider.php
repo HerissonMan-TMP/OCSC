@@ -205,5 +205,12 @@ class AuthServiceProvider extends ServiceProvider
                 ? Response::allow()
                 : Response::deny('You are not allowed to delete this user.');
         });
+
+        $ability = 'see-downloads';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission('see-downloads')
+                ? Response::allow()
+                : Response::deny('You are not allowed to see available downloads.');
+        });
     }
 }
