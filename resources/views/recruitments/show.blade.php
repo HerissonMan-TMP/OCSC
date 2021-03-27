@@ -16,7 +16,7 @@
                 <i style="color: {{ $recruitment->role->color }}" class="flex-shrink-0 text-primary fas fa-{{ $recruitment->role->icon_name }} fa-fw fa-2x"></i>
             </div>
 
-            <div>
+            <div class="mb-10">
                 <h4 class="font-bold text-gray-300 mt-2 mb-6">Requirements</h4>
                 @if(setting('global-requirements'))
                 <p>
@@ -29,6 +29,15 @@
                 </p>
                 @endif
             </div>
+
+            @if($recruitment->note)
+            <div>
+                <h4 class="font-bold text-gray-300 mt-2 mb-6">Notes</h4>
+                <p>
+                    {{ $recruitment->note }}
+                </p>
+            </div>
+            @endif
 
             <hr class="col-span-full border-b border-gray-700">
 
