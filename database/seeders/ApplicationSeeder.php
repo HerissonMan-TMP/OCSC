@@ -14,6 +14,7 @@ class ApplicationSeeder extends Seeder
      */
     public function run()
     {
+        //New application for Convoy Control Team
         $application = new Application;
         $application->fill([
             'discord' => 'Blabla#5211',
@@ -22,6 +23,7 @@ class ApplicationSeeder extends Seeder
         $application->recruitment()->associate(1);
         $application->save();
 
+        //Declined application for Convoy Control Team
         $application = new Application;
         $application->fill([
             'discord' => 'StrongMan#2222',
@@ -31,6 +33,17 @@ class ApplicationSeeder extends Seeder
         $application->recruitment()->associate(1);
         $application->save();
 
+        //Accepted application for Convoy Control Team
+        $application = new Application;
+        $application->fill([
+            'discord' => 'Test#3333',
+            'email' => 'test@test.com',
+            'status' => 'accepted'
+        ]);
+        $application->recruitment()->associate(1);
+        $application->save();
+
+        //New application for Translation Team
         $application = new Application;
         $application->fill([
             'discord' => 'Heya#1101',
@@ -39,6 +52,7 @@ class ApplicationSeeder extends Seeder
         $application->recruitment()->associate(2);
         $application->save();
 
+        //Declined application for Translation Team
         $application = new Application;
         $application->fill([
             'discord' => 'Laravel#2222',

@@ -13,9 +13,16 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
+        //Global Requirements (for recruitments)
         setting(['global-requirements' => '- requirement 1'])->save();
+
+        //Convoy Rules
         setting(['convoy-rules' => 'The convoy rules *with* **markdown**.'])->save();
+
+        //Legal Notice
         setting(['legal-notice' => 'The **legal notice**.'])->save();
+
+        //Privacy Policy
         setting(['privacy-policy' => 'The **privacy policy**.'])->save();
     }
 }

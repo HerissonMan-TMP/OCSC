@@ -14,42 +14,46 @@ class RecruitmentSeeder extends Seeder
      */
     public function run()
     {
+        //Open recruitment for Convoy Control Team
         $recruitment = new Recruitment;
         $recruitment->fill([
             'start_at' => now(),
             'end_at' => now()->addDays(15),
             'specific_requirements' => '- test requirement 1'
         ]);
-        $recruitment->role()->associate(1);
-        $recruitment->user()->associate(10);
+        $recruitment->role()->associate(10);
+        $recruitment->user()->associate(1);
         $recruitment->save();
 
+        //Open recruitment for Translation Team
         $recruitment = new Recruitment;
         $recruitment->fill([
             'start_at' => now(),
             'end_at' => now()->addDays(15),
             'note' => 'Good luck!'
         ]);
-        $recruitment->role()->associate(4);
-        $recruitment->user()->associate(9);
+        $recruitment->role()->associate(14);
+        $recruitment->user()->associate(4);
         $recruitment->save();
 
+        //Open recruitment for Media Team
         $recruitment = new Recruitment;
         $recruitment->fill([
             'start_at' => now(),
             'end_at' => now()->addDays(20)
         ]);
-        $recruitment->role()->associate(3);
-        $recruitment->user()->associate(9);
+        $recruitment->role()->associate(15);
+        $recruitment->user()->associate(4);
         $recruitment->save();
 
+        //Closed recruitment for Event Team
         $recruitment = new Recruitment;
         $recruitment->fill([
             'start_at' => now()->subDays(40),
             'end_at' => now()->subDays(20)
         ]);
-        $recruitment->role()->associate(2);
-        $recruitment->user()->associate(9);
+        $recruitment->role()->associate(12);
+        $recruitment->user()->associate(2);
         $recruitment->save();
     }
 }

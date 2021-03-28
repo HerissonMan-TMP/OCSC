@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
         DB::table('contact_categories')->truncate();
         DB::table('convoys')->truncate();
         DB::table('settings')->truncate();
+        DB::table('download_role')->truncate();
+        DB::table('downloads')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
         $this->call([
@@ -42,6 +44,7 @@ class DatabaseSeeder extends Seeder
             ContactMessageSeeder::class,
             ConvoySeeder::class,
             SettingSeeder::class,
+            DownloadSeeder::class,
         ]);
     }
 }

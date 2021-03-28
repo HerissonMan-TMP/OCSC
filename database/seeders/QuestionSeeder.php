@@ -14,6 +14,7 @@ class QuestionSeeder extends Seeder
      */
     public function run()
     {
+        //Inline question for recruitment 1 (Convoy Control Team): How old are you?
         $question = new Question;
         $question->fill([
             'name' => 'How old are you?',
@@ -24,6 +25,7 @@ class QuestionSeeder extends Seeder
         $question->recruitment()->associate(1);
         $question->save();
 
+        //Multiline question for recruitment 1 (Convoy Control Team): Describe yourself
         $question = new Question;
         $question->fill([
             'name' => 'Describe yourself',
@@ -34,9 +36,10 @@ class QuestionSeeder extends Seeder
         $question->recruitment()->associate(1);
         $question->save();
 
+        //Inline question for recruitment 2 (Translation Team): Which languages do you know very well?
         $question = new Question;
         $question->fill([
-            'name' => 'Which languages very well?',
+            'name' => 'Which languages do you know very well?',
             'type' => 'inline',
             'min_length' => 0,
             'max_length' => 200,
