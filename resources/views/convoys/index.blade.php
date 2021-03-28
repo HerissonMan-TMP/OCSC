@@ -45,7 +45,7 @@
                             @endif
                         </div>
                         <div>
-                            <i class="fas fa-calendar fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $convoy->meetup_date }} UTC</span>
+                            <i class="fas fa-calendar fa-fw fa-sm"></i> <span class="ml-2 text-sm capitalize">{{ \Carbon\Carbon::parse($convoy->meetup_date)->diffForHumans(['options' => \Carbon\Carbon::ONE_DAY_WORDS]) }} ({{ \Carbon\Carbon::parse($convoy->meetup_date)->format('d M H:i') }} UTC)</span>
                         </div>
                         <div class="grid grid-cols-3 gap-6 mt-4">
                             <div class="col-span-2">
