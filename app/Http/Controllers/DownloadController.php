@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Download\StoreDownloadRequest;
+use App\Http\Requests\Download\UpdateDownloadRequest;
 use App\Models\Download;
 use App\Models\Role;
 use Auth;
@@ -54,6 +55,19 @@ class DownloadController extends Controller
         $this->download->save();
 
         $this->download->roles()->attach($request->roles);
+
+        return back();
+    }
+
+    public function update(UpdateDownloadRequest $request, Download $download)
+    {
+        Gate::authorize('manage-downloads');
+
+        $download->name = $request->name;
+        $download->link = $request->link;
+        $download->save();
+
+        $download->roles()->attach($request->roles);
 
         return back();
     }

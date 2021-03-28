@@ -7,9 +7,6 @@
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DownloadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DownloadController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/downloads/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/downloads/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -239,7 +236,9 @@
       <workItem from="1616605150440" duration="11053000" />
       <workItem from="1616659157978" duration="2461000" />
       <workItem from="1616843226872" duration="5672000" />
-      <workItem from="1616870081914" duration="5946000" />
+      <workItem from="1616870081914" duration="6352000" />
+      <workItem from="1616921549846" duration="3065000" />
+      <workItem from="1616921039087" duration="5803000" />
     </task>
     <servers />
   </component>
