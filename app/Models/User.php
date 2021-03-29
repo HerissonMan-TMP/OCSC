@@ -78,6 +78,11 @@ class User extends Authenticatable
         return $this->hasMany(Recruitment::class);
     }
 
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+
     public function hasPermission($permission)
     {
         foreach (app('users')->find($this->id)->roles as $role) {

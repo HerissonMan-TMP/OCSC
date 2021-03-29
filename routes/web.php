@@ -40,6 +40,8 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 });
 
+Route::resource('articles', \App\Http\Controllers\ArticleController::class);
+
 Route::get('/upcoming-convoys', [ConvoyController::class, 'showUpcoming'])->name('convoys.show-upcoming');
 Route::view('/convoy-rules', 'convoy-rules')->name('convoy-rules');
 

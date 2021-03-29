@@ -8,6 +8,8 @@
 
         <link rel="icon" type="image/png" href="{{ asset("img/ocsc_logo.png") }}">
         <link rel="stylesheet" href="{{ asset("css/app.css") }}">
+        @stack('stylesheets')
+
         <script src="https://kit.fontawesome.com/6cbe367b1a.js" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -128,19 +130,27 @@
                                                     </p>
                                                 </div>
                                             </a>
-
-                                            <a href="#" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
-                                                <!-- Heroicon name: outline/shield-check -->
-                                                <i class="flex-shrink-0 text-primary fas fa-images fa-fw fa-lg mt-2"></i>
-                                                <div class="w-full ml-4">
-                                                    <p class="mb-0 text-base font-medium text-gray-200">
-                                                        Gallery
-                                                    </p>
-                                                    <p class="mb-0 mt-1 text-sm text-gray-400">
-                                                        Photos and videos made by OCSC Event during our convoys and events. Take a look!
-                                                    </p>
-                                                </div>
-                                            </a>
+                                        </div>
+                                        <div class="px-5 py-5 bg-gray-800 sm:px-8 sm:py-8">
+                                            <div>
+                                                <h3 class="m-0 text-sm tracking-wide font-medium text-gray-400 uppercase">
+                                                    Latest Articles
+                                                </h3>
+                                                <ul class="mt-4 space-y-4">
+                                                    @forelse($latestArticles as $latestArticle)
+                                                    <li class="list-none text-base truncate text-gray-300">
+                                                        <a href="{{ route('articles.show', $latestArticle) }}" class="transition duration-200 font-medium text-gray-300 hover:text-gray-400 capitalize">
+                                                            {{ $latestArticle->title }}
+                                                        </a>
+                                                    </li>
+                                                    @empty
+                                                        <span class="text-sm italic text-gray-300">No articles yet...</span>
+                                                    @endforelse
+                                                </ul>
+                                            </div>
+                                            <div class="mt-5 text-sm">
+                                                <a href="#" class="transition duration-200 font-medium text-primary hover:text-primary-dark"> View all News <span aria-hidden="true">&rarr;</span></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -198,35 +208,19 @@
                                                     </p>
                                                 </div>
                                             </a>
-                                        </div>
-                                        <div class="px-5 py-5 bg-gray-800 sm:px-8 sm:py-8">
-                                            <div>
-                                                <h3 class="text-sm tracking-wide font-medium text-gray-400 uppercase">
-                                                    Convoy News
-                                                </h3>
-                                                <ul class="mt-4 space-y-4">
-                                                    <li class="list-none text-base truncate">
-                                                        <a href="#" class="transition duration-200 font-medium text-gray-300 hover:text-gray-400 capitalize">
-                                                            AT Convoy (23/02/2021) - Thank you for your attendance!
-                                                        </a>
-                                                    </li>
 
-                                                    <li class="list-none text-base truncate">
-                                                        <a href="#" class="transition duration-200 font-medium text-gray-300 hover:text-gray-400 capitalize">
-                                                            What's new in our convoy rules ?
-                                                        </a>
-                                                    </li>
-
-                                                    <li class="list-none text-base truncate">
-                                                        <a href="#" class="transition duration-200 font-medium text-gray-300 hover:text-gray-400 capitalize">
-                                                            Answer our OCSC Community Survey
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="mt-5 text-sm">
-                                                <a href="#" class="transition duration-200 font-medium text-primary hover:text-primary-dark"> View all Convoy News <span aria-hidden="true">&rarr;</span></a>
-                                            </div>
+                                            <a href="#" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
+                                                <!-- Heroicon name: outline/shield-check -->
+                                                <i class="flex-shrink-0 text-primary fas fa-images fa-fw fa-lg mt-2"></i>
+                                                <div class="w-full ml-4">
+                                                    <p class="mb-0 text-base font-medium text-gray-200">
+                                                        Gallery
+                                                    </p>
+                                                    <p class="mb-0 mt-1 text-sm text-gray-400">
+                                                        Photos and videos made by OCSC Event during our convoys and events. Take a look!
+                                                    </p>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

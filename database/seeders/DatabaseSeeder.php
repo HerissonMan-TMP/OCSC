@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         DB::table('settings')->truncate();
         DB::table('download_role')->truncate();
         DB::table('downloads')->truncate();
+        DB::table('articles')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
         $this->call([
@@ -45,6 +46,7 @@ class DatabaseSeeder extends Seeder
             ConvoySeeder::class,
             SettingSeeder::class,
             DownloadSeeder::class,
+            ArticleSeeder::class,
         ]);
     }
 }

@@ -1,0 +1,29 @@
+.article-content {
+  text-align: justify
+}
+
+.article-content p:first-child::first-letter {
+  float: left;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1;
+  margin-top: 0.5rem;
+  margin-right: 0.75rem
+}
+
+.article-extract {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  --tw-text-opacity: 1;
+  color: rgba(209, 213, 219, var(--tw-text-opacity))
+}
+
+.article-extract * {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin: 0px;
+  text-align: justify;
+}
+
