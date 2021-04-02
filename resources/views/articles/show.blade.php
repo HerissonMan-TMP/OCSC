@@ -4,10 +4,6 @@
 
 @section("title", "{$article->title}")
 
-@push('stylesheets')
-    <link rel="stylesheet" href="{{ asset("css/show-article.css") }}">
-@endpush
-
 @section("content")
 
 <div class="flex flex-col justify-center items-center bg-fixed bg-cover bg-center py-52" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ $article->banner_url ?? 'https://i.imgur.com/kZ3YjwR.png' }});">
@@ -35,29 +31,29 @@
                 <h3 class="inline-block m-0 border-b-2 border-primary">Latest Articles</h3>
             </div>
 
-            <div class="">
+            <div>
                 @forelse($latestArticles as $latestArticle)
-                <a href="{{ route('articles.show', $latestArticle) }}" class="hover:opacity-60">
-                    <div class="mt-8">
-                        <h3 class="m-0 text-sm tracking-wide font-bold text-gray-400 uppercase">
+                <div class="mt-8">
+                    <div class="text-sm mb-2">
+                        <img class="max-w-full h-auto" src="{{ $latestArticle->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="News Article Banner">
+                    </div>
+                    <a href="{{ route('articles.show', $latestArticle) }}">
+                        <h3 class="m-0 mb-4 text-sm tracking-wide font-bold text-gray-400 uppercase">
                             {{ $latestArticle->title }}
                         </h3>
-                        <div class="article-extract mt-2 mb-0">
-                            @markdown($latestArticle->content)
-                        </div>
-                        <div class="mt-1 flex justify-between">
+                    </a>
+                    <div class="mt-1 flex justify-between">
                         <span class="text-sm italic text-gray-300">
                             <i class="fas fa-user fa-fw fa-md"></i>
                             @if($latestArticle->postedByUser)
-                                <span class="font-bold" style="color: {{ $latestArticle->postedByUser->roles->first()->color }}">{{ $latestArticle->postedByUser->name }}</span>
+                            <span class="font-bold" style="color: {{ $latestArticle->postedByUser->roles->first()->color }}">{{ $latestArticle->postedByUser->name }}</span>
                             @else
-                                <span>Unkown User</span>
+                            <span>Unkown User</span>
                             @endif
                         </span>
-                            <span class="ml-4 text-sm italic text-gray-300"><i class="fas fa-clock fa-fw fa-md"></i> {{ $carbon->parse($latestArticle->created_at)->format('d M H:i') }}</span>
-                        </div>
+                        <span class="ml-4 text-sm italic text-gray-300"><i class="fas fa-clock fa-fw fa-md"></i> {{ $carbon->parse($latestArticle->created_at)->format('d M H:i') }}</span>
                     </div>
-                </a>
+                </div>
                 @empty
                 <span class="text-sm italic text-gray-300">No articles yet...</span>
                 @endforelse

@@ -1,3 +1,5 @@
+@import './articles.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -27,7 +29,7 @@ h6 {
 }
 
 hr {
-    @apply opacity-30 my-2
+    @apply opacity-30 my-10
 }
 
 a {
@@ -43,7 +45,7 @@ blockquote {
 }
 
 ul {
-    @apply mb-6 list-inside
+    @apply mb-6
 }
 
 li {
@@ -56,4 +58,8 @@ table {
 
 table, th, td {
     @apply border border-gray-800 p-4
+}
+
+code {
+    @apply bg-gray-800 p-1 rounded-md
 }

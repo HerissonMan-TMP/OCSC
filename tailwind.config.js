@@ -21,6 +21,9 @@ module.exports = {
             '1/4': '25%',
             '1/2': '50%',
             '3/4': '75%',
+        },
+        gridTemplateRows: {
+            '7': 'repeat(7, minmax(0, 1fr))',
         }
     },
   },
@@ -28,6 +31,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
+      require('postcss-import'),
       require('@tailwindcss/forms'),
   ],
 }

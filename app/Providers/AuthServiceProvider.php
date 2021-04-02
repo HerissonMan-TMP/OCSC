@@ -212,5 +212,12 @@ class AuthServiceProvider extends ServiceProvider
                 ? Response::allow()
                 : Response::deny('You are not allowed to see available downloads.');
         });
+
+        $ability = 'manage-news-articles';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to manage news articles.');
+        });
     }
 }

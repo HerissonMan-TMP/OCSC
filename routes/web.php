@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\ConvoyController;
 use App\Http\Controllers\ConvoyRulesController;
@@ -40,7 +41,8 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 });
 
-Route::resource('articles', \App\Http\Controllers\ArticleController::class);
+Route::get('articles', [ArticleController::class, 'index'])->name('articles.index');
+Route::get('articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
 
 Route::get('/upcoming-convoys', [ConvoyController::class, 'showUpcoming'])->name('convoys.show-upcoming');
 Route::view('/convoy-rules', 'convoy-rules')->name('convoy-rules');
@@ -67,7 +69,13 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
 
     Route::prefix('staff')->name('staff.')->group(function () {
         Route::view('/', 'hub')->name('hub');
-        Route::view('/news-management', '')->name('news-management');
+
+        Route::get('articles/manage', [ArticleController::class, 'manage'])->name('articles.manage');
+        Route::get('articles/create', [ArticleController::class, 'create'])->name('articles.create');
+        Route::post('articles', [ArticleController::class, 'store'])->name('articles.store');
+        Route::get('articles/{article}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
+        Route::patch('articles/{article}', [ArticleController::class, 'update'])->name('articles.update');
+        Route::delete('articles/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 
         Route::get('/convoys', [ConvoyController::class, 'index'])->name('convoys.index');
         Route::get('/convoys/create', [ConvoyController::class, 'create'])->name('convoys.create');

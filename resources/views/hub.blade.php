@@ -6,7 +6,7 @@
 
 @section('content-staff')
 <div class="px-4 py-5 md:p-6 bg-gray-800 rounded-md shadow overflow-hidden grid grid-cols-6 gap-4">
-    <a href="{{ route('staff.news-management') }}" class="col-span-full md:col-span-3">
+    <a @can('manage-news-articles') href="{{ route('staff.articles.manage') }}" @endcan class="col-span-full md:col-span-3 @cannot('manage-news-articles') opacity-30 @endcannot">
         <div class="w-full h-full p-8 text-gray-300 bg-gray-900 hover:bg-gray rounded-md text-center font-light tracking-wide">
             <div class="mb-5">
                 <i class="flex-shrink-0 text-gray-300 fas fa-newspaper fa-fw fa-5x"></i>

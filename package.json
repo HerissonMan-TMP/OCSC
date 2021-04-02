@@ -19,6 +19,7 @@
     },
     "dependencies": {
         "@tailwindcss/custom-forms": "^0.2.1",
-        "jquery": "^3.6.0"
+        "jquery": "^3.6.0",
+        "postcss-import": "^14.0.1"
     }
 }

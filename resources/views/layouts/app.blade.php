@@ -105,7 +105,7 @@
                                                 </div>
                                             </a>
 
-                                            <a href="#" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
+                                            <a href="{{ route('articles.index') }}" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                 <!-- Heroicon name: outline/shield-check -->
                                                 <i class="flex-shrink-0 text-primary fas fa-newspaper fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
@@ -149,7 +149,7 @@
                                                 </ul>
                                             </div>
                                             <div class="mt-5 text-sm">
-                                                <a href="#" class="transition duration-200 font-medium text-primary hover:text-primary-dark"> View all News <span aria-hidden="true">&rarr;</span></a>
+                                                <a href="{{ route('articles.index') }}" class="transition duration-200 font-medium text-primary hover:text-primary-dark"> View all news articles <span aria-hidden="true">&rarr;</span></a>
                                             </div>
                                         </div>
                                     </div>

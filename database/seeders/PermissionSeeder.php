@@ -115,5 +115,13 @@ class PermissionSeeder extends Seeder
         ]);
         $permission->save();
         $permission->roles()->attach(4);
+
+        //Permission: Manage News Articles
+        $permission = Permission::create([
+            'name' => 'Manage News Articles',
+            'slug' => 'manage-news-article'
+        ]);
+        $permission->save();
+        $permission->roles()->attach(4);
     }
 }

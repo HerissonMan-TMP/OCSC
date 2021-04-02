@@ -13,7 +13,7 @@ class StoreArticleRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,36 @@ class StoreArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => [
+                'required',
+                'max:50'
+            ],
+            'banner_url' => [
+                'nullable',
+                'url'
+            ],
+            'content' =>[
+                'required',
+                'max:5000'
+            ]
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'title.required' => 'A title is required.',
+            'title.max' => 'The title must not exceed :max characters.',
+
+            'banner_url.url' => 'The banner URL format is not valid.',
+
+            'content.required' => 'A content is required.',
+            'content.max' => 'The content must not exceed :max characters.',
         ];
     }
 }
