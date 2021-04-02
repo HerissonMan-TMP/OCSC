@@ -35,7 +35,7 @@ class StoreUserRequest extends FormRequest
             'name' => [
                 'required',
                 'string',
-                'between:2,20'
+                'between:2,15'
             ],
             'temporary_password' => [
                 'required',
