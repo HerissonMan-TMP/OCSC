@@ -32024,6 +32024,7 @@ blockquote {
 }
 
 ul {
+  list-style-position: inside;
   margin-bottom: 1.5rem
 }
 
