@@ -38,7 +38,7 @@
 
 <div class="bg-fixed bg-cover py-20" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.discordapp.com/attachments/785605081449103371/801489516585156678/Second_Affiinity_Photos_Edits.png');">
     <div class="text-center uppercase text-4xl font-bold">
-        Next convoys
+        Upcoming convoys
     </div>
 </div>
 <section id="next-convoys" class="w-full h-1/4">
