@@ -5,7 +5,7 @@
 @section('content')
     <div class="flex flex-col justify-center items-center bg-fixed bg-cover bg-center py-52" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/kZ3YjwR.png');">
         <div class="text-center grid gap-4">
-            <h1 class="text-5xl m-0 capitalize">Upcoming Convoys</h1>
+            <h1 class="text-5xl m-0 capitalize"><i class="flex-shrink-0 fas fa-calendar-alt fa-fw"></i> Upcoming Convoys</h1>
         </div>
     </div>
 
