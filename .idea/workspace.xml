@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/convoy-rules.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoy-rules.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/legal-notice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/legal-notice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/privacy-policy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/privacy-policy.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
