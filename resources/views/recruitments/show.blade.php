@@ -2,11 +2,13 @@
 
 @section('title', "Apply for {$recruitment->role->name}")
 
-@section('breadcrumb')
-    Recruitment for <span style="color: {{ $recruitment->role->color }}">{{ $recruitment->role->name }}</span>
-@endsection
-
 @section('content')
+<div class="flex flex-col justify-center items-center bg-fixed bg-cover bg-center py-52" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/kZ3YjwR.png');">
+    <div class="text-center grid gap-4">
+        <h1 class="text-5xl m-0 capitalize">Recruitment - <i class="flex-shrink-0 fas fa-{{ $recruitment->role->icon_name }} fa-fw" style="color: {{ $recruitment->role->color }}"></i> <span style="color: {{ $recruitment->role->color }}">{{ $recruitment->role->name }}</span></h1>
+    </div>
+</div>
+
 <div class="max-w-7xl mx-auto px-4 md:px-6 my-16">
     <div class="px-4 py-5 md:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
         <form action="{{ route('recruitments.applications.store', $recruitment) }}" method="POST">
