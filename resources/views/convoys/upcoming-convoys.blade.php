@@ -11,16 +11,21 @@
             <i class="inline-block fas fa-calendar-alt fa-fw fa-2x mr-2"></i>
             <h3 class="m-0 inline-block font-bold text-3xl text-gray-300">Upcoming Convoys</h3>
         </div>
+
         <div class="grid grid-cols-3 gap-16 md:gap-20">
             @forelse($convoys as $convoy)
-                <div class="col-span-full md:col-span-1 rounded-md bg-gray-900 w-full h-full flex flex-col justify-between">
-                    <div>
-                        <img class="rounded-t-md w-full h-full" src="{{ $convoy->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="">
+                <div class="col-span-full md:col-span-1 bg-gray-900 rounded-md overflow-hidden">
+                    <div class="text-sm mb-6">
+                        <img class="max-w-full h-auto" src="{{ $convoy->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="Convoy Banner">
                     </div>
-                    <h3 class="pt-6 px-6 font-semibold text-xl m-0">
-                        {{ $convoy->title }}
-                    </h3>
-                    <div class="p-6">
+
+                    <div class="h-16 mx-6">
+                        <h3 class="font-semibold text-xl m-0 text-gray-200">
+                            {{ $convoy->title }}
+                        </h3>
+                    </div>
+
+                    <div class="mx-6 mb-6">
                         <div class="flex justify-between">
                             <div>
                                 <i class="fas fa-map-marker-alt fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $convoy->location }}</span>

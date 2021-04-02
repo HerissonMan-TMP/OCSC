@@ -18,47 +18,51 @@
         </div>
         <div class="grid grid-cols-3 gap-16 md:gap-20">
         @forelse($convoys as $convoy)
-            <div class="col-span-full md:col-span-1 rounded-md bg-gray-900 w-full h-full flex flex-col justify-between @if($convoy->meetup_date < now()) transition duration-200 opacity-50 hover:opacity-100 @endif">
-                <div>
-                    <img class="rounded-t-md w-full h-full" src="{{ $convoy->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="">
+            <div class="col-span-full md:col-span-1 rounded-md bg-gray-900 overflow-hidden @if($convoy->meetup_date < now()) transition duration-200 opacity-50 hover:opacity-100 @endif">
+                <div class="text-sm mb-6">
+                    <img class="max-w-full h-auto" src="{{ $convoy->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="Convoy Banner">
                 </div>
-                <h3 class="pt-6 px-6 font-semibold text-xl m-0">
-                    <a href="{{ 'https://truckersmp.com/events/' . $convoy->truckersmp_event_id }}" target="_blank" class="text-gray-200 font-semibold transition duration-200 hover:text-gray-400">{{ $convoy->title }}</a>
-                </h3>
-                <div class="p-6">
-                        <div class="flex justify-between">
-                            <div>
-                                <i class="fas fa-map-marker-alt fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $convoy->location }}</span>
-                            </div>
-                            <div>
-                                <span class="mr-2 text-sm">{{ $convoy->destination }}</span> <i class="fas fa-map-marker-alt fa-fw fa-sm"></i>
-                            </div>
+
+                <div class="h-16 mx-6">
+                    <h3 class="font-semibold text-xl m-0 text-gray-200">
+                        {{ $convoy->title }}
+                    </h3>
+                </div>
+
+                <div class="mx-6 mb-6">
+                    <div class="flex justify-between">
+                        <div>
+                            <i class="fas fa-map-marker-alt fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $convoy->location }}</span>
                         </div>
                         <div>
-                            <i class="fas fa-route fa-fw fa-sm"></i> @if($convoy->distance !== null) <span class="ml-2 text-sm"> {{ $convoy->distance }} km</span> @else <span class="ml-2 text-sm italic"> Not set yet</span> @endif
+                            <span class="mr-2 text-sm">{{ $convoy->destination }}</span> <i class="fas fa-map-marker-alt fa-fw fa-sm"></i>
                         </div>
-                        <div>
-                            @if($convoy->server === 'Event Server')
-                                <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm text-primary font-bold uppercase">Event server</span>
-                            @else
-                                <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm @if($convoy->server === 'To be determined') italic @endif">{{ $convoy->server }}</span>
-                            @endif
+                    </div>
+                    <div>
+                        <i class="fas fa-route fa-fw fa-sm"></i> @if($convoy->distance !== null) <span class="ml-2 text-sm"> {{ $convoy->distance }} km</span> @else <span class="ml-2 text-sm italic"> Not set yet</span> @endif
+                    </div>
+                    <div>
+                        @if($convoy->server === 'Event Server')
+                            <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm text-primary font-bold uppercase">Event server</span>
+                        @else
+                            <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm @if($convoy->server === 'To be determined') italic @endif">{{ $convoy->server }}</span>
+                        @endif
+                    </div>
+                    <div>
+                        <i class="fas fa-calendar fa-fw fa-sm"></i> <span class="ml-2 text-sm capitalize">{{ \Carbon\Carbon::parse($convoy->meetup_date)->diffForHumans(['options' => \Carbon\Carbon::ONE_DAY_WORDS]) }} ({{ \Carbon\Carbon::parse($convoy->meetup_date)->format('d M H:i') }} UTC)</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-6 mt-4">
+                        <div class="col-span-2">
+                            <a href="{{ route('staff.convoys.edit', $convoy) }}" class="transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
+                                Edit
+                            </a>
                         </div>
-                        <div>
-                            <i class="fas fa-calendar fa-fw fa-sm"></i> <span class="ml-2 text-sm capitalize">{{ \Carbon\Carbon::parse($convoy->meetup_date)->diffForHumans(['options' => \Carbon\Carbon::ONE_DAY_WORDS]) }} ({{ \Carbon\Carbon::parse($convoy->meetup_date)->format('d M H:i') }} UTC)</span>
-                        </div>
-                        <div class="grid grid-cols-3 gap-6 mt-4">
-                            <div class="col-span-2">
-                                <a href="{{ route('staff.convoys.edit', $convoy) }}" class="transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
-                                    Edit
-                                </a>
-                            </div>
-                            <form action="{{ route('staff.convoys.destroy', $convoy) }}" method="POST" class="col-span-1">
-                                @csrf
-                                @method('DELETE')
-                                <button type="Submit" class="h-full transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-200 bg-red-500 hover:text-gray-300 hover:bg-red-600"><i class="fas fa-trash-alt fa-fw fa-md"></i></button>
-                            </form>
-                        </div>
+                        <form action="{{ route('staff.convoys.destroy', $convoy) }}" method="POST" class="col-span-1">
+                            @csrf
+                            @method('DELETE')
+                            <button type="Submit" class="h-full transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-200 bg-red-500 hover:text-gray-300 hover:bg-red-600"><i class="fas fa-trash-alt fa-fw fa-md"></i></button>
+                        </form>
+                    </div>
                 </div>
             </div>
         @empty
