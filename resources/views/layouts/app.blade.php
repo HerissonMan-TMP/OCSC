@@ -79,7 +79,7 @@
                                                 </div>
                                             </a>
 
-                                            <a href="{{ 'forum.' . request()->getHttpHost() }}" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
+                                            <a href="https://forum.ocsc.fr" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                 <!-- Heroicon name: outline/calendar -->
                                                 <i class="flex-shrink-0 text-primary fas fa-comments fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
