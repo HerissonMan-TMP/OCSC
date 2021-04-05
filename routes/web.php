@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\ConvoyController;
 use App\Http\Controllers\ConvoyRulesController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\PictureController;
 use App\Http\Controllers\GlobalRequirementsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalNoticeController;
@@ -46,6 +47,7 @@ Route::get('articles/{article}', [ArticleController::class, 'show'])->name('arti
 
 Route::get('/upcoming-convoys', [ConvoyController::class, 'showUpcoming'])->name('convoys.show-upcoming');
 Route::view('/convoy-rules', 'convoy-rules')->name('convoy-rules');
+Route::get('gallery', [PictureController::class, 'gallery'])->name('gallery');
 
 Route::get('/recruitments/{recruitment}', [RecruitmentController::class, 'show'])->name('recruitments.show');
 Route::post('recruitments/{recruitment}/applications', [ApplicationController::class, 'store'])->name('recruitments.applications.store');
@@ -77,6 +79,9 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::patch('articles/{article}', [ArticleController::class, 'update'])->name('articles.update');
         Route::delete('articles/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 
+        Route::delete('pictures/delete-many', [PictureController::class, 'destroyMany'])->name('pictures.destroy-many');
+        Route::resource('pictures', PictureController::class)->except(['show']);
+
         Route::get('/convoys', [ConvoyController::class, 'index'])->name('convoys.index');
         Route::get('/convoys/create', [ConvoyController::class, 'create'])->name('convoys.create');
         Route::post('/convoys/store', [ConvoyController::class, 'store'])->name('convoys.store');
@@ -86,7 +91,6 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::patch('/convoy-rules', [ConvoyRulesController::class, 'update'])->name('convoy-rules.update');
 
         Route::view('/partnership-management', '')->name('partnership-management');
-        Route::view('/gallery-management', '')->name('gallery-management');
 
         Route::view('/website-settings', 'website-settings.show')->name('website-settings');
         Route::patch('/legal-notice', [LegalNoticeController::class, 'update'])->name('legal-notice.update');

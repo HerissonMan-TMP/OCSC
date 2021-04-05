@@ -209,7 +209,7 @@
                                                 </div>
                                             </a>
 
-                                            <a href="#" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
+                                            <a href="{{ route('gallery') }}" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                 <!-- Heroicon name: outline/shield-check -->
                                                 <i class="flex-shrink-0 text-primary fas fa-images fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">

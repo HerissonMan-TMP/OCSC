@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         DB::table('download_role')->truncate();
         DB::table('downloads')->truncate();
         DB::table('articles')->truncate();
+        DB::table('pictures')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
         $this->call([
@@ -47,6 +48,7 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
             DownloadSeeder::class,
             ArticleSeeder::class,
+            PictureSeeder::class,
         ]);
     }
 }
