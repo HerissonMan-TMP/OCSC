@@ -123,5 +123,28 @@ class PermissionSeeder extends Seeder
         ]);
         $permission->save();
         $permission->roles()->attach(4);
+
+        //Permission: See the gallery (Staff side)
+        $permission = Permission::create([
+            'name' => 'See the gallery',
+            'slug' => 'see-gallery'
+        ]);
+        $permission->save();
+        $permission->roles()->attach([4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+
+        //Permission: Manage the gallery
+        $permission = Permission::create([
+            'name' => 'Manage the gallery',
+            'slug' => 'manage-gallery'
+        ]);
+        $permission->save();
+
+        //Permission: Add pictures to the gallery
+        $permission = Permission::create([
+            'name' => 'Add pictures to the gallery',
+            'slug' => 'add-pictures-to-gallery'
+        ]);
+        $permission->save();
+        $permission->roles()->attach([4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
     }
 }

@@ -13,11 +13,13 @@
             <div>
                 <h3 class="m-0 font-bold text-2xl text-gray-300">Gallery</h3>
             </div>
+            @can('add-pictures-to-gallery')
             <div>
                 <a href="{{ route('staff.pictures.create') }}" class="transition duration-200 ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-gray-700 font-bold bg-primary hover:text-gray-800 hover:bg-primary-dark">
                     Add a new picture
                 </a>
             </div>
+            @endcan
         </div>
 
         <form action="" method="POST">
@@ -35,13 +37,13 @@
                 </button>
             </div>
 
-            @error('pictures')
+            @error('select_mode')
             <span class="pt-2 text-sm text-red-500">
                 {{ $message }}
             </span>
             @enderror
 
-            <div class="grid grid-cols-3 gap-20">
+            <div class="grid grid-cols-3 gap-20 mt-6">
                 @forelse($pictures as $picture)
                 <div class="col-span-full md:col-span-1">
                     <div class="gallery-img-wrapper relative">
@@ -51,9 +53,13 @@
                         </div>
                         <div class="gallery-img-overlay space-y-6 absolute p-6 flex flex-col justify-center items-center top-0 w-full h-full text-sm text-center rounded-lg" style="display: none; background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));">
                             <div class="absolute top-2 right-2">
-                                <a href="{{ route('staff.pictures.edit', $picture) }}" class="h-10 transition duration-200 w-10 flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark focus:outline-none">
-                                    <i class="fas fa-pen fa-fw fa-md"></i>
-                                </a>
+                                <div>
+                                    @can('manage-picture', $picture)
+                                    <a href="{{ route('staff.pictures.edit', $picture) }}" class="h-10 transition duration-200 w-10 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark focus:outline-none">
+                                        <i class="fas fa-pen fa-fw fa-md"></i>
+                                    </a>
+                                    @endcan
+                                </div>
                             </div>
                             <span class="text-base font-bold">{{ $picture->name }}</span>
                             <div class="w-full flex justify-between">

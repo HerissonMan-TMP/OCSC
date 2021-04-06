@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Convoy;
 use App\Models\Permission;
+use App\Models\Picture;
 use App\Models\Recruitment;
 use App\Models\Role;
 use App\Models\User;
@@ -218,6 +219,34 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasPermission($ability)
                 ? Response::allow()
                 : Response::deny('You are not allowed to manage news articles.');
+        });
+
+        $ability = 'see-gallery';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to see the gallery.');
+        });
+
+        $ability = 'manage-gallery';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to manage the gallery.');
+        });
+
+        $ability = 'add-pictures-to-gallery';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to add pictures to the gallery.');
+        });
+
+        $ability = 'manage-picture';
+        Gate::define($ability, function (User $user, Picture $picture) use ($ability) {
+            return $user->hasPermission('manage-gallery') || $picture->user->is($user)
+                ? Response::allow()
+                : Response::deny('You are not allowed to manage this picture.');
         });
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Requests\Picture\StorePictureRequest;
 use App\Http\Requests\Picture\UpdatePictureRequest;
 use App\Models\Picture;
 use Auth;
+use Gate;
 use Illuminate\Http\Request;
 
 class PictureController extends Controller
@@ -28,6 +29,8 @@ class PictureController extends Controller
 
     public function index()
     {
+        Gate::authorize('see-gallery');
+
         $pictures = Picture::with('user.roles')->get();
 
         return view('pictures.index')
@@ -36,11 +39,15 @@ class PictureController extends Controller
 
     public function create()
     {
+        Gate::authorize('add-pictures-to-gallery');
+
         return view('pictures.create');
     }
 
     public function store(StorePictureRequest $request)
     {
+        Gate::authorize('add-pictures-to-gallery');
+
         $this->picture->name = $request->name;
         $this->picture->description = $request->description;
         $this->picture->user()->associate(Auth::user()->id);
@@ -53,12 +60,16 @@ class PictureController extends Controller
 
     public function edit(Picture $picture)
     {
+        Gate::authorize('manage-picture', $picture);
+
         return view('pictures.edit')
                 ->with(compact('picture'));
     }
 
     public function update(UpdatePictureRequest $request, Picture $picture)
     {
+        Gate::authorize('manage-picture', $picture);
+
         $picture->update($request->validated());
 
         return redirect()->route('staff.pictures.index');
@@ -66,6 +77,8 @@ class PictureController extends Controller
 
     public function destroy(Picture $picture)
     {
+        Gate::authorize('manage-picture', $picture);
+
         $picture->delete();
 
         return redirect()->route('staff.pictures.index');
@@ -73,6 +86,14 @@ class PictureController extends Controller
 
     public function destroyMany(DestroyManyPicturesRequest $request)
     {
+        foreach ($request->pictures as $pictureId) {
+            $response = Gate::inspect('manage-picture', Picture::find($pictureId));
+
+            if (!$response->allowed()) {
+                return back()->withErrors(['select_mode' => 'You selected some pictures you cannot manage.']);
+            }
+        }
+
         Picture::destroy($request->pictures);
 
         return redirect()->route('staff.pictures.index');
