@@ -86,7 +86,7 @@ class PictureController extends Controller
 
     public function destroyMany(DestroyManyPicturesRequest $request)
     {
-        foreach ($request->pictures as $pictureId) {
+        foreach ($request->pictures ?? [] as $pictureId) {
             $response = Gate::inspect('manage-picture', Picture::find($pictureId));
 
             if (!$response->allowed()) {
