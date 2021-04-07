@@ -47,7 +47,7 @@
                 @forelse($pictures as $picture)
                 <div class="col-span-full md:col-span-1">
                     <div class="gallery-img-wrapper relative">
-                        <img src="{{ asset('storage/gallery/' . $picture->path) }}" alt="{{ $picture->name }}" class="rounded-lg">
+                        <img src="{{ Storage::url('gallery/' . $picture->path) }}" alt="{{ $picture->name }}" class="rounded-lg">
                         <div class="absolute top-0 right-2">
                             <input type="checkbox" name="pictures[]" value="{{ $picture->id }}" class="select-mode-checkbox pointer-events-none rounded-full border-none text-primary cursor-pointer focus:ring-offset-0 focus:ring-0" style="display: none;">
                         </div>

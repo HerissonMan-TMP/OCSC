@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TTFR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TTFR.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/PictureFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PictureFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pictures/gallery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pictures/gallery.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pictures/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pictures/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +160,10 @@
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/graham-campbell/markdown" />
       <path value="$PROJECT_DIR$/vendor/akaunting/laravel-setting" />
+      <path value="$PROJECT_DIR$/vendor/microsoft/azure-storage-blob" />
+      <path value="$PROJECT_DIR$/vendor/microsoft/azure-storage-common" />
+      <path value="$PROJECT_DIR$/vendor/matthewbdaly/laravel-azure-storage" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem-azure-blob-storage" />
     </include_path>
   </component>
   <component name="ProjectId" id="1p6YDBYL3Y3S9kmyGf9YbXMIcr8" />
@@ -246,7 +259,7 @@
       <workItem from="1617641503384" duration="2875000" />
       <workItem from="1617699722022" duration="35000" />
       <workItem from="1617742137466" duration="1320000" />
-      <workItem from="1617777424659" duration="7307000" />
+      <workItem from="1617777424659" duration="13610000" />
     </task>
     <servers />
   </component>

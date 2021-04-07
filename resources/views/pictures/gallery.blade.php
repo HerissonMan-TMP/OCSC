@@ -16,7 +16,7 @@
             @forelse($pictures as $picture)
             <div class="col-span-full md:col-span-1">
                 <div class="gallery-img-wrapper relative">
-                    <img src="{{ asset('storage/gallery/' . $picture->path) }}" alt="{{ $picture->name }}" class="rounded-lg">
+                    <img src="{{ Storage::url('gallery/' . $picture->path) }}" alt="{{ $picture->name }}" class="rounded-lg">
                     <div class="gallery-img-overlay space-y-6 absolute p-6 flex flex-col justify-center items-center top-0 w-full h-full text-sm text-center rounded-lg cursor-pointer" style="display: none; background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));">
                         <span class="text-base font-bold">{{ $picture->name }}</span>
                         <div class="w-full flex justify-between">
