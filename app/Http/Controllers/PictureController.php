@@ -21,7 +21,7 @@ class PictureController extends Controller
 
     public function gallery()
     {
-        $pictures = Picture::with('user.roles')->get();
+        $pictures = Picture::with('user.roles')->latest()->paginate(12);
 
         return view('pictures.gallery')
                 ->with(compact('pictures'));
@@ -31,7 +31,7 @@ class PictureController extends Controller
     {
         Gate::authorize('see-gallery');
 
-        $pictures = Picture::with('user.roles')->get();
+        $pictures = Picture::with('user.roles')->latest()->paginate(12);
 
         return view('pictures.index')
             ->with(compact('pictures'));

@@ -81,6 +81,9 @@
                 @endforelse
             </div>
         </form>
+
+        {{ $pictures->onEachSide(1)->links() }}
+
     </div>
 @endsection
 
