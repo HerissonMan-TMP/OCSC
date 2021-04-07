@@ -107,7 +107,7 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::get('/role-permission-management', [RoleController::class, 'index'])->name('role-permission-management');
         Route::patch('/roles/{role}/permissions', [PermissionController::class, 'update'])->name('roles.permissions.update');
 
-        Route::get('/recruitment-management', [RecruitmentController::class, 'index'])->name('recruitment-management');
+        Route::get('recruitments', [RecruitmentController::class, 'index'])->name('recruitments.index');
         Route::get('/recruitments/create', [RecruitmentController::class, 'create'])->name('recruitments.create');
         Route::post('/recruitments/store', [RecruitmentController::class, 'store'])->name('recruitments.store');
         Route::get('/recruitments/{recruitment}/edit', [RecruitmentController::class, 'edit'])->name('recruitments.edit');

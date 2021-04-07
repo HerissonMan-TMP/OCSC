@@ -92,9 +92,10 @@ class RecruitmentController extends Controller
 
         $this->recruitment->fill($request->validated());
         $this->recruitment->user()->associate(Auth::user()->id);
+        $this->recruitment->role()->associate($request->role_id);
         $this->recruitment->save();
 
-        return redirect()->route('staff.recruitments.edit', $recruitment);
+        return redirect()->route('staff.recruitments.index');
     }
 
     /**
@@ -128,7 +129,7 @@ class RecruitmentController extends Controller
 
         $recruitment->update($request->validated());
 
-        return redirect()->route('staff.recruitment-management');
+        return redirect()->route('staff.recruitments.index');
     }
 
     /**
@@ -144,6 +145,6 @@ class RecruitmentController extends Controller
 
         $recruitment->delete();
 
-        return redirect()->route('staff.recruitment-management');
+        return redirect()->route('staff.recruitments.index');
     }
 }
