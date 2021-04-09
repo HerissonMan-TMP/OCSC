@@ -28,8 +28,20 @@
                 <div class="flex items-center">
                     <i class="flex-shrink-0 fas fa-{{ $role->icon_name }} fa-fw fa-lg mr-2"></i>
                     <h2 class="m-0 text-lg font-bold">{{ $role->name }}</h2>
+                    <div class="text-lg font-bold">{{ $role->group_level }}</div>
                 </div>
-                <div class="text-lg font-bold">{{ $role->group_level }}</div>
+
+                @can('has-admin-rights')
+                <div class="flex items-center space-x-5">
+                    <form action="{{ route('staff.roles.update-colors', $role) }}" method="POST" class="flex space-x-2">
+                        @csrf
+                        @method('PATCH')
+                        <input type="text" name="color" id="color" class="text-gray-300 bg-gray-700 focus:ring-0 focus:border-transparent focus:outline-none w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="Color" value="{{ $role->color }}">
+                        <input type="text" name="contrast_color" id="contrast-color" class="text-gray-300 bg-gray-700 focus:ring-0 focus:border-transparent w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="Contrast color" value="{{ $role->contrast_color }}">
+                        <button type="submit" class="w-full md:w-auto transition duration-200 py-2 px-4 bg-gray-700 text-gray-300 border border-transparent shadow-sm text-sm font-bold rounded-md focus:outline-none">Update colors</button>
+                    </form>
+                </div>
+                @endcan
             </div>
             <div class="p-4 border-b border-l border-r rounded-b-md" style="border-color: {{ $role->color }}">
             @if($cannotUpdatePermissions)

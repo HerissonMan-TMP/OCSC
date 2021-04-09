@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Role\UpdateRoleColorsRequest;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
@@ -27,5 +28,14 @@ class RoleController extends Controller
         return view('roles-permissions.index')
                 ->with('roles', $roles)
                 ->with('permissions', $permissions);
+    }
+
+    public function updateColors(UpdateRoleColorsRequest $request, Role $role)
+    {
+        Gate::authorize('has-admin-rights');
+
+        $role->update($request->validated());
+
+        return back();
     }
 }

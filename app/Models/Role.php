@@ -17,6 +17,16 @@ class Role extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'color',
+        'contrast_color',
+    ];
+
+    /**
      * Get the users having the role.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

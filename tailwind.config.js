@@ -28,7 +28,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+        borderWidth: ['hover', 'focus'],
+    },
   },
   plugins: [
       require('postcss-import'),

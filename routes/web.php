@@ -105,6 +105,7 @@ Route::middleware(['auth', 'not_temporary_password'])->group(function () {
         Route::delete('/contact-messages/{contactMessage}', [ContactMessageController::class, 'destroy'])->name('contact-messages.destroy');
 
         Route::get('/role-permission-management', [RoleController::class, 'index'])->name('role-permission-management');
+        Route::patch('/roles/{role}/update-colors', [RoleController::class, 'updateColors'])->name('roles.update-colors');
         Route::patch('/roles/{role}/permissions', [PermissionController::class, 'update'])->name('roles.permissions.update');
 
         Route::get('recruitments', [RecruitmentController::class, 'index'])->name('recruitments.index');
