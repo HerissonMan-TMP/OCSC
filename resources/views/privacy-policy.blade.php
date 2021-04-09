@@ -2,8 +2,6 @@
 
 @section('title', 'Privacy Policy')
 
-@section('breadcrumb', 'Privacy Policy')
-
 @section('content')
     <div class="flex flex-col justify-center items-center bg-fixed bg-cover bg-center py-52" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/kZ3YjwR.png');">
         <div class="text-center grid gap-4">
