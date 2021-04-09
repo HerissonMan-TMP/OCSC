@@ -27,7 +27,7 @@ class StoreContactMessageRequest extends FormRequest
     {
         return [
             'truckersmp_id' => [
-                'required',
+                'nullable',
                 'numeric',
                 'digits_between:1,8',
             ],
@@ -61,7 +61,6 @@ class StoreContactMessageRequest extends FormRequest
     public function messages()
     {
         return [
-            'truckersmp_id.required' => 'The TruckersMP ID is required.',
             'truckersmp_id.numeric' => 'The TruckersMP ID must be a number.',
             'truckersmp_id.digits_between' => 'The TruckersMP ID must not exceed :max numbers.',
             'vtc.max' => 'The VTC name must not exceed :max characters.',

@@ -9,6 +9,19 @@ class ContactMessage extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'truckersmp_id',
+        'vtc',
+        'discord',
+        'email',
+        'message',
+    ];
+
     public function category()
     {
         return $this->belongsTo(ContactCategory::class);

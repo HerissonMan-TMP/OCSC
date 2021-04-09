@@ -18,8 +18,8 @@
 
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-full md:col-span-3">
-                    <label for="truckersmp_id" class="block text-sm font-medium text-gray-300">TruckersMP ID <span class="text-red-500 font-bold">*</span></label>
-                    <input type="text" name="truckersmp_id" id="truckersmp_id" class="text-gray-300 bg-gray-700 font-bold uppercase mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="900597" required maxlength="8" value="{{ old('truckersmp_id') }}">
+                    <label for="truckersmp_id" class="block text-sm font-medium text-gray-300">TruckersMP ID</label>
+                    <input type="text" name="truckersmp_id" id="truckersmp_id" class="text-gray-300 bg-gray-700 font-bold uppercase mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="900597" maxlength="8" value="{{ old('truckersmp_id') }}">
                     @error('truckersmp_id')
                     <span class="pt-2 text-sm text-red-500">
                         {{ $message }}

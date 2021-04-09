@@ -77,8 +77,7 @@ class ContactMessageController extends Controller
      */
     public function store(StoreContactMessageRequest $request)
     {
-        $this->contactMessage->fill($request->validated());
-        $this->contactMessage->save();
+        ContactCategory::find($request->category_id)->messages()->create($request->validated());
 
         return redirect()->route('contact-messages.show-success');
     }

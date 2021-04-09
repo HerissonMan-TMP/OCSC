@@ -11,6 +11,6 @@ class ContactCategory extends Model
 
     public function messages()
     {
-        return $this->hasMany(ContactMessage::class);
+        return $this->hasMany(ContactMessage::class, 'category_id');
     }
 }
