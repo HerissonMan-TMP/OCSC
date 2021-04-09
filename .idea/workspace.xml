@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TTFR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TTFR.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/PictureFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PictureFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pictures/gallery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pictures/gallery.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pictures/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pictures/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/global-requirements.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-requirements.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +168,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ShortenURL" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -259,7 +251,10 @@
       <workItem from="1617641503384" duration="2875000" />
       <workItem from="1617699722022" duration="35000" />
       <workItem from="1617742137466" duration="1320000" />
-      <workItem from="1617777424659" duration="13610000" />
+      <workItem from="1617777424659" duration="16825000" />
+      <workItem from="1617820082457" duration="1495000" />
+      <workItem from="1617868581672" duration="157000" />
+      <workItem from="1617987430617" duration="675000" />
     </task>
     <servers />
   </component>
