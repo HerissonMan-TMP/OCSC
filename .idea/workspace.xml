@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactMessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactMessageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Contact/StoreContactMessageRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Contact/StoreContactMessageRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ContactMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ContactMessage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact-messages/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/contact-messages/success-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/success-page.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +253,7 @@
       <workItem from="1617777424659" duration="16825000" />
       <workItem from="1617820082457" duration="1495000" />
       <workItem from="1617868581672" duration="157000" />
-      <workItem from="1617987430617" duration="4305000" />
+      <workItem from="1617987430617" duration="4608000" />
     </task>
     <servers />
   </component>
