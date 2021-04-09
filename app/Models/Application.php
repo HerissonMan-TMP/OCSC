@@ -16,6 +16,21 @@ class Application extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'truckersmp_id',
+        'discord',
+        'email',
+        'steam_profile',
+        'trucksbook_profile',
+        'age',
+        'pc_configuration',
+    ];
+
+    /**
      * Get the recruitment session the application belongs to.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

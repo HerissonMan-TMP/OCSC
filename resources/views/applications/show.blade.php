@@ -12,17 +12,40 @@
     </div>
 
     <div class="grid grid-cols-6 gap-6">
-        <div class="col-span-full md:col-span-3">
-            <label for="discord_username" class="block font-medium text-gray-300">Discord username</label>
-            <input type="text" disabled id="discord_username" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ $application->discord }}">
+        <div class="col-span-full md:col-span-2">
+            <label for="truckersmp_id" class="block text-sm font-medium text-gray-300">TruckersMP ID</label>
+            <input type="text" disabled id="truckersmp_id" class="text-gray-300 bg-gray-700 font-bold uppercase mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ $application->truckersmp_id }}">
+        </div>
+
+        <div class="col-span-full md:col-span-2">
+            <label for="discord" class="block font-medium text-gray-300">Discord username</label>
+            <input type="text" disabled id="discord" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ $application->discord }}">
+        </div>
+
+        <div class="col-span-full md:col-span-2">
+            <label for="email" class="block font-medium text-gray-300">Email address</label>
+            <input type="email" disabled id="email" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ $application->email }}">
         </div>
 
         <div class="col-span-full md:col-span-3">
-            <label for="email_address" class="block font-medium text-gray-300">Email address</label>
-            <input type="text" disabled id="email_address" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ $application->email }}">
+            <label for="steam-profile" class="block font-medium text-gray-300">Steam profile link</label>
+            <input type="text" disabled id="steam-profile" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ $application->steam_profile }}">
         </div>
 
-        <hr class="col-span-full border-b border-gray-700">
+        <div class="col-span-full md:col-span-3">
+            <label for="trucksbook-profile" class="block font-medium text-gray-300">Trucksbook profile link</label>
+            <input type="text" disabled id="trucksbook-profile" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ $application->trucksbook_profile }}">
+        </div>
+
+        <div class="col-span-full md:col-span-3">
+            <label for="age" class="block font-medium text-gray-300">Age</label>
+            <input type="text" disabled id="age" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ $application->age }}">
+        </div>
+
+        <div class="col-span-full md:col-span-3">
+            <label for="pc-configuration" class="block font-medium text-gray-300">PC Configuration</label>
+            <input type="text" disabled id="pc-configuration" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ $application->pc_configuration }}">
+        </div>
 
         @foreach($recruitment->questions as $question)
             <div class="col-span-full mb-4">

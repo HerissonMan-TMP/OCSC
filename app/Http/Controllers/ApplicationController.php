@@ -90,7 +90,7 @@ class ApplicationController extends Controller
 
             if (in_array($questionId, $questionsId)) {
                 $this->answer->text = $text;
-                $this->answer->application()->associate($application->id);
+                $this->answer->application()->associate($this->application->id);
                 $this->answer->question()->associate($questionId);
                 $this->answer->save();
             }

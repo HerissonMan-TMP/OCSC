@@ -46,23 +46,73 @@
             <hr class="col-span-full border-b border-gray-700">
 
             <div class="grid grid-cols-6 gap-6">
-                <div class="col-span-full md:col-span-3">
-                    <label for="discord" class="block font-medium text-gray-300">Discord username <span class="text-red-500">*</span></label>
-                    <input type="text" name="discord" id="discord" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="MyUsername#1234" maxlength="50" value="{{ old('discord_username') }}" required>
-                    @error('discord_username')
+                <div class="col-span-full md:col-span-2">
+                    <label for="truckersmp_id" class="block text-sm font-medium text-gray-300">TruckersMP ID <span class="text-red-500">*</span></label>
+                    <input type="text" name="truckersmp_id" id="truckersmp_id" class="text-gray-300 bg-gray-700 font-bold uppercase mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="3116422" maxlength="8" value="{{ old('truckersmp_id') }}" required>
+                    @error('truckersmp_id')
                     <span class="pt-2 text-sm text-red-500">
-                    {{ $message }}
-                </span>
+                        {{ $message }}
+                    </span>
+                    @enderror
+                </div>
+
+                <div class="col-span-full md:col-span-2">
+                    <label for="discord" class="block font-medium text-gray-300">Discord username <span class="text-red-500">*</span></label>
+                    <input type="text" name="discord" id="discord" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="MyUsername#1234" maxlength="50" value="{{ old('discord') }}" required>
+                    @error('discord_username')
+                        <span class="pt-2 text-sm text-red-500">
+                        {{ $message }}
+                    </span>
+                    @enderror
+                </div>
+
+                <div class="col-span-full md:col-span-2">
+                    <label for="email" class="block font-medium text-gray-300">Email address <span class="text-red-500">*</span></label>
+                    <input type="email" name="email" id="email" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="myemail@example.com" maxlength="300" value="{{ old('email') }}" required>
+                    @error('email_address')
+                        <span class="pt-2 text-sm text-red-500">
+                        {{ $message }}
+                    </span>
                     @enderror
                 </div>
 
                 <div class="col-span-full md:col-span-3">
-                    <label for="email" class="block font-medium text-gray-300">Email address <span class="text-red-500">*</span></label>
-                    <input type="email" name="email" id="email" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="myemail@example.com" maxlength="300" value="{{ old('email_address') }}" required>
-                    @error('email_address')
+                    <label for="steam-profile" class="block font-medium text-gray-300">Steam profile link <span class="text-red-500">*</span></label>
+                    <input type="text" name="steam_profile" id="steam-profile" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="https://steamcommunity.com/profiles/76561199011527918" value="{{ old('steam_profile') }}" required>
+                    @error('steam_profile')
+                        <span class="pt-2 text-sm text-red-500">
+                        {{ $message }}
+                    </span>
+                    @enderror
+                </div>
+
+                <div class="col-span-full md:col-span-3">
+                    <label for="trucksbook-profile" class="block font-medium text-gray-300">Trucksbook profile link <span class="text-red-500">*</span></label>
+                    <input type="text" name="trucksbook_profile" id="trucksbook-profile" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="https://trucksbook.eu/profile/176697" value="{{ old('trucksbook_profile') }}" required>
+                    @error('trucksbook_profile')
+                        <span class="pt-2 text-sm text-red-500">
+                        {{ $message }}
+                    </span>
+                    @enderror
+                </div>
+
+                <div class="col-span-full md:col-span-3">
+                    <label for="age" class="block font-medium text-gray-300">Age <span class="text-red-500">*</span></label>
+                    <input type="text" name="age" id="age" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" maxlength="2" placeholder="19" value="{{ old('age') }}" required>
+                    @error('age')
+                        <span class="pt-2 text-sm text-red-500">
+                        {{ $message }}
+                    </span>
+                    @enderror
+                </div>
+
+                <div class="col-span-full md:col-span-3">
+                    <label for="pc-configuration" class="block font-medium text-gray-300">PC Configuration <span class="text-red-500">*</span></label>
+                    <input type="text" name="pc_configuration" id="pc-configuration" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="Intel Core i5, 8 GB RAM, 500 GB internal storage drive, ..." value="{{ old('pc_configuration') }}" required>
+                    @error('pc_configuration')
                     <span class="pt-2 text-sm text-red-500">
-                    {{ $message }}
-                </span>
+                        {{ $message }}
+                    </span>
                     @enderror
                 </div>
 
