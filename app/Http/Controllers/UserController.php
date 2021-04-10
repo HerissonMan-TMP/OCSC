@@ -5,30 +5,20 @@ namespace App\Http\Controllers;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateTemporaryPasswordRequest;
 use App\Http\Requests\User\UpdateUserRolesRequest;
-use App\Models\Application;
-use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
 use App\Services\TemporaryPasswordService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Hash;
+use Auth;
+use Gate;
+use Hash;
 
+/**
+ * Class UserController
+ * @package App\Http\Controllers
+ */
 class UserController extends Controller
 {
-    /**
-     * A User instance.
-     *
-     * @var User
-     */
-    protected $user;
-
-    public function __construct(User $user)
-    {
-        $this->user = $user;
-    }
-
     /**
      * Display the staff members' list.
      *
@@ -42,7 +32,7 @@ class UserController extends Controller
         $users = User::with('roles')->get();
 
         return view('users.index')
-                    ->with('users', $users);
+                    ->with(compact('users'));
     }
 
     /**
@@ -60,8 +50,8 @@ class UserController extends Controller
         $roles = Role::orderBy('order')->get();
 
         return view('users.show')
-                ->with('user', $user)
-                ->with('roles', $roles);
+                ->with(compact('user'))
+                ->with(compact('roles'));
     }
 
     /**
@@ -80,12 +70,12 @@ class UserController extends Controller
 
         return view('users.create')
                     ->with('email', $request->email)
-                    ->with('temporaryPassword', $temporaryPassword)
-                    ->with('roles', $roles);
+                    ->with(compact('temporaryPassword'))
+                    ->with(compact('roles'));
     }
 
     /**
-     * Store a new user (staff member).
+     * Store a new user in the database.
      *
      * @param StoreUserRequest $request
      * @return \Illuminate\Http\RedirectResponse
@@ -96,12 +86,15 @@ class UserController extends Controller
         Gate::authorize('create-new-users');
         Gate::authorize('assign-role', Role::find($request->role_id));
 
-        $this->user->email = $request->email;
-        $this->user->name = $request->name;
-        $this->user->password = Hash::make($request->temporary_password);
-        $this->user->temporary_password_without_hash = $request->temporary_password;
-        $this->user->save();
-        $this->user->roles()->attach($request->role_id);
+        $user = new User;
+
+        $user->fill($request->only('email', 'name'));
+        $user->password = Hash::make($request->temporary_password);
+        $user->temporary_password_without_hash = $request->temporary_password;
+
+        $user->save();
+
+        $user->roles()->attach($request->role_id);
 
         return redirect()->route('staff.users.index');
     }
@@ -143,7 +136,7 @@ class UserController extends Controller
     }
 
     /**
-     * Delete a user.
+     * Delete the given user.
      *
      * @param User $user
      * @return \Illuminate\Http\RedirectResponse
