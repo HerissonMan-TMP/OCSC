@@ -11,22 +11,15 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Gate;
 
+/**
+ * Class DownloadController
+ * @package App\Http\Controllers
+ */
 class DownloadController extends Controller
 {
     /**
-     * A Download instance.
-     *
-     * @var Download
-     */
-    protected $download;
-
-    public function __construct(Download $download)
-    {
-        $this->download = $download;
-    }
-
-    /**
-     * Display a listing of the available downloads.
+     * Display all the available downloads for the authenticated user.
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index()
     {
@@ -36,38 +29,41 @@ class DownloadController extends Controller
         $roles = Role::orderBy('order')->get();
 
         return view('downloads.index')
-                ->with('downloads', $downloads)
-                ->with('roles', $roles);
+                ->with(compact('downloads'))
+                ->with(compact('roles'));
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new download.
      *
      * @param StoreDownloadRequest $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(StoreDownloadRequest $request)
     {
         Gate::authorize('manage-downloads');
 
-        $this->download->name = $request->name;
-        $this->download->link = $request->link;
-        $this->download->save();
-
-        $this->download->roles()->attach($request->roles);
+        $download = Download::create($request->validated());
+        $download->roles()->attach($request->roles);
 
         return back();
     }
 
-    public function update(UpdateDownloadRequest $request, Download $download)
+    /**
+     * Update the given download.
+     *
+     * @param Download $download
+     * @param UpdateDownloadRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function update(Download $download, UpdateDownloadRequest $request)
     {
         Gate::authorize('manage-downloads');
 
-        $download->name = $request->name;
-        $download->link = $request->link;
-        $download->save();
-
-        $download->roles()->attach($request->roles);
+        $download->update($request->validated());
+        $download->roles()->sync($request->roles);
 
         return back();
     }
@@ -77,7 +73,7 @@ class DownloadController extends Controller
      *
      * @param Download $download
      * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function destroy(Download $download)
     {
