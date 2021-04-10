@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Role\UpdateRoleColorsRequest;
 use App\Models\Permission;
 use App\Models\Role;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
+use Gate;
 
+/**
+ * Class RoleController
+ * @package App\Http\Controllers
+ */
 class RoleController extends Controller
 {
     /**
@@ -26,11 +27,19 @@ class RoleController extends Controller
         $permissions = Permission::all();
 
         return view('roles-permissions.index')
-                ->with('roles', $roles)
-                ->with('permissions', $permissions);
+                ->with(compact('roles'))
+                ->with(compact('permissions'));
     }
 
-    public function updateColors(UpdateRoleColorsRequest $request, Role $role)
+    /**
+     * Update the role colors.
+     *
+     * @param Role $role
+     * @param UpdateRoleColorsRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function updateColors(Role $role, UpdateRoleColorsRequest $request)
     {
         Gate::authorize('has-admin-rights');
 
