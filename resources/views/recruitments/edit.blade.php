@@ -137,7 +137,7 @@
 
             @foreach($recruitment->questions as $question)
             <div class="mt-10 md:mt-2 grid grid-cols-8 gap-4 md:gap-6">
-                <form action="{{ route('staff.recruitments.questions.update', [$recruitment, $question]) }}" method="POST" class="col-span-full md:col-span-7">
+                <form action="{{ route('staff.questions.update', $question) }}" method="POST" class="col-span-full md:col-span-7">
                     @csrf
                     @method('PATCH')
                     <div class="grid grid-cols-8 gap-4 md:gap-6 mt-2">
@@ -164,7 +164,7 @@
                     </div>
                 </form>
 
-                <form action="{{ route('staff.recruitments.questions.destroy', [$recruitment, $question]) }}" method="POST" class="col-span-full md:col-span-1 flex flex-col justify-center">
+                <form action="{{ route('staff.questions.destroy', $question) }}" method="POST" class="col-span-full md:col-span-1 flex flex-col justify-center">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-200 bg-red-500 hover:bg-red-700 focus:outline-none">
