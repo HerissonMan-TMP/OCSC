@@ -3,15 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Convoy;
-use Illuminate\Http\Request;
 
+/**
+ * Class HomeController
+ * @package App\Http\Controllers
+ */
 class HomeController extends Controller
 {
+    /**
+     * Display the website's homepage.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function homepage()
     {
-        $convoys = Convoy::take(3)->where('meetup_date', '>', now())->oldest('meetup_date')->get();
+        $convoys = Convoy::take(3)->upcoming()->oldest('meetup_date')->get();
 
         return view('homepage')
-                ->with('convoys', $convoys);
+                ->with(compact('convoys'));
     }
 }
