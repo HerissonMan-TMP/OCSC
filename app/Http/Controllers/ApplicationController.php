@@ -55,14 +55,13 @@ class ApplicationController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function show(Recruitment $recruitment, Application $application)
+    public function show(Application $application)
     {
         Gate::authorize('manage-recruitments');
 
-        $recruitment = $recruitment->load(['role', 'questions']);
+        $application = $application->load(['recruitment.role', 'recruitment.questions']);
 
         return view('applications.show')
-                    ->with('recruitment', $recruitment)
                     ->with('application', $application);
     }
 
@@ -102,12 +101,11 @@ class ApplicationController extends Controller
     /**
      * Accept an application, and redirects to the user creation page.
      *
-     * @param Recruitment $recruitment
      * @param Application $application
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function accept(Recruitment $recruitment, Application $application)
+    public function accept(Application $application)
     {
         Gate::authorize('manage-recruitments');
 
@@ -123,18 +121,17 @@ class ApplicationController extends Controller
     /**
      * Decline an application, and redirect to the applications index.
      *
-     * @param Recruitment $recruitment
      * @param Application $application
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function decline(Recruitment $recruitment, Application $application)
+    public function decline(Application $application)
     {
         Gate::authorize('manage-recruitments');
 
         $application->status = 'declined';
         $application->save();
 
-        return redirect()->route('staff.recruitments.applications.index', $recruitment);
+        return redirect()->route('staff.recruitments.applications.index', $application->recruitment);
     }
 }

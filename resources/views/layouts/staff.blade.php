@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('breadcrumb-additional-content')
-    <form action="{{ route('logout') }}" method="POST">
+    <form action="{{ route('staff.logout') }}" method="POST">
         @csrf
         <button type="submit" class="transition duration-200 ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-gray-700 font-bold bg-primary hover:text-gray-800 hover:bg-primary-dark">
             Logout

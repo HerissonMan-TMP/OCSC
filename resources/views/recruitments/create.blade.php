@@ -32,8 +32,8 @@
 
                 <div class="col-span-full md:col-span-3">
                     <label for="start_date" class="block text-sm font-medium text-gray-300">Start Date (UTC) <span class="text-red-500 font-bold">*</span></label>
-                    <input id="" type="datetime-local" name="start_datetime" id="start_date" class="flatpickr text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ old('start_datetime') }}" required>
-                    @error('start_datetime')
+                    <input type="datetime-local" name="start_at" id="start_date" class="flatpickr text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ old('start_datetime') }}" required>
+                    @error('start_at')
                     <span class="pt-2 text-sm text-red-500">
                         {{ $message }}
                     </span>
@@ -42,8 +42,8 @@
 
                 <div class="col-span-full md:col-span-3">
                     <label for="end_date" class="block text-sm font-medium text-gray-300">End Date (UTC) <span class="text-red-500 font-bold">*</span></label>
-                    <input id="" type="datetime-local" name="end_datetime" id="end_date" class="flatpickr text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ old('end_datetime') }}" required>
-                    @error('end_datetime')
+                    <input type="datetime-local" name="end_at" id="end_date" class="flatpickr text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ old('end_datetime') }}" required>
+                    @error('end_at')
                     <span class="pt-2 text-sm text-red-500">
                         {{ $message }}
                     </span>

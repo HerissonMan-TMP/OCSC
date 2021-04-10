@@ -1,14 +1,14 @@
 @extends('layouts.staff')
 
-@section('title', "{$application->discord}'s Application for {$recruitment->role->name}")
+@section('title', "{$application->discord}'s Application for {$application->recruitment->role->name}")
 
-@section('breadcrumb', "Staff - Recruitment #{$recruitment->id} - Application #{$application->id}")
+@section('breadcrumb', "Staff - Recruitment #{$application->recruitment->id} - Application #{$application->id}")
 
 @section('content-staff')
 <div class="px-4 py-5 md:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
     <div class="flex justify-between items-center mt-2 mb-6">
-        <h3 class="m-0 font-bold text-2xl text-gray-300">Recruitment #{{ $recruitment->id }} - Application #{{ $application->id }} for <span style="color: {{ $recruitment->role->color }}">{{ $recruitment->role->name }}</span></h3>
-        <i style="color: {{ $recruitment->role->color }}" class="flex-shrink-0 text-primary fas fa-{{ $recruitment->role->icon_name }} fa-fw fa-2x"></i>
+        <h3 class="m-0 font-bold text-2xl text-gray-300">Recruitment #{{ $application->recruitment->id }} - Application #{{ $application->id }} for <span style="color: {{ $application->recruitment->role->color }}">{{ $application->recruitment->role->name }}</span></h3>
+        <i style="color: {{ $application->recruitment->role->color }}" class="flex-shrink-0 text-primary fas fa-{{ $application->recruitment->role->icon_name }} fa-fw fa-2x"></i>
     </div>
 
     <div class="grid grid-cols-6 gap-6">
@@ -47,7 +47,7 @@
             <input type="text" disabled id="pc-configuration" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ $application->pc_configuration }}">
         </div>
 
-        @foreach($recruitment->questions as $question)
+        @foreach($application->recruitment->questions as $question)
             <div class="col-span-full mb-4">
                 @if($question->type === 'inline')
                     <label for="question-{{ $question->id }}" class="block text-2xl font-light text-gray-300 mb-3">{{ $question->name }}</label>
@@ -64,13 +64,13 @@
         <div class="col-span-4"></div>
         @switch($application->status)
         @case('new')
-            <form class="col-span-1" action="{{ route('staff.recruitments.applications.decline', [$recruitment, $application]) }}" method="POST">
+            <form class="col-span-1" action="{{ route('staff.applications.decline', $application) }}" method="POST">
                 @csrf
                 <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-red-200 bg-red-700 hover:text-red-300 hover:bg-red-800 focus:outline-none">
                     Decline
                 </button>
             </form>
-            <form class="col-span-1" action="{{ route('staff.recruitments.applications.accept', [$recruitment, $application]) }}" method="POST">
+            <form class="col-span-1" action="{{ route('staff.applications.accept', $application) }}" method="POST">
                 @csrf
                 <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-green-200 bg-green-700 hover:text-green-300 hover:bg-green-800 focus:outline-none">
                     Accept

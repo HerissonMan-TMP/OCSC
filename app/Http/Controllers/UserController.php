@@ -103,7 +103,7 @@ class UserController extends Controller
         $this->user->save();
         $this->user->roles()->attach($request->role_id);
 
-        return redirect()->route('staff.staff-members-list');
+        return redirect()->route('staff.users.index');
     }
 
     /**
@@ -157,6 +157,6 @@ class UserController extends Controller
         $user->roles()->detach();
         $user->delete();
 
-        return redirect()->route('staff.staff-members-list');
+        return redirect()->route('staff.users.index');
     }
 }

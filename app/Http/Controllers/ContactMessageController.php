@@ -79,7 +79,7 @@ class ContactMessageController extends Controller
     {
         ContactCategory::find($request->category_id)->messages()->create($request->validated());
 
-        return redirect()->route('contact-messages.show-success');
+        return redirect()->route('contact-messages.success-page');
     }
 
     /**

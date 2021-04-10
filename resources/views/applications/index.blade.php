@@ -54,7 +54,7 @@
                         {{ $application->status }}
                     </td>
                     <td class="border-none px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a href="{{ route('staff.recruitments.applications.show', [$recruitment, $application]) }}" class="transition duration-200 text-primary hover:text-primary-dark">View</a>
+                        <a href="{{ route('staff.applications.show', $application) }}" class="transition duration-200 text-primary hover:text-primary-dark">View</a>
                     </td>
                 </tr>
             @empty
