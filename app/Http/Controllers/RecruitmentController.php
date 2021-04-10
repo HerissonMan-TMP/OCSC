@@ -2,31 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Recruitment\StoreRecruitmentRequest;
 use App\Http\Requests\Recruitment\UpdateRecruitmentRequest;
 use App\Models\Recruitment;
 use App\Models\Role;
-use App\Models\User;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
+use Auth;
+use Gate;
 
+/**
+ * Class RecruitmentController
+ * @package App\Http\Controllers
+ */
 class RecruitmentController extends Controller
 {
-    /**
-     * A Recruitment instance.
-     *
-     * @var Recruitment
-     */
-    protected $recruitment;
-
-    public function __construct(Recruitment $recruitment)
-    {
-        $this->recruitment = $recruitment;
-    }
-
     /**
      * Display the list of recruitment sessions (both open and closed).
      *
@@ -46,7 +34,7 @@ class RecruitmentController extends Controller
                                     ->withCount('applications')->get();
 
         return view('recruitments.index')
-                    ->with('recruitments', $recruitments);
+                    ->with(compact('recruitments'));
     }
 
     /**
@@ -60,7 +48,7 @@ class RecruitmentController extends Controller
         $recruitment = $recruitment->load(['role', 'questions']);
 
         return view('recruitments.show')
-                    ->with('recruitment', $recruitment);
+                    ->with(compact('recruitment'));
     }
 
     /**
@@ -80,7 +68,7 @@ class RecruitmentController extends Controller
     }
 
     /**
-     * Store a recruitment session.
+     * Store a recruitment session in the database.
      *
      * @param StoreRecruitmentRequest $request
      * @return \Illuminate\Http\RedirectResponse
@@ -90,16 +78,19 @@ class RecruitmentController extends Controller
     {
         Gate::authorize('manage-recruitments');
 
-        $this->recruitment->fill($request->validated());
-        $this->recruitment->user()->associate(Auth::user()->id);
-        $this->recruitment->role()->associate($request->role_id);
-        $this->recruitment->save();
+        $recruitment = new Recruitment;
+
+        $recruitment->fill($request->validated());
+        $recruitment->user()->associate(Auth::user());
+        $recruitment->role()->associate($request->role_id);
+
+        $recruitment->save();
 
         return redirect()->route('staff.recruitments.index');
     }
 
     /**
-     * Display the form to update basic information of the given recruitment session.
+     * Display the form to edit information & questions of the given recruitment session.
      *
      * @param Recruitment $recruitment
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
@@ -112,18 +103,18 @@ class RecruitmentController extends Controller
         $recruitment = $recruitment->load(['role', 'questions', 'user.roles']);
 
         return view('recruitments.edit')
-                ->with('recruitment', $recruitment);
+                ->with(compact('recruitment'));
     }
 
     /**
      * Update basic information of the given recruitment session.
      *
-     * @param UpdateRecruitmentRequest $request
      * @param Recruitment $recruitment
+     * @param UpdateRecruitmentRequest $request
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function update(UpdateRecruitmentRequest $request, Recruitment $recruitment)
+    public function update(Recruitment $recruitment, UpdateRecruitmentRequest $request)
     {
         Gate::authorize('manage-recruitments');
 
