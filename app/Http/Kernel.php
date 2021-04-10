@@ -61,7 +61,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'temporary_password' => \App\Http\Middleware\PasswordIsTemporary::class,
-        'not_temporary_password' => \App\Http\Middleware\PasswordIsNotTemporary::class,
+        'temporary-password' => \App\Http\Middleware\PasswordIsTemporary::class,
+        'not-temporary-password' => \App\Http\Middleware\PasswordIsNotTemporary::class,
     ];
 }

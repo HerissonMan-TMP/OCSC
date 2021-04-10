@@ -8,30 +8,15 @@ use App\Models\Application;
 use App\Models\Recruitment;
 use Illuminate\Support\Facades\Gate;
 
+
+/**
+ * Class ApplicationController
+ * @package App\Http\Controllers
+ */
 class ApplicationController extends Controller
 {
     /**
-     * An Application instance.
-     *
-     * @var Application
-     */
-    protected $application;
-
-    /**
-     * An Answer instance.
-     *
-     * @var Answer
-     */
-    protected $answer;
-
-    public function __construct(Application $application, Answer $answer)
-    {
-        $this->application = $application;
-        $this->answer = $answer;
-    }
-
-    /**
-     * Display all applications sent for a given recruitment session.
+     * Display all the applications sent for a given recruitment session.
      *
      * @param Recruitment $recruitment
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
@@ -44,13 +29,12 @@ class ApplicationController extends Controller
         $recruitment = $recruitment->load(['role', 'applications']);
 
         return view('applications.index')
-                    ->with('recruitment', $recruitment);
+                    ->with(compact('recruitment'));
     }
 
     /**
      * Display the application sent for the given recruitment session.
      *
-     * @param Recruitment $recruitment
      * @param Application $application
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
@@ -62,11 +46,11 @@ class ApplicationController extends Controller
         $application = $application->load(['recruitment.role', 'recruitment.questions']);
 
         return view('applications.show')
-                    ->with('application', $application);
+                    ->with(compact('application'));
     }
 
     /**
-     * Store the user's application (his contact information and answers).
+     * Store the user's application along with his answers.
      *
      * @param Recruitment $recruitment
      * @param StoreApplicationRequest $request
@@ -74,25 +58,17 @@ class ApplicationController extends Controller
      */
     public function store(Recruitment $recruitment, StoreApplicationRequest $request)
     {
-        // TODO: Refactor this.
+        $application = $recruitment->applications()->create($request->validated());
 
-        $this->application->fill($request->validated());
-        $this->application->recruitment()->associate($recruitment->id);
-        $this->application->save();
+        foreach ($recruitment->questions as $index => $question) {
+            $answer = new Answer;
 
-        $questionsId = $recruitment->questions()->pluck('id')->toArray();
+            $answer->text = $request->questions[$index];
 
-        $answersSent = $request->except(['_token', 'discord_username', 'email_address']);
+            $answer->application()->associate($application);
+            $answer->question()->associate($question);
 
-        foreach ($answersSent as $questionName => $text) {
-            $questionId = str_replace('question_', '', $questionName);
-
-            if (in_array($questionId, $questionsId)) {
-                $this->answer->text = $text;
-                $this->answer->application()->associate($this->application->id);
-                $this->answer->question()->associate($questionId);
-                $this->answer->save();
-            }
+            $answer->save();
         }
 
         return redirect()->route('applications.success-page');
@@ -109,8 +85,9 @@ class ApplicationController extends Controller
     {
         Gate::authorize('manage-recruitments');
 
-        $application->status = 'accepted';
-        $application->save();
+        $application->update([
+            'status' => Application::ACCEPTED,
+        ]);
 
         return redirect()->route('staff.users.create', [
             'email' => $application->email,
@@ -129,8 +106,9 @@ class ApplicationController extends Controller
     {
         Gate::authorize('manage-recruitments');
 
-        $application->status = 'declined';
-        $application->save();
+        $application->update([
+            'status' => Application::DECLINED,
+        ]);
 
         return redirect()->route('staff.recruitments.applications.index', $application->recruitment);
     }

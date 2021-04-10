@@ -15,6 +15,10 @@ class Application extends Model
 {
     use HasFactory;
 
+    public const DECLINED = 'declined';
+
+    public const ACCEPTED = 'accepted';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -28,6 +32,7 @@ class Application extends Model
         'trucksbook_profile',
         'age',
         'pc_configuration',
+        'status',
     ];
 
     /**

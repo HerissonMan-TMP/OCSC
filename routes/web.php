@@ -69,7 +69,7 @@ Route::middleware(['guest'])->group(function () {
 });
 
 //Staff: Temporary password.
-Route::middleware(['auth', 'temporary_password'])->group(function() {
+Route::middleware(['auth', 'temporary-password'])->group(function() {
     Route::view('staff/temporary-password/edit', 'edit-temporary-password')
         ->name('staff.temporary-password.edit');
     Route::post('staff/temporary-password/update', [UserController::class, 'updateTemporaryPassword'])
@@ -77,7 +77,7 @@ Route::middleware(['auth', 'temporary_password'])->group(function() {
 });
 
 //Staff without a password.
-Route::middleware(['auth', 'not_temporary_password'])->prefix('staff')->name('staff.')->group(function () {
+Route::middleware(['auth', 'not-temporary-password'])->prefix('staff')->name('staff.')->group(function () {
     //Hub.
     Route::view('/', 'hub')->name('hub');
 

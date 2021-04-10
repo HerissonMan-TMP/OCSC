@@ -16,6 +16,15 @@ class Answer extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'answer',
+    ];
+
+    /**
      * Get the application the answer belongs to.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

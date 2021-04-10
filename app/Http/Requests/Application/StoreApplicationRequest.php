@@ -56,15 +56,18 @@ class StoreApplicationRequest extends FormRequest
                 'required',
                 'max:100',
             ],
+            'questions' => [
+                'array'
+            ],
         ];
 
-        $questions = request()->route('recruitment')->questions;
+        /*$questions = request()->route('recruitment')->questions;
         foreach($questions as $question) {
             $rules['question_' . $question->id] = [
                 'required',
                 "between:{$question->min_length},{$question->max_length}"
             ];
-        }
+        }*/
 
         return $rules;
     }
