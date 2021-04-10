@@ -6,9 +6,6 @@ use App\Http\Requests\Download\StoreDownloadRequest;
 use App\Http\Requests\Download\UpdateDownloadRequest;
 use App\Models\Download;
 use App\Models\Role;
-use Auth;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
 use Gate;
 
 /**
