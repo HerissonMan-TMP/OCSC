@@ -9,22 +9,14 @@ use App\Models\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
+/**
+ * Class ContactMessageController
+ * @package App\Http\Controllers
+ */
 class ContactMessageController extends Controller
 {
     /**
-     * A Question instance.
-     *
-     * @var ContactMessage
-     */
-    protected $contactMessage;
-
-    public function __construct(ContactMessage $contactMessage)
-    {
-        $this->contactMessage = $contactMessage;
-    }
-
-    /**
-     * Display the list of contact messages received.
+     * Display the list of the received contact messages.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
@@ -36,7 +28,7 @@ class ContactMessageController extends Controller
         $contactMessages = ContactMessage::with('category')->latest()->get();
 
         return view('contact-messages.index')
-                ->with('contactMessages', $contactMessages);
+                ->with(compact('contactMessages'));
     }
 
     /**
@@ -53,7 +45,7 @@ class ContactMessageController extends Controller
         $contactMessage = $contactMessage->load('category');
 
         return view('contact-messages.show')
-                ->with('contactMessage', $contactMessage);
+                ->with(compact('contactMessage'));
     }
 
     /**
@@ -66,7 +58,7 @@ class ContactMessageController extends Controller
         $categories = ContactCategory::all();
 
         return view('contact-messages.create')
-                ->with('categories', $categories);
+                ->with(compact('categories'));
     }
 
     /**
@@ -93,8 +85,9 @@ class ContactMessageController extends Controller
     {
         Gate::authorize('change-contact-messages-status');
 
-        $contactMessage->status = 'read';
-        $contactMessage->save();
+        $contactMessage->update([
+            'status' => ContactMessage::READ,
+        ]);
 
         return redirect()->route('staff.contact-messages.index');
     }
@@ -110,8 +103,9 @@ class ContactMessageController extends Controller
     {
         Gate::authorize('change-contact-messages-status');
 
-        $contactMessage->status = 'unread';
-        $contactMessage->save();
+        $contactMessage->update([
+            'status' => ContactMessage::UNREAD,
+        ]);
 
         return redirect()->route('staff.contact-messages.index');
     }

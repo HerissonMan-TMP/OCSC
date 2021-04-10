@@ -9,6 +9,10 @@ class ContactMessage extends Model
 {
     use HasFactory;
 
+    public const READ = 'read';
+
+    public const UNREAD = 'unread';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -20,6 +24,7 @@ class ContactMessage extends Model
         'discord',
         'email',
         'message',
+        'status',
     ];
 
     public function category()
