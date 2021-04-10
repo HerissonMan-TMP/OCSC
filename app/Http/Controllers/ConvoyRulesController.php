@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
+use Gate;
 
+/**
+ * Class ConvoyRulesController
+ * @package App\Http\Controllers
+ */
 class ConvoyRulesController extends Controller
 {
     /**
@@ -12,6 +16,7 @@ class ConvoyRulesController extends Controller
      *
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(Request $request)
     {
