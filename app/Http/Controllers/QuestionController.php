@@ -6,23 +6,14 @@ use App\Http\Requests\Question\StoreQuestionRequest;
 use App\Http\Requests\Question\UpdateQuestionRequest;
 use App\Models\Question;
 use App\Models\Recruitment;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
+use Gate;
 
+/**
+ * Class QuestionController
+ * @package App\Http\Controllers
+ */
 class QuestionController extends Controller
 {
-    /**
-     * A Question instance.
-     *
-     * @var Question
-     */
-    protected $question;
-
-    public function __construct(Question $question)
-    {
-        $this->question = $question;
-    }
-
     /**
      * Store a question for the given recruitment session.
      *
@@ -33,28 +24,28 @@ class QuestionController extends Controller
      */
     public function store(Recruitment $recruitment, StoreQuestionRequest $request)
     {
-        // TODO: Be able to configure the min and max length for a question.
-
         Gate::authorize('manage-recruitments');
 
-        $this->question->fill($request->validated());
+        $question = new Question;
 
-        if ($request->type === 'inline') {
-            $this->question->min_length = 0;
-            $this->question->max_length = 200;
+        $question->fill($request->validated());
+
+        if ($request->type === Question::INLINE) {
+            $question->min_length = Question::INLINE_MIN_LENGTH;
+            $question->max_length = Question::INLINE_MAX_LENGTH;
         } else {
-            $this->question->min_length = 200;
-            $this->question->max_length = 5000;
+            $question->min_length = Question::MULTILINE_MIN_LENGTH;
+            $question->max_length = Question::MULTILINE_MAX_LENGTH;
         }
 
-        $this->question->recruitment()->associate($recruitment->id);
-        $this->question->save();
+        $question->recruitment()->associate($recruitment->id);
+        $question->save();
 
         return back();
     }
 
     /**
-     * Update the question for the given recruitment session.
+     * Update the given question.
      *
      * @param Recruitment $recruitment
      * @param Question $question
@@ -62,7 +53,7 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function update(Recruitment $recruitment, Question $question, UpdateQuestionRequest $request)
+    public function update(Question $question, UpdateQuestionRequest $request)
     {
         Gate::authorize('manage-recruitments');
 
@@ -72,14 +63,14 @@ class QuestionController extends Controller
     }
 
     /**
-     * Delete the given question for the given recruitment session.
+     * Delete the given question.
      *
      * @param Recruitment $recruitment
      * @param Question $question
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function destroy(Recruitment $recruitment, Question $question)
+    public function destroy(Question $question)
     {
         Gate::authorize('manage-recruitments');
 

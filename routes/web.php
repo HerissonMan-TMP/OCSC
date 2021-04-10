@@ -116,7 +116,7 @@ Route::middleware(['auth', 'not-temporary-password'])->prefix('staff')->name('st
     );
     Route::resource('recruitments.questions', QuestionController::class)->only(
         'store', 'update', 'destroy'
-    );
+    )->shallow();
     Route::post('applications/{application}/accept', [ApplicationController::class, 'accept'])
         ->name('applications.accept');
     Route::post('applications/{application}/decline', [ApplicationController::class, 'decline'])
