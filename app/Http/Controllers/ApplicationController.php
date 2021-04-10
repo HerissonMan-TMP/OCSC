@@ -6,7 +6,7 @@ use App\Http\Requests\Application\StoreApplicationRequest;
 use App\Models\Answer;
 use App\Models\Application;
 use App\Models\Recruitment;
-use Illuminate\Support\Facades\Gate;
+use Gate;
 
 
 /**
