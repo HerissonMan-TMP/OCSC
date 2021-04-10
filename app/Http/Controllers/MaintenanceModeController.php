@@ -3,12 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MaintenanceMode\EnableMaintenanceModeRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Gate;
+use Artisan;
+use Gate;
 
+/**
+ * Class MaintenanceModeController
+ * @package App\Http\Controllers
+ */
 class MaintenanceModeController extends Controller
 {
+    /**
+     * Enable the maintenance mode.
+     *
+     * @param EnableMaintenanceModeRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function enable(EnableMaintenanceModeRequest $request)
     {
         Gate::authorize('has-admin-rights');
@@ -21,6 +31,12 @@ class MaintenanceModeController extends Controller
         return redirect()->to("/{$request->secret}");
     }
 
+    /**
+     * Disable the maintenance mode.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function disable()
     {
         Gate::authorize('has-admin-rights');
