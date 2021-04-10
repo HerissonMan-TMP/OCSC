@@ -5,19 +5,20 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Convoy\StoreConvoyRequest;
 use App\Http\Requests\Convoy\UpdateConvoyRequest;
 use App\Models\Convoy;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Gate;
+use Gate;
 
+/**
+ * Class ConvoyController
+ * @package App\Http\Controllers
+ */
 class ConvoyController extends Controller
 {
-    protected $convoy;
-
-    public function __construct(Convoy $convoy)
-    {
-        $this->convoy = $convoy;
-    }
-
+    /**
+     * Display all the convoys.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function index()
     {
         Gate::authorize('manage-convoys');
@@ -25,17 +26,28 @@ class ConvoyController extends Controller
         $convoys = Convoy::latest('meetup_date')->get();
 
         return view('convoys.index')
-                ->with('convoys', $convoys);
+                ->with(compact('convoys'));
     }
 
+    /**
+     * Display the upcoming convoys.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function showUpcoming()
     {
-        $convoys = Convoy::where('meetup_date', '>', now())->oldest('meetup_date')->get();
+        $convoys = Convoy::upcoming()->oldest('meetup_date')->get();
 
         return view('convoys.upcoming-convoys')
-            ->with('convoys', $convoys);
+                ->with(compact('convoys'));
     }
 
+    /**
+     * Display the form to create a new convoy.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function create()
     {
         Gate::authorize('manage-convoys');
@@ -43,24 +55,45 @@ class ConvoyController extends Controller
         return view('convoys.create');
     }
 
+    /**
+     * Store a new convoy in the database.
+     *
+     * @param StoreConvoyRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function store(StoreConvoyRequest $request)
     {
         Gate::authorize('manage-convoys');
 
-        $this->convoy->fill($request->validated());
-        $this->convoy->save();
+        Convoy::create($request->validated());
 
         return redirect()->route('staff.convoys.index');
     }
 
+    /**
+     * Display the form to edit the given convoy.
+     *
+     * @param Convoy $convoy
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function edit(Convoy $convoy)
     {
         Gate::authorize('manage-convoys');
 
         return view('convoys.edit')
-                ->with('convoy', $convoy);
+                ->with(compact('convoy'));
     }
 
+    /**
+     * Update the given convoy.
+     *
+     * @param Convoy $convoy
+     * @param UpdateConvoyRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function update(Convoy $convoy, UpdateConvoyRequest $request)
     {
         Gate::authorize('manage-convoys');
@@ -70,6 +103,13 @@ class ConvoyController extends Controller
         return redirect()->route('staff.convoys.index');
     }
 
+    /**
+     * Delete the given convoy.
+     *
+     * @param Convoy $convoy
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function destroy(Convoy $convoy)
     {
         Gate::authorize('manage-convoys');

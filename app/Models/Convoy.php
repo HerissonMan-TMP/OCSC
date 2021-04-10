@@ -24,4 +24,15 @@ class Convoy extends Model
         'server',
         'meetup_date'
     ];
+
+    /**
+     * Scope a query to only include upcoming convoys.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeUpcoming($query)
+    {
+        return $query->where('meetup_date', '>', now());
+    }
 }
