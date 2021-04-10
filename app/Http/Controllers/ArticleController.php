@@ -7,12 +7,15 @@ use App\Http\Requests\Article\UpdateArticleRequest;
 use App\Models\Article;
 use Auth;
 use Gate;
-use Illuminate\Http\Request;
 
+/**
+ * Class ArticleController
+ * @package App\Http\Controllers
+ */
 class ArticleController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display all the articles.
      */
     public function index()
     {
@@ -22,6 +25,12 @@ class ArticleController extends Controller
                 ->with(compact('articles'));
     }
 
+    /**
+     * Display the page to manage the articles.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function manage()
     {
         Gate::authorize('manage-news-articles');
@@ -33,9 +42,10 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display the form to create a new article.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create()
     {
@@ -45,24 +55,23 @@ class ArticleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new article in the database.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(StoreArticleRequest $request)
     {
         Gate::authorize('manage-news-articles');
 
-        $article = Article::create($request->validated());
-        $article->postedByUser()->associate(Auth::user()->id);
-        $article->save();
+        $article = Auth::user()->articles()->create($request->validated());
 
         return redirect()->route('articles.show', $article);
     }
 
     /**
-     * Display the specified resource.
+     * Display the given article.
      *
      * @param Article $article
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
@@ -78,10 +87,11 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display the form to edit the given article.
      *
      * @param Article $article
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(Article $article)
     {
@@ -94,11 +104,12 @@ class ArticleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the given article.
      *
      * @param UpdateArticleRequest $request
      * @param Article $article
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(UpdateArticleRequest $request, Article $article)
     {
@@ -110,7 +121,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete the given article.
      *
      * @param Article $article
      * @return \Illuminate\Http\RedirectResponse
