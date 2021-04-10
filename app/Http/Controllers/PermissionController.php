@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Permission\UpdatePermissionRequest;
 use App\Models\Permission;
 use App\Models\Role;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
+use Gate;
 
+/**
+ * Class PermissionController
+ * @package App\Http\Controllers
+ */
 class PermissionController extends Controller
 {
     /**
