@@ -1,5 +1,3 @@
-@inject("carbon", "\Carbon\Carbon")
-
 @extends("layouts.app")
 
 @section("title", "Articles")
@@ -35,7 +33,7 @@
                                 <span>Unkown User</span>
                             @endif
                         </span>
-                        <span class="ml-4 text-sm italic text-gray-300"><i class="fas fa-clock fa-fw fa-md"></i> {{ $carbon->parse($article->created_at)->format('d M H:i') }}</span>
+                        <span class="ml-4 text-sm italic text-gray-300"><i class="fas fa-clock fa-fw fa-md"></i> {{ $article->created_at->format('d M H:i') }}</span>
                     </div>
                     <a href="{{ route('articles.show', $article) }}" class="mt-4 transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
                         Read

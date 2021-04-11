@@ -62,7 +62,7 @@
                         <i class="fas fa-clock fa-fw fa-sm"></i>
                     </div>
                     <div>
-                        <span class="text-gray-300 text-sm">{{ $user->created_at }}</span>
+                        <span class="text-gray-300 text-sm">{{ $user->created_at->format('d M H:i') }} UTC</span>
                     </div>
                 </div>
             </div>

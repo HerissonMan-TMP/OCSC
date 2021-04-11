@@ -18,7 +18,7 @@
         </div>
         <div class="grid grid-cols-3 gap-16 md:gap-20">
         @forelse($convoys as $convoy)
-            <div class="col-span-full md:col-span-1 rounded-md bg-gray-900 overflow-hidden @if($convoy->meetup_date < now()) transition duration-200 opacity-50 hover:opacity-100 @endif">
+                <div class="col-span-full md:col-span-1 rounded-md bg-gray-900 overflow-hidden @if($convoy->meetup_date->isPast()) transition duration-200 opacity-50 hover:opacity-100 @endif">
                 <div class="text-sm mb-6">
                     <img class="max-w-full h-auto" src="{{ $convoy->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="Convoy Banner">
                 </div>
@@ -49,7 +49,7 @@
                         @endif
                     </div>
                     <div>
-                        <i class="fas fa-calendar fa-fw fa-sm"></i> <span class="ml-2 text-sm capitalize">{{ \Carbon\Carbon::parse($convoy->meetup_date)->diffForHumans(['options' => \Carbon\Carbon::ONE_DAY_WORDS]) }} ({{ \Carbon\Carbon::parse($convoy->meetup_date)->format('d M H:i') }} UTC)</span>
+                        <i class="fas fa-calendar fa-fw fa-sm"></i> <span class="ml-2 text-sm capitalize">{{ $convoy->meetup_date->diffForHumans(['options' => \Carbon\Carbon::ONE_DAY_WORDS]) }} ({{ $convoy->meetup_date->format('d M H:i') }} UTC)</span>
                     </div>
                     <div class="grid grid-cols-3 gap-6 mt-4">
                         <div class="col-span-2">

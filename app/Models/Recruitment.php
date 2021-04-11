@@ -28,6 +28,11 @@ class Recruitment extends Model
         'specific_requirements'
     ];
 
+    protected $dates = [
+        'start_at',
+        'end_at',
+    ];
+
     /**
      * Get the role the recruitment session is for.
      *
@@ -68,31 +73,9 @@ class Recruitment extends Model
         return $this->hasMany(Application::class);
     }
 
-    /**
-     * Get the date & time the recruitment session starts at.
-     *
-     * @param string $value
-     * @return string
-     */
-    public function getStartAtAttribute($value): string
-    {
-        return Carbon::parse($value)->format('Y-m-d H:i');
-    }
-
-    /**
-     * Get the date & time the recruitment session ends at.
-     *
-     * @param string $value
-     * @return string
-     */
-    public function getEndAtAttribute($value): string
-    {
-        return Carbon::parse($value)->format('d M H:i');
-    }
-
     public function getIsOpenAttribute(): bool
     {
-        return Carbon::parse($this->start_at) <= now() && Carbon::parse($this->end_at) > now();
+        return now()->between($this->start_at, $this->end_at);
     }
 
     /**

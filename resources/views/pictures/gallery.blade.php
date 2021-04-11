@@ -1,5 +1,3 @@
-@inject("carbon", "\Carbon\Carbon")
-
 @extends('layouts.app')
 
 @section('title', 'Gallery')
@@ -30,7 +28,7 @@
                         </span>
                             <span>
                             <i class="fas fa-clock fa-fw fa-md"></i>
-                            {{ $carbon->parse($picture->created_at)->format('d M H:i') }}
+                            {{ $picture->created_at->format('d M H:i') }}
                         </span>
                         </div>
                     </div>

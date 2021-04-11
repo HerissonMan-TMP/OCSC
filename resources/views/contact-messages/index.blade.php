@@ -46,7 +46,7 @@
                         {{ $contactMessage->email }}
                     </td>
                     <td class="border-none px-6 py-4 whitespace-nowrap text-sm">
-                        {{ $contactMessage->created_at }}
+                        {{ $contactMessage->created_at->format('d M H:i') }}
                     </td>
                     <td class="border-none px-6 py-4 whitespace-nowrap text-sm capitalize @if($contactMessage->status === 'unread') font-bold text-blue-500 @endif">
                         {{ $contactMessage->status }}

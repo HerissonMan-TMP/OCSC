@@ -6,7 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Convoy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Convoy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Recruitment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Recruitment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/applications/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/applications/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/articles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/articles/manage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/manage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/articles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/contact-messages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/convoys/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoys/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/convoys/upcoming-convoys.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoys/upcoming-convoys.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pictures/gallery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pictures/gallery.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pictures/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pictures/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/recruitments/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +193,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -256,7 +273,7 @@
       <workItem from="1617868581672" duration="157000" />
       <workItem from="1617987430617" duration="8447000" />
       <workItem from="1618035562034" duration="25372000" />
-      <workItem from="1618137700269" duration="3696000" />
+      <workItem from="1618137700269" duration="9679000" />
     </task>
     <servers />
   </component>

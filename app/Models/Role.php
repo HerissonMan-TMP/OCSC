@@ -116,4 +116,14 @@ class Role extends Model
         }
         return $this->permissions->contains($permissionId);
     }
+
+    public function getOpenRecruitment()
+    {
+        return $this->recruitments->first();
+    }
+
+    public function isRecruiting()
+    {
+        return $this->getOpenRecruitment() !== null;
+    }
 }

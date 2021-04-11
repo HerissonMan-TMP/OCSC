@@ -48,7 +48,7 @@
                         {{ $application->email }}
                     </td>
                     <td class="border-none px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                        {{ $application->created_at }}
+                        {{ $application->created_at->format('d M H:i') }}
                     </td>
                     <td class="border-none px-6 py-4 whitespace-nowrap text-sm capitalize @switch($application->status) @case('new') text-blue-600 @break @case('declined') text-red-600 @break @case('accepted') text-green-600 @break @endswitch">
                         {{ $application->status }}

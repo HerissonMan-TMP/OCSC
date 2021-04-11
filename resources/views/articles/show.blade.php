@@ -1,5 +1,3 @@
-@inject("carbon", "\Carbon\Carbon")
-
 @extends("layouts.app")
 
 @section("title", "{$article->title}")
@@ -18,7 +16,7 @@
                     <span>Unkown User</span>
                     @endif
                 </span>
-                <span class="ml-4 text-sm italic text-gray-300"><i class="fas fa-clock fa-fw fa-md"></i> {{ $carbon->parse($article->created_at)->format('d M H:i') }}</span>
+                <span class="ml-4 text-sm italic text-gray-300"><i class="fas fa-clock fa-fw fa-md"></i> {{ $article->created_at->format('d M H:i') }}</span>
             </div>
         </div>
     </div>
@@ -51,7 +49,7 @@
                             <span>Unkown User</span>
                             @endif
                         </span>
-                        <span class="ml-4 text-sm italic text-gray-300"><i class="fas fa-clock fa-fw fa-md"></i> {{ $carbon->parse($latestArticle->created_at)->format('d M H:i') }}</span>
+                        <span class="ml-4 text-sm italic text-gray-300"><i class="fas fa-clock fa-fw fa-md"></i> {{ $latestArticle->created_at->format('d M H:i') }}</span>
                     </div>
                 </div>
                 @empty

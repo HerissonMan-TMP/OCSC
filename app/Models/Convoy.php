@@ -25,6 +25,10 @@ class Convoy extends Model
         'meetup_date'
     ];
 
+    protected $dates = [
+        'meetup_date'
+    ];
+
     /**
      * Scope a query to only include upcoming convoys.
      *

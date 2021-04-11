@@ -1,5 +1,3 @@
-@inject("carbon", "\Carbon\Carbon")
-
 @extends('layouts.staff')
 
 @section('title', 'Gallery - Staff')
@@ -71,7 +69,7 @@
                                     <span>Unkown User</span>
                                     @endif
                                 </span>
-                                <span><i class="fas fa-clock fa-fw fa-md"></i>{{ $carbon->parse($picture->created_at)->format('d M H:i') }}</span>
+                                <span><i class="fas fa-clock fa-fw fa-md"></i>{{ $picture->created_at->format('d M H:i') }}</span>
                             </div>
                         </div>
                     </div>

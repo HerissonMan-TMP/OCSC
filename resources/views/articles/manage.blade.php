@@ -1,5 +1,3 @@
-@inject("carbon", "\Carbon\Carbon")
-
 @extends('layouts.staff')
 
 @section('title', 'News Articles - Staff')
@@ -43,7 +41,7 @@
                                 <span>Unkown User</span>
                             @endif
                         </span>
-                            <span class="ml-4 text-sm italic text-gray-300"><i class="fas fa-clock fa-fw fa-md"></i> {{ $carbon->parse($article->created_at)->format('d M H:i') }}</span>
+                            <span class="ml-4 text-sm italic text-gray-300"><i class="fas fa-clock fa-fw fa-md"></i> {{ $article->created_at->format('d M H:i') }}</span>
                         </div>
                         <div class="grid grid-cols-6 gap-2 mt-4">
                             <div class="col-span-4">
