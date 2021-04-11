@@ -6,6 +6,11 @@
 <div class="flex flex-col justify-center items-center bg-fixed bg-cover bg-center py-52" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/kZ3YjwR.png');">
     <div class="text-center grid gap-4">
         <h1 class="text-5xl m-0 capitalize">Recruitment - <i class="flex-shrink-0 fas fa-{{ $recruitment->role->icon_name }} fa-fw" style="color: {{ $recruitment->role->color }}"></i> <span style="color: {{ $recruitment->role->color }}">{{ $recruitment->role->name }}</span></h1>
+        <div>
+            <p class="inline-block mb-0 rounded px-2 text-sm text-gray-200 bg-green-500 uppercase">
+                Open until <span class="font-bold">{{ $recruitment->end_at }} UTC</span>
+            </p>
+        </div>
     </div>
 </div>
 

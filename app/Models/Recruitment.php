@@ -87,7 +87,7 @@ class Recruitment extends Model
      */
     public function getEndAtAttribute($value): string
     {
-        return Carbon::parse($value)->format('Y-m-d H:i');
+        return Carbon::parse($value)->format('d M H:i');
     }
 
     public function getIsOpenAttribute(): bool
