@@ -17,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->bind('twitch', \App\Services\Twitch::class);
+
         $this->app->singleton('users', function ($app) {
             return User::with('roles.permissions')->get();
         });

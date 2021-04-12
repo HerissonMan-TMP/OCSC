@@ -321,7 +321,7 @@
                     From: "opacity-100 scale-100"
                     To: "opacity-0 scale-95"
                 -->
-                <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden">
+                <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden z-10">
                     <div id="responsive-menu" class="hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-gray-700 divide-y divide-gray-200">
                         <div class="pt-5 pb-6 px-5">
                             <div class="flex items-center justify-between">
@@ -408,6 +408,29 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="bg-gray-900 text-gray-300">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+                        <div>
+                            <span class="block font-bold uppercase">
+                                <i class="fab fa-twitch"></i>
+                                <i id="twitch-dot" class="fas fa-circle"></i>
+                                <span id="twitch-text"></span>
+                            </span>
+                            <a id="see-stream" role="button" tabindex="0" class="link" style="display: none;">
+                                See the Stream <i class="fas fa-angle-down"></i>
+                            </a>
+                        </div>
+                        <div id="stream-box" class="py-10" style="display: none;">
+                            <div class="aspect-w-16 aspect-h-9">
+                                <iframe
+                                    src="https://player.twitch.tv/?channel={{ config('twitch.channel_name') }}&parent=localhost"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -429,27 +452,57 @@
         </main>
 
         <footer class="bg-gray-800 py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-3 gap-16 md:gap-20 text-gray-300 text-sm">
-                <div class="col-span-full md:col-span-1 text-center">
-                    Section 1
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="grid grid-cols-3 gap-16 md:gap-20 text-gray-300 text-sm">
+                    <div class="col-span-full md:col-span-1 text-center">
+                        Section 1
+                    </div>
+                    <div class="col-span-full md:col-span-1 text-center">
+                        Section 2
+                    </div>
+                    <div class="col-span-full md:col-span-1 text-center">
+                        Section 3
+                    </div>
                 </div>
-                <div class="col-span-full md:col-span-1 text-center">
-                    Section 2
-                </div>
-                <div class="col-span-full md:col-span-1 text-center">
-                    Section 3
-                </div>
-            </div>
-            <div class="text-center mt-16 text-gray-300 text-sm">
-                ©2021 by OCSC Event. All rights reserved.
-                <div class="mt-2">
-                    <a href="{{ route('legal-notice') }}" class="underline">Legal Notice</a>
-                    <a href="{{ route('privacy-policy') }}" class="underline">Privacy Policy</a>
+                <div class="text-center mt-16 text-gray-300 text-sm">
+                    ©2021 by OCSC Event. All rights reserved.
+                    <div class="mt-2">
+                        <a href="{{ route('legal-notice') }}" class="underline">Legal Notice</a>
+                        <a href="{{ route('privacy-policy') }}" class="underline">Privacy Policy</a>
+                    </div>
                 </div>
             </div>
         </footer>
 
         <script src="{{ asset('js/app.js') }}"></script>
+
+        <script>
+            $(function () {
+                function blinkTwitchStatus() {
+                    $('#twitch-text').fadeOut(500).fadeIn(500);
+                }
+
+                $.ajax({
+                    url: "{{ route('api.twitch.stream', config('twitch.channel_name')) }}"
+                }).done(function(data) {
+                    console.log(data);
+                        if (data['stream'] === null) {
+                            $('#twitch-dot').addClass('text-red-500');
+                            $('#twitch-text').html('Live offline');
+                        } else {
+                            $('#twitch-dot').addClass('text-green-500');
+                            $('#twitch-text').html('Live online');
+
+                            setInterval(blinkTwitchStatus, 1000);
+
+                            $('#see-stream').show();
+                            $('#see-stream').click(function () {
+                                $('#stream-box').slideToggle();
+                            });
+                        }
+                    });
+            });
+        </script>
 
         @stack('scripts')
     </body>

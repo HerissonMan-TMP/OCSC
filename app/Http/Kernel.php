@@ -63,5 +63,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'temporary-password' => \App\Http\Middleware\PasswordIsTemporary::class,
         'not-temporary-password' => \App\Http\Middleware\PasswordIsNotTemporary::class,
+        'cors' => \App\Http\Middleware\Cors::class,
     ];
 }

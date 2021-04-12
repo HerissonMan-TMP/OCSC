@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\TwitchController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::prefix('twitch')->name('api.twitch.')->group(function () {
+    Route::get('stream/{name}', [TwitchController::class, 'stream'])->name('stream');
+    Route::get('user/{name}', [TwitchController::class, 'user']);
 });

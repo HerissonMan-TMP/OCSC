@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['throttle:web'])->group(function () {
+Route::middleware(['throttle:web', 'cors'])->group(function () {
     //Public: Homepage.
     Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 
