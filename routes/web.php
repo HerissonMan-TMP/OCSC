@@ -17,6 +17,7 @@ use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RecruitmentController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -62,6 +63,9 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
     //Public: Legal notice & Privacy policy.
     Route::view('legal-notice', 'legal-notice')->name('legal-notice');
     Route::view('privacy-policy', 'privacy-policy')->name('privacy-policy');
+
+    Route::post('subscribe', [SubscriberController::class, 'store'])->name('subscribers.store');
+    Route::get('unsubscribe/{subscriber:unsubscribe_token}', [SubscriberController::class, 'destroy'])->name('subscribers.destroy');
 
     //Public (without Staff): Login.
     Route::middleware(['guest'])->group(function () {

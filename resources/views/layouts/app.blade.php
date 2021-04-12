@@ -460,11 +460,11 @@
                             By providing us with your email, you will be notified of upcoming convoys, OCSC news as well as important announcements.
                             You also agree to receive these emails in accordance with our Privacy Policy.
                         </p>
-                        <form action="" method="POST" class="flex flex-wrap items-stretch w-full mb-4 relative">
+                        <form action="{{ route('subscribers.store') }}" method="POST" class="flex flex-wrap items-stretch w-full mb-4 relative">
                             @csrf
-                            <input type="text" class="flex-shrink flex-grow flex-auto flex-1 text-gray-300 bg-gray-700 focus:ring-0 focus:border-primary text-sm rounded-l-md border-gray-600" placeholder="your@email.com">
+                            <input type="text" name="email" class="flex-shrink flex-grow flex-auto flex-1 text-gray-300 bg-gray-700 focus:ring-0 focus:border-primary text-sm rounded-l-md border-gray-600" placeholder="your@email.com">
                             <div class="flex -mr-px">
-                                <input type="submit" value="Subscribe" class="flex items-center transition duration-200 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-r-md shadow-sm text-gray-700 font-bold bg-primary hover:text-gray-800 hover:bg-primary-dark cursor-pointer">
+                                <input type="submit" value="Subscribe" class="flex items-center transition duration-200 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-r-md shadow-sm text-gray-700 font-bold bg-primary hover:text-gray-800 hover:bg-primary-dark cursor-pointer focus:outline-none">
                             </div>
                         </form>
                     </div>
