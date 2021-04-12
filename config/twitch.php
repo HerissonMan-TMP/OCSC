@@ -22,7 +22,7 @@ return [
     |
     */
 
-    'channel_name' => 'fextralife',
+    'channel_name' => 'ocsc_officiel',
 
     /*
     |--------------------------------------------------------------------------

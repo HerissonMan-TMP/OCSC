@@ -424,7 +424,7 @@
                         <div id="stream-box" class="py-10" style="display: none;">
                             <div class="aspect-w-16 aspect-h-9">
                                 <iframe
-                                    src="https://player.twitch.tv/?channel={{ config('twitch.channel_name') }}&parent=localhost"
+                                    src="https://player.twitch.tv/?channel={{ config('twitch.channel_name') }}&parent={{ request()->getHost() }}"
                                     allowfullscreen>
                                 </iframe>
                             </div>
