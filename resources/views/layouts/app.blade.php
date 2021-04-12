@@ -454,18 +454,38 @@
         <footer class="bg-gray-800 py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="grid grid-cols-3 gap-16 md:gap-20 text-gray-300 text-sm">
-                    <div class="col-span-full md:col-span-1 text-center">
-                        Section 1
+                    <div class="col-span-full md:col-span-1">
+                        <h4 class="mt-0 mb-1 font-bold">Stay informed!</h4>
+                        <p class="mb-4 text-justify">
+                            By providing us with your email, you will be notified of upcoming convoys, OCSC news as well as important announcements.
+                            You also agree to receive these emails in accordance with our Privacy Policy.
+                        </p>
+                        <form action="" method="POST" class="flex flex-wrap items-stretch w-full mb-4 relative">
+                            @csrf
+                            <input type="text" class="flex-shrink flex-grow flex-auto flex-1 text-gray-300 bg-gray-700 focus:ring-0 focus:border-primary text-sm rounded-l-md border-gray-600" placeholder="your@email.com">
+                            <div class="flex -mr-px">
+                                <input type="submit" value="Subscribe" class="flex items-center transition duration-200 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-r-md shadow-sm text-gray-700 font-bold bg-primary hover:text-gray-800 hover:bg-primary-dark cursor-pointer">
+                            </div>
+                        </form>
                     </div>
-                    <div class="col-span-full md:col-span-1 text-center">
-                        Section 2
+
+                    <div class="col-span-full md:col-span-1">
+                        <img class="mx-auto" width="50%" src="{{ asset('img/ocsc_logo.png') }}" alt="">
                     </div>
-                    <div class="col-span-full md:col-span-1 text-center">
-                        Section 3
+
+                    <div class="col-span-full md:col-span-1">
+                        <h4 class="mt-0 mb-1 font-bold">Our Discord server</h4>
+                        <p class="mb-4 text-justify">
+                            We have a Discord server which is the main place for us to be in touch with the community.
+                            If you are not on the server yet, feel free to join us!
+                        </p>
+                        <a href="https://discord.gg/abB2wCm8Ed" target="_blank" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-bold text-gray-300 bg-discord hover:text-gray-300 hover:bg-discord-dark">
+                            <i class="fab fa-discord mr-2"></i> Join our Discord server
+                        </a>
                     </div>
                 </div>
                 <div class="text-center mt-16 text-gray-300 text-sm">
-                    ©2021 by OCSC Event. All rights reserved.
+                    ©2021 by {{ config('app.name') }}. All rights reserved.
                     <div class="mt-2">
                         <a href="{{ route('legal-notice') }}" class="underline">Legal Notice</a>
                         <a href="{{ route('privacy-policy') }}" class="underline">Privacy Policy</a>
