@@ -63,3 +63,19 @@ table, th, td {
 code {
     @apply bg-gray-800 p-1 rounded-md
 }
+
+.alert-success {
+    @apply bg-green-700 text-gray-200
+}
+
+.alert-warning {
+    @apply bg-yellow-500 text-gray-200
+}
+
+.alert-danger {
+    @apply bg-red-600 text-gray-200
+}
+
+.alert-info {
+    @apply bg-blue-600 text-gray-200
+}

@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/TTFR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TTFR.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ApplicationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ApplicationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactMessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactMessageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubscriberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubscriberController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Application/StoreApplicationRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Application/StoreApplicationRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Contact/StoreContactMessageRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Contact/StoreContactMessageRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Subscriber/StoreSubscriberRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Subscriber/StoreSubscriberRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -155,6 +167,7 @@
       <path value="$PROJECT_DIR$/vendor/matthewbdaly/laravel-azure-storage" />
       <path value="$PROJECT_DIR$/vendor/league/flysystem-azure-blob-storage" />
       <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/laracasts/flash" />
     </include_path>
   </component>
   <component name="ProjectId" id="1p6YDBYL3Y3S9kmyGf9YbXMIcr8" />
@@ -260,7 +273,7 @@
       <workItem from="1618294709715" duration="16241000" />
       <workItem from="1618330911439" duration="6441000" />
       <workItem from="1618383137091" duration="11408000" />
-      <workItem from="1618419203958" duration="1605000" />
+      <workItem from="1618419203958" duration="5485000" />
     </task>
     <servers />
   </component>

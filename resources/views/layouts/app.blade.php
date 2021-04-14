@@ -78,6 +78,8 @@
             </div>
         </a>
 
+        @include('flash::message')
+
         <header>
             <div class="bg-gray-700">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -637,6 +639,14 @@
                     $('#cookie-preferences-widget-label').show();
                 }).on('mouseleave', function () {
                     $('#cookie-preferences-widget-label').hide();
+                });
+
+                //Flash notifications
+                $('.alert').fadeIn(350);
+                $('.alert').not('.alert-important').delay(5000).fadeOut(350);
+
+                $('.alert-close').click(function () {
+                    $('.alert').fadeOut(350);
                 });
 
 

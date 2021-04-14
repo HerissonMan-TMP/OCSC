@@ -131,6 +131,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/matthewbdaly/laravel-azure-storage" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem-azure-blob-storage" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpspec/prophecy" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laracasts/flash" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -28,6 +28,8 @@ class SubscriberController extends Controller
 
         $subscriber->save();
 
+        flash('You have successfully subscribed to our newsletter!')->success();
+
         return back();
     }
 
@@ -40,6 +42,8 @@ class SubscriberController extends Controller
     public function destroy(Subscriber $subscriber)
     {
         $subscriber->delete();
+
+        flash('You have successfully unsubscribed from our newsletter!')->success();
 
         return redirect()->route('homepage');
     }

@@ -3,7 +3,9 @@
 namespace App\Http\Requests\Application;
 
 use App\Models\Recruitment;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
 
 class StoreApplicationRequest extends FormRequest
 {
@@ -118,5 +120,22 @@ class StoreApplicationRequest extends FormRequest
         }
 
         return $messages;
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param Validator $validator
+     * @return void
+     *
+     * @throws ValidationException
+     */
+    public function failedValidation(Validator $validator)
+    {
+        flash($validator->errors()->first())->error()->important();
+
+        throw (new ValidationException($validator))
+            ->errorBag($this->errorBag)
+            ->redirectTo($this->getRedirectUrl());
     }
 }

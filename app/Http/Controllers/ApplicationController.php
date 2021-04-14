@@ -71,6 +71,8 @@ class ApplicationController extends Controller
             $answer->save();
         }
 
+        flash('Your application has been sent successfully!')->success();
+
         return redirect()->route('applications.success-page');
     }
 

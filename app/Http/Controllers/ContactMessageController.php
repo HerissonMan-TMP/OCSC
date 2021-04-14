@@ -71,6 +71,8 @@ class ContactMessageController extends Controller
     {
         ContactCategory::find($request->category_id)->messages()->create($request->validated());
 
+        flash('Your message has been sent successfully!')->success();
+
         return redirect()->route('contact-messages.success-page');
     }
 

@@ -3,8 +3,10 @@
 namespace App\Http\Requests\Contact;
 
 use App\Models\ContactCategory;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 
 class StoreContactMessageRequest extends FormRequest
 {
@@ -76,5 +78,22 @@ class StoreContactMessageRequest extends FormRequest
             'message.max' => 'The message must not exceed :max characters.',
             'consent.accepted' => 'You must accept the condition above.',
         ];
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param Validator $validator
+     * @return void
+     *
+     * @throws ValidationException
+     */
+    public function failedValidation(Validator $validator)
+    {
+        flash($validator->errors()->first())->error()->important();
+
+        throw (new ValidationException($validator))
+            ->errorBag($this->errorBag)
+            ->redirectTo($this->getRedirectUrl());
     }
 }
