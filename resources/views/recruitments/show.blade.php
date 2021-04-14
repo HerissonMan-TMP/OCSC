@@ -161,7 +161,7 @@
                 <input type="checkbox" name="consent" id="personal-data-consent" class="form-checkbox rounded-full text-primary border-none focus:ring-offset-0 focus:ring-0 cursor-pointer">
                 <label for="personal-data-consent" class="text-sm text-gray-300">
                     By submitting an application, you consent that we are allowed to store any information provided above,
-                    in accordance with our <a href="{{ route('privacy-policy') }}">Privacy Policy</a>.
+                    in accordance with our <a href="{{ route('privacy-policy.show') }}">Privacy Policy</a>.
                 </label>
             </div>
             @error('consent')
