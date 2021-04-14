@@ -66,7 +66,6 @@
             html.force--consent,
             html.force--consent body{
                 height: auto!important;
-                width: 100vw!important;
             }
         </style>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.2/dist/cookieconsent.js"></script>
