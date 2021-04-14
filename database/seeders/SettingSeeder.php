@@ -24,5 +24,8 @@ class SettingSeeder extends Seeder
 
         //Privacy Policy
         setting(['privacy-policy' => 'The **privacy policy**.'])->save();
+
+        //Cookie Policy
+        setting(['cookie-policy' => 'The **cookie policy**.'])->save();
     }
 }

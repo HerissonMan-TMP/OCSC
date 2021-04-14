@@ -22,7 +22,7 @@ return [
     |
     */
 
-    'channel_name' => 'ocsc_officiel',
+    'channel_name' => 'ogaminglol',
 
     /*
     |--------------------------------------------------------------------------

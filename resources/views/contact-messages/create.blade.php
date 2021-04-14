@@ -82,6 +82,19 @@
                 </div>
             </div>
 
+            <div class="mt-4">
+                <input type="checkbox" name="consent" id="personal-data-consent" class="form-checkbox rounded-full text-primary border-none focus:ring-offset-0 focus:ring-0 cursor-pointer">
+                <label for="personal-data-consent" class="text-sm text-gray-300">
+                    By submitting a contact message, you consent that we are allowed to store any information provided above,
+                    in accordance with our <a href="{{ route('privacy-policy') }}">Privacy Policy</a>.
+                </label>
+            </div>
+            @error('consent')
+            <span class="pt-2 text-sm text-red-500">
+                    {{ $message }}
+                </span>
+            @enderror
+
             <div class="mt-6 text-right">
                 <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
                     Send

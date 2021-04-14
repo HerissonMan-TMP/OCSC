@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" style="scroll-behavior: smooth;">
+<html lang="en" class="force--consent c_darkmode" style="scroll-behavior: smooth;">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -15,9 +15,76 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+        <!-- Cookie Consent iubenda -->
+        {{--
+        <script type="text/javascript">
+            var _iub = _iub || [];
+            _iub.csConfiguration = {
+                "countryDetection": true,
+                "askConsentAtCookiePolicyUpdate": true,
+                "consentOnContinuedBrowsing": false,
+                "lang": "en",
+                "siteId": 2219646,
+                "cookiePolicyId": 77957939,
+                "logLevel": "nolog",
+                "floatingPreferencesButtonDisplay": "anchored-top-left",
+                "floatingPreferencesButtonIcon": true,
+                "floatingPreferencesButtonHover": true,
+                "floatingPreferencesButtonColor": "#111827",
+                "floatingPreferencesButtonCaptionColor": "#d1d5db",
+                "reloadOnConsent": true,
+                "purposes": "1,2,3,4,5",
+                "perPurposeConsent": true,
+                "cookiePolicyUrl": "{{ route('cookie-policy') }}",
+                "floatingPreferencesButtonCaption": "Cookies preferences",
+                "banner": {
+                    "brandBackgroundColor": "#111827",
+                    "brandTextColor": "#d1d5db",
+                    "logo": "{{ asset('img/ocsc_logo.png') }}",
+                    "acceptButtonDisplay": true,
+                    "acceptButtonColor": "#00ffaf",
+                    "acceptButtonCaptionColor": "#374151",
+                    "rejectButtonDisplay": true,
+                    "rejectButtonColor": "#00ffaf",
+                    "rejectButtonCaptionColor": "#374151",
+                    "position": "bottom",
+                    "backgroundOverlay": true,
+                    "textColor": "#d1d5db",
+                    "backgroundColor": "#111827",
+                    "customizeButtonDisplay": true,
+                    "customizeButtonColor": "#212121",
+                    "customizeButtonCaptionColor": "white"
+                }
+            };
+        </script>
+        <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+        --}}
+
+        <!-- Cookie Consent custom -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.2/dist/cookieconsent.css">
+        <style>
+            html.force--consent,
+            html.force--consent body{
+                height: auto!important;
+                width: 100vw!important;
+            }
+        </style>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.2/dist/cookieconsent.js"></script>
+
         <title>@hasSection('title') @yield("title") - @endif {{ config("app.name") }}</title>
     </head>
     <body class="bg-gray-700">
+
+        <!-- Cookie preferences widget -->
+        <a href="javascript:void(0);" aria-label="View cookie settings" data-cc="c-settings">
+            <div id="cookie-preferences-widget" class="fixed top-0 left-5 z-50 bg-gray-100 rounded-b-lg text-primary-dark">
+                <div class="m-3">
+                    <i class="fas fa-fingerprint text-xl"></i>
+                    <span id="cookie-preferences-widget-label" class="ml-2" style="display: none;">Cookie preferences</span>
+                </div>
+            </div>
+        </a>
+
         <header>
             <div class="relative bg-gray-700">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -422,11 +489,17 @@
                             </a>
                         </div>
                         <div id="stream-box" class="py-10" style="display: none;">
-                            <div class="aspect-w-16 aspect-h-9">
+                            <div id="twitch-iframe-box" class="aspect-w-16 aspect-h-9">
+                                {{--
                                 <iframe
-                                    src="https://player.twitch.tv/?channel={{ config('twitch.channel_name') }}&parent={{ request()->getHost() }}"
+                                    class="_iub_cs_activate"
+                                    data-iub-purposes="3"
+                                    suppressedsrc="https://player.twitch.tv/?channel={{ config('twitch.channel_name') }}&parent={{ request()->getHost() }}"
+                                    src="//cdn.iubenda.com/cookie_solution/empty.html"
                                     allowfullscreen>
                                 </iframe>
+                                --}}
+                                <p class="text-sm">Enable Functionality Cookies to see the stream.</p>
                             </div>
                         </div>
                     </div>
@@ -498,6 +571,82 @@
 
         <script>
             $(function () {
+
+                //Cookie Consent Management
+                var cookieconsent = initCookieConsent();
+
+                cookieconsent.run({
+                    current_lang : 'en',
+                    auto_language: true,
+                    onAccept : function(){
+                        if (cookieconsent.allowedCategory('functionality_cookies')) {
+                            $('#twitch-iframe-box').append('<iframe src="https://player.twitch.tv/?channel={{ config('twitch.channel_name') }}&parent={{ request()->getHost() }}" allowfullscreen></iframe>');
+                        } else {
+                            $('#twitch-iframe-box iframe').remove();
+                        }
+                    },
+
+                    languages : {
+                        en : {
+                            consent_modal : {
+                                title :  "We use cookies",
+                                description :  'We and selected partners use cookies or similar technologies as specified in the <a href="{{ route('cookie-policy') }}" class="underline">cookie policy</a>.',
+                                primary_btn: {
+                                    text: 'Accept',
+                                    role: 'accept_all'  //'accept_selected' or 'accept_all'
+                                },
+                                secondary_btn: {
+                                    text : 'Settings',
+                                    role : 'settings'   //'settings' or 'accept_necessary'
+                                }
+                            },
+                            settings_modal : {
+                                title : 'Cookie settings',
+                                save_settings_btn : "Save settings",
+                                accept_all_btn : "Accept all",
+                                blocks : [
+                                    {
+                                        title : "Cookie Policy",
+                                        description: "<iframe allowtransparency='true' src='{{ asset('cookie-policy.txt') }}' width='100%' style='background-color: #F3F4F6;'></iframe><p style='margin-top: 2em; font-weight: bold;'>Please refresh the page after updating the cookies preferences.</p>"
+                                    },{
+                                        title : "Necessary cookies",
+                                        description: 'These trackers are used for activities that are strictly necessary to operate or deliver the service you requested from us and, therefore, do not require you to consent.',
+                                        toggle : {
+                                            value : 'necessary_cookies',
+                                            enabled : true,
+                                            readonly: true
+                                        }
+                                    },{
+                                        title : "Functionality cookies",
+                                        description: 'These trackers help us to provide a personalized user experience by improving the quality of your preference management options, and by enabling the interaction with external networks and platforms.',
+                                        toggle : {
+                                            value : 'functionality_cookies',
+                                            enabled : false,
+                                            readonly: false
+                                        }
+                                    },
+                                    {
+                                        title : "Analytical cookies",
+                                        description: 'These cookies enable us and third-party services to collect aggregated data for statistical purposes on how our visitors use the website. These cookies do not contain personal information such as names and email addresses and are used to help us improve your user experience of the website.',
+                                        toggle : {
+                                            value : 'analytical_cookies',
+                                            enabled : false,
+                                            readonly: false
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                });
+
+                $('#cookie-preferences-widget').on('mouseenter', function () {
+                    $('#cookie-preferences-widget-label').show();
+                }).on('mouseleave', function () {
+                    $('#cookie-preferences-widget-label').hide();
+                });
+
+
                 function blinkTwitchStatus() {
                     $('#twitch-text').fadeOut(500).fadeIn(500);
                 }
@@ -505,7 +654,6 @@
                 $.ajax({
                     url: "{{ route('api.twitch.stream', config('twitch.channel_name')) }}"
                 }).done(function(data) {
-                    console.log(data);
                         if (data['stream'] === null) {
                             $('#twitch-dot').addClass('text-red-500');
                             $('#twitch-text').html('Live offline');
@@ -521,6 +669,7 @@
                             });
                         }
                     });
+
             });
         </script>
 

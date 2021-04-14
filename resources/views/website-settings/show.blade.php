@@ -44,6 +44,22 @@
                 </div>
             </form>
         </div>
+        <div class="mt-4">
+            <form action="{{ route('staff.cookie-policy.update') }}" method="POST">
+                @csrf
+                @method('PATCH')
+                <label for="cookie_policy" class="block text-sm font-medium text-gray-300">Cookie Policy <span class="text-red-500 font-bold">*</span> <i class="ml-1 flex-shrink-0 fab fa-markdown fa-fw"></i></label>
+                <textarea name="cookie_policy" id="cookie_policy" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="10">{{ old('cookie_policy') ?? setting('cookie-policy') }}</textarea>
+                @error('cookie_policy')
+                <span class="pt-2 text-sm text-red-500">
+                    {{ $message }}
+                </span>
+                @enderror
+                <div class="mt-6 text-right">
+                    <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">Update the Privacy Policy</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <hr class="col-span-full border-b border-gray-700 my-10">
