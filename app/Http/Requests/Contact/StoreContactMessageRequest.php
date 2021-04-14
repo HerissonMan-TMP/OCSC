@@ -49,7 +49,10 @@ class StoreContactMessageRequest extends FormRequest
             'message' => [
                 'required',
                 'max:5000'
-            ]
+            ],
+            'consent' => [
+                'accepted',
+            ],
         ];
     }
 
@@ -71,6 +74,7 @@ class StoreContactMessageRequest extends FormRequest
             'email.max' => 'The Email address must not exceed :max characters.',
             'message.required' => 'A message is required.',
             'message.max' => 'The message must not exceed :max characters.',
+            'consent.accepted' => 'You must accept the condition above.',
         ];
     }
 }

@@ -62,12 +62,6 @@
 
         <!-- Cookie Consent custom -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.2/dist/cookieconsent.css">
-        <style>
-            html.force--consent,
-            html.force--consent body{
-                height: auto!important;
-            }
-        </style>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.2/dist/cookieconsent.js"></script>
 
         <title>@hasSection('title') @yield("title") - @endif {{ config("app.name") }}</title>
@@ -85,7 +79,7 @@
         </a>
 
         <header>
-            <div class="relative bg-gray-700">
+            <div class="bg-gray-700">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6">
                     <div class="flex justify-between items-center py-6 lg:justify-start lg:space-x-10">
                         <div class="flex justify-start lg:w-0 lg:flex-1">

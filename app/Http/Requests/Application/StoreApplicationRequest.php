@@ -59,6 +59,9 @@ class StoreApplicationRequest extends FormRequest
             'questions' => [
                 'array'
             ],
+            'consent' => [
+                'accepted',
+            ],
         ];
 
         /*$questions = request()->route('recruitment')->questions;
@@ -101,6 +104,8 @@ class StoreApplicationRequest extends FormRequest
             'age.between' => 'You must have between :min and :max years old.',
 
             'pc_configuration.max' => 'The PC Configuration must not be longer than :max characters.',
+
+            'consent.accepted' => 'You must accept the condition above.',
         ];
 
         $questions = request()->route('recruitment')->questions;
