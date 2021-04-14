@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactMessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactMessageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Application/StoreApplicationRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Application/StoreApplicationRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Contact/StoreContactMessageRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Contact/StoreContactMessageRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/twitch.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/twitch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/SettingSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/SettingSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact-messages/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/legal-notice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/legal-notice.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/privacy-policy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/privacy-policy.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website-settings/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website-settings/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +258,7 @@
       <workItem from="1618208785097" duration="33010000" />
       <workItem from="1618294709715" duration="16241000" />
       <workItem from="1618330911439" duration="6441000" />
-      <workItem from="1618383137091" duration="6566000" />
+      <workItem from="1618383137091" duration="7134000" />
     </task>
     <servers />
   </component>
