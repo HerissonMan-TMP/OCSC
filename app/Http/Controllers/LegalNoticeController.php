@@ -2,23 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\LegalNotice\StoreLegalNoticeRequest;
+use App\Models\LegalNotice;
 use Gate;
 
+/**
+ * Class LegalNoticeController
+ * @package App\Http\Controllers
+ */
 class LegalNoticeController extends Controller
 {
     /**
-     * Update the legal notice.
+     * Display the latest version of the Privacy policy.
      *
-     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function show()
+    {
+        $legalNotice = LegalNotice::latest()->first();
+
+        return view('legal-notice')
+            ->with(compact('legalNotice'));
+    }
+
+    /**
+     * Store a new version of the privacy policy.
+     *
+     * @param StoreLegalNoticeRequest $request
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function update(Request $request)
+    public function store(StoreLegalNoticeRequest $request)
     {
         Gate::authorize('has-admin-rights');
 
-        setting(['legal-notice' => $request->legal_notice])->save();
+        LegalNotice::create([
+            'content' => $request->legal_notice_content
+        ]);
 
         return back();
     }

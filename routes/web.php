@@ -61,8 +61,8 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
     Route::post('contact', [ContactMessageController::class, 'store'])->name('contact-messages.store');
 
     //Public: Legal notice & Privacy policy.
-    Route::view('legal-notice', 'legal-notice')->name('legal-notice');
-    Route::view('privacy-policy', 'privacy-policy')->name('privacy-policy');
+    Route::get('legal-notice', [LegalNoticeController::class, 'show'])->name('legal-notice.show');
+    Route::get('privacy-policy', [PrivacyPolicyController::class, 'show'])->name('privacy-policy.show');
 
     Route::post('subscribe', [SubscriberController::class, 'store'])->name('subscribers.store');
     Route::get('unsubscribe/{subscriber:unsubscribe_token}', [SubscriberController::class, 'destroy'])->name('subscribers.destroy');
@@ -154,8 +154,8 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
 
         //Website Settings (+ Legal notice and Privacy policy).
         Route::view('website-settings', 'website-settings.show')->name('website-settings');
-        Route::patch('legal-notice', [LegalNoticeController::class, 'update'])->name('legal-notice.update');
-        Route::patch('privacy-policy', [PrivacyPolicyController::class, 'update'])->name('privacy-policy.update');
+        Route::post('legal-notice', [LegalNoticeController::class, 'store'])->name('legal-notice.store');
+        Route::post('privacy-policy', [PrivacyPolicyController::class, 'store'])->name('privacy-policy.store');
 
         //Maintenance mode.
         Route::post('maintenance-mode/enable', [MaintenanceModeController::class, 'enable'])

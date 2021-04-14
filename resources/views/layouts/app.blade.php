@@ -560,8 +560,8 @@
                 <div class="text-center mt-16 text-gray-300 text-sm">
                     ©2021 by {{ config('app.name') }}. All rights reserved.
                     <div class="mt-2">
-                        <a href="{{ route('legal-notice') }}" class="underline">Legal Notice</a>
-                        <a href="{{ route('privacy-policy') }}" class="underline">Privacy Policy</a>
+                        <a href="{{ route('legal-notice.show') }}" class="underline">Legal Notice</a>
+                        <a href="{{ route('privacy-policy.show') }}" class="underline">Privacy Policy</a>
                     </div>
                 </div>
             </div>

@@ -13,12 +13,11 @@
     <div>
         <h4 class="font-bold text-gray-300 m-0 mb-4">Legal Notice & Privacy Policy</h4>
         <div>
-            <form action="{{ route('staff.legal-notice.update') }}" method="POST">
+            <form action="{{ route('staff.legal-notice.store') }}" method="POST">
                 @csrf
-                @method('PATCH')
                 <label for="legal_notice" class="block text-sm font-medium text-gray-300">Legal Notice <span class="text-red-500 font-bold">*</span> <i class="ml-1 flex-shrink-0 fab fa-markdown fa-fw"></i></label>
-                <textarea name="legal_notice" id="legal_notice" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="10">{{ old('legal_notice') ?? setting('legal-notice') }}</textarea>
-                @error('legal_notice')
+                <textarea name="legal_notice_content" id="legal_notice" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="10">{{ old('legal_notice') ?? App\Models\LegalNotice::latest()->first()?->content }}</textarea>
+                @error('legal_notice_content')
                 <span class="pt-2 text-sm text-red-500">
                 {{ $message }}
             </span>
@@ -29,28 +28,11 @@
             </form>
         </div>
         <div class="mt-4">
-            <form action="{{ route('staff.privacy-policy.update') }}" method="POST">
+            <form action="{{ route('staff.privacy-policy.store') }}" method="POST">
                 @csrf
-                @method('PATCH')
                 <label for="privacy_policy" class="block text-sm font-medium text-gray-300">Privacy Policy <span class="text-red-500 font-bold">*</span> <i class="ml-1 flex-shrink-0 fab fa-markdown fa-fw"></i></label>
-                <textarea name="privacy_policy" id="privacy_policy" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="10">{{ old('privacy_policy') ?? setting('privacy-policy') }}</textarea>
-                @error('privacy_policy')
-                <span class="pt-2 text-sm text-red-500">
-                {{ $message }}
-            </span>
-                @enderror
-                <div class="mt-6 text-right">
-                    <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">Update the Privacy Policy</button>
-                </div>
-            </form>
-        </div>
-        <div class="mt-4">
-            <form action="{{ route('staff.cookie-policy.update') }}" method="POST">
-                @csrf
-                @method('PATCH')
-                <label for="cookie_policy" class="block text-sm font-medium text-gray-300">Cookie Policy <span class="text-red-500 font-bold">*</span> <i class="ml-1 flex-shrink-0 fab fa-markdown fa-fw"></i></label>
-                <textarea name="cookie_policy" id="cookie_policy" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="10">{{ old('cookie_policy') ?? setting('cookie-policy') }}</textarea>
-                @error('cookie_policy')
+                <textarea name="privacy_policy_content" id="privacy_policy" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="10">{{ old('privacy_policy_content') ?? App\Models\PrivacyPolicy::latest()->first()?->content }}</textarea>
+                @error('privacy_policy_content')
                 <span class="pt-2 text-sm text-red-500">
                     {{ $message }}
                 </span>

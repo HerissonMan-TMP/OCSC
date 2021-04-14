@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\PrivacyPolicy\StorePrivacyPolicyRequest;
+use App\Models\PrivacyPolicy;
 use Gate;
 
 /**
@@ -12,17 +13,32 @@ use Gate;
 class PrivacyPolicyController extends Controller
 {
     /**
-     * Update the legal notice.
+     * Display the latest version of the Privacy policy.
      *
-     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function show()
+    {
+        $privacyPolicy = PrivacyPolicy::latest()->first();
+
+        return view('privacy-policy')
+                ->with(compact('privacyPolicy'));
+    }
+
+    /**
+     * Store a new version of the privacy policy.
+     *
+     * @param StorePrivacyPolicyRequest $request
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function update(Request $request)
+    public function store(StorePrivacyPolicyRequest $request)
     {
         Gate::authorize('has-admin-rights');
 
-        setting(['privacy-policy' => $request->privacy_policy])->save();
+        PrivacyPolicy::create([
+            'content' => $request->privacy_policy_content
+        ]);
 
         return back();
     }
