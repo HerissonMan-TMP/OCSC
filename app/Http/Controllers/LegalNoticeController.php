@@ -21,8 +21,21 @@ class LegalNoticeController extends Controller
     {
         $legalNotice = LegalNotice::latest()->first();
 
-        return view('legal-notice')
+        return view('legal-notice.show')
             ->with(compact('legalNotice'));
+    }
+
+    /**
+     * Display the form to create a new version of the legal notice.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function create()
+    {
+        $legalNotice = LegalNotice::latest()->first();
+
+        return view('legal-notice.create')
+                ->with(compact('legalNotice'));
     }
 
     /**
@@ -36,9 +49,7 @@ class LegalNoticeController extends Controller
     {
         Gate::authorize('has-admin-rights');
 
-        LegalNotice::create([
-            'content' => $request->legal_notice_content
-        ]);
+        LegalNotice::create($request->validated());
 
         return back();
     }

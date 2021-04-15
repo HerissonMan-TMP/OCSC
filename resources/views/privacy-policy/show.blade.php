@@ -15,6 +15,10 @@
     </div>
 
     <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16 text-justify">
-        @markdown($privacyPolicy?->content)
+        @if($privacyPolicy)
+            @markdown($privacyPolicy->content)
+        @else
+            <span class="italic">No privacy policy set yet...</span>
+        @endif
     </div>
 @endsection

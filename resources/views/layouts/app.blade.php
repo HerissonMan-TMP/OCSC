@@ -167,7 +167,7 @@
                                                 </div>
                                             </a>
 
-                                            <a href="{{ route('articles.index') }}" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
+                                            <a href="{{ route('news') }}" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                 <!-- Heroicon name: outline/shield-check -->
                                                 <i class="flex-shrink-0 text-primary fas fa-newspaper fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
@@ -211,7 +211,7 @@
                                                 </ul>
                                             </div>
                                             <div class="mt-5 text-sm">
-                                                <a href="{{ route('articles.index') }}" class="transition duration-200 font-medium text-primary hover:text-primary-dark"> View all news articles <span aria-hidden="true">&rarr;</span></a>
+                                                <a href="{{ route('news') }}" class="transition duration-200 font-medium text-primary hover:text-primary-dark"> View all news articles <span aria-hidden="true">&rarr;</span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -258,7 +258,7 @@
                                                 </div>
                                             </a>
 
-                                            <a href="{{ route('convoy-rules') }}" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
+                                            <a href="{{ route('convoy-rules.show') }}" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                 <!-- Heroicon name: outline/shield-check -->
                                                 <i class="flex-shrink-0 text-primary fas fa-list-alt fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
@@ -343,7 +343,7 @@
                                         </div>
                                         <div class="p-2 bg-gray-800 sm:flex sm:px-8">
                                             <div class="w-full">
-                                                <a href="{{ route('global-requirements') }}" class="transition duration-200 p-3 flex justify-center items-center rounded-md text-base font-medium text-gray-300 hover:bg-gray-900">
+                                                <a href="{{ route('global-requirements.show') }}" class="transition duration-200 p-3 flex justify-center items-center rounded-md text-base font-medium text-gray-300 hover:bg-gray-900">
                                                     <i class="flex-shrink-0 text-primary-dark fas fa-tasks fa-fw fa-lg"></i>
                                                     <span class="ml-3 text-sm">Global requirements</span>
                                                 </a>

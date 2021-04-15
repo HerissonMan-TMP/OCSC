@@ -11,6 +11,7 @@
         "php": "^8.0",
         "akaunting/laravel-setting": "^1.2",
         "fideloper/proxy": "^4.4",
+        "garygreen/pretty-routes": "^1.0",
         "graham-campbell/markdown": "13.1",
         "guzzlehttp/guzzle": "^7.0.1",
         "laracasts/flash": "^3.2",

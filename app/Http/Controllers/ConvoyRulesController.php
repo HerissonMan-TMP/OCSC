@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ConvoyRules\StoreConvoyRulesRequest;
+use App\Models\ConvoyRules;
 use Illuminate\Http\Request;
 use Gate;
 
@@ -12,17 +14,40 @@ use Gate;
 class ConvoyRulesController extends Controller
 {
     /**
-     * Update the convoy rules.
+     * Display the latest version of the convoy rules.
      *
-     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function show()
+    {
+        $convoyRules = ConvoyRules::latest()->first();
+
+        return view('convoy-rules.show')
+            ->with(compact('convoyRules'));
+    }
+
+    /**
+     * Display the form to create a new version of the convoy rules.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function create()
+    {
+        return view('convoy-rules.create');
+    }
+
+    /**
+     * Store a new version of the convoy rules.
+     *
+     * @param StoreConvoyRulesRequest $request
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function update(Request $request)
+    public function store(StoreConvoyRulesRequest $request)
     {
         Gate::authorize('manage-convoys');
 
-        setting(['convoy-rules' => $request->convoy_rules])->save();
+        ConvoyRules::create($request->validated());
 
         return back();
     }

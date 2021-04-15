@@ -1,13 +1,12 @@
 @extends('layouts.staff')
 
-@section('title', "Edit picture \"{$picture->name}\" - Gallery - Staff")
-
-@section('breadcrumb', "Staff - Gallery - Edit picture \"{$picture->name}\"")
+@section('title', "Edit #{$picture->id} - Pictures - Staff")
 
 @section('content-staff')
-    <div class="px-4 py-5 md:p-6 bg-gray-800 rounded-md shadow overflow-hidden">
-
-        <h3 class="mt-2 mb-10 font-bold text-2xl text-gray-300">Edit picture "{{ $picture->name }}" (#{{ $picture->id }})</h3>
+    <div>
+        <div class="mb-20 text-center">
+            <h2>Pictures <span class="font-light">/ Edit "{{ $picture->name }}"</span></h2>
+        </div>
 
         <form action="{{ route('staff.pictures.update', $picture) }}" method="POST">
             @csrf
@@ -16,27 +15,27 @@
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-full md:col-span-3">
                     <label for="name" class="block text-sm font-medium text-gray-300">Picture name <span class="text-red-500 font-bold">*</span></label>
-                    <input type="text" name="name" id="name" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ old('name') ?? $picture->name }}">
+                    <input type="text" name="name" id="name" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ old('name') ?? $picture->name }}">
                     @error('name')
                     <span class="pt-2 text-sm text-red-500">
-                        {{ $message }}
-                    </span>
+                    {{ $message }}
+                </span>
                     @enderror
                 </div>
 
                 <div class="col-span-full md:col-span-3">
                     <label for="description" class="block text-sm font-medium text-gray-300">Short description <span class="text-red-500 font-bold">*</span></label>
-                    <input type="text" name="description" id="description" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ old('description') ?? $picture->description }}">
+                    <input type="text" name="description" id="description" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ old('description') ?? $picture->description }}">
                     @error('description')
                     <span class="pt-2 text-sm text-red-500">
-                        {{ $message }}
-                    </span>
+                    {{ $message }}
+                </span>
                     @enderror
                 </div>
 
                 <div class="col-span-full md:col-span-3">
                     <label class="block text-sm font-medium text-gray-300">Uploaded By</label>
-                    <input type="text" disabled style="color: {{ $picture->user->roles->first()->color }}" class="text-gray-300 bg-gray-700 font-bold mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ $picture->user->name }}">
+                    <input type="text" disabled style="color: {{ $picture->user->roles->first()->color }}" class="text-gray-300 bg-gray-800 font-bold mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ $picture->user->name }}">
                 </div>
             </div>
 

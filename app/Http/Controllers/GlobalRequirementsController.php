@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GlobalRequirements\StoreGlobalRequirementsRequest;
+use App\Models\GlobalRequirements;
 use Illuminate\Http\Request;
 use Gate;
 
@@ -12,17 +14,43 @@ use Gate;
 class GlobalRequirementsController extends Controller
 {
     /**
-     * Update the global requirements for recruitments.
+     * Display the latest version of the global requirements.
      *
-     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function show()
+    {
+        $globalRequirements = GlobalRequirements::latest()->first();
+
+        return view('global-requirements.show')
+            ->with(compact('globalRequirements'));
+    }
+
+    /**
+     * Display the form to create a new version of the global requirements.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function create()
+    {
+        $globalRequirements = GlobalRequirements::latest()->first();
+
+        return view('global-requirements.create')
+            ->with(compact('globalRequirements'));
+    }
+
+    /**
+     * Store a new version of the global requirements.
+     *
+     * @param StoreGlobalRequirementsRequest $request
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function update(Request $request)
+    public function store(StoreGlobalRequirementsRequest $request)
     {
         Gate::authorize('manage-recruitments');
 
-        setting(['global-requirements' => $request->global_requirements])->save();
+        GlobalRequirements::create($request->validated());
 
         return back();
     }

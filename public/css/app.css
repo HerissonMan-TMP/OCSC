@@ -32724,26 +32724,54 @@ hr {
   opacity: 0.3
 }
 
-a {
+a, .link {
   font-weight: 500
 }
 
-a:focus{
+a:focus, .link:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
-a{
+a, .link{
   --tw-text-opacity: 1;
   color: rgba(0, 255, 175, var(--tw-text-opacity));
 }
 
-a:hover{
+a:hover, .link:hover{
   --tw-text-opacity: 1;
   color: rgba(0, 214, 147, var(--tw-text-opacity));
 }
 
-a{
+a, .link{
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-duration: 200ms;
+}
+
+.staff-menu-item {
+  cursor: pointer;
+  display: block;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 300;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  --tw-text-opacity: 1;
+  color: rgba(229, 231, 235, var(--tw-text-opacity))
+}
+
+.staff-menu-item:hover{
+  --tw-text-opacity: 1;
+  color: rgba(0, 255, 175, var(--tw-text-opacity));
+}
+
+.staff-menu-item{
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;

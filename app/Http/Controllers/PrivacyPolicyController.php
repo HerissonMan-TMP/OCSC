@@ -21,8 +21,21 @@ class PrivacyPolicyController extends Controller
     {
         $privacyPolicy = PrivacyPolicy::latest()->first();
 
-        return view('privacy-policy')
+        return view('privacy-policy.show')
                 ->with(compact('privacyPolicy'));
+    }
+
+    /**
+     * Display the form to create a new version of the privacy policy.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function create()
+    {
+        $privacyPolicy = PrivacyPolicy::latest()->first();
+
+        return view('privacy-policy.create')
+            ->with(compact('privacyPolicy'));
     }
 
     /**
@@ -36,9 +49,7 @@ class PrivacyPolicyController extends Controller
     {
         Gate::authorize('has-admin-rights');
 
-        PrivacyPolicy::create([
-            'content' => $request->privacy_policy_content
-        ]);
+        PrivacyPolicy::create($request->validated());
 
         return back();
     }

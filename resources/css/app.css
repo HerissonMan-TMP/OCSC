@@ -32,8 +32,12 @@ hr {
     @apply opacity-30 my-10
 }
 
-a {
+a, .link {
     @apply transition duration-200 font-medium text-primary hover:text-primary-dark focus:outline-none
+}
+
+.staff-menu-item {
+    @apply block flex justify-between transition duration-200 px-10 py-4 text-xl font-light text-gray-200 hover:text-primary cursor-pointer
 }
 
 p {

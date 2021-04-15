@@ -37,13 +37,14 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
     Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 
     //Public: Articles.
+    Route::get('news', [ArticleController::class, 'news'])->name('news');
     Route::resource('articles', ArticleController::class)->only([
-        'index', 'show'
+        'show'
     ]);
 
     //Public: Convoy & Convoy rules.
     Route::get('upcoming-convoys', [ConvoyController::class, 'showUpcoming'])->name('convoys.show-upcoming');
-    Route::view('convoy-rules', 'convoy-rules')->name('convoy-rules');
+    Route::get('convoy-rules', [ConvoyRulesController::class, 'show'])->name('convoy-rules.show');
 
     //Public: Pictures (Gallery).
     Route::get('gallery', [PictureController::class, 'gallery'])->name('gallery');
@@ -53,7 +54,7 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
     Route::post('recruitments/{recruitment}/applications', [ApplicationController::class, 'store'])
         ->name('recruitments.applications.store');
     Route::view('applications/success', 'applications.success-page')->name('applications.success-page');
-    Route::view('global-requirements', 'global-requirements')->name('global-requirements');
+    Route::get('global-requirements', [GlobalRequirementsController::class, 'show'])->name('global-requirements.show');
 
     //Public: Contact messages.
     Route::view('contact/success', 'contact-messages.success-page')->name('contact-messages.success-page');
@@ -81,15 +82,14 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
             ->name('staff.temporary-password.update');
     });
 
-    //Staff without a password.
+    //Staff without a temporary password.
     Route::middleware(['auth', 'not-temporary-password'])->prefix('staff')->name('staff.')->group(function () {
         //Hub.
         Route::view('/', 'hub')->name('hub');
 
         //Articles.
-        Route::get('articles/manage', [ArticleController::class, 'manage'])->name('articles.manage');
-        Route::resource('articles', ArticleController::class)->only([
-            'create', 'store', 'edit', 'update', 'destroy'
+        Route::resource('articles', ArticleController::class)->except([
+            'show',
         ]);
 
         //Partnership.
@@ -99,7 +99,10 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
         Route::resource('convoys', ConvoyController::class)->except([
             'show'
         ]);
-        Route::patch('convoy-rules', [ConvoyRulesController::class, 'update'])->name('convoy-rules.update');
+        Route::get('convoy-rules/create', [ConvoyRulesController::class, 'create'])
+            ->name('convoy-rules.create');
+        Route::post('convoy-rules', [ConvoyRulesController::class, 'store'])
+            ->name('convoy-rules.store');
 
         //Pictures (Gallery).
         Route::delete('pictures/delete-many', [PictureController::class, 'destroyMany'])
@@ -129,8 +132,10 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
         Route::resource('recruitments.applications', ApplicationController::class)->only(
             'index', 'show'
         )->shallow();
-        Route::patch('global-requirements', [GlobalRequirementsController::class, 'update'])
-            ->name('global-requirements.update');
+        Route::get('global-requirements', [GlobalRequirementsController::class, 'create'])
+            ->name('global-requirements.create');
+        Route::post('global-requirements', [GlobalRequirementsController::class, 'store'])
+            ->name('global-requirements.store');
 
         //Contact messages.
         Route::post('contact-messages/{contactMessage}/mark-as-read', [ContactMessageController::class, 'markAsRead'])
@@ -149,19 +154,32 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
 
         //Downloads.
         Route::resource('downloads', DownloadController::class)->except(
-            'show', 'create', 'edit'
+            'show'
         );
 
-        //Website Settings (+ Legal notice and Privacy policy).
-        Route::view('website-settings', 'website-settings.show')->name('website-settings');
-        Route::post('legal-notice', [LegalNoticeController::class, 'store'])->name('legal-notice.store');
-        Route::post('privacy-policy', [PrivacyPolicyController::class, 'store'])->name('privacy-policy.store');
+        //Website Settings
+        Route::prefix('website-settings')->name('website-settings.')->group(function () {
+            //Legal Notice.
+            Route::get('legal-notice/create', [LegalNoticeController::class, 'create'])->name('legal-notice.create');
+            Route::post('legal-notice', [LegalNoticeController::class, 'store'])->name('legal-notice.store');
 
-        //Maintenance mode.
-        Route::post('maintenance-mode/enable', [MaintenanceModeController::class, 'enable'])
-            ->name('maintenance-mode.enable');
-        Route::post('maintenance-mode/disable', [MaintenanceModeController::class, 'disable'])
-            ->name('maintenance-mode.disable');
+            //Privacy policy.
+            Route::get('privacy-policy/create', [PrivacyPolicyController::class, 'create'])->name('privacy-policy.create');
+            Route::post('privacy-policy', [PrivacyPolicyController::class, 'store'])->name('privacy-policy.store');
+
+            //Statistics.
+            Route::view('statistics', 'website-settings.statistics')->name('statistics');
+
+            //Maintenance mode.
+            Route::view('maintenance-mode', 'website-settings.maintenance-mode')->name('maintenance-mode');
+            Route::post('maintenance-mode/enable', [MaintenanceModeController::class, 'enable'])
+                ->name('maintenance-mode.enable');
+            Route::post('maintenance-mode/disable', [MaintenanceModeController::class, 'disable'])
+                ->name('maintenance-mode.disable');
+        });
+
+        //Profile settings.
+        Route::view('profile-settings', 'profile-settings')->name('profile-settings');
 
         //Logout.
         Route::post('logout', [LoginController::class, 'logout'])->name('logout');

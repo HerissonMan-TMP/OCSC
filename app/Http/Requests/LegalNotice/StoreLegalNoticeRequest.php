@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\LegalNotice;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
 
 class StoreLegalNoticeRequest extends FormRequest
 {
@@ -24,7 +26,7 @@ class StoreLegalNoticeRequest extends FormRequest
     public function rules()
     {
         return [
-            'legal_notice_content' => [
+            'content' => [
                 'required',
             ],
         ];
@@ -38,7 +40,24 @@ class StoreLegalNoticeRequest extends FormRequest
     public function messages()
     {
         return [
-            'legal_notice_content.required' => 'A content is required.',
+            'content.required' => 'The legal notice cannot be empty.',
         ];
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param Validator $validator
+     * @return void
+     *
+     * @throws ValidationException
+     */
+    public function failedValidation(Validator $validator)
+    {
+        flash($validator->errors()->first())->error()->important();
+
+        throw (new ValidationException($validator))
+            ->errorBag($this->errorBag)
+            ->redirectTo($this->getRedirectUrl());
     }
 }

@@ -15,6 +15,10 @@
     </div>
 
     <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16 text-justify">
-        @markdown($legalNotice?->content)
+        @if($legalNotice)
+            @markdown($legalNotice->content)
+        @else
+            <span class="italic">No legal notice set yet...</span>
+        @endif
     </div>
 @endsection

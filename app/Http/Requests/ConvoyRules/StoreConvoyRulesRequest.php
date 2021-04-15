@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\PrivacyPolicy;
+namespace App\Http\Requests\ConvoyRules;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
 
-class StorePrivacyPolicyRequest extends FormRequest
+class StoreConvoyRulesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -40,7 +40,7 @@ class StorePrivacyPolicyRequest extends FormRequest
     public function messages()
     {
         return [
-            'content.required' => 'The privacy policy cannot be empty.',
+            'content.required' => 'The convoy rules cannot be empty.',
         ];
     }
 

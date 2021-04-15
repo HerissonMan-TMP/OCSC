@@ -15,29 +15,29 @@ use Gate;
 class ArticleController extends Controller
 {
     /**
-     * Display all the articles.
+     * Display all the articles for the public.
      */
-    public function index()
+    public function news()
     {
         $articles = Article::with('postedByUser.roles')->get();
 
-        return view('articles.index')
+        return view('articles.news')
                 ->with(compact('articles'));
     }
 
     /**
-     * Display the page to manage the articles.
+     * Display all the articles.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function manage()
+    public function index()
     {
         Gate::authorize('manage-news-articles');
 
         $articles = Article::with('postedByUser.roles')->get();
 
-        return view('articles.manage')
+        return view('articles.index')
                 ->with(compact('articles'));
     }
 
