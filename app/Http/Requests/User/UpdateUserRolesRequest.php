@@ -3,8 +3,10 @@
 namespace App\Http\Requests\User;
 
 use App\Models\Role;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 
 class UpdateUserRolesRequest extends FormRequest
 {
@@ -46,5 +48,22 @@ class UpdateUserRolesRequest extends FormRequest
             'roles.array' => 'The roles must be sent in an array format.',
             'roles.in' => 'The roles are not valid.',
         ];
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param Validator $validator
+     * @return void
+     *
+     * @throws ValidationException
+     */
+    public function failedValidation(Validator $validator)
+    {
+        flash($validator->errors()->first())->error()->important();
+
+        throw (new ValidationException($validator))
+            ->errorBag($this->errorBag)
+            ->redirectTo($this->getRedirectUrl());
     }
 }

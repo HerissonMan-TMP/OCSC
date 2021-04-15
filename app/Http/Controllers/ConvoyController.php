@@ -68,6 +68,8 @@ class ConvoyController extends Controller
 
         Convoy::create($request->validated());
 
+        flash("You have successfully posted a new convoy!")->success();
+
         return redirect()->route('staff.convoys.index');
     }
 
@@ -100,6 +102,8 @@ class ConvoyController extends Controller
 
         $convoy->update($request->validated());
 
+        flash("You have successfully updated the convoy '{$convoy->name}'!")->success();
+
         return redirect()->route('staff.convoys.index');
     }
 
@@ -115,6 +119,8 @@ class ConvoyController extends Controller
         Gate::authorize('manage-convoys');
 
         $convoy->delete();
+
+        flash("You have successfully deleted the convoy '{$convoy->name}'!")->success();
 
         return redirect()->route('staff.convoys.index');
     }

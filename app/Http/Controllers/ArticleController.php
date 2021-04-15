@@ -67,6 +67,8 @@ class ArticleController extends Controller
 
         $article = Auth::user()->articles()->create($request->validated());
 
+        flash("You have successfully posted a new article!")->success();
+
         return redirect()->route('articles.show', $article);
     }
 
@@ -117,6 +119,8 @@ class ArticleController extends Controller
 
         $article->update($request->validated());
 
+        flash("You have successfully updated the article '{$article->title}'!")->success();
+
         return redirect()->route('articles.show', $article);
     }
 
@@ -132,6 +136,8 @@ class ArticleController extends Controller
         Gate::authorize('manage-news-articles');
 
         $article->delete();
+
+        flash("You have successfully deleted the article '{$article->title}'!")->success();
 
         return redirect()->route('staff.articles.manage');
     }

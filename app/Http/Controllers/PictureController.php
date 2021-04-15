@@ -80,6 +80,8 @@ class PictureController extends Controller
 
         $picture->save();
 
+        flash("You have successfully uploaded a new picture!")->success();
+
         return redirect()->route('staff.pictures.index');
     }
 
@@ -112,6 +114,8 @@ class PictureController extends Controller
 
         $picture->update($request->validated());
 
+        flash("You have successfully updated the picture '{$picture->name}'!")->success();
+
         return redirect()->route('staff.pictures.index');
     }
 
@@ -127,6 +131,8 @@ class PictureController extends Controller
         Gate::authorize('manage-picture', $picture);
 
         $picture->delete();
+
+        flash("You have successfully deleted the picture '{$picture->name}'!")->success();
 
         return redirect()->route('staff.pictures.index');
     }
@@ -148,6 +154,8 @@ class PictureController extends Controller
         }
 
         Picture::destroy($request->pictures);
+
+        flash("You have successfully deleted the selected pictures!")->success();
 
         return redirect()->route('staff.pictures.index');
     }

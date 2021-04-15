@@ -41,6 +41,8 @@ class QuestionController extends Controller
         $question->recruitment()->associate($recruitment->id);
         $question->save();
 
+        flash("You have successfully added a new question!")->success();
+
         return back();
     }
 
@@ -59,6 +61,8 @@ class QuestionController extends Controller
 
         $question->update($request->validated());
 
+        flash("You have successfully updated the question '{$question->name}'!")->success();
+
         return back();
     }
 
@@ -75,6 +79,8 @@ class QuestionController extends Controller
         Gate::authorize('manage-recruitments');
 
         $question->delete();
+
+        flash("You have successfully deleted the question '{$question->name}'!")->success();
 
         return back();
     }

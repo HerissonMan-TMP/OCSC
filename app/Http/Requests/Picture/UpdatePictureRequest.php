@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Picture;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
 
 class UpdatePictureRequest extends FormRequest
 {
@@ -49,5 +51,22 @@ class UpdatePictureRequest extends FormRequest
             'description.required' => 'A description is required.',
             'description.max' => 'The description cannot be longer than :max characters.',
         ];
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param Validator $validator
+     * @return void
+     *
+     * @throws ValidationException
+     */
+    public function failedValidation(Validator $validator)
+    {
+        flash($validator->errors()->first())->error()->important();
+
+        throw (new ValidationException($validator))
+            ->errorBag($this->errorBag)
+            ->redirectTo($this->getRedirectUrl());
     }
 }

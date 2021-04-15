@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Role;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
 
 class UpdateRoleColorsRequest extends FormRequest
 {
@@ -44,5 +46,22 @@ class UpdateRoleColorsRequest extends FormRequest
             'contrast_color.required' => 'A contrast color is required.',
             'contrast_color.regex' => 'The contrast color format must be in hexadecimal format.',
         ];
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param Validator $validator
+     * @return void
+     *
+     * @throws ValidationException
+     */
+    public function failedValidation(Validator $validator)
+    {
+        flash($validator->errors()->first())->error()->important();
+
+        throw (new ValidationException($validator))
+            ->errorBag($this->errorBag)
+            ->redirectTo($this->getRedirectUrl());
     }
 }

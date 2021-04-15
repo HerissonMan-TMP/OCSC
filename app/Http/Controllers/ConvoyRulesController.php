@@ -49,6 +49,8 @@ class ConvoyRulesController extends Controller
 
         ConvoyRules::create($request->validated());
 
+        flash("You have successfully updated the convoy rules!")->success();
+
         return back();
     }
 }

@@ -3,9 +3,11 @@
 namespace App\Http\Requests\Permission;
 
 use App\Models\Permission;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 
 class UpdatePermissionRequest extends FormRequest
 {
@@ -43,5 +45,22 @@ class UpdatePermissionRequest extends FormRequest
         return [
             'permissions.*.in' => 'The permissions are not valid.',
         ];
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param Validator $validator
+     * @return void
+     *
+     * @throws ValidationException
+     */
+    public function failedValidation(Validator $validator)
+    {
+        flash($validator->errors()->first())->error()->important();
+
+        throw (new ValidationException($validator))
+            ->errorBag($this->errorBag)
+            ->redirectTo($this->getRedirectUrl());
     }
 }

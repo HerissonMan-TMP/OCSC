@@ -51,6 +51,8 @@ class LegalNoticeController extends Controller
 
         LegalNotice::create($request->validated());
 
+        flash("You have successfully updated the legal notice!")->success();
+
         return back();
     }
 }

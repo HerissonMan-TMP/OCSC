@@ -45,6 +45,8 @@ class RoleController extends Controller
 
         $role->update($request->validated());
 
+        flash("You have successfully updated the colors of the role {$role->name}!")->success();
+
         return back();
     }
 }

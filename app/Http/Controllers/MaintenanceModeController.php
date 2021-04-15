@@ -28,6 +28,8 @@ class MaintenanceModeController extends Controller
             '--secret' => $request->secret
         ]);
 
+        flash("You have successfully enabled the maintenance mode!")->success();
+
         return redirect()->to("/{$request->secret}");
     }
 
@@ -42,6 +44,8 @@ class MaintenanceModeController extends Controller
         Gate::authorize('has-admin-rights');
 
         Artisan::call('up');
+
+        flash("You have successfully disabled the maintenance mode!")->success();
 
         return redirect()->route('homepage');
     }

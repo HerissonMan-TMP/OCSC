@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Convoy;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
 
 class StoreConvoyRequest extends FormRequest
 {
@@ -91,5 +93,22 @@ class StoreConvoyRequest extends FormRequest
             'meetup_date.required' => 'A meetup date is required.',
             'meetup_date.date' => 'The meetup date format is not valid.',
         ];
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param Validator $validator
+     * @return void
+     *
+     * @throws ValidationException
+     */
+    public function failedValidation(Validator $validator)
+    {
+        flash($validator->errors()->first())->error()->important();
+
+        throw (new ValidationException($validator))
+            ->errorBag($this->errorBag)
+            ->redirectTo($this->getRedirectUrl());
     }
 }

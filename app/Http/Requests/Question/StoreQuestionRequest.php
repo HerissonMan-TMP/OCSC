@@ -2,8 +2,10 @@
 
 namespace App\Http\Requests\Question;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 
 class StoreQuestionRequest extends FormRequest
 {
@@ -49,5 +51,22 @@ class StoreQuestionRequest extends FormRequest
             'name.max' => 'The question length must not exceed :max characters.',
             'type.in' => 'The type of the question is not valid'
         ];
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param Validator $validator
+     * @return void
+     *
+     * @throws ValidationException
+     */
+    public function failedValidation(Validator $validator)
+    {
+        flash($validator->errors()->first())->error()->important();
+
+        throw (new ValidationException($validator))
+            ->errorBag($this->errorBag)
+            ->redirectTo($this->getRedirectUrl());
     }
 }

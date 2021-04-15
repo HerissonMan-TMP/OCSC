@@ -86,6 +86,8 @@ class RecruitmentController extends Controller
 
         $recruitment->save();
 
+        flash("You have successfully created a new recruitment session for the {$recruitment->role->name} role!")->success();
+
         return redirect()->route('staff.recruitments.index');
     }
 
@@ -120,6 +122,8 @@ class RecruitmentController extends Controller
 
         $recruitment->update($request->validated());
 
+        flash("You have successfully updated a recruitment session for the {$recruitment->role->name} role!")->success();
+
         return redirect()->route('staff.recruitments.index');
     }
 
@@ -135,6 +139,8 @@ class RecruitmentController extends Controller
         Gate::authorize('manage-recruitments');
 
         $recruitment->delete();
+
+        flash("You have successfully deleted a recruitment session for the {$recruitment->role->name} role!")->success();
 
         return redirect()->route('staff.recruitments.index');
     }

@@ -96,6 +96,8 @@ class UserController extends Controller
 
         $user->roles()->attach($request->role_id);
 
+        flash("You have successfully added a new user ({$user->name})!")->success();
+
         return redirect()->route('staff.users.index');
     }
 
@@ -112,6 +114,8 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->temporary_password_without_hash = null;
         $user->save();
+
+        flash("You have successfully updated your password!")->success();
 
         return redirect()->route('staff.hub');
     }
@@ -132,6 +136,8 @@ class UserController extends Controller
 
         $user->roles()->sync($request->roles);
 
+        flash("You have successfully updated the roles of {$user->name}!")->success();
+
         return back();
     }
 
@@ -149,6 +155,8 @@ class UserController extends Controller
         $user->recruitments()->delete();
         $user->roles()->detach();
         $user->delete();
+
+        flash("You have successfully deleted the user '{$user->name}'!")->success();
 
         return redirect()->route('staff.users.index');
     }

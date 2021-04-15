@@ -29,6 +29,8 @@ class PermissionController extends Controller
 
         $role->permissions()->sync($request->permissions);
 
+        flash("You have successfully updated the permissions for the {$role->name} role!")->success();
+
         return redirect()->route('staff.hub');
     }
 }

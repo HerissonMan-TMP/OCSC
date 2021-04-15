@@ -3,9 +3,11 @@
 namespace App\Http\Requests\Recruitment;
 
 use App\Models\Role;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 
 class StoreRecruitmentRequest extends FormRequest
 {
@@ -64,5 +66,22 @@ class StoreRecruitmentRequest extends FormRequest
             'end_at.before' => 'The end datetime must be after the start datetime.',
             'note.max' => 'The note must not have more than :max characters.',
         ];
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param Validator $validator
+     * @return void
+     *
+     * @throws ValidationException
+     */
+    public function failedValidation(Validator $validator)
+    {
+        flash($validator->errors()->first())->error()->important();
+
+        throw (new ValidationException($validator))
+            ->errorBag($this->errorBag)
+            ->redirectTo($this->getRedirectUrl());
     }
 }

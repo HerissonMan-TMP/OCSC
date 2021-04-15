@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Article;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
 
 class UpdateArticleRequest extends FormRequest
 {
@@ -55,5 +57,22 @@ class UpdateArticleRequest extends FormRequest
             'content.required' => 'A content is required.',
             'content.max' => 'The content must not exceed :max characters.',
         ];
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param Validator $validator
+     * @return void
+     *
+     * @throws ValidationException
+     */
+    public function failedValidation(Validator $validator)
+    {
+        flash($validator->errors()->first())->error()->important();
+
+        throw (new ValidationException($validator))
+            ->errorBag($this->errorBag)
+            ->redirectTo($this->getRedirectUrl());
     }
 }

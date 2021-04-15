@@ -71,7 +71,7 @@ class ContactMessageController extends Controller
     {
         ContactCategory::find($request->category_id)->messages()->create($request->validated());
 
-        flash('Your message has been sent successfully!')->success();
+        flash('You have successfully sent the message!')->success();
 
         return redirect()->route('contact-messages.success-page');
     }
@@ -91,6 +91,8 @@ class ContactMessageController extends Controller
             'status' => ContactMessage::READ,
         ]);
 
+        flash("You have successfully marked the message as read!")->success();
+
         return redirect()->route('staff.contact-messages.index');
     }
 
@@ -109,6 +111,8 @@ class ContactMessageController extends Controller
             'status' => ContactMessage::UNREAD,
         ]);
 
+        flash("You have successfully marked the message as unread!")->success();
+
         return redirect()->route('staff.contact-messages.index');
     }
 
@@ -124,6 +128,8 @@ class ContactMessageController extends Controller
         Gate::authorize('delete-contact-messages');
 
         $contactMessage->delete();
+
+        flash("You have successfully deleted the message!")->success();
 
         return redirect()->route('staff.hub');
     }

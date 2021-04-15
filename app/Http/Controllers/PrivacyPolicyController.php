@@ -51,6 +51,8 @@ class PrivacyPolicyController extends Controller
 
         PrivacyPolicy::create($request->validated());
 
+        flash("You have successfully updated the privacy policy!")->success();
+
         return back();
     }
 }

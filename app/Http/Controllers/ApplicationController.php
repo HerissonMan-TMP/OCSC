@@ -71,7 +71,7 @@ class ApplicationController extends Controller
             $answer->save();
         }
 
-        flash('Your application has been sent successfully!')->success();
+        flash("You have successfully sent your application for the {$recruitment->role->name} role!")->success();
 
         return redirect()->route('applications.success-page');
     }
@@ -90,6 +90,8 @@ class ApplicationController extends Controller
         $application->update([
             'status' => Application::ACCEPTED,
         ]);
+
+        flash("You have successfully accepted the application!")->success();
 
         return redirect()->route('staff.users.create', [
             'email' => $application->email,
@@ -111,6 +113,8 @@ class ApplicationController extends Controller
         $application->update([
             'status' => Application::DECLINED,
         ]);
+
+        flash("You have successfully declined the application!")->success();
 
         return redirect()->route('staff.recruitments.applications.index', $application->recruitment);
     }

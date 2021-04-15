@@ -52,6 +52,8 @@ class GlobalRequirementsController extends Controller
 
         GlobalRequirements::create($request->validated());
 
+        flash("You have successfully updated the global requirements!")->success();
+
         return back();
     }
 }
