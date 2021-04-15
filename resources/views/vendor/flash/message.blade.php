@@ -6,7 +6,7 @@
             'body'       => $message['message']
         ])
     @else
-        <div class="fixed top-5 right-5 p-4 w-60 rounded-md
+        <div class="fixed top-5 right-5 p-4 w-60 rounded-md z-50
                     alert alert-{{ $message['level'] }}
                     {{ $message['important'] ? 'alert-important' : '' }}"
                     role="alert" style="display: none;"
