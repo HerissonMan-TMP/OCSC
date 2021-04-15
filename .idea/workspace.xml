@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_14_094818_create_privacy_policies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_14_094818_create_privacy_policies_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_14_103716_create_legal_notices_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_14_103716_create_legal_notices_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_15_080357_create_convoy_rules_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_15_080357_create_convoy_rules_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_15_122850_create_global_requirements_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_15_122850_create_global_requirements_table.php" afterDir="false" />
-    </list>
+    <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -266,7 +260,7 @@
       <workItem from="1618330911439" duration="6441000" />
       <workItem from="1618383137091" duration="11408000" />
       <workItem from="1618419203958" duration="12784000" />
-      <workItem from="1618469256956" duration="28956000" />
+      <workItem from="1618469256956" duration="29591000" />
     </task>
     <servers />
   </component>
