@@ -148,7 +148,7 @@
                             </div>
                             <textarea name="questions[]" id="question-{{ $question->id }}" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="8" required>{{ old('questions') ? old('questions')[$loop->index] : null }}</textarea>
                         @endif
-                        @error('question_' . $question->id)
+                        @error('questions.' . $loop->index)
                         <span class="pt-2 text-sm text-red-500">
                 {{ $message }}
                 </span>

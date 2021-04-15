@@ -59,20 +59,24 @@ class StoreApplicationRequest extends FormRequest
                 'max:100',
             ],
             'questions' => [
-                'array'
+                'array',
             ],
             'consent' => [
                 'accepted',
             ],
         ];
 
-        /*$questions = request()->route('recruitment')->questions;
+        $questions = request()->route('recruitment')->questions;
+        $counter = 0;
+
         foreach($questions as $question) {
-            $rules['question_' . $question->id] = [
+            $rules["questions.{$counter}"] = [
                 'required',
                 "between:{$question->min_length},{$question->max_length}"
             ];
-        }*/
+
+            $counter++;
+        }
 
         return $rules;
     }
@@ -103,7 +107,7 @@ class StoreApplicationRequest extends FormRequest
 
             'age.required' => 'Your age is required.',
             'age.numeric' => 'The age must be a numeric value.',
-            'age.between' => 'You must have between :min and :max years old.',
+            'age.between' => 'You must be between :min and :max years old.',
 
             'pc_configuration.max' => 'The PC Configuration must not be longer than :max characters.',
 
@@ -111,12 +115,16 @@ class StoreApplicationRequest extends FormRequest
         ];
 
         $questions = request()->route('recruitment')->questions;
+        $counter = 0;
+
         foreach($questions as $question) {
-            $messages['question_' . $question->id . '.required'] =
+            $messages["questions.{$counter}" . '.required'] =
                 'You must answer the question.';
 
-            $messages['question_' . $question->id . '.between'] =
+            $messages["questions.{$counter}" . '.between'] =
                 'You must write between :min and :max characters for this question.';
+
+            $counter++;
         }
 
         return $messages;
