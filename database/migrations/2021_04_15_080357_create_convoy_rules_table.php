@@ -15,7 +15,7 @@ class CreateConvoyRulesTable extends Migration
     {
         Schema::create('convoy_rules', function (Blueprint $table) {
             $table->id();
-            $table->string('content');
+            $table->text('content');
             $table->timestamps();
         });
     }

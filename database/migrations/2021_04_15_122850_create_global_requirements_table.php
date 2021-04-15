@@ -15,7 +15,7 @@ class CreateGlobalRequirementsTable extends Migration
     {
         Schema::create('global_requirements', function (Blueprint $table) {
             $table->id();
-            $table->string('content');
+            $table->text('content');
             $table->timestamps();
         });
     }

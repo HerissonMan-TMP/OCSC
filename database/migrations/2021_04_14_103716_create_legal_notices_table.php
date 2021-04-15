@@ -15,7 +15,7 @@ class CreateLegalNoticesTable extends Migration
     {
         Schema::create('legal_notices', function (Blueprint $table) {
             $table->id();
-            $table->string('content');
+            $table->text('content');
             $table->timestamps();
         });
     }
