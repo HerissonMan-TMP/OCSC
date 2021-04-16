@@ -88,9 +88,8 @@ class UserController extends Controller
 
         $user = new User;
 
-        $user->fill($request->only('email', 'name'));
-        $user->password = Hash::make($request->temporary_password);
-        $user->temporary_password_without_hash = $request->temporary_password;
+        $user->fill($request->only('email', 'name', 'password'));
+        $user->temporary_password_without_hash = $request->password;
 
         $user->save();
 
@@ -111,7 +110,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        $user->password = Hash::make($request->password);
+        $user->password = $request->password;
         $user->temporary_password_without_hash = null;
         $user->save();
 

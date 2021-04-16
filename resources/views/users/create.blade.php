@@ -35,8 +35,8 @@
                 <div class="col-span-full">
                     <label for="temporary_password" class="block text-sm font-medium text-gray-300">Password <span class="text-red-500 font-bold">*</span> <span class="text-blue-500 italic">Give this temporary password to the person you are creating the account for. He will then be able to change it.</span></label>
                     <input type="text" disabled id="temporary_password" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ $temporaryPassword }}" required>
-                    <input type="hidden" name="temporary_password" value="{{ $temporaryPassword }}">
-                    @error('temporary_password')
+                    <input type="hidden" name="password" value="{{ $temporaryPassword }}">
+                    @error('password')
                     <span class="pt-2 text-sm text-red-500">
                     {{ $message }}
                 </span>

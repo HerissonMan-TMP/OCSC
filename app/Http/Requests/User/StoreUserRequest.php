@@ -39,7 +39,7 @@ class StoreUserRequest extends FormRequest
                 'string',
                 'between:2,15'
             ],
-            'temporary_password' => [
+            'password' => [
                 'required',
                 'size:8',
                 'alpha_num'
@@ -60,9 +60,9 @@ class StoreUserRequest extends FormRequest
             'name.required' => 'A name is required.',
             'name.string' => 'The name must be a string.',
             'name.between' => 'The name length must be between :min and :max characters.',
-            'temporary_password.required' => 'A temporary password is required.',
-            'temporary_password.size' => 'The temporary password must have :size characters.',
-            'temporary_password.alpha_num' => 'The temporary password must only have alphanumeric characters.',
+            'password.required' => 'A temporary password is required.',
+            'password.size' => 'The temporary password must have :size characters.',
+            'password.alpha_num' => 'The temporary password must only have alphanumeric characters.',
             'role_id.in' => 'This role does not exist.'
         ];
     }
