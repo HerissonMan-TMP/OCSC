@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\ConvoyController;
 use App\Http\Controllers\ConvoyRulesController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\HubController;
 use App\Http\Controllers\PictureController;
 use App\Http\Controllers\GlobalRequirementsController;
 use App\Http\Controllers\HomeController;
@@ -85,7 +86,7 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
     //Staff without a temporary password.
     Route::middleware(['auth', 'not-temporary-password'])->prefix('staff')->name('staff.')->group(function () {
         //Hub.
-        Route::view('/', 'hub')->name('hub');
+        Route::get('/', [HubController::class, 'show'])->name('hub');
 
         //Articles.
         Route::resource('articles', ArticleController::class)->except([
