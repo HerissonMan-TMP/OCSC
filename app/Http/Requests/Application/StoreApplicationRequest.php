@@ -111,7 +111,7 @@ class StoreApplicationRequest extends FormRequest
 
             'pc_configuration.max' => 'The PC Configuration must not be longer than :max characters.',
 
-            'consent.accepted' => 'You must accept the condition above.',
+            'consent.accepted' => 'You must agree to the processing of your data in accordance with the privacy policy.',
         ];
 
         $questions = request()->route('recruitment')->questions;

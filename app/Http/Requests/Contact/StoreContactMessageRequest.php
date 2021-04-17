@@ -76,7 +76,7 @@ class StoreContactMessageRequest extends FormRequest
             'email.max' => 'The Email address must not exceed :max characters.',
             'message.required' => 'A message is required.',
             'message.max' => 'The message must not exceed :max characters.',
-            'consent.accepted' => 'You must accept the condition above.',
+            'consent.accepted' => 'You must agree to the processing of your data in accordance with the privacy policy.',
         ];
     }
 
