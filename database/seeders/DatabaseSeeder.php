@@ -15,28 +15,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
-        DB::table('users')->truncate();
-        DB::table('roles')->truncate();
-        DB::table('role_user')->truncate();
-        DB::table('groups')->truncate();
-        DB::table('group_role')->truncate();
-        DB::table('permissions')->truncate();
-        DB::table('permission_role')->truncate();
-        DB::table('recruitments')->truncate();
-        DB::table('questions')->truncate();
-        DB::table('applications')->truncate();
-        DB::table('answers')->truncate();
-        DB::table('contact_messages')->truncate();
-        DB::table('contact_categories')->truncate();
-        DB::table('convoys')->truncate();
-        DB::table('settings')->truncate();
-        DB::table('download_role')->truncate();
-        DB::table('downloads')->truncate();
-        DB::table('articles')->truncate();
-        DB::table('pictures')->truncate();
-        DB::table('activity_types')->truncate();
-        DB::table('activities')->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
         $this->call([
             UserSeeder::class,
@@ -57,5 +35,7 @@ class DatabaseSeeder extends Seeder
             ActivityTypeSeeder::class,
             ActivitySeeder::class,
         ]);
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Activity;
+use App\Models\ActivityType;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ActivitySeeder extends Seeder
 {
@@ -14,38 +16,55 @@ class ActivitySeeder extends Seeder
      */
     public function run()
     {
-        $activity = new Activity;
-        $activity->fill([
-            'subject_icon' => 'fas fa-newspaper',
-            'subject' => 'Article #4',
-        ]);
-        $activity->causer()->associate(1);
-        $activity->type()->associate(1);
-        $activity->save();
+        DB::table('activities')->truncate();
 
-        $activity = new Activity;
-        $activity->fill([
-            'description' => 'test@test.com',
-        ]);
-        $activity->type()->associate(5);
-        $activity->save();
+        //5 "logged in" activities.
+        $activityType = ActivityType::find(4);
+        Activity::factory(5)
+                ->for($activityType, 'type')
+                ->withoutSubject()
+                ->create();
 
-        $activity = new Activity;
-        $activity->fill([
-            'subject_icon' => 'fas fa-image',
-            'subject' => 'Picture #16',
-        ]);
-        $activity->causer()->associate(4);
-        $activity->type()->associate(3);
-        $activity->save();
+        //5 "logged out" activities.
+        $activityType = ActivityType::find(5);
+        Activity::factory(5)
+            ->for($activityType, 'type')
+            ->withoutSubject()
+            ->create();
 
-        $activity = new Activity;
-        $activity->fill([
-            'subject_icon' => 'fas fa-newspaper',
-            'subject' => 'Article #4',
-        ]);
-        $activity->causer()->associate(1);
-        $activity->type()->associate(2);
-        $activity->save();
+        //5 "created" activities.
+        $activityType = ActivityType::find(1);
+        Activity::factory(5)
+            ->for($activityType, 'type')
+            ->create();
+
+        //5 "updated" activities.
+        $activityType = ActivityType::find(2);
+        Activity::factory(5)
+            ->for($activityType, 'type')
+            ->create();
+
+        //5 "deleted" activities.
+        $activityType = ActivityType::find(3);
+        Activity::factory(5)
+            ->for($activityType, 'type')
+            ->create();
+
+        //5 "subscribed" activities.
+        $activityType = ActivityType::find(6);
+        Activity::factory(5)
+            ->for($activityType, 'type')
+            ->withoutSubject()
+            ->create();
+
+        //1 "enabled" activity.
+        $activityType = ActivityType::find(13);
+        Activity::factory(1)
+            ->for($activityType, 'type')
+            ->state([
+                'subject_icon' => 'fas fa-wrench',
+                'subject' => 'Maintenance mode'
+            ])
+            ->create();
     }
 }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Permission;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PermissionSeeder extends Seeder
 {
@@ -14,7 +15,10 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        //Permission: Has Admin Rights
+        DB::table('permissions')->truncate();
+        DB::table('permission_role')->truncate();
+
+        //Permission: Has Admin Rights.
         $permission = Permission::create([
            'name' => 'Has Admin rights',
            'slug' => 'has-admin-rights',
@@ -22,7 +26,7 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach([1, 2, 3]);
 
-        //Permission: Manage recruitments
+        //Permission: Manage recruitments.
         $permission = Permission::create([
             'name' => 'Manage recruitments',
             'slug' => 'manage-recruitments',
@@ -30,7 +34,7 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach(4);
 
-        //Permission: See Staff members list
+        //Permission: See Staff members list.
         $permission = Permission::create([
             'name' => 'See Staff members list',
             'slug' => 'see-staff-members-list',
@@ -38,7 +42,7 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach([4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
 
-        //Permission: See new Staff members' temporary password
+        //Permission: See new Staff members' temporary password.
         $permission = Permission::create([
             'name' => 'See new Staff members\' temporary password',
             'slug' => 'see-temporary-password-of-new-staff-members',
@@ -46,14 +50,14 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach([4, 5, 6, 7, 8]);
 
-        //Permission: Update permissions (only for roles with a group level below)
+        //Permission: Update permissions (only for roles with a group level below).
         $permission = Permission::create([
            'name' => 'Update permissions (only for roles with a role group level below)',
            'slug' => 'update-permissions'
         ]);
         $permission->save();
 
-        //Permission: Assign roles (only to users with a role group level below)
+        //Permission: Assign roles (only to users with a role group level below).
         $permission = Permission::create([
             'name' => 'Assign roles (only to users with a role group level below)',
             'slug' => 'assign-roles',
@@ -61,7 +65,7 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach(4);
 
-        //Permission: Create new users
+        //Permission: Create new users.
         $permission = Permission::create([
             'name' => 'Create new users',
             'slug' => 'create-new-users'
@@ -69,7 +73,7 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach(4);
 
-        //Permission: Read contact messages
+        //Permission: Read contact messages.
         $permission = Permission::create([
             'name' => 'Read contact messages',
             'slug' => 'read-contact-messages'
@@ -77,7 +81,7 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach([4, 5, 6, 7, 8]);
 
-        //Permission: Change contact messages status
+        //Permission: Change contact messages status.
         $permission = Permission::create([
             'name' => 'Change contact messages status',
             'slug' => 'change-contact-messages-status'
@@ -85,14 +89,14 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach([4, 5, 6, 7, 8]);
 
-        //Permission: Delete contact messages
+        //Permission: Delete contact messages.
         $permission = Permission::create([
             'name' => 'Delete contact messages',
             'slug' => 'delete-contact-messages'
         ]);
         $permission->save();
 
-        //Permission: Manage convoys
+        //Permission: Manage convoys.
         $permission = Permission::create([
             'name' => 'Manage convoys',
             'slug' => 'manage-convoys'
@@ -100,7 +104,7 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach([4, 5]);
 
-        //Permission: See Downloads
+        //Permission: See Downloads.
         $permission = Permission::create([
             'name' => 'See Downloads',
             'slug' => 'see-downloads'
@@ -108,7 +112,7 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach([4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
 
-        //Permission: Manage Downloads
+        //Permission: Manage Downloads.
         $permission = Permission::create([
             'name' => 'Manage Downloads',
             'slug' => 'manage-downloads'
@@ -116,7 +120,7 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach(4);
 
-        //Permission: Manage News Articles
+        //Permission: Manage News Articles.
         $permission = Permission::create([
             'name' => 'Manage News Articles',
             'slug' => 'manage-news-article'
@@ -124,7 +128,7 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach(4);
 
-        //Permission: See the gallery (Staff side)
+        //Permission: See the gallery (Staff side).
         $permission = Permission::create([
             'name' => 'See the gallery',
             'slug' => 'see-gallery'
@@ -132,19 +136,19 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach([4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
 
-        //Permission: Manage the gallery
+        //Permission: Manage the gallery.
         $permission = Permission::create([
             'name' => 'Manage the gallery',
             'slug' => 'manage-gallery'
         ]);
         $permission->save();
 
-        //Permission: Add pictures to the gallery
+        //Permission: Add pictures to the gallery (with the ability to manage them).
         $permission = Permission::create([
-            'name' => 'Add pictures to the gallery',
+            'name' => 'Add pictures to the gallery (with the ability to manage them)',
             'slug' => 'add-pictures-to-gallery'
         ]);
         $permission->save();
-        $permission->roles()->attach([4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+        $permission->roles()->attach([4, 5, 6, 7, 8, 15]);
     }
 }

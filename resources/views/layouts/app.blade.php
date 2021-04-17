@@ -206,7 +206,7 @@
                                                         </a>
                                                     </li>
                                                     @empty
-                                                        <span class="text-sm italic text-gray-300">No articles yet...</span>
+                                                        <span class="text-sm italic text-gray-300">No news articles yet...</span>
                                                     @endforelse
                                                 </ul>
                                             </div>
@@ -315,7 +315,7 @@
                                 <div id="recruitment-dropdown-content" class="hidden absolute z-10 -ml-4 pt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
                                     <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                                         <div class="relative grid gap-6 bg-gray-700 px-5 py-6 sm:gap-8 sm:p-8">
-                                            @foreach($recruitableRoles->sortBy('order') as $role)
+                                            @forelse($recruitableRoles->sortBy('order') as $role)
                                             <a @if($role->isRecruiting()) href="{{ route('recruitments.show', $role->getOpenRecruitment()) }}" @endif class="@if(!$role->isRecruiting()) select-none @endif transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                 <!-- Heroicon name: outline/chart-bar -->
                                                 <i class="flex-shrink-0 text-primary fas fa-{{ $role->icon_name }} fa-fw fa-lg mt-2" style="color: {{ $role->color }};"></i>
@@ -339,7 +339,9 @@
                                                     </p>
                                                 </div>
                                             </a>
-                                            @endforeach
+                                            @empty
+                                            <span class="text-sm italic text-gray-300">No recruitable roles yet...</span>
+                                            @endforelse
                                         </div>
                                         <div class="p-2 bg-gray-800 sm:flex sm:px-8">
                                             <div class="w-full">

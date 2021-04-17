@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Recruitment;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class RecruitmentSeeder extends Seeder
 {
@@ -14,7 +15,19 @@ class RecruitmentSeeder extends Seeder
      */
     public function run()
     {
-        //Open recruitment for Convoy Control Team
+        DB::table('recruitments')->truncate();
+
+        //(#1) Planned recruitment for Media Team.
+        $recruitment = new Recruitment;
+        $recruitment->fill([
+            'start_at' => now()->addDays(20),
+            'end_at' => now()->addDays(40)
+        ]);
+        $recruitment->role()->associate(15);
+        $recruitment->user()->associate(4);
+        $recruitment->save();
+
+        //(#2) Open recruitment for Convoy Control Team.
         $recruitment = new Recruitment;
         $recruitment->fill([
             'start_at' => now(),
@@ -25,28 +38,18 @@ class RecruitmentSeeder extends Seeder
         $recruitment->user()->associate(1);
         $recruitment->save();
 
-        //Open recruitment for Translation Team
+        //(#3) Open recruitment for Translation Team.
         $recruitment = new Recruitment;
         $recruitment->fill([
             'start_at' => now(),
-            'end_at' => now()->addDays(15),
+            'end_at' => now()->addDays(18),
             'note' => 'Good luck!'
         ]);
         $recruitment->role()->associate(14);
         $recruitment->user()->associate(4);
         $recruitment->save();
 
-        //Open recruitment for Media Team
-        $recruitment = new Recruitment;
-        $recruitment->fill([
-            'start_at' => now(),
-            'end_at' => now()->addDays(20)
-        ]);
-        $recruitment->role()->associate(15);
-        $recruitment->user()->associate(4);
-        $recruitment->save();
-
-        //Closed recruitment for Event Team
+        //(#4) Closed recruitment for Event Team.
         $recruitment = new Recruitment;
         $recruitment->fill([
             'start_at' => now()->subDays(40),

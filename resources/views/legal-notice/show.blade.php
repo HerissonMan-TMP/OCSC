@@ -8,17 +8,22 @@
             <h1 class="text-5xl m-0 capitalize"><i class="flex-shrink-0 fas fa-balance-scale fa-fw"></i> Legal Notice</h1>
             <div>
                 <p class="inline-block mb-0 px-2 text-sm text-gray-200">
-                    Last updated: <span class="font-bold">{{ $legalNotice?->created_at->format('d M H:i') }} UTC</span>
+                    Last updated:
+                    @isset($legalNotice)
+                        <span class="font-bold">{{ $legalNotice->created_at->format('d M H:i') }} UTC</span>
+                    @else
+                        <span class="text-sm italic text-gray-300">Never</span>
+                    @endisset
                 </p>
             </div>
         </div>
     </div>
 
     <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16 text-justify">
-        @if($legalNotice)
+        @isset($legalNotice)
             @markdown($legalNotice->content)
         @else
-            <span class="italic">No legal notice set yet...</span>
-        @endif
+            <span class="italic">No legal notice yet...</span>
+        @endisset
     </div>
 @endsection

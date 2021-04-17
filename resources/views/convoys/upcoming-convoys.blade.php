@@ -51,7 +51,7 @@
                     </div>
                 </div>
             @empty
-                <span class="text-sm italic text-gray-300">No upcoming convoys...</span>
+                <span class="text-sm italic text-gray-300">No upcoming convoys yet...</span>
             @endforelse
         </div>
 

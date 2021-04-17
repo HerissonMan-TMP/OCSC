@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UserSeeder extends Seeder
 {
@@ -14,7 +15,9 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->truncate();
+
         User::factory(20)->create();
-        User::factory(1)->withTemporaryPassword()->create();
+        User::factory(2)->withTemporaryPassword()->create();
     }
 }

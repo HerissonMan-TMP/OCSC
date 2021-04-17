@@ -8,17 +8,22 @@
             <h1 class="text-5xl m-0 capitalize"><i class="flex-shrink-0 fas fa-list-alt fa-fw"></i> Convoy Rules</h1>
             <div>
                 <p class="inline-block mb-0 px-2 text-sm text-gray-200">
-                    Last updated: <span class="font-bold">{{ $convoyRules?->created_at->format('d M H:i') }} UTC</span>
+                    Last updated:
+                    @isset($globalRequirements)
+                        <span class="font-bold">{{ $convoyRules->created_at->format('d M H:i') }} UTC</span>
+                    @else
+                        <span class="text-sm italic text-gray-300">Never</span>
+                    @endisset
                 </p>
             </div>
         </div>
     </div>
 
     <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16">
-        @if($convoyRules)
+        @isset($convoyRules)
             @markdown($convoyRules->content)
         @else
-            <span class="italic">No convoy rules set yet...</span>
-        @endif
+            <span class="italic">No convoy rules yet...</span>
+        @endisset
     </div>
 @endsection
