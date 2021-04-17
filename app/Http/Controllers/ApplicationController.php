@@ -28,10 +28,12 @@ class ApplicationController extends Controller
     {
         Gate::authorize('manage-recruitments');
 
-        $recruitment = $recruitment->load(['role', 'applications']);
+        $recruitment = $recruitment->load('role');
+        $applications = $recruitment->applications()->get();
 
         return view('applications.index')
-                    ->with(compact('recruitment'));
+                    ->with(compact('recruitment'))
+                    ->with(compact('applications'));
     }
 
     /**
