@@ -30,6 +30,7 @@ class AddCauserIdInActivitiesTable extends Migration
     public function down()
     {
         Schema::table('activities', function (Blueprint $table) {
+            $table->dropForeign('activities_causer_id_foreign');
             $table->dropColumn('causer_id');
         });
     }

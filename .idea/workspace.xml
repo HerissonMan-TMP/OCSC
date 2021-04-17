@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubscriberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubscriberController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Subscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Subscriber.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/staff.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/staff.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_04_192151_add_category_id_to_contact_messages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_04_192151_add_category_id_to_contact_messages_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_16_092602_replace_group_level_with_group_id_in_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_16_092602_replace_group_level_with_group_id_in_roles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_16_121931_add_type_id_column_to_activities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_16_121931_add_type_id_column_to_activities_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_17_095540_add_causer_id_in_activities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_17_095540_add_causer_id_in_activities_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +269,7 @@
       <workItem from="1618469256956" duration="38576000" />
       <workItem from="1618556415118" duration="25818000" />
       <workItem from="1618587055221" duration="8238000" />
-      <workItem from="1618644254636" duration="21337000" />
+      <workItem from="1618644254636" duration="22374000" />
     </task>
     <servers />
   </component>

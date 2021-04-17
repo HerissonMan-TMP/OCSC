@@ -27,6 +27,7 @@ class ReplaceGroupLevelWithGroupIdInRolesTable extends Migration
     public function down()
     {
         Schema::table('roles', function (Blueprint $table) {
+            $table->dropForeign('roles_group_id_foreign');
             $table->dropColumn('group_id');
             $table->integer('group_level')->after('id');
         });

@@ -26,6 +26,7 @@ class AddTypeIdColumnToActivitiesTable extends Migration
     public function down()
     {
         Schema::table('activities', function (Blueprint $table) {
+            $table->dropForeign('activities_type_id_foreign');
             $table->dropColumn('type_id');
         });
     }

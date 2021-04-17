@@ -26,6 +26,7 @@ class AddCategoryIdToContactMessagesTable extends Migration
     public function down()
     {
         Schema::table('contact_messages', function (Blueprint $table) {
+            $table->dropForeign('contact_messages_category_id_foreign');
             $table->dropColumn('category_id');
         });
     }
