@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_16_075505_create_group_role_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_16_081958_create_activity_log_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_16_091025_create_activity_group_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_16_093002_delete_group_role_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_16_100255_delete_activity_group_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_16_120914_delete_activity_log_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_17_091724_add_on_delete_set_null_to_causer_id_column_in_activities_table.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,7 +265,7 @@
       <workItem from="1618469256956" duration="38576000" />
       <workItem from="1618556415118" duration="25818000" />
       <workItem from="1618587055221" duration="8238000" />
-      <workItem from="1618644254636" duration="8689000" />
+      <workItem from="1618644254636" duration="9827000" />
     </task>
     <servers />
   </component>

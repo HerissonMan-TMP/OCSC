@@ -2,8 +2,6 @@
 
 @section('title', "404 Not Found")
 
-@section('breadcrumb', '404 Not Found')
-
 @section('content')
 <div class="max-w-7xl mx-auto px-4 md:px-6 my-16">
     <div class="text-center mt-6 rounded-md px-4 py-5 md:p-16 overflow-hidden">
