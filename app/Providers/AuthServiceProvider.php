@@ -248,5 +248,29 @@ class AuthServiceProvider extends ServiceProvider
                 ? Response::allow()
                 : Response::deny('You are not allowed to manage this picture.');
         });
+
+        $ability = 'update-name-of-user';
+        Gate::define($ability, function (User $user, User $targetUser) {
+            return $user->is($targetUser)
+                || ($user->hasPermission('has-admin-rights') && !$targetUser->hasPermission('has-admin-rights'))
+                ? Response::allow()
+                : Response::deny('You are not allowed to update the name of this user.');
+        });
+
+        $ability = 'update-email-of-user';
+        Gate::define($ability, function (User $user, User $targetUser) {
+            return $user->is($targetUser)
+            || ($user->hasPermission('has-admin-rights') && !$targetUser->hasPermission('has-admin-rights'))
+                ? Response::allow()
+                : Response::deny('You are not allowed to update the email of this user.');
+        });
+
+        $ability = 'update-password-of-user';
+        Gate::define($ability, function (User $user, User $targetUser) {
+            return $user->is($targetUser)
+            || ($user->hasPermission('has-admin-rights') && !$targetUser->hasPermission('has-admin-rights'))
+                ? Response::allow()
+                : Response::deny('You are not allowed to update the password of this user.');
+        });
     }
 }

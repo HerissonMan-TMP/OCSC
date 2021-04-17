@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\User\StoreUserRequest;
+use App\Http\Requests\User\UpdateEmailRequest;
+use App\Http\Requests\User\UpdateNameRequest;
+use App\Http\Requests\User\UpdatePasswordRequest;
 use App\Http\Requests\User\UpdateTemporaryPasswordRequest;
 use App\Http\Requests\User\UpdateUserRolesRequest;
 use App\Models\ActivityType;
@@ -103,6 +106,75 @@ class UserController extends Controller
         flash("You have successfully added a new user ({$user->name})!")->success();
 
         return redirect()->route('staff.users.index');
+    }
+
+    /**
+     * Update the name of the given user.
+     *
+     * @param User $user
+     * @param UpdateNameRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function updateName(User $user, UpdateNameRequest $request)
+    {
+        Gate::authorize('update-name-of-user', $user);
+
+        $user->update($request->validated());
+
+        activity(ActivityType::UPDATED)
+            ->subject('fas fa-user', "{$user->name}")
+            ->description("Name changed: {$user->name}")
+            ->log();
+
+        flash("You have successfully changed the name to {$user->name}!")->success();
+
+        return back();
+    }
+
+    /**
+     * Update the email of the given user.
+     *
+     * @param User $user
+     * @param UpdateEmailRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function updateEmail(User $user, UpdateEmailRequest $request)
+    {
+        Gate::authorize('update-email-of-user', $user);
+
+        $user->update($request->validated());
+
+        activity(ActivityType::UPDATED)
+            ->subject('fas fa-user', "{$user->name}")
+            ->description("Email changed: {$user->email}")
+            ->log();
+
+        flash("You have successfully changed the email to {$user->email}!")->success();
+
+        return back();
+    }
+
+    /**
+     * Update the password of the given user.
+     *
+     * @param User $user
+     * @param UpdatePasswordRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function updatePassword(User $user, UpdatePasswordRequest $request)
+    {
+        Gate::authorize('update-password-of-user', $user);
+
+        $user->update($request->validated());
+
+        activity(ActivityType::UPDATED)
+            ->subject('fas fa-user', "{$user->name}")
+            ->description('Password changed')
+            ->log();
+
+        flash("You have successfully changed the password!")->success();
+
+        return back();
     }
 
     /**

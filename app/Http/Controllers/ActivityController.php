@@ -18,7 +18,7 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        $activities = Activity::with(['causer', 'type'])->latest()->get();
+        $activities = Activity::with(['causer', 'type'])->latest()->paginate(20);
 
         return view('website-settings.activity')
                 ->with(compact('activities'));
