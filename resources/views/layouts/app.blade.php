@@ -503,19 +503,6 @@
         </header>
 
         <main class="text-gray-200">
-            @hasSection('breadcrumb')
-            <div class="w-full bg-gray-800 py-6">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between">
-                    <h2 class="m-0 font-light text-2xl">@yield('breadcrumb')</h2>
-                    @hasSection('breadcrumb-additional-content')
-                    <div>
-                        @yield('breadcrumb-additional-content')
-                    </div>
-                    @endif
-                </div>
-            </div>
-            @endif
-
             @yield("content")
         </main>
 
