@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\GlobalRequirements;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -34,6 +35,11 @@ class DatabaseSeeder extends Seeder
             PictureSeeder::class,
             ActivityTypeSeeder::class,
             ActivitySeeder::class,
+            SubscriberSeeder::class,
+            PrivacyPolicySeeder::class,
+            LegalNoticeSeeder::class,
+            GlobalRequirementsSeeder::class,
+            ConvoyRulesSeeder::class
         ]);
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
