@@ -43,7 +43,7 @@
                     </div>
                 </div>
             @empty
-                <span class="italic">No logged activity yet.</span>
+                <span class="text-sm italic text-gray-300">No logged activity yet.</span>
             @endforelse
         </div>
 
