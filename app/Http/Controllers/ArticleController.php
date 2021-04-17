@@ -21,7 +21,7 @@ class ArticleController extends Controller
      */
     public function news()
     {
-        $articles = Article::with('postedByUser.roles')->get();
+        $articles = Article::with('postedByUser.roles')->paginate(12);
 
         return view('articles.news')
                 ->with(compact('articles'));
@@ -37,7 +37,7 @@ class ArticleController extends Controller
     {
         Gate::authorize('manage-news-articles');
 
-        $articles = Article::with('postedByUser.roles')->get();
+        $articles = Article::with('postedByUser.roles')->paginate(12);
 
         return view('articles.index')
                 ->with(compact('articles'));

@@ -60,5 +60,7 @@
                 <span class="text-sm italic text-gray-300">No news articles yet...</span>
             @endforelse
         </div>
+
+        {{ $articles->onEachSide(1)->links() }}
     </div>
 @endsection

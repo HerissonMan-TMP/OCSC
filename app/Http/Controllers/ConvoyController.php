@@ -24,7 +24,7 @@ class ConvoyController extends Controller
     {
         Gate::authorize('manage-convoys');
 
-        $convoys = Convoy::latest('meetup_date')->get();
+        $convoys = Convoy::latest('meetup_date')->paginate(12);
 
         return view('convoys.index')
                 ->with(compact('convoys'));
@@ -37,7 +37,7 @@ class ConvoyController extends Controller
      */
     public function showUpcoming()
     {
-        $convoys = Convoy::upcoming()->oldest('meetup_date')->get();
+        $convoys = Convoy::upcoming()->oldest('meetup_date')->paginate(12);
 
         return view('convoys.upcoming-convoys')
                 ->with(compact('convoys'));

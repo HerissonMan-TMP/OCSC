@@ -70,5 +70,7 @@
                 <span class="text-sm italic text-gray-300">No convoys registered on the website yet...</span>
             @endforelse
         </div>
+
+        {{ $convoys->onEachSide(1)->links() }}
     </div>
 @endsection

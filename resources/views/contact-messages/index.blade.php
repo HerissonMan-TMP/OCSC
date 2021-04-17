@@ -66,5 +66,7 @@
                 </tbody>
             </table>
         </div>
+
+        {{ $contactMessages->onEachSide(1)->links() }}
     </div>
 @endsection
