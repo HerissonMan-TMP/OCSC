@@ -33,7 +33,7 @@ class UserController extends Controller
     {
         Gate::authorize('see-staff-members-list');
 
-        $users = User::with('roles')->get();
+        $users = User::with('roles')->paginate(15);
 
         return view('users.index')
                     ->with(compact('users'));

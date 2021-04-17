@@ -45,8 +45,8 @@
             @empty
                 <span class="italic">No logged activity yet.</span>
             @endforelse
-
-            {{ $activities->onEachSide(1)->links() }}
         </div>
+
+        {{ $activities->onEachSide(1)->links() }}
     </div>
 @endsection
