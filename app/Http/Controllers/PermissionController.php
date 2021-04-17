@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Permission\UpdatePermissionRequest;
+use App\Models\ActivityType;
 use App\Models\Permission;
 use App\Models\Role;
 use Gate;
@@ -28,6 +29,10 @@ class PermissionController extends Controller
         }
 
         $role->permissions()->sync($request->permissions);
+
+        activity(ActivityType::UPDATED)
+            ->subject("fas fa-shield-alt", "{$role->name}'s Permissions")
+            ->log();
 
         flash("You have successfully updated the permissions for the {$role->name} role!")->success();
 

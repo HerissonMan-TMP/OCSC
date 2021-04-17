@@ -26,6 +26,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => false
         ]);
         $role->users()->attach(1);
+        $role->group()->associate(1);
 
         //Chief Operating Officer
         $role = Role::create([
@@ -39,6 +40,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => false
         ]);
         $role->users()->attach(2);
+        $role->group()->associate(1);
 
         //Developer
         $role = Role::create([
@@ -52,6 +54,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => false
         ]);
         $role->users()->attach(3);
+        $role->group()->associate(1);
 
         //Community Manager
         $role = Role::create([
@@ -65,6 +68,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => false
         ]);
         $role->users()->attach(4);
+        $role->group()->associate(2);
 
         //Event Manager
         $role = Role::create([
@@ -78,6 +82,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => false
         ]);
         $role->users()->attach(5);
+        $role->group()->associate(2);
 
         //Support Manager
         $role = Role::create([
@@ -91,6 +96,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => false
         ]);
         $role->users()->attach(6);
+        $role->group()->associate(2);
 
         //Translation Manager
         $role = Role::create([
@@ -104,6 +110,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => false
         ]);
         $role->users()->attach(7);
+        $role->group()->associate(2);
 
         //Media Manager
         $role = Role::create([
@@ -117,6 +124,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => false
         ]);
         $role->users()->attach(8);
+        $role->group()->associate(2);
 
         //Leader Convoy Control
         $role = Role::create([
@@ -130,6 +138,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => false
         ]);
         $role->users()->attach(9);
+        $role->group()->associate(3);
 
         //Convoy Control Team
         $role = Role::create([
@@ -143,6 +152,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => true
         ]);
         $role->users()->attach([10, 11, 12]);
+        $role->group()->associate(3);
 
         //Convoy Control Trainee
         $role = Role::create([
@@ -156,6 +166,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => false
         ]);
         $role->users()->attach([13, 14, 21]);
+        $role->group()->associate(3);
 
         //Event Team
         $role = Role::create([
@@ -169,6 +180,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => true
         ]);
         $role->users()->attach([15, 16]);
+        $role->group()->associate(3);
 
         //Support Team
         $role = Role::create([
@@ -182,6 +194,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => true
         ]);
         $role->users()->attach(17);
+        $role->group()->associate(3);
 
         //Translation Team
         $role = Role::create([
@@ -195,6 +208,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => true
         ]);
         $role->users()->attach(18);
+        $role->group()->associate(3);
 
         //Media Team
         $role = Role::create([
@@ -208,6 +222,7 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => true
         ]);
         $role->users()->attach(19);
+        $role->group()->associate(3);
 
         //Official Streamer
         $role = Role::create([
@@ -221,5 +236,6 @@ class RoleSeeder extends Seeder
             'recruitment_enabled' => true
         ]);
         $role->users()->attach(20);
+        $role->group()->associate(3);
     }
 }

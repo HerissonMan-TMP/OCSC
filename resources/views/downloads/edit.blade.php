@@ -20,8 +20,10 @@
 
         <div>
             @can('manage-downloads')
-                <form action="{{ route('staff.downloads.store') }}" method="POST">
+                <form action="{{ route('staff.downloads.update', $download) }}" method="POST">
                     @csrf
+                    @method('PATCH')
+
                     <div class="mb-5 grid grid-cols-6 gap-6">
                         <div class="col-span-full md:col-span-2">
                             <label for="name" class="block text-sm font-medium text-gray-300">Name <span class="text-red-500 font-bold">*</span></label>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PrivacyPolicy\StorePrivacyPolicyRequest;
+use App\Models\ActivityType;
 use App\Models\PrivacyPolicy;
 use Gate;
 
@@ -49,7 +50,12 @@ class PrivacyPolicyController extends Controller
     {
         Gate::authorize('has-admin-rights');
 
-        PrivacyPolicy::create($request->validated());
+        $privacyPolicy = PrivacyPolicy::create($request->validated());
+
+        activity(ActivityType::UPDATED)
+            ->subject('fas fa-user-secret', 'Privacy Policy')
+            ->description("Version N°{$privacyPolicy->id}")
+            ->log();
 
         flash("You have successfully updated the privacy policy!")->success();
 

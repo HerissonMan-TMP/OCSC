@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateTemporaryPasswordRequest;
 use App\Http\Requests\User\UpdateUserRolesRequest;
+use App\Models\ActivityType;
 use App\Models\Role;
 use App\Models\User;
 use App\Services\TemporaryPasswordService;
@@ -95,6 +96,10 @@ class UserController extends Controller
 
         $user->roles()->attach($request->role_id);
 
+        activity(ActivityType::CREATED)
+                ->subject('fas fa-user', $user->name)
+                ->log();
+
         flash("You have successfully added a new user ({$user->name})!")->success();
 
         return redirect()->route('staff.users.index');
@@ -113,6 +118,10 @@ class UserController extends Controller
         $user->password = $request->password;
         $user->temporary_password_without_hash = null;
         $user->save();
+
+        activity(ActivityType::UPDATED)
+                ->subject('fas fa-lock', 'Temporary password')
+                ->log();
 
         flash("You have successfully updated your password!")->success();
 
@@ -135,6 +144,12 @@ class UserController extends Controller
 
         $user->roles()->sync($request->roles);
 
+        $newRoles = implode(', ', $user->roles()->pluck('name')->toArray());
+        activity(ActivityType::UPDATED)
+                ->subject('fas fa-user', $user->name)
+                ->description("New roles: {$newRoles}")
+                ->log();
+
         flash("You have successfully updated the roles of {$user->name}!")->success();
 
         return back();
@@ -154,6 +169,10 @@ class UserController extends Controller
         $user->recruitments()->delete();
         $user->roles()->detach();
         $user->delete();
+
+        activity(ActivityType::DELETED)
+                ->subject('fas fa-user', $user->name)
+                ->log();
 
         flash("You have successfully deleted the user '{$user->name}'!")->success();
 

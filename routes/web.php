@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactMessageController;
@@ -170,6 +171,8 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
 
             //Statistics.
             Route::view('statistics', 'website-settings.statistics')->name('statistics');
+
+            Route::get('activity', [ActivityController::class, 'index'])->name('activity');
 
             //Maintenance mode.
             Route::view('maintenance-mode', 'website-settings.maintenance-mode')->name('maintenance-mode');

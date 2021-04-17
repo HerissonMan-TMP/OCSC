@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ConvoyRules\StoreConvoyRulesRequest;
+use App\Models\ActivityType;
 use App\Models\ConvoyRules;
 use Illuminate\Http\Request;
 use Gate;
@@ -47,7 +48,12 @@ class ConvoyRulesController extends Controller
     {
         Gate::authorize('manage-convoys');
 
-        ConvoyRules::create($request->validated());
+        $convoyRules = ConvoyRules::create($request->validated());
+
+        activity(ActivityType::UPDATED)
+            ->subject('fas fa-list-alt', 'Convoy Rules')
+            ->description("Version N°{$convoyRules->id}")
+            ->log();
 
         flash("You have successfully updated the convoy rules!")->success();
 

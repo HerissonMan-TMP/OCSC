@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Auth;
 use Hash;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -71,7 +72,7 @@ class User extends Authenticatable
      */
     public function roles()
     {
-        return $this->belongsToMany(Role::class)->orderBy('group_level')->orderBy('order');
+        return $this->belongsToMany(Role::class)->orderBy('group_id')->orderBy('order');
     }
 
     /**
@@ -86,7 +87,7 @@ class User extends Authenticatable
 
     public function articles()
     {
-        return $this->hasMany(Article::class);
+        return $this->hasMany(Article::class, 'posted_by');
     }
 
     public function hasPermission($permission)
@@ -102,5 +103,15 @@ class User extends Authenticatable
     public function hasRole($role)
     {
         return $this->roles->contains($role->id);
+    }
+
+    public function highestGroup()
+    {
+        return Auth::user()->roles()->first()->group;
+    }
+
+    public function activities()
+    {
+        return $this->hasMany(Activity::class);
     }
 }

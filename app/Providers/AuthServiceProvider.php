@@ -85,7 +85,7 @@ class AuthServiceProvider extends ServiceProvider
         $ability = 'assign-role';
         Gate::define($ability, function (User $user, Role $role) use ($ability) {
             return $user->hasPermission('assign-roles')
-                && $user->roles->first()->group_level < $role->group_level
+                && $user->roles->first()->group_id < $role->group_id
                 ? Response::allow()
                 : Response::deny('You are not allowed to assign this role.');
         });
@@ -94,7 +94,7 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define($ability, function (User $user, User $targetUser) use ($ability) {
             return ($user->hasPermission('assign-roles')
                 || $user->hasPermission('has-admin-rights'))
-                && ($user->roles->first()->group_level < $targetUser->roles->first()->group_level
+                && ($user->roles->first()->group_id < $targetUser->roles->first()->group_id
                 || $user->hasPermission('has-admin-rights'))
                 && !$targetUser->hasPermission('has-admin-rights')
                 ? Response::allow()
@@ -107,7 +107,7 @@ class AuthServiceProvider extends ServiceProvider
             if ($user->can('assign-roles-to-user', $targetUser)) {
                 if ($user->hasPermission('has-admin-rights') && !$targetUser->hasPermission('has-admin-rights')) {
                     $result = true;
-                } elseif ($user->roles->first()->group_level < $role->group_level && !$role->hasPermission('has-admin-rights')) {
+                } elseif ($user->roles->first()->group_id < $role->group_id && !$role->hasPermission('has-admin-rights')) {
                     $result = true;
                 }
             }
@@ -128,7 +128,7 @@ class AuthServiceProvider extends ServiceProvider
            return ($user->hasPermission('update-permissions')
                || $user->hasPermission('has-admin-rights'))
                && !$targetRole->hasPermission('has-admin-rights')
-               && ($user->roles->first()->group_level < $targetRole->group_level || $user->hasPermission('has-admin-rights'))
+               && ($user->roles->first()->group_id < $targetRole->group_id || $user->hasPermission('has-admin-rights'))
                ? Response::allow()
                : Response::deny('You are not allowed to update the permissions for this role.');
         });

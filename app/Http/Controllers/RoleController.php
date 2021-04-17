@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Role\UpdateRoleColorsRequest;
+use App\Models\ActivityType;
 use App\Models\Permission;
 use App\Models\Role;
 use Gate;
@@ -23,7 +24,7 @@ class RoleController extends Controller
     {
         Gate::authorize('update-permissions');
 
-        $roles = Role::with('permissions')->orderBy('group_level')->orderBy('order')->get();
+        $roles = Role::with('permissions')->orderBy('group_id')->orderBy('order')->get();
         $permissions = Permission::all();
 
         return view('roles-permissions.index')
@@ -44,6 +45,11 @@ class RoleController extends Controller
         Gate::authorize('has-admin-rights');
 
         $role->update($request->validated());
+
+        activity(ActivityType::UPDATED)
+            ->subject("fas fa-{$role->icon_name}", $role->name)
+            ->description("New colors: {$role->color} / {$role->contrast_color}")
+            ->log();
 
         flash("You have successfully updated the colors of the role {$role->name}!")->success();
 

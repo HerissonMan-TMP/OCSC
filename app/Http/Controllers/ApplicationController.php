@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Application\StoreApplicationRequest;
+use App\Models\Activity;
+use App\Models\ActivityType;
 use App\Models\Answer;
 use App\Models\Application;
 use App\Models\Recruitment;
@@ -71,6 +73,13 @@ class ApplicationController extends Controller
             $answer->save();
         }
 
+        $role = $recruitment->role()->first();
+        activity(ActivityType::APPLIED_FOR)
+                ->byAnonymous()
+                ->subject("fas fa-{$role->icon_name}", $role->name)
+                ->description("Discord: {$application->discord}")
+                ->log();
+
         flash("You have successfully sent your application for the {$recruitment->role->name} role!")->success();
 
         return redirect()->route('applications.success-page');
@@ -90,6 +99,11 @@ class ApplicationController extends Controller
         $application->update([
             'status' => Application::ACCEPTED,
         ]);
+
+        activity(ActivityType::APPLICATION_ACCEPTED)
+                ->subject("fas fa-briefcase", "Application #{$application->id}")
+                ->description("From (Discord): {$application->discord}")
+                ->log();
 
         flash("You have successfully accepted the application!")->success();
 
@@ -113,6 +127,11 @@ class ApplicationController extends Controller
         $application->update([
             'status' => Application::DECLINED,
         ]);
+
+        activity(ActivityType::APPLICATION_DECLINED)
+                ->subject("fas fa-briefcase", "Application #{$application->id}")
+                ->description("From (Discord): {$application->discord}")
+                ->log();
 
         flash("You have successfully declined the application!")->success();
 

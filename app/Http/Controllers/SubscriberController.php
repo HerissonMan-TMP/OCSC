@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Subscriber\StoreSubscriberRequest;
+use App\Models\ActivityType;
 use App\Models\Subscriber;
 use Crypt;
 use Hash;
@@ -28,6 +29,11 @@ class SubscriberController extends Controller
 
         $subscriber->save();
 
+        activity(ActivityType::SUBSCRIBED)
+                ->byAnonymous()
+                ->description($subscriber->email)
+                ->log();
+
         flash('You have successfully subscribed to our newsletter!')->success();
 
         return back();
@@ -42,6 +48,11 @@ class SubscriberController extends Controller
     public function destroy(Subscriber $subscriber)
     {
         $subscriber->delete();
+
+        activity(ActivityType::UNSUBSCRIBED)
+            ->byAnonymous()
+            ->description($subscriber->email)
+            ->log();
 
         flash('You have successfully unsubscribed from our newsletter!')->success();
 

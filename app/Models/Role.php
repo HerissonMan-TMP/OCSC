@@ -36,6 +36,11 @@ class Role extends Model
         return $this->belongsToMany(User::class);
     }
 
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
+
     /**
      * Get the permissions the role has.
      *

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Contact\StoreContactMessageRequest;
+use App\Models\ActivityType;
 use App\Models\ContactCategory;
 use App\Models\ContactMessage;
 use App\Models\Question;
@@ -69,7 +70,12 @@ class ContactMessageController extends Controller
      */
     public function store(StoreContactMessageRequest $request)
     {
-        ContactCategory::find($request->category_id)->messages()->create($request->validated());
+        $contactMessage = ContactCategory::find($request->category_id)->messages()->create($request->validated());
+
+        activity(ActivityType::CREATED)
+            ->subject("fas fa-envelope", "Contact Message #{$contactMessage->id}")
+            ->description($contactMessage->discord ? "Discord: {$contactMessage->discord}" : "Email: {$contactMessage->email}")
+            ->log();
 
         flash('You have successfully sent the message!')->success();
 
@@ -91,6 +97,11 @@ class ContactMessageController extends Controller
             'status' => ContactMessage::READ,
         ]);
 
+        activity(ActivityType::MARKED_AS_READ)
+            ->subject("fas fa-envelope", "Contact Message #{$contactMessage->id}")
+            ->description($contactMessage->discord ? "Discord: {$contactMessage->discord}" : "Email: {$contactMessage->email}")
+            ->log();
+
         flash("You have successfully marked the message as read!")->success();
 
         return redirect()->route('staff.contact-messages.index');
@@ -111,6 +122,11 @@ class ContactMessageController extends Controller
             'status' => ContactMessage::UNREAD,
         ]);
 
+        activity(ActivityType::MARKED_AS_UNREAD)
+            ->subject("fas fa-envelope", "Contact Message #{$contactMessage->id}")
+            ->description($contactMessage->discord ? "Discord: {$contactMessage->discord}" : "Email: {$contactMessage->email}")
+            ->log();
+
         flash("You have successfully marked the message as unread!")->success();
 
         return redirect()->route('staff.contact-messages.index');
@@ -128,6 +144,11 @@ class ContactMessageController extends Controller
         Gate::authorize('delete-contact-messages');
 
         $contactMessage->delete();
+
+        activity(ActivityType::DELETED)
+            ->subject("fas fa-envelope", "Contact Message #{$contactMessage->id}")
+            ->description($contactMessage->discord ? "Discord: {$contactMessage->discord}" : "Email: {$contactMessage->email}")
+            ->log();
 
         flash("You have successfully deleted the message!")->success();
 

@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->truncate();
         DB::table('roles')->truncate();
         DB::table('role_user')->truncate();
+        DB::table('groups')->truncate();
+        DB::table('group_role')->truncate();
         DB::table('permissions')->truncate();
         DB::table('permission_role')->truncate();
         DB::table('recruitments')->truncate();
@@ -32,10 +34,13 @@ class DatabaseSeeder extends Seeder
         DB::table('downloads')->truncate();
         DB::table('articles')->truncate();
         DB::table('pictures')->truncate();
+        DB::table('activity_types')->truncate();
+        DB::table('activities')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
         $this->call([
             UserSeeder::class,
+            GroupSeeder::class,
             RoleSeeder::class,
             PermissionSeeder::class,
             RecruitmentSeeder::class,
@@ -49,6 +54,8 @@ class DatabaseSeeder extends Seeder
             DownloadSeeder::class,
             ArticleSeeder::class,
             PictureSeeder::class,
+            ActivityTypeSeeder::class,
+            ActivitySeeder::class,
         ]);
     }
 }

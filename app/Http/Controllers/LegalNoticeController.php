@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LegalNotice\StoreLegalNoticeRequest;
+use App\Models\ActivityType;
 use App\Models\LegalNotice;
 use Gate;
 
@@ -49,7 +50,12 @@ class LegalNoticeController extends Controller
     {
         Gate::authorize('has-admin-rights');
 
-        LegalNotice::create($request->validated());
+        $legalNotice = LegalNotice::create($request->validated());
+
+        activity(ActivityType::UPDATED)
+            ->subject('fas fa-balance-scale', 'Legal Notice')
+            ->description("Version N°{$legalNotice->id}")
+            ->log();
 
         flash("You have successfully updated the legal notice!")->success();
 

@@ -35,7 +35,7 @@
 
                     <div class="staff-menu-item staff-menu-dropdown">
                         <span>
-                            <i class="fas fa-truck-moving fa-fw"></i> Convoys
+                            <i class="fas fa-truck fa-fw"></i> Convoys
                         </span>
                         <span>
                             <i class="fas fa-chevron-down fa-fw text-sm"></i>
@@ -193,6 +193,9 @@
                         </div>
                         <div class="py-1">
                             <a href="{{ route('staff.website-settings.statistics') }}" class="transition duration-200 hover:text-primary">Statistics</a>
+                        </div>
+                        <div class="py-1">
+                            <a href="{{ route('staff.website-settings.activity') }}" class="transition duration-200 hover:text-primary">Activity</a>
                         </div>
                         <div class="py-1">
                             <a href="{{ route('staff.website-settings.maintenance-mode') }}" class="transition duration-200 hover:text-primary">Maintenance Mode</a>

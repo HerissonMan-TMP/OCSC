@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\GlobalRequirements\StoreGlobalRequirementsRequest;
+use App\Models\ActivityType;
 use App\Models\GlobalRequirements;
 use Illuminate\Http\Request;
 use Gate;
@@ -50,7 +51,12 @@ class GlobalRequirementsController extends Controller
     {
         Gate::authorize('manage-recruitments');
 
-        GlobalRequirements::create($request->validated());
+        $globalRequirements = GlobalRequirements::create($request->validated());
+
+        activity(ActivityType::UPDATED)
+            ->subject('fas fa-tasks', 'Global Requirements')
+            ->description("Version N°{$globalRequirements->id}")
+            ->log();
 
         flash("You have successfully updated the global requirements!")->success();
 

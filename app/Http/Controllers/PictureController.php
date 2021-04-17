@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Picture\DestroyManyPicturesRequest;
 use App\Http\Requests\Picture\StorePictureRequest;
 use App\Http\Requests\Picture\UpdatePictureRequest;
+use App\Models\ActivityType;
 use App\Models\Picture;
 use Auth;
 use Gate;
@@ -80,6 +81,11 @@ class PictureController extends Controller
 
         $picture->save();
 
+        activity(ActivityType::CREATED)
+            ->subject("fas fa-image", "Picture #{$picture->id}")
+            ->description("Name: {$picture->name}")
+            ->log();
+
         flash("You have successfully uploaded a new picture!")->success();
 
         return redirect()->route('staff.pictures.index');
@@ -114,6 +120,11 @@ class PictureController extends Controller
 
         $picture->update($request->validated());
 
+        activity(ActivityType::UPDATED)
+            ->subject("fas fa-image", "Picture #{$picture->id}")
+            ->description("Name: {$picture->name}")
+            ->log();
+
         flash("You have successfully updated the picture '{$picture->name}'!")->success();
 
         return redirect()->route('staff.pictures.index');
@@ -131,6 +142,11 @@ class PictureController extends Controller
         Gate::authorize('manage-picture', $picture);
 
         $picture->delete();
+
+        activity(ActivityType::DELETED)
+            ->subject("fas fa-image", "Picture #{$picture->id}")
+            ->description("Name: {$picture->name}")
+            ->log();
 
         flash("You have successfully deleted the picture '{$picture->name}'!")->success();
 
@@ -154,6 +170,12 @@ class PictureController extends Controller
         }
 
         Picture::destroy($request->pictures);
+
+        $deletedPicturesID = implode(', ', $request->pictures);
+        activity(ActivityType::DELETED)
+            ->subject("fas fa-images", "Pictures")
+            ->description("Pictures' ID: {$deletedPicturesID}")
+            ->log();
 
         flash("You have successfully deleted the selected pictures!")->success();
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Convoy\StoreConvoyRequest;
 use App\Http\Requests\Convoy\UpdateConvoyRequest;
+use App\Models\ActivityType;
 use App\Models\Convoy;
 use Gate;
 
@@ -66,7 +67,12 @@ class ConvoyController extends Controller
     {
         Gate::authorize('manage-convoys');
 
-        Convoy::create($request->validated());
+        $convoy = Convoy::create($request->validated());
+
+        activity(ActivityType::CREATED)
+            ->subject('fas fa-truck', "Convoy #{$convoy->id}")
+            ->description("Name: {$convoy->title}")
+            ->log();
 
         flash("You have successfully posted a new convoy!")->success();
 
@@ -102,6 +108,11 @@ class ConvoyController extends Controller
 
         $convoy->update($request->validated());
 
+        activity(ActivityType::UPDATED)
+            ->subject('fas fa-truck', "Convoy #{$convoy->id}")
+            ->description("Name: {$convoy->title}")
+            ->log();
+
         flash("You have successfully updated the convoy '{$convoy->name}'!")->success();
 
         return redirect()->route('staff.convoys.index');
@@ -119,6 +130,11 @@ class ConvoyController extends Controller
         Gate::authorize('manage-convoys');
 
         $convoy->delete();
+
+        activity(ActivityType::DELETED)
+            ->subject('fas fa-truck', "Convoy #{$convoy->id}")
+            ->description("Name: {$convoy->title}")
+            ->log();
 
         flash("You have successfully deleted the convoy '{$convoy->name}'!")->success();
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Question\StoreQuestionRequest;
 use App\Http\Requests\Question\UpdateQuestionRequest;
+use App\Models\ActivityType;
 use App\Models\Question;
 use App\Models\Recruitment;
 use Gate;
@@ -41,6 +42,11 @@ class QuestionController extends Controller
         $question->recruitment()->associate($recruitment->id);
         $question->save();
 
+        activity(ActivityType::CREATED)
+            ->subject("fas fa-question-circle", "Question #{$question->id}")
+            ->description("Name: {$question->name}")
+            ->log();
+
         flash("You have successfully added a new question!")->success();
 
         return back();
@@ -61,6 +67,11 @@ class QuestionController extends Controller
 
         $question->update($request->validated());
 
+        activity(ActivityType::UPDATED)
+            ->subject("fas fa-question-circle", "Question #{$question->id}")
+            ->description("Name: {$question->name}")
+            ->log();
+
         flash("You have successfully updated the question '{$question->name}'!")->success();
 
         return back();
@@ -79,6 +90,11 @@ class QuestionController extends Controller
         Gate::authorize('manage-recruitments');
 
         $question->delete();
+
+        activity(ActivityType::DELETED)
+            ->subject("fas fa-question-circle", "Question #{$question->id}")
+            ->description("Name: {$question->name}")
+            ->log();
 
         flash("You have successfully deleted the question '{$question->name}'!")->success();
 

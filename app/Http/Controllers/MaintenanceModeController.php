@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MaintenanceMode\EnableMaintenanceModeRequest;
+use App\Models\ActivityType;
 use Artisan;
 use Gate;
 
@@ -28,6 +29,10 @@ class MaintenanceModeController extends Controller
             '--secret' => $request->secret
         ]);
 
+        activity(ActivityType::ENABLED)
+            ->subject('fas fa-wrench', 'Maintenance Mode')
+            ->log();
+
         flash("You have successfully enabled the maintenance mode!")->success();
 
         return redirect()->to("/{$request->secret}");
@@ -44,6 +49,10 @@ class MaintenanceModeController extends Controller
         Gate::authorize('has-admin-rights');
 
         Artisan::call('up');
+
+        activity(ActivityType::DISABLED)
+            ->subject('fas fa-wrench', 'Maintenance Mode')
+            ->log();
 
         flash("You have successfully disabled the maintenance mode!")->success();
 

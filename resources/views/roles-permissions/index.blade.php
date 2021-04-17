@@ -27,7 +27,7 @@
                         <div class="">
                             <i class="inline-block fas fa-{{ $role->icon_name }} fa-fw fa-lg mr-2"></i>
                             <h2 class="inline-block m-0 text-lg font-bold">{{ $role->name }}</h2>
-                            <span class="inline-block text-lg font-bold">({{ $role->group_level }})</span>
+                            <span class="inline-block text-lg font-bold">({{ $role->group_id }})</span>
                         </div>
 
                         @can('has-admin-rights')

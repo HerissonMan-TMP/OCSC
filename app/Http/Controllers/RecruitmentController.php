@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Recruitment\StoreRecruitmentRequest;
 use App\Http\Requests\Recruitment\UpdateRecruitmentRequest;
+use App\Models\ActivityType;
 use App\Models\Recruitment;
 use App\Models\Role;
 use Auth;
@@ -86,6 +87,11 @@ class RecruitmentController extends Controller
 
         $recruitment->save();
 
+        activity(ActivityType::CREATED)
+            ->subject("fas fa-briefcase", "Recruitment #{$recruitment->id}")
+            ->description("Role: {$recruitment->role()->first()->name}")
+            ->log();
+
         flash("You have successfully created a new recruitment session for the {$recruitment->role->name} role!")->success();
 
         return redirect()->route('staff.recruitments.index');
@@ -122,6 +128,11 @@ class RecruitmentController extends Controller
 
         $recruitment->update($request->validated());
 
+        activity(ActivityType::UPDATED)
+            ->subject("fas fa-briefcase", "Recruitment #{$recruitment->id}")
+            ->description("Role: {$recruitment->role()->first()->name}")
+            ->log();
+
         flash("You have successfully updated a recruitment session for the {$recruitment->role->name} role!")->success();
 
         return redirect()->route('staff.recruitments.index');
@@ -139,6 +150,11 @@ class RecruitmentController extends Controller
         Gate::authorize('manage-recruitments');
 
         $recruitment->delete();
+
+        activity(ActivityType::DELETED)
+            ->subject("fas fa-briefcase", "Recruitment #{$recruitment->id}")
+            ->description("Role: {$recruitment->role()->first()->name}")
+            ->log();
 
         flash("You have successfully deleted a recruitment session for the {$recruitment->role->name} role!")->success();
 

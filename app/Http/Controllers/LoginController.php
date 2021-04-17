@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ActivityType;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -24,6 +25,9 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
+            activity(ActivityType::LOGGED_IN)
+                    ->log();
+
             return redirect()->intended('staff.hub');
         }
 
@@ -40,6 +44,9 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
+        activity(ActivityType::LOGGED_OUT)
+                ->log();
+
         Auth::logout();
 
         $request->session()->invalidate();

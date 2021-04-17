@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Article\StoreArticleRequest;
 use App\Http\Requests\Article\UpdateArticleRequest;
+use App\Models\ActivityType;
 use App\Models\Article;
 use Auth;
 use Gate;
+use App\Models\Activity;
 
 /**
  * Class ArticleController
@@ -67,6 +69,11 @@ class ArticleController extends Controller
 
         $article = Auth::user()->articles()->create($request->validated());
 
+        activity(ActivityType::CREATED)
+                ->subject('fas fa-newspaper', "Article #{$article->id}")
+                ->description("Title: {$article->title}")
+                ->log();
+
         flash("You have successfully posted a new article!")->success();
 
         return redirect()->route('articles.show', $article);
@@ -119,6 +126,11 @@ class ArticleController extends Controller
 
         $article->update($request->validated());
 
+        activity(ActivityType::UPDATED)
+                ->subject('fas fa-newspaper', "Article #{$article->id}")
+                ->description("Title: {$article->title}")
+                ->log();
+
         flash("You have successfully updated the article '{$article->title}'!")->success();
 
         return redirect()->route('articles.show', $article);
@@ -137,8 +149,13 @@ class ArticleController extends Controller
 
         $article->delete();
 
+        activity(ActivityType::DELETED)
+                ->subject('fas fa-newspaper', "Article #{$article->id}")
+                ->description("Title: {$article->title}")
+                ->log();
+
         flash("You have successfully deleted the article '{$article->title}'!")->success();
 
-        return redirect()->route('staff.articles.manage');
+        return redirect()->route('staff.articles.index');
     }
 }

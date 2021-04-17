@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Download\StoreDownloadRequest;
 use App\Http\Requests\Download\UpdateDownloadRequest;
+use App\Models\ActivityType;
 use App\Models\Download;
 use App\Models\Role;
 use Gate;
@@ -60,6 +61,11 @@ class DownloadController extends Controller
         $download = Download::create($request->validated());
         $download->roles()->attach($request->roles);
 
+        activity(ActivityType::CREATED)
+            ->subject('fas fa-download', "Download #{$download->id}")
+            ->description("Name: {$download->name}")
+            ->log();
+
         flash("You have successfully added a new download!")->success();
 
         return redirect()->route('staff.downloads.index');
@@ -98,6 +104,11 @@ class DownloadController extends Controller
         $download->update($request->validated());
         $download->roles()->sync($request->roles);
 
+        activity(ActivityType::UPDATED)
+            ->subject('fas fa-download', "Download #{$download->id}")
+            ->description("Name: {$download->name}")
+            ->log();
+
         flash("You have successfully updated the download '{$download->name}'!")->success();
 
         return back();
@@ -115,6 +126,11 @@ class DownloadController extends Controller
         Gate::authorize('manage-downloads');
 
         $download->delete();
+
+        activity(ActivityType::DELETED)
+            ->subject('fas fa-download', "Download #{$download->id}")
+            ->description("Name: {$download->name}")
+            ->log();
 
         flash("You have successfully deleted the download '{$download->name}'!")->success();
 

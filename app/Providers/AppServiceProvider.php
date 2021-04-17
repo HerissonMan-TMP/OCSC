@@ -19,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind('twitch', \App\Services\Twitch::class);
 
+        $this->app->bind('activity', function ($app, $parameters) {
+            return new \App\Services\Activity($parameters[0]);
+        });
+
         $this->app->singleton('users', function ($app) {
             return User::with('roles.permissions')->get();
         });
