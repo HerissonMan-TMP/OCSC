@@ -15,6 +15,19 @@ use Hash;
 class SubscriberController extends Controller
 {
     /**
+     * Display the list of the subscribed people.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function index()
+    {
+        $subscribers = Subscriber::paginate(20);
+
+        return view('subscribers.index')
+                ->with(compact('subscribers'));
+    }
+
+    /**
      * Store a new subscriber in the database.
      *
      * @param StoreSubscriberRequest $request
@@ -54,7 +67,7 @@ class SubscriberController extends Controller
             ->description($subscriber->email)
             ->log();
 
-        flash('You have successfully unsubscribed from our newsletter!')->success();
+        flash('Successfully unsubscribed from the newsletter!')->success();
 
         return redirect()->route('homepage');
     }

@@ -148,6 +148,11 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
             'index', 'show', 'destroy'
         ]);
 
+        //Subscribers.
+        Route::resource('subscribers', SubscriberController::class)->only(
+            'index', 'destroy'
+        );
+
         //Users.
         Route::resource('users', UserController::class)->except(
             'edit', 'update'

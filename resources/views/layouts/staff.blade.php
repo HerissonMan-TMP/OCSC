@@ -127,7 +127,7 @@
                         </span>
                     </a>
 
-                    <a class="staff-menu-item" href="{{ route('staff.contact-messages.index') }}">
+                    <a class="staff-menu-item" href="{{ route('staff.subscribers.index') }}">
                         <span>
                             <i class="fas fa-paper-plane fa-fw"></i> Subscribers
                         </span>
