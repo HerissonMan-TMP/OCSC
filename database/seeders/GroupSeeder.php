@@ -19,20 +19,17 @@ class GroupSeeder extends Seeder
 
         //(#1) Administrators group.
         $group = Group::create([
-            'name' => 'Administrators',
-            'level' => 1
+            'name' => 'Administrators'
         ]);
 
         //(#2) Managers group.
         $group = Group::create([
-            'name' => 'Managers',
-            'level' => 2
+            'name' => 'Managers'
         ]);
 
         //(#3) Staff group.
         $group = Group::create([
-            'name' => 'Staff',
-            'level' => 3
+            'name' => 'Staff'
         ]);
     }
 }

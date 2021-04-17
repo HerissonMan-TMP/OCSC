@@ -4,34 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/ActivitySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ActivitySeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/ActivityTypeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ActivityTypeSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/AnswerSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/AnswerSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/ApplicationSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ApplicationSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/ArticleSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ArticleSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/ContactCategorySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ContactCategorySeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/ContactMessageSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ContactMessageSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/ConvoySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ConvoySeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DownloadSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DownloadSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/GroupSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/GroupSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PictureSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PictureSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/QuestionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/QuestionSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/RecruitmentSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/RecruitmentSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/RoleSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/RoleSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/SettingSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/SettingSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/convoy-rules/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoy-rules/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/convoys/upcoming-convoys.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoys/upcoming-convoys.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/global-requirements/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-requirements/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/legal-notice/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/legal-notice/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/privacy-policy/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/privacy-policy/show.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -290,7 +263,7 @@
       <workItem from="1618469256956" duration="38576000" />
       <workItem from="1618556415118" duration="25818000" />
       <workItem from="1618587055221" duration="8238000" />
-      <workItem from="1618644254636" duration="33122000" />
+      <workItem from="1618644254636" duration="33571000" />
     </task>
     <servers />
   </component>
