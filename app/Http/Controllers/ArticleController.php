@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\ArticleFilters;
 use App\Http\Requests\Article\StoreArticleRequest;
 use App\Http\Requests\Article\UpdateArticleRequest;
 use App\Models\ActivityType;
@@ -18,10 +19,12 @@ class ArticleController extends Controller
 {
     /**
      * Display all the articles for the public.
+     * @param ArticleFilters $filters
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function news()
+    public function news(ArticleFilters $filters)
     {
-        $articles = Article::with('postedByUser.roles')->paginate(12);
+        $articles = Article::filter($filters)->with('postedByUser.roles')->paginate(12);
 
         return view('articles.news')
                 ->with(compact('articles'));
@@ -30,14 +33,15 @@ class ArticleController extends Controller
     /**
      * Display all the articles.
      *
+     * @param ArticleFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function index()
+    public function index(ArticleFilters $filters)
     {
         Gate::authorize('manage-news-articles');
 
-        $articles = Article::with('postedByUser.roles')->paginate(12);
+        $articles = Article::filter($filters)->with('postedByUser.roles')->paginate(12);
 
         return view('articles.index')
                 ->with(compact('articles'));

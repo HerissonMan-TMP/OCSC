@@ -8,9 +8,28 @@
             <h2>News Articles</h2>
         </div>
 
-        <div class="mb-10 p-6 bg-gray-800 rounded-md italic">
-            Filter and sort features coming soon...
-        </div>
+        <form action="" method="GET" class="mb-10 p-6 bg-gray-800 rounded-md grid grid-cols-10 gap-4">
+            <div class="col-span-1">
+                <input type="text" name="by" class="text-gray-300 bg-gray-700 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="By" value="{{ request('by') }}">
+            </div>
+
+            <div class="col-span-2">
+                <input type="text" name="title" class="text-gray-300 bg-gray-700 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="Title" value="{{ request('title') }}">
+            </div>
+
+            <div class="col-span-1">
+                <select name="sortByCreatedAt" class="capitalize text-gray-300 bg-gray-700 block w-full py-2 px-3 border border-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-dark focus:border-primary-dark md:text-sm">
+                    <option @if(request('sortByCreatedAt') === 'desc') selected @endif value="desc">Latest</option>
+                    <option @if(request('sortByCreatedAt') === 'asc') selected @endif value="asc">Oldest</option>
+                </select>
+            </div>
+
+            <div class="col-span-1">
+                <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
+                    OK
+                </button>
+            </div>
+        </form>
 
         <div class="grid grid-cols-4 gap-10">
             @forelse($articles as $article)
@@ -61,6 +80,6 @@
             @endforelse
         </div>
 
-        {{ $articles->onEachSide(1)->links() }}
+        {{ $articles->onEachSide(1)->withQueryString()->links() }}
     </div>
 @endsection
