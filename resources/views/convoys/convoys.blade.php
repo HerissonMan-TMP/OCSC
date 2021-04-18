@@ -37,8 +37,8 @@
 
             <div class="col-span-1">
                 <select name="sortByMeetupDate" class="capitalize text-gray-300 bg-gray-700 block w-full py-2 px-3 border border-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-dark focus:border-primary-dark md:text-sm">
-                    <option @if(request('sortByMeetupDate') === 'desc') selected @endif value="desc">Latest</option>
-                    <option @if(request('sortByMeetupDate') === 'asc') selected @endif value="asc">Oldest</option>
+                    <option @if(request('sortByMeetupDate') === 'desc') selected @endif value="desc">Descending</option>
+                    <option @if(request('sortByMeetupDate') === 'asc') selected @endif value="asc">Ascending</option>
                 </select>
             </div>
 
