@@ -57,9 +57,8 @@
 
         <div class="grid grid-cols-4 gap-10">
             @forelse($convoys as $convoy)
-                <div class="col-span-full md:col-span-1 rounded-md bg-gray-800 overflow-hidden @if($convoy->meetup_date->isPast()) transition duration-200 opacity-50 hover:opacity-100 @endif">
-                    <div class="text-sm mb-6">
-                        <img class="max-w-full h-auto" src="{{ $convoy->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="Convoy Banner">
+                <div class="rounded-md bg-gray-800 overflow-hidden @if($convoy->meetup_date->isPast()) transition duration-200 opacity-50 hover:opacity-100 @endif">
+                    <div class="h-24 text-sm mb-6 bg-cover bg-center" style="background-image: url({{ $convoy->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }});">
                     </div>
 
                     <div class="h-16 mx-6">
