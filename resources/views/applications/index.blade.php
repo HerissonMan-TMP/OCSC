@@ -14,7 +14,7 @@
             </div>
 
             <div class="col-span-2">
-                <input type="text" name="email" class="text-gray-300 bg-gray-700 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="Description" value="{{ request('description') }}">
+                <input type="text" name="email" class="text-gray-300 bg-gray-700 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="Email" value="{{ request('email') }}">
             </div>
 
             <div class="col-span-1">
