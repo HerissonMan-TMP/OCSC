@@ -125,7 +125,7 @@
 
             @foreach($recruitment->questions as $question)
                 <div class="mt-10 md:mt-2 grid grid-cols-8 gap-4 md:gap-6">
-                    <form action="{{ route('staff.questions.update', $question) }}" method="POST" class="col-span-full md:col-span-7 grid grid-cols-8 gap-4 md:gap-6 mt-2">
+                    <form action="{{ route('staff.questions.update', $question) }}" method="POST" class="col-span-full md:col-span-7 grid grid-cols-8 gap-4 md:gap-6">
                         @csrf
                         @method('PATCH')
 
