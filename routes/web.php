@@ -45,7 +45,7 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
     ]);
 
     //Public: Convoy & Convoy rules.
-    Route::get('upcoming-convoys', [ConvoyController::class, 'showUpcoming'])->name('convoys.show-upcoming');
+    Route::get('convoys', [ConvoyController::class, 'convoys'])->name('convoys');
     Route::get('convoy-rules', [ConvoyRulesController::class, 'show'])->name('convoy-rules.show');
 
     //Public: Pictures (Gallery).

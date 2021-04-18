@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\ConvoyFilters;
 use App\Http\Requests\Convoy\StoreConvoyRequest;
 use App\Http\Requests\Convoy\UpdateConvoyRequest;
 use App\Models\ActivityType;
@@ -17,29 +18,30 @@ class ConvoyController extends Controller
     /**
      * Display all the convoys.
      *
+     * @param ConvoyFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function index()
+    public function index(ConvoyFilters $filters)
     {
         Gate::authorize('manage-convoys');
 
-        $convoys = Convoy::latest('meetup_date')->paginate(12);
+        $convoys = Convoy::filter($filters)->paginate(12);
 
         return view('convoys.index')
                 ->with(compact('convoys'));
     }
 
     /**
-     * Display the upcoming convoys.
+     * Display the convoys (Public side).
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function showUpcoming()
+    public function convoys(ConvoyFilters $filters)
     {
-        $convoys = Convoy::upcoming()->oldest('meetup_date')->paginate(12);
+        $convoys = Convoy::filter($filters)->paginate(12);
 
-        return view('convoys.upcoming-convoys')
+        return view('convoys.convoys')
                 ->with(compact('convoys'));
     }
 

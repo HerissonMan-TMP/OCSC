@@ -4,6 +4,7 @@ namespace App\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use ReflectionClass;
 
 class QueryFilters
 {
@@ -30,7 +31,9 @@ class QueryFilters
             }
         }
 
-        if (!isset($request->sortCreatedAt)) {
+        $class = new ReflectionClass($this);
+
+        if (!isset($request->sortCreatedAt) && $class->getShortName() !== 'ConvoyFilters') {
             $this->builder = $this->builder->latest();
         }
 
