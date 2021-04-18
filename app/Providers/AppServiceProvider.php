@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Article;
 use App\Models\Role;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -39,6 +40,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Builder::macro('whereLike', function ($columns, $search) {
+            $this->where(function ($query) use ($columns, $search) {
+                foreach($columns as $column) {
+                    $query->orWhere($column, 'LIKE', "%{$search}%");
+                }
+            });
+        });
+
         //3 latest news articles
         $latestArticles = Article::latest()->take(3)->get();
         View::share('latestArticles', $latestArticles);
