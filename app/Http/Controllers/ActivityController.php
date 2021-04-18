@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Filters\PictureFilters;
+use App\Filters\ActivityFilters;
 use App\Models\Activity;
 use App\Models\ActivityType;
 use Illuminate\Http\Request;
@@ -19,7 +19,7 @@ class ActivityController extends Controller
      * @param PictureFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index(PictureFilters $filters)
+    public function index(ActivityFilters $filters)
     {
         $activityTypes = ActivityType::all();
         $activities = Activity::filter($filters)->with(['causer', 'type'])->paginate(20);

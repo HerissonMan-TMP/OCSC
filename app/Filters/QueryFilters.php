@@ -34,11 +34,7 @@ class QueryFilters
         $class = new ReflectionClass($this);
 
         if (!isset($request->sortCreatedAt)) {
-            if ($class->getShortName() === 'ConvoyFilters' && !isset($request->sortByMeetupDate)) {
-                $this->builder->latest('meetup_date');
-            } else {
-                $this->builder = $this->builder->latest();
-            }
+            $this->builder = $this->builder->latest();
         }
 
         return $this->builder;

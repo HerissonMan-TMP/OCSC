@@ -245,7 +245,7 @@
                                 <div id="convoys-dropdown-content" class="hidden absolute z-10 left-1/2 transform -translate-x-1/2 pt-3 px-2 w-screen max-w-md sm:px-0">
                                     <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                                         <div class="relative grid gap-6 bg-gray-700 px-5 py-6 sm:gap-8 sm:p-8">
-                                            <a href="{{ route('convoys', ['date' => 'upcoming']) }}" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
+                                            <a href="{{ route('convoys', ['date' => 'upcoming', 'sortByMeetupDate' => 'asc']) }}" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                 <!-- Heroicon name: outline/calendar -->
                                                 <i class="flex-shrink-0 text-primary fas fa-calendar-alt fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">

@@ -35,6 +35,7 @@ class ConvoyController extends Controller
     /**
      * Display the convoys (Public side).
      *
+     * @param ConvoyFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function convoys(ConvoyFilters $filters)

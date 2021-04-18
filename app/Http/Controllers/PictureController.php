@@ -25,7 +25,7 @@ class PictureController extends Controller
      */
     public function gallery(PictureFilters $filters)
     {
-        $pictures = Picture::filter($filters)->with('user.roles')->latest()->paginate(12);
+        $pictures = Picture::filter($filters)->with('user.roles')->paginate(12);
 
         return view('pictures.gallery')
                 ->with(compact('pictures'));

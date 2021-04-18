@@ -28,7 +28,7 @@ class ContactMessageController extends Controller
     {
         Gate::authorize('read-contact-messages');
 
-        $contactMessages = ContactMessage::filter($filters)->with('category')->latest()->paginate(20);
+        $contactMessages = ContactMessage::filter($filters)->with('category')->paginate(20);
 
         return view('contact-messages.index')
                 ->with(compact('contactMessages'));
