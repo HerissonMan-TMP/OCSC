@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Filters\SubscriberFilters;
+use App\Filters\UserFilters;
 use App\Http\Requests\Subscriber\StoreSubscriberRequest;
 use App\Models\ActivityType;
 use App\Models\Subscriber;
@@ -18,10 +18,10 @@ class SubscriberController extends Controller
     /**
      * Display the list of the subscribed people.
      *
-     * @param SubscriberFilters $filters
+     * @param UserFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index(SubscriberFilters $filters)
+    public function index(UserFilters $filters)
     {
         $subscribers = Subscriber::filter($filters)->paginate(20);
 

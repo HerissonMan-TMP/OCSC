@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Filters\Filterable;
 use Auth;
 use Hash;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -17,7 +18,9 @@ use Illuminate\Notifications\Notifiable;
  */
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory;
+    use Notifiable;
+    use Filterable;
 
     /**
      * The attributes that are mass assignable.

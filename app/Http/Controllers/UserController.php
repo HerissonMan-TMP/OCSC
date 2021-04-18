@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\UserFilters;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateEmailRequest;
 use App\Http\Requests\User\UpdateNameRequest;
@@ -26,17 +27,20 @@ class UserController extends Controller
     /**
      * Display the staff members' list.
      *
+     * @param UserFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function index()
+    public function index(UserFilters $filters)
     {
         Gate::authorize('see-staff-members-list');
 
-        $users = User::with('roles')->paginate(20);
+        $users = User::filter($filters)->with('roles')->paginate(20);
+        $roles = Role::all();
 
         return view('users.index')
-                    ->with(compact('users'));
+                ->with(compact('users'))
+                ->with(compact('roles'));
     }
 
     /**
