@@ -56,10 +56,12 @@ class UserController extends Controller
 
         $user = $user->load('roles');
         $roles = Role::orderBy('order')->get();
+        $latestActivities = $user->activities()->latest()->take(3)->with('type')->get();
 
         return view('users.show')
                 ->with(compact('user'))
-                ->with(compact('roles'));
+                ->with(compact('roles'))
+                ->with(compact('latestActivities'));
     }
 
     /**

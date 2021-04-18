@@ -68,9 +68,51 @@
                 </div>
             </div>
             <div class="col-span-full md:col-span-2 bg-gray-800 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
-                <h4 class="font-bold text-2xl text-gray-300 mt-0 mb-6"><i class="fas fa-wrench fa-fw"></i> Activity</h4>
-                <div class="text-gray-300 italic">
-                    Feature planned in the future...
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h4 class="font-bold text-2xl text-gray-300 m-0"><i class="fas fa-wrench fa-fw"></i>Latest Activities</h4>
+                    </div>
+
+                    <div>
+                        <a href="{{ route('staff.website-settings.activity', ['by' => $user->name]) }}" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
+                            See more
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-flow-row gap-2">
+                    @forelse($latestActivities as $activity)
+                        <div class="grid grid-cols-8 gap-6 p-4 rounded-full bg-gray-200 text-sm text-gray-800 items-center">
+                            <div class="col-span-1">
+                                <i class="fas fa-user fa-fw"></i>
+                                @if($activity->causer)
+                                    <span class="font-bold">{{ $activity->causer->name }}</span>
+                                @else
+                                    <span>Anonymous</span>
+                                @endif
+                            </div>
+                            <div class="col-span-2 font-bold">
+                                <span class="inline-block w-full p-2 rounded-md capitalize {{ $activity->type->color }} text-gray-200 text-center"><i class="{{ $activity->type->icon }} fa-fw"></i> {{ $activity->type->name }}</span>
+                            </div>
+                            <div class="col-span-2 font-bold">
+                                @if($activity->subject)
+                                    <i class="{{ $activity->subject_icon }} fa-fw"></i> {{ $activity->subject }}
+                                @endif
+                            </div>
+                            <div class="col-span-2">
+                                @if($activity->description)
+                                    <i class="fas fa-comment-dots fa-fw"></i> {{ $activity->description }}
+                                @else
+                                    <i class="fas fa-comment-dots fa-fw"></i> <span class="italic">No description.</span>
+                                @endif
+                            </div>
+                            <div class="col-span-1 text-right">
+                                <i class="fas fa-clock fa-fw"></i> {{ $activity->created_at->format('d M H:i') }}
+                            </div>
+                        </div>
+                    @empty
+                        <span class="text-sm italic text-gray-300">No logged activity yet.</span>
+                    @endforelse
                 </div>
             </div>
             <div class="col-span-full bg-gray-800 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
