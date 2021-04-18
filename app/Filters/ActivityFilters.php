@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Filters;
 use App\Models\Activity;
 use Illuminate\Database\Eloquent\Builder;
