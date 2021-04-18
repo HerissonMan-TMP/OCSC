@@ -66,7 +66,7 @@
             @endforelse
         </div>
 
-        {{ $pictures->onEachSide(1)->links() }}
+        {{ $pictures->onEachSide(1)->withQueryString()->links() }}
     </div>
 
     <div id="gallery-img-extended" class="fixed p-4 md:p-0 w-full h-full top-0 left-0 right-0 bottom-0 flex justify-center items-center cursor-pointer z-2" style="display: none; background-color: rgba(0,0,0,0.5);">
