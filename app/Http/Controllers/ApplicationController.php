@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Filters\ApplicationFilters;
+use App\Filters\SubscriberFilters;
 use App\Http\Requests\Application\StoreApplicationRequest;
 use App\Models\Activity;
 use App\Models\ActivityType;
@@ -22,11 +22,11 @@ class ApplicationController extends Controller
      * Display all the applications sent for a given recruitment session.
      *
      * @param Recruitment $recruitment
-     * @param ApplicationFilters $filters
+     * @param SubscriberFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function index(Recruitment $recruitment, ApplicationFilters $filters)
+    public function index(Recruitment $recruitment, SubscriberFilters $filters)
     {
         Gate::authorize('manage-recruitments');
 

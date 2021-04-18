@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Filters\ApplicationFilters;
+use App\Filters\SubscriberFilters;
 use App\Models\Activity;
 use App\Models\ActivityType;
 use Illuminate\Http\Request;
@@ -16,10 +16,10 @@ class ActivityController extends Controller
     /**
      * Display the logged activities.
      *
-     * @param ApplicationFilters $filters
+     * @param SubscriberFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index(ApplicationFilters $filters)
+    public function index(SubscriberFilters $filters)
     {
         $activityTypes = ActivityType::all();
         $activities = Activity::filter($filters)->with(['causer', 'type'])->paginate(20);
