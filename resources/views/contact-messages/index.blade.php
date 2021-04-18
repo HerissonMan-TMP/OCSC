@@ -94,6 +94,6 @@
             </table>
         </div>
 
-        {{ $contactMessages->onEachSide(1)->links() }}
+        {{ $contactMessages->onEachSide(1)->withQueryString()->links() }}
     </div>
 @endsection

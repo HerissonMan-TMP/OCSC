@@ -79,6 +79,6 @@
             @endforelse
         </div>
 
-        {{ $activities->onEachSide(1)->links() }}
+        {{ $activities->onEachSide(1)->withQueryString()->links() }}
     </div>
 @endsection

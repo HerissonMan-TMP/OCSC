@@ -75,6 +75,6 @@
             </table>
         </div>
 
-        {{ $subscribers->onEachSide(1)->links() }}
+        {{ $subscribers->onEachSide(1)->withQueryString()->links() }}
     </div>
 @endsection
