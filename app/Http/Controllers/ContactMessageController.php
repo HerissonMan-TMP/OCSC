@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\ContactMessageFilters;
 use App\Http\Requests\Contact\StoreContactMessageRequest;
 use App\Models\ActivityType;
 use App\Models\ContactCategory;
@@ -19,14 +20,15 @@ class ContactMessageController extends Controller
     /**
      * Display the list of the received contact messages.
      *
+     * @param ContactMessageFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function index()
+    public function index(ContactMessageFilters $filters)
     {
         Gate::authorize('read-contact-messages');
 
-        $contactMessages = ContactMessage::with('category')->latest()->paginate(20);
+        $contactMessages = ContactMessage::filter($filters)->with('category')->latest()->paginate(20);
 
         return view('contact-messages.index')
                 ->with(compact('contactMessages'));
