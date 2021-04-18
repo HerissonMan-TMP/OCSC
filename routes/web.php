@@ -115,9 +115,11 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
 
         //Roles & Permissions.
         Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
-        Route::patch('roles/{role}/update-colors', [RoleController::class, 'updateColors'])
-            ->name('roles.update-colors');
-        Route::patch('roles/{role}/permissions', [PermissionController::class, 'update'])
+        Route::get('roles/{role}/edit', [RoleController::class, 'edit'])->name('roles.edit');
+        Route::patch('roles/{role}', [RoleController::class, 'update'])->name('roles.update');
+        Route::get('roles/{role}/permissions', [RoleController::class, 'editPermissions'])
+            ->name('roles.permissions.edit');
+        Route::patch('roles/{role}/permissions', [RoleController::class, 'updatePermissions'])
             ->name('roles.permissions.update');
 
         //Recruitments (+ Questions & Applications) & Requirements.

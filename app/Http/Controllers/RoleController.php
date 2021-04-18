@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Role\UpdateRoleColorsRequest;
+use App\Http\Requests\Role\UpdateRoleRequest;
 use App\Models\ActivityType;
+use App\Models\Group;
 use App\Models\Permission;
 use App\Models\Role;
 use Gate;
+use Illuminate\Http\Request;
 
 /**
  * Class RoleController
@@ -22,37 +25,61 @@ class RoleController extends Controller
      */
     public function index()
     {
-        Gate::authorize('update-permissions');
+        $roles = Role::orderBy('group_id')->orderBy('order')->get();
+        $groups = Group::with('roles')->get();
 
-        $roles = Role::with('permissions')->orderBy('group_id')->orderBy('order')->get();
-        $permissions = Permission::all();
-
-        return view('roles-permissions.index')
+        return view('roles.index')
                 ->with(compact('roles'))
-                ->with(compact('permissions'));
+                ->with(compact('groups'));
     }
 
-    /**
-     * Update the role colors.
-     *
-     * @param Role $role
-     * @param UpdateRoleColorsRequest $request
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Illuminate\Auth\Access\AuthorizationException
-     */
-    public function updateColors(Role $role, UpdateRoleColorsRequest $request)
+    public function edit(Role $role)
     {
-        Gate::authorize('has-admin-rights');
+        Gate::authorize('update-role', $role);
+
+        return view('roles.edit')
+                ->with(compact('role'));
+    }
+
+    public function update(Role $role, UpdateRoleRequest $request)
+    {
+        Gate::authorize('update-role', $role);
 
         $role->update($request->validated());
 
         activity(ActivityType::UPDATED)
             ->subject("fas fa-{$role->icon_name}", $role->name)
-            ->description("New colors: {$role->color} / {$role->contrast_color}")
             ->log();
 
-        flash("You have successfully updated the colors of the role {$role->name}!")->success();
+        flash("You have successfully updated the role {$role->name}!")->success();
 
-        return back();
+        return redirect()->route('staff.roles.index');
+    }
+
+    public function editPermissions(Role $role)
+    {
+        Gate::authorize('update-permissions-of-role', $role);
+
+        $role = $role->load('permissions');
+        $permissions = Permission::all();
+
+        return view('roles.edit-permissions')
+                ->with(compact('role'))
+                ->with(compact('permissions'));
+    }
+
+    public function updatePermissions(Role $role, Request $request)
+    {
+        Gate::authorize('update-permissions-of-role', $role);
+
+        $role->permissions()->sync($request->permissions);
+
+        activity(ActivityType::UPDATED)
+            ->subject("fas fa-shield-alt", "{$role->name}'s permissions")
+            ->log();
+
+        flash("You have successfully updated the permissions of the role {$role->name}!")->success();
+
+        return redirect()->route('staff.roles.index');
     }
 }

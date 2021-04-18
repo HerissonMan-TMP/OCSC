@@ -36,8 +36,7 @@ class AuthServiceProvider extends ServiceProvider
         $abilitiesWithoutBypass = [
             'assign-roles-to-user',
             'assign-role-to-user',
-            'update-permissions-for-role',
-            'update-permission-for-role',
+            'update-permissions-of-role',
             'delete-user'
         ];
         Gate::before(function (User $user, $ability) use ($abilitiesWithoutBypass) {
@@ -116,38 +115,19 @@ class AuthServiceProvider extends ServiceProvider
                 : Response::deny('You are not allowed to assign this role to this user.');
         });
 
-        $ability = 'update-permissions';
+        $ability = 'update-role';
         Gate::define($ability, function (User $user) use ($ability) {
-            return $user->hasPermission($ability)
+            return $user->hasPermission('has-admin-rights')
                 ? Response::allow()
                 : Response::deny('You are not allowed to update permissions.');
         });
 
-        $ability = 'update-permissions-for-role';
+        $ability = 'update-permissions-of-role';
         Gate::define($ability, function (User $user, Role $targetRole) use ($ability) {
-           return ($user->hasPermission('update-permissions')
-               || $user->hasPermission('has-admin-rights'))
-               && !$targetRole->hasPermission('has-admin-rights')
-               && ($user->roles->first()->group_id < $targetRole->group_id || $user->hasPermission('has-admin-rights'))
+           return !$targetRole->hasPermission('has-admin-rights')
+               && $user->hasPermission('has-admin-rights')
                ? Response::allow()
                : Response::deny('You are not allowed to update the permissions for this role.');
-        });
-
-        $ability = 'update-permission-for-role';
-        Gate::define($ability, function (User $user, Role $targetRole, Permission $targetPermission) use ($ability) {
-            $result = false;
-            if ($user->can('update-permissions-for-role', $targetRole)) {
-                if ($targetPermission->slug === 'has-admin-rights') {
-                    if ($user->hasPermission('has-admin-rights') && !$targetRole->hasPermission('has-admin-rights')) {
-                        $result = true;
-                    }
-                } else {
-                    $result = true;
-                }
-            }
-            return $result
-                ? Response::allow()
-                : Response::deny('You are not allowed to update this permission.');
         });
 
         $ability = 'create-new-users';

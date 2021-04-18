@@ -22,8 +22,12 @@ class Role extends Model
      * @var array
      */
     protected $fillable = [
+        'name',
+        'icon_name',
         'color',
         'contrast_color',
+        'description',
+        'recruitment_enabled'
     ];
 
     /**
