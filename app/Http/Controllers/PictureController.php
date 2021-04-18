@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\PictureFilters;
 use App\Http\Requests\Picture\DestroyManyPicturesRequest;
 use App\Http\Requests\Picture\StorePictureRequest;
 use App\Http\Requests\Picture\UpdatePictureRequest;
@@ -19,11 +20,12 @@ class PictureController extends Controller
     /**
      * Display all the pictures in the gallery.
      *
+     * @param PictureFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function gallery()
+    public function gallery(PictureFilters $filters)
     {
-        $pictures = Picture::with('user.roles')->latest()->paginate(12);
+        $pictures = Picture::filter($filters)->with('user.roles')->latest()->paginate(12);
 
         return view('pictures.gallery')
                 ->with(compact('pictures'));
@@ -32,14 +34,15 @@ class PictureController extends Controller
     /**
      * Display all the pictures (with options to manage them).
      *
+     * @param PictureFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function index()
+    public function index(PictureFilters $filters)
     {
         Gate::authorize('see-gallery');
 
-        $pictures = Picture::with('user.roles')->latest()->paginate(12);
+        $pictures = Picture::filter($filters)->with('user.roles')->latest()->paginate(12);
 
         return view('pictures.index')
             ->with(compact('pictures'));
