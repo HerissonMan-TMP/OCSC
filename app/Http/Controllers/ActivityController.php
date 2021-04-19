@@ -16,7 +16,7 @@ class ActivityController extends Controller
     /**
      * Display the logged activities.
      *
-     * @param PictureFilters $filters
+     * @param ActivityFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index(ActivityFilters $filters)
