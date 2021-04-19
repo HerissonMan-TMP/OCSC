@@ -48,7 +48,7 @@ class PermissionSeeder extends Seeder
         //Permission: Manage News Articles.
         $permission = Permission::create([
             'name' => 'Manage News Articles',
-            'slug' => 'manage-news-article'
+            'slug' => 'manage-news-articles'
         ]);
         $permission->category()->associate(3);
         $permission->save();
