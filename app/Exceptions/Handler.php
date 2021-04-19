@@ -56,10 +56,12 @@ class Handler extends ExceptionHandler
      */
     public function report(Throwable $e)
     {
-        if (method_exists($e, 'getStatusCode')) {
+        $exception = $this->prepareException($e);
+
+        if (method_exists($exception, 'getStatusCode')) {
             Error::create([
                 'ip_address' => request()->getClientIp(),
-                'status_code' => $e->getStatusCode(),
+                'status_code' => $exception->getStatusCode(),
                 'uri' => request()->getRequestUri(),
             ]);
         }
