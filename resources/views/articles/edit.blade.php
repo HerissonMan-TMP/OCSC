@@ -15,7 +15,7 @@
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-full">
                     <label class="block text-sm font-medium text-gray-300">Posted By</label>
-                    <input type="text" disabled style="color: {{ $article->postedByUser->roles->first()->color }}" class="text-gray-300 bg-gray-800 font-bold mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ $article->postedByUser->name }}">
+                    <input type="text" disabled style="color: {{ $article->postedByUser?->roles->first()->color }}" class="text-gray-300 bg-gray-800 font-bold mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ $article->postedByUser->name ?? 'Anonymous' }}">
                 </div>
 
                 <div class="col-span-full md:col-span-3">

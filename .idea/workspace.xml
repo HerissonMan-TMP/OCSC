@@ -6,10 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/articles/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/articles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/articles/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/news.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/articles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pictures/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pictures/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pictures/gallery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pictures/gallery.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pictures/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pictures/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +280,7 @@
       <workItem from="1618729062947" duration="23647000" />
       <workItem from="1618761716454" duration="7674000" />
       <workItem from="1618815450848" duration="14743000" />
-      <workItem from="1618834716257" duration="14879000" />
+      <workItem from="1618834716257" duration="16615000" />
     </task>
     <servers />
   </component>

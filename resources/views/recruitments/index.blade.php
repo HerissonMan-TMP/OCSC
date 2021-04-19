@@ -65,8 +65,8 @@
                         <td class="border-none px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                             {{ $recruitment->end_at->format('d M H:i') }}
                         </td>
-                        <td style="color: {{ $recruitment->user->roles->first()->color }}" class="border-none px-6 py-4 whitespace-nowrap text-sm">
-                            {{ $recruitment->user->name }}
+                        <td style="color: {{ $recruitment->user?->roles->first()->color }}" class="border-none px-6 py-4 whitespace-nowrap text-sm">
+                            {{ $recruitment->user?->name ?? 'Anonymous' }}
                         </td>
                         <td class="border-none px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                             <a href="{{ route('staff.recruitments.applications.index', $recruitment) }}" class="text-gray-300 hover:text-gray-400">See applications</a> ({{ $recruitment->applications_count }})

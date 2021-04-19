@@ -51,7 +51,7 @@
                             @if($article->postedByUser)
                                 <span class="font-bold" style="color: {{ $article->postedByUser->roles->first()->color }}">{{ $article->postedByUser->name }}</span>
                             @else
-                                <span>Unkown User</span>
+                                <span>Anonymous</span>
                             @endif
                         </span>
                             <span class="ml-4 text-sm italic text-gray-300"><i class="fas fa-clock fa-fw fa-md"></i> {{ $article->created_at->format('d M H:i') }}</span>

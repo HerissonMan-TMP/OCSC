@@ -88,7 +88,7 @@
                                         @if($picture->user)
                                             <span class="font-bold" style="color: {{ $picture->user->roles->first()->color }}">{{ $picture->user->name }}</span>
                                         @else
-                                            <span>Unkown User</span>
+                                            <span>Anonymous</span>
                                         @endif
                                     </span>
                                     <span><i class="fas fa-clock fa-fw fa-md"></i>{{ $picture->created_at->format('d M H:i') }}</span>

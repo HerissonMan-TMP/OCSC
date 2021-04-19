@@ -50,7 +50,7 @@
                             @if($picture->user)
                                 <span class="font-bold" style="color: {{ $picture->user->roles->first()->color }}">{{ $picture->user->name }}</span>
                             @else
-                                <span>Unkown User</span>
+                                <span>Anonymous</span>
                             @endif
                         </span>
                             <span>
