@@ -152,13 +152,12 @@ class AuthServiceProvider extends ServiceProvider
                 : Response::deny('You are not allowed to edit the global requirements.');
         });
 
-        $ability = 'see-recruitment-form';
-        Gate::define($ability, function (User $user, Recruitment $recruitment) use ($ability) {
+        $ability = 'apply-for-recruitment';
+        Gate::define($ability, function (?User $user, Recruitment $recruitment) use ($ability) {
             return $recruitment->is_open
                 ? Response::allow()
                 : Response::deny('You are not allowed to apply for this recruitment.');
         });
-
 
         //Staff members.
         $ability = 'create-new-users';

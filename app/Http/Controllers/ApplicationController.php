@@ -61,9 +61,12 @@ class ApplicationController extends Controller
      * @param Recruitment $recruitment
      * @param StoreApplicationRequest $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(Recruitment $recruitment, StoreApplicationRequest $request)
     {
+        Gate::authorize('apply-for-recruitment', $recruitment);
+
         $application = $recruitment->applications()->create($request->validated());
 
         foreach ($recruitment->questions as $index => $question) {

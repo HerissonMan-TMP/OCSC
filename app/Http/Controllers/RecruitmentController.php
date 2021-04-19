@@ -8,7 +8,7 @@ use App\Models\ActivityType;
 use App\Models\Recruitment;
 use App\Models\Role;
 use Auth;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class RecruitmentController
@@ -43,9 +43,12 @@ class RecruitmentController extends Controller
      *
      * @param Recruitment $recruitment
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function show(Recruitment $recruitment)
     {
+        Gate::authorize('apply-for-recruitment', $recruitment);
+
         $recruitment = $recruitment->load(['role', 'questions']);
 
         return view('recruitments.show')
