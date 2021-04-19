@@ -12,7 +12,7 @@
             <div class="mx-auto w-1/4 shadow overflow-hidden rounded-md">
                 <div class="bg-gray-800 md:p-6">
 
-                    <div class="my-10 text-center">
+                    <div class="mb-10 text-center">
                         <h2>Edit your temporary password</h2>
                         <span class="text-gray-400 text-sm">This step is required before accessing the Staff Hub.</span>
                     </div>
