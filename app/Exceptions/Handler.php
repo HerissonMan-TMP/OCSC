@@ -2,8 +2,14 @@
 
 namespace App\Exceptions;
 
+use App\Models\Error;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Support\Arr;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Router;
+use Illuminate\Validation\ValidationException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -38,5 +44,26 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * Report or log an exception.
+     *
+     * @param  \Throwable  $e
+     * @return void
+     *
+     * @throws \Throwable
+     */
+    public function report(Throwable $e)
+    {
+        if (method_exists($e, 'getStatusCode')) {
+            Error::create([
+                'ip_address' => request()->getClientIp(),
+                'status_code' => $e->getStatusCode(),
+                'uri' => request()->getRequestUri(),
+            ]);
+        }
+
+        parent::report($e);
     }
 }

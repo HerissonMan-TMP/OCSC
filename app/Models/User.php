@@ -117,4 +117,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Activity::class, 'causer_id');
     }
+
+    public function errors()
+    {
+        return $this->hasMany(Error::class);
+    }
 }

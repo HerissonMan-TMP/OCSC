@@ -186,6 +186,9 @@
                     </div>
                     <div class="staff-menu-dropdown-items pl-20 hidden text-gray-400">
                         <div class="py-1">
+                            <a href="{{ route('staff.website-settings.activity') }}" class="transition duration-200 hover:text-primary">Activity</a>
+                        </div>
+                        <div class="py-1">
                             <a href="{{ route('staff.website-settings.legal-notice.create') }}" class="transition duration-200 hover:text-primary">Legal Notice</a>
                         </div>
                         <div class="py-1">
@@ -195,7 +198,7 @@
                             <a href="{{ route('staff.website-settings.statistics') }}" class="transition duration-200 hover:text-primary">Statistics</a>
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.website-settings.activity') }}" class="transition duration-200 hover:text-primary">Activity</a>
+                            <a href="{{ route('staff.website-settings.error-logs') }}" class="transition duration-200 hover:text-primary">Error logs</a>
                         </div>
                         <div class="py-1">
                             <a href="{{ route('staff.website-settings.maintenance-mode') }}" class="transition duration-200 hover:text-primary">Maintenance Mode</a>

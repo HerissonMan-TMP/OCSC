@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\ConvoyController;
 use App\Http\Controllers\ConvoyRulesController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\ErrorController;
 use App\Http\Controllers\HubController;
 use App\Http\Controllers\PictureController;
 use App\Http\Controllers\GlobalRequirementsController;
@@ -171,6 +172,9 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
 
         //Website Settings
         Route::prefix('website-settings')->name('website-settings.')->group(function () {
+            //Activity.
+            Route::get('activity', [ActivityController::class, 'index'])->name('activity');
+
             //Legal Notice.
             Route::get('legal-notice/create', [LegalNoticeController::class, 'create'])->name('legal-notice.create');
             Route::post('legal-notice', [LegalNoticeController::class, 'store'])->name('legal-notice.store');
@@ -182,7 +186,8 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
             //Statistics.
             Route::view('statistics', 'website-settings.statistics')->name('statistics');
 
-            Route::get('activity', [ActivityController::class, 'index'])->name('activity');
+            //Error logs.
+            Route::get('error-logs', [ErrorController::class, 'index'])->name('error-logs');
 
             //Maintenance mode.
             Route::view('maintenance-mode', 'website-settings.maintenance-mode')->name('maintenance-mode');
