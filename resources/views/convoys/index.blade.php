@@ -95,16 +95,19 @@
                                     See on TruckersMP
                                 </a>
                             </div>
-                            <div class="col-span-1">
-                                <a href="{{ route('staff.convoys.edit', $convoy) }}" class="h-full transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark focus:outline-none">
-                                    <i class="fas fa-pen fa-fw fa-md"></i>
-                                </a>
-                            </div>
-                            <form action="{{ route('staff.convoys.destroy', $convoy) }}" method="POST" class="col-span-1">
-                                @csrf
-                                @method('DELETE')
-                                <button type="Submit" class="h-full transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-200 bg-red-500 hover:text-gray-300 hover:bg-red-600 focus:outline-none"><i class="fas fa-trash-alt fa-fw fa-md"></i></button>
-                            </form>
+                            @can('manage-convoys')
+                                <div class="col-span-1">
+                                    <a href="{{ route('staff.convoys.edit', $convoy) }}" class="h-full transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark focus:outline-none">
+                                        <i class="fas fa-pen fa-fw fa-md"></i>
+                                    </a>
+                                </div>
+                                <form action="{{ route('staff.convoys.destroy', $convoy) }}" method="POST" class="col-span-1">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="Submit" class="h-full transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-200 bg-red-500 hover:text-gray-300 hover:bg-red-600 focus:outline-none"><i class="fas fa-trash-alt fa-fw fa-md"></i></button>
+                                </form>
+                            @endcan
                         </div>
                     </div>
                 </div>

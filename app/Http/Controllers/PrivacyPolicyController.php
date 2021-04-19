@@ -33,6 +33,8 @@ class PrivacyPolicyController extends Controller
      */
     public function create()
     {
+        Gate::authorize('edit-privacy-policy');
+
         $privacyPolicy = PrivacyPolicy::latest()->first();
 
         return view('privacy-policy.create')
@@ -48,7 +50,7 @@ class PrivacyPolicyController extends Controller
      */
     public function store(StorePrivacyPolicyRequest $request)
     {
-        Gate::authorize('has-admin-rights');
+        Gate::authorize('edit-privacy-policy');
 
         $privacyPolicy = PrivacyPolicy::create($request->validated());
 

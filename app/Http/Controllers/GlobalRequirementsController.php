@@ -31,9 +31,12 @@ class GlobalRequirementsController extends Controller
      * Display the form to create a new version of the global requirements.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create()
     {
+        Gate::authorize('edit-global-requirements');
+
         $globalRequirements = GlobalRequirements::latest()->first();
 
         return view('global-requirements.create')
@@ -49,7 +52,7 @@ class GlobalRequirementsController extends Controller
      */
     public function store(StoreGlobalRequirementsRequest $request)
     {
-        Gate::authorize('manage-recruitments');
+        Gate::authorize('edit-global-requirements');
 
         $globalRequirements = GlobalRequirements::create($request->validated());
 

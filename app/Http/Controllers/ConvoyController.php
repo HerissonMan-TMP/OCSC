@@ -24,8 +24,6 @@ class ConvoyController extends Controller
      */
     public function index(ConvoyFilters $filters)
     {
-        Gate::authorize('manage-convoys');
-
         $convoys = Convoy::filter($filters)->paginate(12);
 
         return view('convoys.index')

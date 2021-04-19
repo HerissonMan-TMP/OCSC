@@ -22,7 +22,7 @@ class MaintenanceModeController extends Controller
      */
     public function enable(EnableMaintenanceModeRequest $request)
     {
-        Gate::authorize('has-admin-rights');
+        Gate::authorize('toggle-maintenance-mode');
 
         Artisan::call('down', [
             '--render' => 'errors::503',
@@ -46,7 +46,7 @@ class MaintenanceModeController extends Controller
      */
     public function disable()
     {
-        Gate::authorize('has-admin-rights');
+        Gate::authorize('toggle-maintenance-mode');
 
         Artisan::call('up');
 

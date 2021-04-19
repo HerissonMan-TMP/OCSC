@@ -40,8 +40,6 @@ class PictureController extends Controller
      */
     public function index(PictureFilters $filters)
     {
-        Gate::authorize('see-gallery');
-
         $pictures = Picture::filter($filters)->with('user.roles')->latest()->paginate(12);
 
         return view('pictures.index')

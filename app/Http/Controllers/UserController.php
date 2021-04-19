@@ -33,8 +33,6 @@ class UserController extends Controller
      */
     public function index(UserFilters $filters)
     {
-        Gate::authorize('see-staff-members-list');
-
         $users = User::filter($filters)->with('roles')->paginate(20);
         $roles = Role::all();
 
@@ -52,8 +50,6 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        Gate::authorize('see-staff-members-list');
-
         $user = $user->load('roles');
         $roles = Role::orderBy('order')->get();
         $latestActivities = $user->activities()->latest()->take(3)->with('type')->get();
@@ -94,7 +90,6 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         Gate::authorize('create-new-users');
-        Gate::authorize('assign-role', Role::find($request->role_id));
 
         $user = new User;
 
@@ -216,9 +211,7 @@ class UserController extends Controller
      */
     public function updateRoles(User $user, UpdateUserRolesRequest $request)
     {
-        foreach ($request->roles as $roleId) {
-            Gate::authorize('assign-role-to-user', [$user, Role::find($roleId)]);
-        }
+        Gate::authorize('assign-roles-to-user', $user);
 
         $user->roles()->sync($request->roles);
 

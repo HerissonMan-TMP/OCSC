@@ -8,6 +8,7 @@ use App\Models\ActivityType;
 use App\Models\Subscriber;
 use Crypt;
 use Hash;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class SubscriberController
@@ -20,9 +21,12 @@ class SubscriberController extends Controller
      *
      * @param SubscriberFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index(SubscriberFilters $filters)
     {
+        Gate::authorize('manage-subscribers');
+
         $subscribers = Subscriber::filter($filters)->paginate(20);
 
         return view('subscribers.index')
@@ -62,6 +66,8 @@ class SubscriberController extends Controller
      */
     public function destroy(Subscriber $subscriber)
     {
+        Gate::authorize('delete-subscriber', $subscriber);
+
         $subscriber->delete();
 
         activity(ActivityType::UNSUBSCRIBED)

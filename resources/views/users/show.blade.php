@@ -36,14 +36,16 @@
                             <span class="text-gray-300 text-sm">{{ $user->name }}</span>
                         </div>
                     </div>
-                    <div class="flex">
-                        <div class="mr-1">
-                            <i class="fas fa-at fa-fw fa-sm"></i>
+                    @can('see-email-address-of-staff-members')
+                        <div class="flex">
+                            <div class="mr-1">
+                                <i class="fas fa-at fa-fw fa-sm"></i>
+                            </div>
+                            <div>
+                                <span class="text-gray-300 text-sm">{{ $user->email }}</span>
+                            </div>
                         </div>
-                        <div>
-                            <span class="text-gray-300 text-sm">{{ $user->email }}</span>
-                        </div>
-                    </div>
+                    @endcan
                     @if($user->has_temporary_password)
                         @can('see-temporary-password-of-new-staff-members')
                             <div class="flex">
@@ -67,6 +69,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-span-full md:col-span-2 bg-gray-800 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
                 <div class="flex justify-between items-center mb-6">
                     <div>
@@ -81,91 +84,80 @@
                 </div>
 
                 <div class="grid grid-flow-row gap-2">
-                    @forelse($latestActivities as $activity)
-                        <div class="grid grid-cols-8 gap-6 p-4 rounded-full bg-gray-200 text-sm text-gray-800 items-center">
-                            <div class="col-span-1">
-                                <i class="fas fa-user fa-fw"></i>
-                                @if($activity->causer)
-                                    <span class="font-bold">{{ $activity->causer->name }}</span>
-                                @else
-                                    <span>Anonymous</span>
-                                @endif
+                    @can('see-activity')
+                        @forelse($latestActivities as $activity)
+                            <div class="grid grid-cols-8 gap-6 p-4 rounded-full bg-gray-200 text-sm text-gray-800 items-center">
+                                <div class="col-span-1">
+                                    <i class="fas fa-user fa-fw"></i>
+                                    @if($activity->causer)
+                                        <span class="font-bold">{{ $activity->causer->name }}</span>
+                                    @else
+                                        <span>Anonymous</span>
+                                    @endif
+                                </div>
+                                <div class="col-span-2 font-bold">
+                                    <span class="inline-block w-full p-2 rounded-md capitalize {{ $activity->type->color }} text-gray-200 text-center"><i class="{{ $activity->type->icon }} fa-fw"></i> {{ $activity->type->name }}</span>
+                                </div>
+                                <div class="col-span-2 font-bold">
+                                    @if($activity->subject)
+                                        <i class="{{ $activity->subject_icon }} fa-fw"></i> {{ $activity->subject }}
+                                    @endif
+                                </div>
+                                <div class="col-span-2">
+                                    @if($activity->description)
+                                        <i class="fas fa-comment-dots fa-fw"></i> {{ $activity->description }}
+                                    @else
+                                        <i class="fas fa-comment-dots fa-fw"></i> <span class="italic">No description.</span>
+                                    @endif
+                                </div>
+                                <div class="col-span-1 text-right">
+                                    <i class="fas fa-clock fa-fw"></i> {{ $activity->created_at->format('d M H:i') }}
+                                </div>
                             </div>
-                            <div class="col-span-2 font-bold">
-                                <span class="inline-block w-full p-2 rounded-md capitalize {{ $activity->type->color }} text-gray-200 text-center"><i class="{{ $activity->type->icon }} fa-fw"></i> {{ $activity->type->name }}</span>
-                            </div>
-                            <div class="col-span-2 font-bold">
-                                @if($activity->subject)
-                                    <i class="{{ $activity->subject_icon }} fa-fw"></i> {{ $activity->subject }}
-                                @endif
-                            </div>
-                            <div class="col-span-2">
-                                @if($activity->description)
-                                    <i class="fas fa-comment-dots fa-fw"></i> {{ $activity->description }}
-                                @else
-                                    <i class="fas fa-comment-dots fa-fw"></i> <span class="italic">No description.</span>
-                                @endif
-                            </div>
-                            <div class="col-span-1 text-right">
-                                <i class="fas fa-clock fa-fw"></i> {{ $activity->created_at->format('d M H:i') }}
-                            </div>
+                        @empty
+                            <span class="text-sm italic text-gray-300">No logged activity yet.</span>
+                        @endforelse
+                    @else
+                        <div class="my-4 p-4 rounded-md bg-yellow-500 text-sm">
+                            <i class="fas fa-exclamation-triangle fa-fw"></i>
+                            You cannot see the staff members' activity.
                         </div>
-                    @empty
-                        <span class="text-sm italic text-gray-300">No logged activity yet.</span>
-                    @endforelse
+                    @endcan
                 </div>
             </div>
+
             <div class="col-span-full bg-gray-800 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
                 <h4 class="font-bold text-2xl text-gray-300 mt-0 mb-6"><i class="fas fa-user-shield fa-fw"></i> Administration</h4>
-                @cannot('assign-roles-to-user', $user)
-                    <form>
-                        <fieldset class="opacity-50" disabled>
-                            <label for="roles" class="mb-2 block text-sm font-medium text-gray-300">Roles <span class="text-red-500 font-bold">*</span></label>
-                            @foreach($roles->sortBy('order') as $role)
-                                <div>
-                                    <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 cursor-not-allowed" @if($user->hasRole($role)) checked @endif>
-                                    <label for="role-{{ $role->id }}" style="color: {{ $role->color }}">{{ $role->name }}</label>
-                                </div>
-                            @endforeach
-                            <div class="flex justify-between flex-wrap md:flex-nowrap items-end mt-6">
-                                <div class="mb-2 md:mb-0">
-                                </div>
-                                <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary focus:outline-none cursor-not-allowed">
-                                    Update the roles
-                                </button>
-                            </div>
-                        </fieldset>
-                    </form>
-                @else
+                @can('assign-roles-to-user', $user)
                     <form action="{{ route('staff.users.roles.update', $user) }}" method="POST">
                         @csrf
                         @method('PATCH')
+
                         <label for="roles" class="mb-2 block text-sm font-medium text-gray-300">Roles <span class="text-red-500 font-bold">*</span></label>
                         @foreach($roles as $role)
                             <div>
-                                @cannot('assign-role-to-user', [$user, $role])
-                                    <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 opacity-50 cursor-not-allowed" disabled @if($user->hasRole($role)) checked @endif>
-                                    <label for="role-{{ $role->id }}" style="color: {{ $role->color }}" class="opacity-50">{{ $role->name }}</label>
-                                @else
-                                    <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 cursor-pointer" @if($user->hasRole($role)) checked @endif>
-                                    <label for="role-{{ $role->id }}" style="color: {{ $role->color }}">{{ $role->name }}</label>
-                                @endcannot
+                                <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 cursor-pointer" @if($user->hasRole($role)) checked @endif>
+                                <label for="role-{{ $role->id }}" style="color: {{ $role->color }}">{{ $role->name }}</label>
                             </div>
                         @endforeach
                         <div class="flex justify-between flex-wrap md:flex-nowrap items-end mt-6">
                             <div class="mb-2 md:mb-0">
                                 @error('roles')
-                                <span class="text-sm text-red-500">
-                        {{ $message }}
-                        </span>
+                                <span class="text-sm text-red-500">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary focus:outline-none @cannot('assign-roles', $user) cursor-not-allowed @else cursor-pointer hover:text-gray-700 hover:bg-primary-dark @endcannot">
+                            <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary focus:outline-none cursor-pointer hover:text-gray-700 hover:bg-primary-dark">
                                 Update the roles
                             </button>
                         </div>
                     </form>
-                @endcannot
+                @else
+                    <div class="my-4 p-4 rounded-md bg-yellow-500 text-sm">
+                        <i class="fas fa-exclamation-triangle fa-fw"></i>
+                        The roles of this user cannot be updated.
+                    </div>
+                @endcan
+
                 <div class="mt-6 w-full rounded-md border border-red-500">
                     <div class="p-4 bg-red-500">
                         <h3 class="font-semibold text-2xl text-ged-200 m-0">Danger Zone</h3>

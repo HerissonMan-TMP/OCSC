@@ -26,7 +26,7 @@
                                     </div>
 
                                     <div class="flex justify-center">
-                                        @can('update-role', $role)
+                                        @can('update-roles')
                                             <a href="{{ route('staff.roles.edit', $role) }}" class="w-full transition duration-200 text-left py-2 px-4 border border-transparent shadow-sm text-sm font-bold hover:opacity-80 focus:outline-none" style="background-color: {{ $role->color }}; color: {{ $role->contrast_color }};">
                                                 <i class="fas fa-user-tag fa-fw"></i> Edit role
                                             </a>

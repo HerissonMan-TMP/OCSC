@@ -46,10 +46,18 @@
                             <a href="{{ route('staff.convoys.index') }}" class="transition duration-200 hover:text-primary">All convoys</a>
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.convoys.create') }}" class="transition duration-200 hover:text-primary">Post a new convoy</a>
+                            @can('manage-convoys')
+                                <a href="{{ route('staff.convoys.create') }}" class="transition duration-200 hover:text-primary">Post a new convoy</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Post a new convoy</a>
+                            @endcan
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.convoy-rules.create') }}" class="transition duration-200 hover:text-primary">Convoy rules</a>
+                            @can('edit-convoy-rules')
+                                <a href="{{ route('staff.convoy-rules.create') }}" class="transition duration-200 hover:text-primary">Convoy rules</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Convoy rules</a>
+                            @endcan
                         </div>
                     </div>
 
@@ -66,7 +74,11 @@
                             <a href="{{ route('staff.articles.index') }}" class="transition duration-200 hover:text-primary">All news articles</a>
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.articles.create') }}" class="transition duration-200 hover:text-primary">Post a new article</a>
+                            @can('manage-news-articles')
+                                <a href="{{ route('staff.articles.create') }}" class="transition duration-200 hover:text-primary">Post a new article</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Post a new article</a>
+                            @endcan
                         </div>
                     </div>
 
@@ -100,7 +112,11 @@
                             <a href="{{ route('staff.pictures.index') }}" class="transition duration-200 hover:text-primary">All pictures</a>
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.pictures.create') }}" class="transition duration-200 hover:text-primary">Upload a new picture</a>
+                            @can('add-pictures-to-gallery')
+                                <a href="{{ route('staff.pictures.create') }}" class="transition duration-200 hover:text-primary">Upload a new picture</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Upload a new picture</a>
+                            @endcan
                         </div>
                     </div>
 
@@ -117,21 +133,41 @@
                             <a href="{{ route('staff.downloads.index') }}" class="transition duration-200 hover:text-primary">All available downloads</a>
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.downloads.create') }}" class="transition duration-200 hover:text-primary">Add a new download</a>
+                            @can('manage-downloads')
+                                <a href="{{ route('staff.downloads.create') }}" class="transition duration-200 hover:text-primary">Add a new download</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Add a new download</a>
+                            @endcan
                         </div>
                     </div>
 
-                    <a class="staff-menu-item" href="{{ route('staff.contact-messages.index') }}">
-                        <span>
-                            <i class="fas fa-envelope fa-fw"></i> Contact Messages
-                        </span>
-                    </a>
+                    @can('manage-contact-messages')
+                        <a class="staff-menu-item" href="{{ route('staff.contact-messages.index') }}">
+                            <span>
+                                <i class="fas fa-envelope fa-fw"></i> Contact Messages
+                            </span>
+                        </a>
+                    @else
+                        <a class="staff-menu-item-disabled">
+                            <span>
+                                <i class="fas fa-envelope fa-fw"></i> Contact Messages
+                            </span>
+                        </a>
+                    @endcan
 
-                    <a class="staff-menu-item" href="{{ route('staff.subscribers.index') }}">
-                        <span>
-                            <i class="fas fa-paper-plane fa-fw"></i> Subscribers
-                        </span>
-                    </a>
+                    @can('manage-subscribers')
+                        <a class="staff-menu-item" href="{{ route('staff.subscribers.index') }}">
+                            <span>
+                                <i class="fas fa-paper-plane fa-fw"></i> Subscribers
+                            </span>
+                        </a>
+                    @else
+                        <a class="staff-menu-item-disabled">
+                            <span>
+                                <i class="fas fa-paper-plane fa-fw"></i> Subscribers
+                            </span>
+                        </a>
+                    @endcan
 
                     <div class="staff-menu-item staff-menu-dropdown">
                         <span>
@@ -143,13 +179,25 @@
                     </div>
                     <div class="staff-menu-dropdown-items pl-20 hidden text-gray-400">
                         <div class="py-1">
-                            <a href="{{ route('staff.recruitments.index') }}" class="transition duration-200 hover:text-primary">All recruitment sessions</a>
+                            @can('manage-recruitments')
+                                <a href="{{ route('staff.recruitments.index') }}" class="transition duration-200 hover:text-primary">All recruitment sessions</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">All recruitment sessions</a>
+                            @endcan
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.recruitments.create') }}" class="transition duration-200 hover:text-primary">Create a new recruitment session</a>
+                            @can('manage-recruitments')
+                                <a href="{{ route('staff.recruitments.create') }}" class="transition duration-200 hover:text-primary">Create a new recruitment session</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Create a new recruitment session</a>
+                            @endcan
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.global-requirements.create') }}" class="transition duration-200 hover:text-primary">Global requirements</a>
+                            @can('edit-global-requirements')
+                                <a href="{{ route('staff.global-requirements.create') }}" class="transition duration-200 hover:text-primary">Global requirements</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Global requirements</a>
+                            @endcan
                         </div>
                     </div>
 
@@ -166,7 +214,11 @@
                             <a href="{{ route('staff.users.index') }}" class="transition duration-200 hover:text-primary">All staff members</a>
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.users.create') }}" class="transition duration-200 hover:text-primary">Add a new staff member</a>
+                            @can('create-new-users')
+                                <a href="{{ route('staff.users.create') }}" class="transition duration-200 hover:text-primary">Add a new staff member</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Add a new staff member</a>
+                            @endcan
                         </div>
                     </div>
 
@@ -186,22 +238,46 @@
                     </div>
                     <div class="staff-menu-dropdown-items pl-20 hidden text-gray-400">
                         <div class="py-1">
+                            @can('see-activity')
                             <a href="{{ route('staff.website-settings.activity') }}" class="transition duration-200 hover:text-primary">Activity</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Activity</a>
+                            @endcan
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.website-settings.legal-notice.create') }}" class="transition duration-200 hover:text-primary">Legal Notice</a>
+                            @can('edit-legal-notice')
+                                <a href="{{ route('staff.website-settings.legal-notice.create') }}" class="transition duration-200 hover:text-primary">Legal Notice</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Legal Notice</a>
+                            @endcan
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.website-settings.privacy-policy.create') }}" class="transition duration-200 hover:text-primary">Privacy Policy</a>
+                            @can('edit-privacy-policy')
+                                <a href="{{ route('staff.website-settings.privacy-policy.create') }}" class="transition duration-200 hover:text-primary">Privacy Policy</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Privacy Policy</a>
+                            @endcan
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.website-settings.statistics') }}" class="transition duration-200 hover:text-primary">Statistics</a>
+                            @can('see-statistics')
+                                <a href="{{ route('staff.website-settings.statistics') }}" class="transition duration-200 hover:text-primary">Statistics</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Statistics</a>
+                            @endcan
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.website-settings.error-logs') }}" class="transition duration-200 hover:text-primary">Error logs</a>
+                            @can('see-error-logs')
+                                <a href="{{ route('staff.website-settings.error-logs') }}" class="transition duration-200 hover:text-primary">Error logs</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Error logs</a>
+                            @endcan
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.website-settings.maintenance-mode') }}" class="transition duration-200 hover:text-primary">Maintenance Mode</a>
+                            @can('toggle-maintenance-mode')
+                                <a href="{{ route('staff.website-settings.maintenance-mode') }}" class="transition duration-200 hover:text-primary">Maintenance Mode</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Maintenance Mode</a>
+                            @endcan
                         </div>
                     </div>
                 </div>

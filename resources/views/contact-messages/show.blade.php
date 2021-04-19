@@ -45,33 +45,32 @@
         <div class="grid grid-cols-6 gap-6 mt-6">
             <div class="md:col-span-4"></div>
 
-            @can('change-contact-messages-status')
-                @if($contactMessage->status === 'read')
-                    <form class="col-span-full md:col-span-1" action="{{ route('staff.contact-messages.mark-as-unread', $contactMessage) }}" method="POST">
-                        @csrf
-                        <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-blue-200 bg-blue-700 hover:text-blue-300 hover:bg-blue-800 focus:outline-none">
-                            Mark as "Unread"
-                        </button>
-                    </form>
-                @else
-                    <form class="col-span-full md:col-span-1" action="{{ route('staff.contact-messages.mark-as-read', $contactMessage) }}" method="POST">
-                        @csrf
-                        <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-blue-200 bg-blue-700 hover:text-blue-300 hover:bg-blue-800 focus:outline-none">
-                            Mark as "Read"
-                        </button>
-                    </form>
-                @endif
-            @endcan
-
-            @can('delete-contact-messages')
-                <form class="col-span-full md:col-span-1" action="{{ route('staff.contact-messages.destroy', $contactMessage) }}" method="POST">
+            @if($contactMessage->status === 'read')
+                <form class="col-span-full md:col-span-1" action="{{ route('staff.contact-messages.mark-as-unread', $contactMessage) }}" method="POST">
                     @csrf
-                    @method('DELETE')
-                    <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-red-200 bg-red-700 hover:text-red-300 hover:bg-red-800 focus:outline-none">
-                        Delete
+
+                    <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-blue-200 bg-blue-700 hover:text-blue-300 hover:bg-blue-800 focus:outline-none">
+                        Mark as "Unread"
                     </button>
                 </form>
-            @endcan
+            @else
+                <form class="col-span-full md:col-span-1" action="{{ route('staff.contact-messages.mark-as-read', $contactMessage) }}" method="POST">
+                    @csrf
+
+                    <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-blue-200 bg-blue-700 hover:text-blue-300 hover:bg-blue-800 focus:outline-none">
+                        Mark as "Read"
+                    </button>
+                </form>
+            @endif
+
+            <form class="col-span-full md:col-span-1" action="{{ route('staff.contact-messages.destroy', $contactMessage) }}" method="POST">
+                @csrf
+                @method('DELETE')
+
+                <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-red-200 bg-red-700 hover:text-red-300 hover:bg-red-800 focus:outline-none">
+                    Delete
+                </button>
+            </form>
         </div>
     </div>
 @endsection

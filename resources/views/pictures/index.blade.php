@@ -36,6 +36,7 @@
                 </div>
             </form>
 
+            @can('manage-pictures')
             <div class="col-span-1 text-right">
                 <button type="button" id="enable-select-mode" class="transition duration-200 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-gray-700 font-bold bg-primary hover:text-gray-800 hover:bg-primary-dark focus:outline-none">
                     Enable select mode
@@ -47,6 +48,7 @@
                     Delete
                 </button>
             </div>
+            @endcan
         </div>
 
         <form action="{{ route('staff.pictures.destroy-many') }}" method="POST" id="pictures-delete-many-form">
@@ -62,29 +64,33 @@
                     <div class="col-span-full md:col-span-1">
                         <div class="gallery-img-wrapper relative">
                             <img src="{{ Storage::url('gallery/' . $picture->path) }}" alt="{{ $picture->name }}" class="rounded-lg">
+
                             <div class="absolute top-0 right-2">
                                 <input type="checkbox" name="pictures[]" value="{{ $picture->id }}" class="select-mode-checkbox pointer-events-none rounded-full border-none text-primary cursor-pointer focus:ring-offset-0 focus:ring-0" style="display: none;">
                             </div>
+
                             <div class="gallery-img-overlay space-y-6 absolute p-6 flex flex-col justify-center items-center top-0 w-full h-full text-sm text-center rounded-lg" style="display: none; background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));">
-                                <div class="absolute top-2 right-2">
-                                    <div>
-                                        @can('manage-picture', $picture)
+                                @can('manage-picture', $picture)
+                                    <div class="absolute top-2 right-2">
+                                        <div>
                                             <a href="{{ route('staff.pictures.edit', $picture) }}" class="h-10 transition duration-200 w-10 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark focus:outline-none">
                                                 <i class="fas fa-pen fa-fw fa-md"></i>
                                             </a>
-                                        @endcan
+                                        </div>
                                     </div>
-                                </div>
+                                @endcan
+
                                 <span class="text-base font-bold">{{ $picture->name }}</span>
+
                                 <div class="w-full flex justify-between">
-                                <span class="text-sm italic text-gray-300">
-                                    <i class="fas fa-user fa-fw fa-md"></i>
-                                    @if($picture->user)
-                                        <span class="font-bold" style="color: {{ $picture->user->roles->first()->color }}">{{ $picture->user->name }}</span>
-                                    @else
-                                        <span>Unkown User</span>
-                                    @endif
-                                </span>
+                                    <span class="text-sm italic text-gray-300">
+                                        <i class="fas fa-user fa-fw fa-md"></i>
+                                        @if($picture->user)
+                                            <span class="font-bold" style="color: {{ $picture->user->roles->first()->color }}">{{ $picture->user->name }}</span>
+                                        @else
+                                            <span>Unkown User</span>
+                                        @endif
+                                    </span>
                                     <span><i class="fas fa-clock fa-fw fa-md"></i>{{ $picture->created_at->format('d M H:i') }}</span>
                                 </div>
                             </div>

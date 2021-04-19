@@ -7,6 +7,7 @@ use App\Http\Requests\Role\UpdateRoleRequest;
 use App\Models\ActivityType;
 use App\Models\Group;
 use App\Models\Permission;
+use App\Models\PermissionCategory;
 use App\Models\Role;
 use Gate;
 use Illuminate\Http\Request;
@@ -35,7 +36,7 @@ class RoleController extends Controller
 
     public function edit(Role $role)
     {
-        Gate::authorize('update-role', $role);
+        Gate::authorize('update-roles');
 
         return view('roles.edit')
                 ->with(compact('role'));
@@ -43,7 +44,7 @@ class RoleController extends Controller
 
     public function update(Role $role, UpdateRoleRequest $request)
     {
-        Gate::authorize('update-role', $role);
+        Gate::authorize('update-roles');
 
         $role->update($request->validated());
 
@@ -61,11 +62,11 @@ class RoleController extends Controller
         Gate::authorize('update-permissions-of-role', $role);
 
         $role = $role->load('permissions');
-        $permissions = Permission::all();
+        $permissionCategories = PermissionCategory::with('permissions')->get();
 
         return view('roles.edit-permissions')
                 ->with(compact('role'))
-                ->with(compact('permissions'));
+                ->with(compact('permissionCategories'));
     }
 
     public function updatePermissions(Role $role, Request $request)

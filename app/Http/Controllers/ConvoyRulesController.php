@@ -31,9 +31,12 @@ class ConvoyRulesController extends Controller
      * Display the form to create a new version of the convoy rules.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create()
     {
+        Gate::authorize('edit-convoy-rules');
+
         return view('convoy-rules.create');
     }
 
@@ -46,7 +49,7 @@ class ConvoyRulesController extends Controller
      */
     public function store(StoreConvoyRulesRequest $request)
     {
-        Gate::authorize('manage-convoys');
+        Gate::authorize('edit-convoy-rules');
 
         $convoyRules = ConvoyRules::create($request->validated());
 

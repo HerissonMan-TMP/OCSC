@@ -39,8 +39,6 @@ class ArticleController extends Controller
      */
     public function index(ArticleFilters $filters)
     {
-        Gate::authorize('manage-news-articles');
-
         $articles = Article::filter($filters)->with('postedByUser.roles')->paginate(12);
 
         return view('articles.index')

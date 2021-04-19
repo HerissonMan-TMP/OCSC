@@ -33,6 +33,8 @@ class LegalNoticeController extends Controller
      */
     public function create()
     {
+        Gate::authorize('edit-legal-notice');
+
         $legalNotice = LegalNotice::latest()->first();
 
         return view('legal-notice.create')
@@ -48,7 +50,7 @@ class LegalNoticeController extends Controller
      */
     public function store(StoreLegalNoticeRequest $request)
     {
-        Gate::authorize('has-admin-rights');
+        Gate::authorize('edit-legal-notice');
 
         $legalNotice = LegalNotice::create($request->validated());
 

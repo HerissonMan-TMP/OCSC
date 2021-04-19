@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\GlobalRequirements;
+use App\Models\PermissionCategory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -21,6 +22,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             GroupSeeder::class,
             RoleSeeder::class,
+            PermissionCategorySeeder::class,
             PermissionSeeder::class,
             RecruitmentSeeder::class,
             QuestionSeeder::class,

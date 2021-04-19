@@ -23,124 +23,43 @@ class PermissionSeeder extends Seeder
            'name' => 'Has Admin rights',
            'slug' => 'has-admin-rights',
         ]);
+        $permission->category()->associate(1);
         $permission->save();
         $permission->roles()->attach([1, 2, 3]);
-
-        //Permission: Manage recruitments.
-        $permission = Permission::create([
-            'name' => 'Manage recruitments',
-            'slug' => 'manage-recruitments',
-        ]);
-        $permission->save();
-        $permission->roles()->attach(4);
-
-        //Permission: See Staff members list.
-        $permission = Permission::create([
-            'name' => 'See Staff members list',
-            'slug' => 'see-staff-members-list',
-        ]);
-        $permission->save();
-        $permission->roles()->attach([4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
-
-        //Permission: See new Staff members' temporary password.
-        $permission = Permission::create([
-            'name' => 'See new Staff members\' temporary password',
-            'slug' => 'see-temporary-password-of-new-staff-members',
-        ]);
-        $permission->save();
-        $permission->roles()->attach([4, 5, 6, 7, 8]);
-
-        //Permission: Update permissions (only for roles with a group level below).
-        $permission = Permission::create([
-           'name' => 'Update permissions (only for roles with a role group level below)',
-           'slug' => 'update-permissions'
-        ]);
-        $permission->save();
-
-        //Permission: Assign roles (only to users with a role group level below).
-        $permission = Permission::create([
-            'name' => 'Assign roles (only to users with a role group level below)',
-            'slug' => 'assign-roles',
-        ]);
-        $permission->save();
-        $permission->roles()->attach(4);
-
-        //Permission: Create new users.
-        $permission = Permission::create([
-            'name' => 'Create new users',
-            'slug' => 'create-new-users'
-        ]);
-        $permission->save();
-        $permission->roles()->attach(4);
-
-        //Permission: Read contact messages.
-        $permission = Permission::create([
-            'name' => 'Read contact messages',
-            'slug' => 'read-contact-messages'
-        ]);
-        $permission->save();
-        $permission->roles()->attach([4, 5, 6, 7, 8]);
-
-        //Permission: Change contact messages status.
-        $permission = Permission::create([
-            'name' => 'Change contact messages status',
-            'slug' => 'change-contact-messages-status'
-        ]);
-        $permission->save();
-        $permission->roles()->attach([4, 5, 6, 7, 8]);
-
-        //Permission: Delete contact messages.
-        $permission = Permission::create([
-            'name' => 'Delete contact messages',
-            'slug' => 'delete-contact-messages'
-        ]);
-        $permission->save();
 
         //Permission: Manage convoys.
         $permission = Permission::create([
             'name' => 'Manage convoys',
             'slug' => 'manage-convoys'
         ]);
+        $permission->category()->associate(2);
         $permission->save();
         $permission->roles()->attach([4, 5]);
 
-        //Permission: See Downloads.
+        //Permission: Edit convoy rules.
         $permission = Permission::create([
-            'name' => 'See Downloads',
-            'slug' => 'see-downloads'
+            'name' => 'Edit convoy rules',
+            'slug' => 'edit-convoy-rules'
         ]);
+        $permission->category()->associate(2);
         $permission->save();
-        $permission->roles()->attach([4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
-
-        //Permission: Manage Downloads.
-        $permission = Permission::create([
-            'name' => 'Manage Downloads',
-            'slug' => 'manage-downloads'
-        ]);
-        $permission->save();
-        $permission->roles()->attach(4);
+        $permission->roles()->attach(5);
 
         //Permission: Manage News Articles.
         $permission = Permission::create([
             'name' => 'Manage News Articles',
             'slug' => 'manage-news-article'
         ]);
+        $permission->category()->associate(3);
         $permission->save();
         $permission->roles()->attach(4);
 
-        //Permission: See the gallery (Staff side).
+        //Permission: Manage the pictures.
         $permission = Permission::create([
-            'name' => 'See the gallery',
-            'slug' => 'see-gallery'
+            'name' => 'Manage pictures',
+            'slug' => 'manage-pictures'
         ]);
-        $permission->save();
-        $permission->roles()->attach([4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
-
-        //Permission: Manage the gallery.
-        $permission = Permission::create([
-            'name' => 'Manage the gallery',
-            'slug' => 'manage-gallery'
-        ]);
+        $permission->category()->associate(5);
         $permission->save();
 
         //Permission: Add pictures to the gallery (with the ability to manage them).
@@ -148,7 +67,118 @@ class PermissionSeeder extends Seeder
             'name' => 'Add pictures to the gallery (with the ability to manage them)',
             'slug' => 'add-pictures-to-gallery'
         ]);
+        $permission->category()->associate(5);
         $permission->save();
         $permission->roles()->attach([4, 5, 6, 7, 8, 15]);
+
+        //Permission: Manage Downloads.
+        $permission = Permission::create([
+            'name' => 'Manage Downloads',
+            'slug' => 'manage-downloads'
+        ]);
+        $permission->category()->associate(6);
+        $permission->save();
+        $permission->roles()->attach(4);
+
+        //Permission: Manage contact messages.
+        $permission = Permission::create([
+            'name' => 'Manage contact messages',
+            'slug' => 'manage-contact-messages'
+        ]);
+        $permission->category()->associate(7);
+        $permission->save();
+        $permission->roles()->attach([4, 5, 6, 7, 8]);
+
+        //Permission: Manage subscribers.
+        $permission = Permission::create([
+            'name' => 'Manage subscribers',
+            'slug' => 'manage-subscribers'
+        ]);
+        $permission->category()->associate(8);
+        $permission->save();
+
+        //Permission: Manage recruitments.
+        $permission = Permission::create([
+            'name' => 'Manage recruitments',
+            'slug' => 'manage-recruitments',
+        ]);
+        $permission->category()->associate(9);
+        $permission->save();
+        $permission->roles()->attach(4);
+
+        //Permission: Edit global requirements.
+        $permission = Permission::create([
+            'name' => 'Edit global requirements',
+            'slug' => 'edit-global-requirements',
+        ]);
+        $permission->category()->associate(9);
+        $permission->save();
+        $permission->roles()->attach(4);
+
+        //Permission: See Staff members' email address.
+        $permission = Permission::create([
+            'name' => 'See Staff members\' email address',
+            'slug' => 'see-email-address-of-staff-members',
+        ]);
+        $permission->category()->associate(10);
+        $permission->save();
+        $permission->roles()->attach([4, 5, 6, 7, 8]);
+
+        //Permission: See new Staff members' temporary password.
+        $permission = Permission::create([
+            'name' => 'See new Staff members\' temporary password',
+            'slug' => 'see-temporary-password-of-new-staff-members',
+        ]);
+        $permission->category()->associate(10);
+        $permission->save();
+        $permission->roles()->attach([4, 5, 6, 7, 8]);
+
+        //Permission: See activity.
+        $permission = Permission::create([
+            'name' => 'See activity',
+            'slug' => 'see-activity'
+        ]);
+        $permission->category()->associate(12);
+        $permission->save();
+
+        //Permission: Edit legal notice.
+        $permission = Permission::create([
+            'name' => 'Edit legal notice',
+            'slug' => 'edit-legal-notice'
+        ]);
+        $permission->category()->associate(12);
+        $permission->save();
+
+        //Permission: Edit privacy policy.
+        $permission = Permission::create([
+            'name' => 'Edit privacy policy',
+            'slug' => 'edit-privacy-policy'
+        ]);
+        $permission->category()->associate(12);
+        $permission->save();
+
+        //Permission: See statistics.
+        $permission = Permission::create([
+            'name' => 'See statistics',
+            'slug' => 'see-statistics'
+        ]);
+        $permission->category()->associate(12);
+        $permission->save();
+
+        //Permission: See error logs.
+        $permission = Permission::create([
+            'name' => 'See error logs',
+            'slug' => 'see-error-logs'
+        ]);
+        $permission->category()->associate(12);
+        $permission->save();
+
+        //Permission: Toggle maintenance mode.
+        $permission = Permission::create([
+            'name' => 'Toggle maintenance mode',
+            'slug' => 'toggle-maintenance-mode'
+        ]);
+        $permission->category()->associate(12);
+        $permission->save();
     }
 }

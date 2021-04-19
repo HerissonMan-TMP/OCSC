@@ -32778,6 +32778,27 @@ a, .link{
   transition-duration: 200ms;
 }
 
+.staff-menu-item-disabled {
+  cursor: not-allowed !important;
+  display: block !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  font-weight: 300 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.75rem !important;
+  opacity: 0.4 !important;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+  padding-left: 2.5rem !important;
+  padding-right: 2.5rem !important;
+  --tw-text-opacity: 1 !important;
+  color: rgba(229, 231, 235, var(--tw-text-opacity)) !important;
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+      -ms-user-select: none !important;
+          user-select: none !important
+}
+
 p {
   margin-bottom: 1.5rem;
   --tw-text-opacity: 1;

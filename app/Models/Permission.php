@@ -24,4 +24,9 @@ class Permission extends Model
     {
         return $this->belongsToMany(Role::class);
     }
+
+    public function category()
+    {
+        return $this->belongsTo(PermissionCategory::class, 'category_id');
+    }
 }

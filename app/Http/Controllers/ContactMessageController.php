@@ -26,7 +26,7 @@ class ContactMessageController extends Controller
      */
     public function index(ContactMessageFilters $filters)
     {
-        Gate::authorize('read-contact-messages');
+        Gate::authorize('manage-contact-messages');
 
         $contactMessages = ContactMessage::filter($filters)->with('category')->paginate(20);
 
@@ -43,7 +43,7 @@ class ContactMessageController extends Controller
      */
     public function show(ContactMessage $contactMessage)
     {
-        Gate::authorize('read-contact-messages');
+        Gate::authorize('manage-contact-messages');
 
         $contactMessage = $contactMessage->load('category');
 
@@ -93,7 +93,7 @@ class ContactMessageController extends Controller
      */
     public function markAsRead(ContactMessage $contactMessage)
     {
-        Gate::authorize('change-contact-messages-status');
+        Gate::authorize('manage-contact-messages');
 
         $contactMessage->update([
             'status' => ContactMessage::READ,
@@ -118,7 +118,7 @@ class ContactMessageController extends Controller
      */
     public function markAsUnread(ContactMessage $contactMessage)
     {
-        Gate::authorize('change-contact-messages-status');
+        Gate::authorize('manage-contact-messages');
 
         $contactMessage->update([
             'status' => ContactMessage::UNREAD,
@@ -143,7 +143,7 @@ class ContactMessageController extends Controller
      */
     public function destroy(ContactMessage $contactMessage)
     {
-        Gate::authorize('delete-contact-messages');
+        Gate::authorize('manage-contact-messages');
 
         $contactMessage->delete();
 

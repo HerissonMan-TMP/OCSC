@@ -70,9 +70,15 @@
                         <td class="border-none px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                             <a href="{{ route('staff.users.show', $user) }}" class="text-gray-300 hover:text-gray-400">{{ $user->name }}</a>
                         </td>
-                        <td class="border-none px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                            {{ $user->email }}
-                        </td>
+                        @can('see-email-address-of-staff-members')
+                            <td class="border-none px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                                {{ $user->email }}
+                            </td>
+                        @else
+                            <td class="border-none px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                                ***
+                            </td>
+                        @endcan
                         @can('see-temporary-password-of-new-staff-members')
                             @if($user->has_temporary_password)
                                 <td class="border-none px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-300">

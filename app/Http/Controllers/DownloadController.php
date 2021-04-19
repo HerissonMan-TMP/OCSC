@@ -21,8 +21,6 @@ class DownloadController extends Controller
      */
     public function index()
     {
-        Gate::authorize('see-downloads');
-
         $downloads = Download::accessible()->with('roles')->get();
         $roles = Role::orderBy('order')->get();
 
