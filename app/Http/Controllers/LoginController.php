@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ActivityType;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class LoginController

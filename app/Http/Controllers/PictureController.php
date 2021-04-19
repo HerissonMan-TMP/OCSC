@@ -8,8 +8,8 @@ use App\Http\Requests\Picture\StorePictureRequest;
 use App\Http\Requests\Picture\UpdatePictureRequest;
 use App\Models\ActivityType;
 use App\Models\Picture;
-use Auth;
-use Gate;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class PictureController
@@ -36,7 +36,6 @@ class PictureController extends Controller
      *
      * @param PictureFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index(PictureFilters $filters)
     {

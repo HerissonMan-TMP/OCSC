@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Role\UpdateRoleColorsRequest;
 use App\Http\Requests\Role\UpdateRoleRequest;
 use App\Models\ActivityType;
 use App\Models\Group;
-use App\Models\Permission;
 use App\Models\PermissionCategory;
 use App\Models\Role;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 /**
@@ -22,7 +20,6 @@ class RoleController extends Controller
      * Display the roles list.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index()
     {
@@ -34,6 +31,13 @@ class RoleController extends Controller
                 ->with(compact('groups'));
     }
 
+    /**
+     * Display the form to edit the given role.
+     *
+     * @param Role $role
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function edit(Role $role)
     {
         Gate::authorize('update-roles');
@@ -42,6 +46,14 @@ class RoleController extends Controller
                 ->with(compact('role'));
     }
 
+    /**
+     * Update the given role.
+     *
+     * @param Role $role
+     * @param UpdateRoleRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function update(Role $role, UpdateRoleRequest $request)
     {
         Gate::authorize('update-roles');
@@ -57,6 +69,13 @@ class RoleController extends Controller
         return redirect()->route('staff.roles.index');
     }
 
+    /**
+     * Display the form to edit the permissions of the given role.
+     *
+     * @param Role $role
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function editPermissions(Role $role)
     {
         Gate::authorize('update-permissions-of-role', $role);
@@ -69,6 +88,14 @@ class RoleController extends Controller
                 ->with(compact('permissionCategories'));
     }
 
+    /**
+     * Update the permissions of the given role.
+     *
+     * @param Role $role
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function updatePermissions(Role $role, Request $request)
     {
         Gate::authorize('update-permissions-of-role', $role);

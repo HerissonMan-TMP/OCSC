@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Filters\ApplicationFilters;
 use App\Http\Requests\Application\StoreApplicationRequest;
-use App\Models\Activity;
 use App\Models\ActivityType;
 use App\Models\Answer;
 use App\Models\Application;
 use App\Models\Recruitment;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 
 
 /**

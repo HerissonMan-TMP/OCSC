@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Filters\ActivityFilters;
 use App\Models\Activity;
 use App\Models\ActivityType;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 /**

@@ -7,8 +7,6 @@ use App\Http\Requests\Contact\StoreContactMessageRequest;
 use App\Models\ActivityType;
 use App\Models\ContactCategory;
 use App\Models\ContactMessage;
-use App\Models\Question;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 /**

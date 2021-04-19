@@ -6,8 +6,7 @@ use App\Filters\SubscriberFilters;
 use App\Http\Requests\Subscriber\StoreSubscriberRequest;
 use App\Models\ActivityType;
 use App\Models\Subscriber;
-use Crypt;
-use Hash;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Gate;
 
 /**
@@ -63,6 +62,7 @@ class SubscriberController extends Controller
      *
      * @param Subscriber $subscriber
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function destroy(Subscriber $subscriber)
     {

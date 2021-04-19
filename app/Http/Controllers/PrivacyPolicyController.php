@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PrivacyPolicy\StorePrivacyPolicyRequest;
 use App\Models\ActivityType;
 use App\Models\PrivacyPolicy;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class PrivacyPolicyController
@@ -30,6 +30,7 @@ class PrivacyPolicyController extends Controller
      * Display the form to create a new version of the privacy policy.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create()
     {

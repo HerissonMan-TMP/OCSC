@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LegalNotice\StoreLegalNoticeRequest;
 use App\Models\ActivityType;
 use App\Models\LegalNotice;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class LegalNoticeController
@@ -30,6 +30,7 @@ class LegalNoticeController extends Controller
      * Display the form to create a new version of the legal notice.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function create()
     {

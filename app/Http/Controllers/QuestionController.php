@@ -7,7 +7,7 @@ use App\Http\Requests\Question\UpdateQuestionRequest;
 use App\Models\ActivityType;
 use App\Models\Question;
 use App\Models\Recruitment;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class QuestionController
@@ -55,7 +55,6 @@ class QuestionController extends Controller
     /**
      * Update the given question.
      *
-     * @param Recruitment $recruitment
      * @param Question $question
      * @param UpdateQuestionRequest $request
      * @return \Illuminate\Http\RedirectResponse

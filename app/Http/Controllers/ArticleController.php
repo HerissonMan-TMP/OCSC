@@ -7,9 +7,8 @@ use App\Http\Requests\Article\StoreArticleRequest;
 use App\Http\Requests\Article\UpdateArticleRequest;
 use App\Models\ActivityType;
 use App\Models\Article;
-use Auth;
-use Gate;
-use App\Models\Activity;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class ArticleController
@@ -35,7 +34,6 @@ class ArticleController extends Controller
      *
      * @param ArticleFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index(ArticleFilters $filters)
     {
@@ -61,7 +59,7 @@ class ArticleController extends Controller
     /**
      * Store a new article in the database.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param StoreArticleRequest $request
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */

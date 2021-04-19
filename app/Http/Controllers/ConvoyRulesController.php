@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ConvoyRules\StoreConvoyRulesRequest;
 use App\Models\ActivityType;
 use App\Models\ConvoyRules;
-use Illuminate\Http\Request;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class ConvoyRulesController

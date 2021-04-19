@@ -15,9 +15,8 @@ use App\Models\Role;
 use App\Models\User;
 use App\Services\TemporaryPasswordService;
 use Illuminate\Http\Request;
-use Auth;
-use Gate;
-use Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class UserController
@@ -30,7 +29,6 @@ class UserController extends Controller
      *
      * @param UserFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index(UserFilters $filters)
     {
@@ -47,7 +45,6 @@ class UserController extends Controller
      *
      * @param User $user
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function show(User $user)
     {
@@ -118,6 +115,7 @@ class UserController extends Controller
      * @param User $user
      * @param UpdateNameRequest $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function updateName(User $user, UpdateNameRequest $request)
     {
@@ -141,6 +139,7 @@ class UserController extends Controller
      * @param User $user
      * @param UpdateEmailRequest $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function updateEmail(User $user, UpdateEmailRequest $request)
     {
@@ -164,6 +163,7 @@ class UserController extends Controller
      * @param User $user
      * @param UpdatePasswordRequest $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function updatePassword(User $user, UpdatePasswordRequest $request)
     {

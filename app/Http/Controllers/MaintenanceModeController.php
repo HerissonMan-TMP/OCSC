@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MaintenanceMode\EnableMaintenanceModeRequest;
 use App\Models\ActivityType;
-use Artisan;
-use Gate;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class MaintenanceModeController

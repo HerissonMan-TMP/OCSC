@@ -7,7 +7,7 @@ use App\Http\Requests\Download\UpdateDownloadRequest;
 use App\Models\ActivityType;
 use App\Models\Download;
 use App\Models\Role;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class DownloadController
@@ -17,7 +17,6 @@ class DownloadController extends Controller
 {
     /**
      * Display all the available downloads for the authenticated user.
-     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index()
     {

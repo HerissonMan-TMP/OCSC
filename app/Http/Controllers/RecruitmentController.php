@@ -7,7 +7,7 @@ use App\Http\Requests\Recruitment\UpdateRecruitmentRequest;
 use App\Models\ActivityType;
 use App\Models\Recruitment;
 use App\Models\Role;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 /**

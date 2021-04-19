@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\GlobalRequirements\StoreGlobalRequirementsRequest;
 use App\Models\ActivityType;
 use App\Models\GlobalRequirements;
-use Illuminate\Http\Request;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class GlobalRequirementsController

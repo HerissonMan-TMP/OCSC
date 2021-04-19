@@ -7,7 +7,7 @@ use App\Http\Requests\Convoy\StoreConvoyRequest;
 use App\Http\Requests\Convoy\UpdateConvoyRequest;
 use App\Models\ActivityType;
 use App\Models\Convoy;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 
 /**
  * Class ConvoyController
@@ -20,7 +20,6 @@ class ConvoyController extends Controller
      *
      * @param ConvoyFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function index(ConvoyFilters $filters)
     {
