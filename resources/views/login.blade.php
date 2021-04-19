@@ -8,8 +8,8 @@
     <div class="py-16 bg-gray-900">
         <form action="{{ route('login.authenticate') }}" method="POST">
             @csrf
-            <div class="mx-auto w-1/4 shadow overflow-hidden rounded-md">
-                <div class="bg-gray-800 md:p-6">
+            <div class="mx-auto w-3/4 md:w-1/4 shadow overflow-hidden rounded-md">
+                <div class="bg-gray-800 p-6">
 
                     <div class="mb-10 text-center">
                         <h2>Login to access Staff Hub</h2>
@@ -33,7 +33,7 @@
                     </div>
                     @enderror
                 </div>
-                <div class="bg-gray-800 text-right md:p-6">
+                <div class="bg-gray-800 text-right p-6">
                     <button type="submit" class="transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
                         Login
                     </button>

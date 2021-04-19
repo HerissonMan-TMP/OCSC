@@ -386,7 +386,7 @@
                     To: "opacity-0 scale-95"
                 -->
                 <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden z-10">
-                    <div id="responsive-menu" class="hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-gray-700 divide-y divide-gray-200">
+                    <div id="responsive-menu" class="hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-gray-800 divide-y divide-gray-200">
                         <div class="pt-5 pb-6 px-5">
                             <div class="flex items-center justify-between">
                                 <div>
