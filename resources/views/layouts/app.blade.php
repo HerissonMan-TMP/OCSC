@@ -658,6 +658,7 @@
                             $('#see-stream').show();
                             $('#see-stream').click(function () {
                                 $('#stream-box').slideToggle();
+                                $(this).children('i').eq(0).toggleClass('fa-angle-down fa-angle-up');
                             });
                         }
                     });
