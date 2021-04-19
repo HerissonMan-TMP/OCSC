@@ -163,6 +163,8 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
         Route::patch('users/{user}/name', [UserController::class, 'updateName'])->name('users.name.update');
         Route::patch('users/{user}/email', [UserController::class, 'updateEmail'])->name('users.email.update');
         Route::patch('users/{user}/password', [UserController::class, 'updatePassword'])->name('users.password.update');
+        Route::post('users/{user}/reset-temporary-password', [UserController::class, 'resetTemporaryPassword'])
+            ->name('users.temporary-password.reset');
         Route::patch('users/{user}/roles', [UserController::class, 'updateRoles'])->name('users.roles.update');
 
         //Downloads.

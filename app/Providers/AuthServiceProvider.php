@@ -35,6 +35,10 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         $abilitiesWithoutBypass = [
+            'update-name-of-user',
+            'update-email-of-user',
+            'update-password-of-user',
+            'reset-temporary-password-of-user',
             'assign-roles-to-user',
             'update-permissions-of-role',
             'delete-user'
@@ -208,9 +212,16 @@ class AuthServiceProvider extends ServiceProvider
         $ability = 'update-password-of-user';
         Gate::define($ability, function (User $user, User $targetUser) {
             return $user->is($targetUser)
-                || ($user->can('has-admin-rights') && !$targetUser->can('has-admin-rights'))
                 ? Response::allow()
                 : Response::deny('You are not allowed to update the password of this user.');
+        });
+
+        $ability = 'reset-temporary-password-of-user';
+        Gate::define($ability, function (User $user, User $targetUser) {
+            return $user->can('has-admin-rights')
+                && !$targetUser->can('has-admin-rights')
+                ? Response::allow()
+                : Response::deny('You are not allowed to reset the password of this user.');
         });
 
 

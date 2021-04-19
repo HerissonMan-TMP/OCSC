@@ -163,22 +163,91 @@
                         <h3 class="font-semibold text-2xl text-ged-200 m-0">Danger Zone</h3>
                     </div>
                     <div class="p-4">
+                        @can('update-name-of-user', $user)
+                            <form action="{{ route('staff.users.name.update', Auth::user()) }}" method="POST" class="grid grid-cols-5 gap-5 items-end mb-4">
+                                @csrf
+                                @method('PATCH')
+
+                                <div class="col-span-full md:col-span-4">
+                                    <label for="name-field" class="block text-sm font-medium text-gray-300">Name <span class="text-red-500 font-bold">*</span></label>
+                                    <input type="text" name="name" id="name-field" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ old('name') ?? $authUser->name }}" required>
+                                </div>
+
+                                <div class="col-span-full md:col-span-1">
+                                    <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
+                                        Edit
+                                    </button>
+                                </div>
+                            </form>
+                            @error('name')
+                            <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
+                            @enderror
+                        @else
+                            <div class="my-4 p-4 rounded-md bg-yellow-500 text-sm">
+                                <i class="fas fa-exclamation-triangle fa-fw"></i>
+                                You cannot edit the name of this user.
+                            </div>
+                        @endcan
+
+                        @can('update-email-of-user', $user)
+                            <form action="{{ route('staff.users.email.update', Auth::user()) }}" method="POST" class="grid grid-cols-5 gap-5 items-end mb-4">
+                                @csrf
+                                @method('PATCH')
+
+                                <div class="col-span-full md:col-span-4">
+                                    <label for="email-field" class="block text-sm font-medium text-gray-300">Email <span class="text-red-500 font-bold">*</span></label>
+                                    <input type="text" name="email" id="email-field" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ old('email') ?? $authUser->email }}" required>
+                                </div>
+
+                                <div class="col-span-full md:col-span-1">
+                                    <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:bg-primary-dark focus:outline-none">
+                                        Edit
+                                    </button>
+                                </div>
+                            </form>
+                            @error('email')
+                            <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
+                            @enderror
+                        @else
+                            <div class="my-4 p-4 rounded-md bg-yellow-500 text-sm">
+                                <i class="fas fa-exclamation-triangle fa-fw"></i>
+                                You cannot edit the email of this user.
+                            </div>
+                        @endcan
+
+                        @can('reset-temporary-password-of-user', $user)
+                            <form action="{{ route('staff.users.temporary-password.reset', $user) }}" method="POST" class="mb-4">
+                                @csrf
+
+                                <input type="hidden" name="password" value="{{ $temporaryPassword }}">
+                                <button type="submit" class="transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:bg-primary-dark focus:outline-none">
+                                    Reset temporary password
+                                </button>
+                                @error('password')
+                                <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
+                                @enderror
+                            </form>
+                        @else
+                            <div class="my-4 p-4 rounded-md bg-yellow-500 text-sm">
+                                <i class="fas fa-exclamation-triangle fa-fw"></i>
+                                You cannot reset the password to a temporary one for this user.
+                            </div>
+                        @endcan
+
                         @can('delete-user', $user)
                             <form action="{{ route('staff.users.destroy', $user) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-200 bg-red-500 hover:bg-red-700 focus:outline-none">
+
+                                <button type="submit" class="transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-200 bg-red-500 hover:bg-red-600 focus:outline-none">
                                     Delete the user
                                 </button>
                             </form>
                         @else
-                            <form>
-                                <fieldset class="opacity-50" disabled>
-                                    <button type="submit" class="transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-200 bg-red-500 focus:outline-none cursor-not-allowed">
-                                        Delete the user
-                                    </button>
-                                </fieldset>
-                            </form>
+                            <div class="my-4 p-4 rounded-md bg-yellow-500 text-sm">
+                                <i class="fas fa-exclamation-triangle fa-fw"></i>
+                                You cannot delete this user.
+                            </div>
                         @endcan
                     </div>
                 </div>

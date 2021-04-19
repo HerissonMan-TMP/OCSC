@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Filters\UserFilters;
+use App\Http\Requests\User\ResetTemporaryPasswordRequest;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateEmailRequest;
 use App\Http\Requests\User\UpdateNameRequest;
@@ -53,11 +54,13 @@ class UserController extends Controller
         $user = $user->load('roles');
         $roles = Role::orderBy('order')->get();
         $latestActivities = $user->activities()->latest()->take(3)->with('type')->get();
+        $temporaryPassword = TemporaryPasswordService::generate();
 
         return view('users.show')
                 ->with(compact('user'))
                 ->with(compact('roles'))
-                ->with(compact('latestActivities'));
+                ->with(compact('latestActivities'))
+                ->with(compact('temporaryPassword'));
     }
 
     /**
@@ -197,6 +200,32 @@ class UserController extends Controller
                 ->log();
 
         flash("You have successfully updated your password!")->success();
+
+        return redirect()->route('staff.hub');
+    }
+
+    /**
+     * Reset the temporary password of the given user.
+     *
+     * @param User $user
+     * @param ResetTemporaryPasswordRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function resetTemporaryPassword(User $user, ResetTemporaryPasswordRequest $request)
+    {
+        Gate::authorize('reset-temporary-password-of-user', $user);
+
+        $user->password = $request->password;
+        $user->temporary_password_without_hash = $request->password;
+        $user->save();
+
+        activity(ActivityType::UPDATED)
+            ->subject('fas fa-user', $user->name)
+            ->description('Temporary password reset')
+            ->log();
+
+        flash("You have successfully reset the temporary password of {$user->name}!")->success();
 
         return redirect()->route('staff.hub');
     }
