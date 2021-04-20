@@ -155,20 +155,6 @@
                         </a>
                     @endcan
 
-                    @can('manage-subscribers')
-                        <a class="staff-menu-item" href="{{ route('staff.subscribers.index') }}">
-                            <span>
-                                <i class="fas fa-paper-plane fa-fw"></i> Subscribers
-                            </span>
-                        </a>
-                    @else
-                        <a class="staff-menu-item-disabled">
-                            <span>
-                                <i class="fas fa-paper-plane fa-fw"></i> Subscribers
-                            </span>
-                        </a>
-                    @endcan
-
                     <div class="staff-menu-item staff-menu-dropdown">
                         <span>
                             <i class="fas fa-briefcase fa-fw"></i> Recruitments
@@ -439,20 +425,6 @@
                     <a class="staff-menu-item-disabled">
                             <span>
                                 <i class="fas fa-envelope fa-fw"></i> Contact Messages
-                            </span>
-                    </a>
-                @endcan
-
-                @can('manage-subscribers')
-                    <a class="staff-menu-item" href="{{ route('staff.subscribers.index') }}">
-                            <span>
-                                <i class="fas fa-paper-plane fa-fw"></i> Subscribers
-                            </span>
-                    </a>
-                @else
-                    <a class="staff-menu-item-disabled">
-                            <span>
-                                <i class="fas fa-paper-plane fa-fw"></i> Subscribers
                             </span>
                     </a>
                 @endcan

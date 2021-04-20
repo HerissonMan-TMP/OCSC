@@ -15,12 +15,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalNoticeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MaintenanceModeController;
-use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RecruitmentController;
-use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -67,9 +65,6 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
     //Public: Legal notice & Privacy policy.
     Route::get('legal-notice', [LegalNoticeController::class, 'show'])->name('legal-notice.show');
     Route::get('privacy-policy', [PrivacyPolicyController::class, 'show'])->name('privacy-policy.show');
-
-    Route::post('subscribe', [SubscriberController::class, 'store'])->name('subscribers.store');
-    Route::get('unsubscribe/{subscriber:unsubscribe_token}', [SubscriberController::class, 'destroy'])->name('subscribers.destroy');
 
     //Public (without Staff): Login.
     Route::middleware(['guest'])->group(function () {
@@ -150,11 +145,6 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
         Route::resource('contact-messages', ContactMessageController::class)->only([
             'index', 'show', 'destroy'
         ]);
-
-        //Subscribers.
-        Route::resource('subscribers', SubscriberController::class)->only(
-            'index', 'destroy'
-        );
 
         //Users.
         Route::resource('users', UserController::class)->except(

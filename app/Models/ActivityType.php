@@ -19,10 +19,6 @@ class ActivityType extends Model
 
     public const LOGGED_OUT = 'logged out';
 
-    public const SUBSCRIBED = 'subscribed';
-
-    public const UNSUBSCRIBED = 'unsubscribed';
-
     public const APPLIED_FOR = 'applied for';
 
     public const APPLICATION_ACCEPTED = 'application accepted';

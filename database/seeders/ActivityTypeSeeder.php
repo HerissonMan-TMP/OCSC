@@ -52,63 +52,49 @@ class ActivityTypeSeeder extends Seeder
             'color' => 'bg-blue-500',
         ]);
 
-        //(#6) Type: "Subscribed".
-        ActivityType::create([
-            'name' => 'subscribed',
-            'icon' => 'fas fa-paper-plane',
-            'color' => 'bg-blue-500',
-        ]);
-
-        //(#7) Type: "Unsubscribed".
-        ActivityType::create([
-            'name' => 'unsubscribed',
-            'icon' => 'fas fa-paper-plane',
-            'color' => 'bg-blue-500',
-        ]);
-
-        //(#8) Type: "Applied For".
+        //(#6) Type: "Applied For".
         ActivityType::create([
             'name' => 'applied for',
             'icon' => 'fas fa-briefcase',
             'color' => 'bg-blue-500',
         ]);
 
-        //(#9) Type: "Application Accepted".
+        //(#7) Type: "Application Accepted".
         ActivityType::create([
             'name' => 'application accepted',
             'icon' => 'fas fa-check-circle',
             'color' => 'bg-green-500',
         ]);
 
-        //(#10) Type: "Application Declined".
+        //(#8) Type: "Application Declined".
         ActivityType::create([
             'name' => 'application declined',
             'icon' => 'fas fa-times-circle',
             'color' => 'bg-red-500',
         ]);
 
-        //(#11) Type: "Marked As Read".
+        //(#9) Type: "Marked As Read".
         ActivityType::create([
             'name' => 'marked as read',
             'icon' => 'fas fa-envelope-open',
             'color' => 'bg-blue-500',
         ]);
 
-        //(#12) Type: "Marked As Unread".
+        //(#10) Type: "Marked As Unread".
         ActivityType::create([
             'name' => 'marked as unread',
             'icon' => 'fas fa-envelope',
             'color' => 'bg-blue-500',
         ]);
 
-        //(#13) Type: "Enabled".
+        //(#11) Type: "Enabled".
         ActivityType::create([
             'name' => 'enabled',
             'icon' => 'fas fa-toggle-on',
             'color' => 'bg-green-700',
         ]);
 
-        //(#14) Type: "Disabled".
+        //(#12) Type: "Disabled".
         ActivityType::create([
             'name' => 'disabled',
             'icon' => 'fas fa-toggle-off',

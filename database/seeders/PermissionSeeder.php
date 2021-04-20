@@ -89,14 +89,6 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach([4, 5, 6, 7, 8]);
 
-        //Permission: Manage subscribers.
-        $permission = Permission::create([
-            'name' => 'Manage subscribers',
-            'slug' => 'manage-subscribers'
-        ]);
-        $permission->category()->associate(8);
-        $permission->save();
-
         //Permission: Manage recruitments.
         $permission = Permission::create([
             'name' => 'Manage recruitments',

@@ -124,23 +124,6 @@ class AuthServiceProvider extends ServiceProvider
         });
 
 
-        //Subscribers.
-        $ability = 'manage-subscribers';
-        Gate::define($ability, function (User $user) use ($ability) {
-            return $user->hasPermission($ability)
-                ? Response::allow()
-                : Response::deny('You are not allowed to manage subscribers.');
-        });
-
-        $ability = 'delete-subscriber';
-        Gate::define($ability, function (User $user, Subscriber $subscriber) use ($ability) {
-            return $user->can('manage-subscribers')
-                || $subscriber->unsubscribe_token === basename(url()->current())
-                ? Response::allow()
-                : Response::deny('You are not allowed to delete this subscriber.');
-        });
-
-
         //Recruitments.
         $ability = 'manage-recruitments';
         Gate::define($ability, function (User $user) use ($ability) {

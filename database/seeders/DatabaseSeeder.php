@@ -37,7 +37,6 @@ class DatabaseSeeder extends Seeder
             PictureSeeder::class,
             ActivityTypeSeeder::class,
             ActivitySeeder::class,
-            SubscriberSeeder::class,
             PrivacyPolicySeeder::class,
             LegalNoticeSeeder::class,
             GlobalRequirementsSeeder::class,

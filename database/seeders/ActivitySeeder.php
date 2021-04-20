@@ -50,7 +50,7 @@ class ActivitySeeder extends Seeder
             ->for($activityType, 'type')
             ->create();
 
-        //5 "subscribed" activities.
+        //5 "applied for" activities.
         $activityType = ActivityType::find(6);
         Activity::factory(5)
             ->for($activityType, 'type')
@@ -58,7 +58,7 @@ class ActivitySeeder extends Seeder
             ->create();
 
         //1 "enabled" activity.
-        $activityType = ActivityType::find(13);
+        $activityType = ActivityType::find(11);
         Activity::factory(1)
             ->for($activityType, 'type')
             ->state([

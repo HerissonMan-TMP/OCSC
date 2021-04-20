@@ -512,18 +512,12 @@
             <div class="max-w-7xl mx-auto px-6">
                 <div class="grid grid-cols-3 gap-16 md:gap-20 text-gray-300 text-sm">
                     <div class="col-span-full md:col-span-1">
-                        <h4 class="mt-0 mb-1 font-bold">Stay informed!</h4>
+                        <h4 class="mt-0 mb-1 font-bold">About Us</h4>
                         <p class="mb-4 text-justify">
-                            By providing us with your email, you will be notified of upcoming convoys, OCSC news as well as important announcements.
-                            You also agree to receive these emails in accordance with our Privacy Policy.
+                            We offer a full range of services to help VTCs better manage their convoys.
+                            These services range from the complete creation of a convoy with supervision by our standards of excellence services, to just supervision of your convoy, an essential asset when you want to see your projects succeed in a few weeks rather than a few months.
+                            We can combine all our products and services to create an offer tailored to your convoy.
                         </p>
-                        <form action="{{ route('subscribers.store') }}" method="POST" class="flex flex-wrap items-stretch w-full mb-4 relative">
-                            @csrf
-                            <input type="text" name="email" class="flex-shrink flex-grow flex-auto flex-1 text-gray-300 bg-gray-700 focus:ring-0 focus:border-primary text-sm rounded-l-md border-gray-600" placeholder="your@email.com">
-                            <div class="flex -mr-px">
-                                <input type="submit" value="Subscribe" class="flex items-center transition duration-200 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-r-md shadow-sm text-gray-700 font-bold bg-primary hover:text-gray-800 hover:bg-primary-dark cursor-pointer focus:outline-none">
-                            </div>
-                        </form>
                     </div>
 
                     <div class="col-span-full md:col-span-1">

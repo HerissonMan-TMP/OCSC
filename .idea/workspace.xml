@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="" />
+    <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Filters/SubscriberFilters.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubscriberController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ActivityType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ActivityType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/SubscriberFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/ActivitySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ActivitySeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/ActivityTypeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ActivityTypeSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/SubscriberSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/staff.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/staff.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/subscribers/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -188,11 +204,11 @@
       <recent name="C:\xampp\htdocs\TTFR" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TTFR\app\Mail\Subscribers" />
+      <recent name="C:\xampp\htdocs\TTFR\resources\views\emails\subscribers" />
       <recent name="C:\xampp\htdocs\TTFR\resources\views\privacy-policy" />
       <recent name="C:\xampp\htdocs\TTFR\resources\views\legal-notice" />
       <recent name="C:\xampp\htdocs\TTFR\resources\views\global-requirements" />
-      <recent name="C:\xampp\htdocs\TTFR\app\Services" />
-      <recent name="C:\xampp\htdocs\TTFR\resources\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -271,7 +287,7 @@
       <workItem from="1618761716454" duration="7674000" />
       <workItem from="1618815450848" duration="14743000" />
       <workItem from="1618834716257" duration="23718000" />
-      <workItem from="1618899828719" duration="15827000" />
+      <workItem from="1618899828719" duration="23551000" />
     </task>
     <servers />
   </component>
