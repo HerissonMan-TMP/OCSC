@@ -509,7 +509,7 @@
         </main>
 
         <footer class="bg-gray-800 py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="max-w-7xl mx-auto px-6">
                 <div class="grid grid-cols-3 gap-16 md:gap-20 text-gray-300 text-sm">
                     <div class="col-span-full md:col-span-1">
                         <h4 class="mt-0 mb-1 font-bold">Stay informed!</h4>

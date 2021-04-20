@@ -4,11 +4,11 @@
 
 @section('content-staff')
     <div>
-        <div class="mb-20 text-center">
+        <div class="mb-20 break-words text-center">
             <h2>Recruitments</h2>
         </div>
 
-        <div class="shadow overflow-hidden rounded-lg">
+        <div class="shadow overflow-x-auto rounded-lg">
             <table class="min-w-full divide-y divide-gray-700 border-none">
                 <thead class="bg-gray-700">
                     <tr>

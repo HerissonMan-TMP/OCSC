@@ -4,10 +4,10 @@
 
 @section("content")
 
-<div class="flex flex-col justify-center items-center bg-fixed bg-cover bg-center py-52" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ $article->banner_url ?? 'https://i.imgur.com/kZ3YjwR.png' }});">
+<div class="flex flex-col justify-center items-center bg-fixed bg-cover bg-center px-2 md:px-0 py-52" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ $article->banner_url ?? 'https://i.imgur.com/kZ3YjwR.png' }});">
         <div class="text-center grid gap-4">
             <h1 class="text-5xl m-0">{{ $article->title }}</h1>
-            <div class="flex justify-center">
+            <div class="flex flex-wrap justify-center">
                 <span class="text-sm italic text-gray-300">
                     <i class="fas fa-user fa-fw fa-md"></i> Posted by
                     @if($article->postedByUser)
@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16 grid grid-cols-6 gap-20">
+    <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16 grid grid-cols-6 gap-5 md:gap-20">
         <div class="col-span-full md:col-span-4 article-content">
             @markdown($article->content)
         </div>
@@ -32,15 +32,15 @@
             <div>
                 @forelse($latestArticles as $latestArticle)
                 <div class="mt-8">
-                    <div class="text-sm mb-2">
-                        <img class="max-w-full h-auto" src="{{ $latestArticle->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="News Article Banner">
+                    <div class="h-52 text-sm mb-2 bg-cover bg-center" style="background-image: url({{ $article->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }});">
                     </div>
+
                     <a href="{{ route('articles.show', $latestArticle) }}">
                         <h3 class="m-0 mb-4 text-sm tracking-wide font-bold text-gray-400 uppercase">
                             {{ $latestArticle->title }}
                         </h3>
                     </a>
-                    <div class="mt-1 flex justify-between">
+                    <div class="mt-1 flex flex-wrap justify-between">
                         <span class="text-sm italic text-gray-300">
                             <i class="fas fa-user fa-fw fa-md"></i>
                             @if($latestArticle->postedByUser)

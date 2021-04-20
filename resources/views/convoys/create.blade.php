@@ -4,7 +4,7 @@
 
 @section('content-staff')
     <div>
-        <div class="mb-20 text-center">
+        <div class="mb-20 break-words text-center">
             <h2>Convoys <span class="font-light">/ Create</span></h2>
         </div>
 
@@ -98,7 +98,7 @@
             </div>
 
             <div class="mt-6 text-right">
-                <button type="submit" class="transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
+                <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
                     Create
                 </button>
             </div>

@@ -4,27 +4,27 @@
 
 @section('content-staff')
     <div>
-        <div class="mb-20 text-center">
+        <div class="mb-20 break-words text-center">
             <h2>Recruitment for <span style="color: {{ $recruitment->role->color }};">{{ $recruitment->role->name }}</span> <span class="font-light">/ Applications</span></h2>
         </div>
 
         <form action="" method="GET" class="mb-10 p-6 bg-gray-800 rounded-md grid grid-cols-10 gap-4">
-            <div class="col-span-2">
+            <div class="col-span-full md:col-span-2">
                 <input type="text" name="discord" class="text-gray-300 bg-gray-700 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="Discord username" value="{{ request('discord') }}">
             </div>
 
-            <div class="col-span-2">
+            <div class="col-span-full md:col-span-2">
                 <input type="text" name="email" class="text-gray-300 bg-gray-700 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="Email" value="{{ request('email') }}">
             </div>
 
-            <div class="col-span-1">
+            <div class="col-span-full md:col-span-1">
                 <select name="sortByCreatedAt" class="capitalize text-gray-300 bg-gray-700 block w-full py-2 px-3 border border-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-dark focus:border-primary-dark md:text-sm">
                     <option @if(request('sortByCreatedAt') === 'desc') selected @endif value="desc">Latest</option>
                     <option @if(request('sortByCreatedAt') === 'asc') selected @endif value="asc">Oldest</option>
                 </select>
             </div>
 
-            <div class="col-span-1">
+            <div class="col-span-full md:col-span-1">
                 <select name="status" class="capitalize text-gray-300 bg-gray-700 block w-full py-2 px-3 border border-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-dark focus:border-primary-dark md:text-sm">
                     <option @if(request('status') === 'all') selected @endif value="all" class="capitalize">all</option>
                     <option @if(request('status') === 'new') selected @endif value="new" class="capitalize">new</option>
@@ -33,7 +33,7 @@
                 </select>
             </div>
 
-            <div class="col-span-1">
+            <div class="col-span-full md:col-span-1">
                 <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
                     OK
                 </button>

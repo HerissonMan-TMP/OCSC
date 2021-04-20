@@ -4,32 +4,32 @@
 
 @section('content-staff')
     <div>
-        <div class="mb-20 text-center">
+        <div class="mb-20 break-words text-center">
             <h2>Pictures</h2>
         </div>
 
-        <div class="grid grid-cols-5 items-center mb-10 p-6 bg-gray-800 rounded-md italic">
-            <form action="" method="GET" class="col-span-4 grid grid-cols-10 gap-4">
-                <div class="col-span-1">
+        <div class="grid grid-cols-5 gap-4 md:gap-0 items-center mb-10 p-6 bg-gray-800 rounded-md italic">
+            <form action="" method="GET" class="col-span-full md:col-span-4 grid grid-cols-10 gap-4">
+                <div class="col-span-full md:col-span-1">
                     <input type="text" name="by" class="text-gray-300 bg-gray-700 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="By" value="{{ request('by') }}">
                 </div>
 
-                <div class="col-span-2">
+                <div class="col-span-full md:col-span-2">
                     <input type="text" name="name" class="text-gray-300 bg-gray-700 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="Picture name" value="{{ request('name') }}">
                 </div>
 
-                <div class="col-span-2">
+                <div class="col-span-full md:col-span-2">
                     <input type="text" name="description" class="text-gray-300 bg-gray-700 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="Picture description" value="{{ request('description') }}">
                 </div>
 
-                <div class="col-span-1">
+                <div class="col-span-full md:col-span-1">
                     <select name="sortByCreatedAt" class="capitalize text-gray-300 bg-gray-700 block w-full py-2 px-3 border border-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-dark focus:border-primary-dark md:text-sm">
                         <option @if(request('sortByCreatedAt') === 'desc') selected @endif value="desc">Latest</option>
                         <option @if(request('sortByCreatedAt') === 'asc') selected @endif value="asc">Oldest</option>
                     </select>
                 </div>
 
-                <div class="col-span-1">
+                <div class="col-span-full md:col-span-1">
                     <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
                         OK
                     </button>
@@ -37,14 +37,14 @@
             </form>
 
             @can('manage-pictures')
-            <div class="col-span-1 text-right">
-                <button type="button" id="enable-select-mode" class="transition duration-200 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-gray-700 font-bold bg-primary hover:text-gray-800 hover:bg-primary-dark focus:outline-none">
+            <div class="col-span-full md:col-span-1 md:mt-0 md:text-right">
+                <button type="button" id="enable-select-mode" class="w-full md:w-auto transition duration-200 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-gray-700 font-bold bg-primary hover:text-gray-800 hover:bg-primary-dark focus:outline-none">
                     Enable select mode
                 </button>
-                <button type="button" id="disable-select-mode" class="transition duration-200 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-gray-200 font-bold bg-red-500 hover:text-gray-300 hover:bg-red-600 focus:outline-none" style="display: none;">
+                <button type="button" id="disable-select-mode" class="w-full md:w-auto transition duration-200 mb-4 md:mb-0 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-gray-200 font-bold bg-red-500 hover:text-gray-300 hover:bg-red-600 focus:outline-none" style="display: none;">
                     Disable select mode
                 </button>
-                <button type="button" id="select-mode-delete" class="transition duration-200 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-gray-200 font-bold bg-red-500 hover:text-gray-300 hover:bg-red-600 focus:outline-none" style="display: none;">
+                <button type="button" id="select-mode-delete" class="w-full md:w-auto transition duration-200 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-gray-200 font-bold bg-red-500 hover:text-gray-300 hover:bg-red-600 focus:outline-none" style="display: none;">
                     Delete
                 </button>
             </div>
@@ -59,7 +59,7 @@
             <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
             @enderror
 
-            <div class="grid grid-cols-3 gap-20 mt-6">
+            <div class="grid grid-cols-3 gap-5 md:gap-20 mt-6">
                 @forelse($pictures as $picture)
                     <div class="col-span-full md:col-span-1">
                         <div class="gallery-img-wrapper relative">

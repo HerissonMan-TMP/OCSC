@@ -3,7 +3,7 @@
 @section('title', "Apply for {$recruitment->role->name}")
 
 @section('content')
-<div class="flex flex-col justify-center items-center bg-fixed bg-cover bg-center py-52" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/kZ3YjwR.png');">
+<div class="flex flex-col justify-center items-center bg-fixed bg-cover bg-center px-2 md:px-0 py-52" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/kZ3YjwR.png');">
     <div class="text-center grid gap-4">
         <h1 class="text-5xl m-0 capitalize">Recruitment - <i class="flex-shrink-0 fas fa-{{ $recruitment->role->icon_name }} fa-fw" style="color: {{ $recruitment->role->color }}"></i> <span style="color: {{ $recruitment->role->color }}">{{ $recruitment->role->name }}</span></h1>
         <div>
@@ -55,9 +55,7 @@
                     <label for="truckersmp_id" class="block text-sm font-medium text-gray-300">TruckersMP ID <span class="text-red-500">*</span></label>
                     <input type="text" name="truckersmp_id" id="truckersmp_id" class="text-gray-300 bg-gray-700 font-bold uppercase mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="3116422" maxlength="8" value="{{ old('truckersmp_id') }}" required>
                     @error('truckersmp_id')
-                    <span class="pt-2 text-sm text-red-500">
-                        {{ $message }}
-                    </span>
+                        <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
@@ -65,9 +63,7 @@
                     <label for="discord" class="block font-medium text-gray-300">Discord username <span class="text-red-500">*</span></label>
                     <input type="text" name="discord" id="discord" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="MyUsername#1234" maxlength="50" value="{{ old('discord') }}" required>
                     @error('discord_username')
-                        <span class="pt-2 text-sm text-red-500">
-                        {{ $message }}
-                    </span>
+                        <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
@@ -75,9 +71,7 @@
                     <label for="email" class="block font-medium text-gray-300">Email address <span class="text-red-500">*</span></label>
                     <input type="email" name="email" id="email" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="myemail@example.com" maxlength="300" value="{{ old('email') }}" required>
                     @error('email_address')
-                        <span class="pt-2 text-sm text-red-500">
-                        {{ $message }}
-                    </span>
+                        <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
@@ -85,9 +79,7 @@
                     <label for="steam-profile" class="block font-medium text-gray-300">Steam profile link <span class="text-red-500">*</span></label>
                     <input type="text" name="steam_profile" id="steam-profile" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="https://steamcommunity.com/profiles/76561199011527918" value="{{ old('steam_profile') }}" required>
                     @error('steam_profile')
-                        <span class="pt-2 text-sm text-red-500">
-                        {{ $message }}
-                    </span>
+                        <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
@@ -95,9 +87,7 @@
                     <label for="trucksbook-profile" class="block font-medium text-gray-300">Trucksbook profile link <span class="text-red-500">*</span></label>
                     <input type="text" name="trucksbook_profile" id="trucksbook-profile" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="https://trucksbook.eu/profile/176697" value="{{ old('trucksbook_profile') }}" required>
                     @error('trucksbook_profile')
-                        <span class="pt-2 text-sm text-red-500">
-                        {{ $message }}
-                    </span>
+                        <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
@@ -105,9 +95,7 @@
                     <label for="age" class="block font-medium text-gray-300">Age <span class="text-red-500">*</span></label>
                     <input type="text" name="age" id="age" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" maxlength="2" placeholder="19" value="{{ old('age') }}" required>
                     @error('age')
-                        <span class="pt-2 text-sm text-red-500">
-                        {{ $message }}
-                    </span>
+                        <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
@@ -115,43 +103,43 @@
                     <label for="pc-configuration" class="block font-medium text-gray-300">PC Configuration <span class="text-red-500">*</span></label>
                     <input type="text" name="pc_configuration" id="pc-configuration" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="Intel Core i5, 8 GB RAM, 500 GB internal storage drive, ..." value="{{ old('pc_configuration') }}" required>
                     @error('pc_configuration')
-                    <span class="pt-2 text-sm text-red-500">
-                        {{ $message }}
-                    </span>
+                        <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
 
                 @foreach($recruitment->questions as $question)
                     <div class="col-span-full mb-4">
                         @if($question->type === 'inline')
-                            <div class="flex justify-between items-center">
+
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center">
                                 <label for="question-{{ $question->id }}" class="block text-2xl font-light text-gray-300 mb-3">{{ $question->name }} <span class="text-red-500">*</span></label>
                                 <span id="question-{{ $question->id }}-counter" class="text-xs @if($question->min_length > 0) text-red-500 @else text-green-500 @endif">
-                        @if($question->min_length > 0)
+                                    @if($question->min_length > 0)
                                         <span>Minimum: {{ $question->min_length }} |</span>
                                     @endif
-                        <span id="question-{{ $question->id }}-counter-number">0</span>
-                        <span> / {{ $question->max_length }}</span>
-                    </span>
+                                    <span id="question-{{ $question->id }}-counter-number">0</span>
+                                    <span> / {{ $question->max_length }}</span>
+                                </span>
                             </div>
                             <input type="text" name="questions[]" id="question-{{ $question->id }}" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" value="{{ old('questions') ? old('questions')[$loop->index] : null }}" required>
+
                         @elseif($question->type === 'multiline')
-                            <div class="flex justify-between items-center">
+
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center">
                                 <label for="question-{{ $question->id }}" class="block text-2xl font-light text-gray-300 mb-3">{{ $question->name }} <span class="text-red-500">*</span></label>
                                 <span id="question-{{ $question->id }}-counter" class="text-xs @if($question->min_length > 0) text-red-500 @else text-green-500 @endif">
-                        @if($question->min_length > 0)
+                                    @if($question->min_length > 0)
                                         <span>Minimum: {{ $question->min_length }} |</span>
                                     @endif
-                        <span id="question-{{ $question->id }}-counter-number">0</span>
-                        <span> / {{ $question->max_length }}</span>
-                    </span>
+                                    <span id="question-{{ $question->id }}-counter-number">0</span>
+                                    <span> / {{ $question->max_length }}</span>
+                                </span>
                             </div>
                             <textarea name="questions[]" id="question-{{ $question->id }}" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" cols="30" rows="8" required>{{ old('questions') ? old('questions')[$loop->index] : null }}</textarea>
+
                         @endif
                         @error('questions.' . $loop->index)
-                        <span class="pt-2 text-sm text-red-500">
-                {{ $message }}
-                </span>
+                            <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
                 @endforeach
@@ -165,13 +153,11 @@
                 </label>
             </div>
             @error('consent')
-            <span class="pt-2 text-sm text-red-500">
-                    {{ $message }}
-                </span>
+                <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
             @enderror
 
             <div class="mt-6 bg-gray-800 text-right">
-                <button type="submit" class="transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
+                <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
                     Send my application
                 </button>
             </div>

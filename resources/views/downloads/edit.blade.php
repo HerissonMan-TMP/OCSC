@@ -4,7 +4,7 @@
 
 @section('content-staff')
     <div>
-        <div class="mb-20 text-center">
+        <div class="mb-20 break-words text-center">
             <h2>Downloads <span class="font-light">/ Edit "{{ $download->name }}"</span></h2>
         </div>
 

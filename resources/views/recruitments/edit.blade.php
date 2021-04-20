@@ -4,7 +4,7 @@
 
 @section('content-staff')
     <div>
-        <div class="mb-20 text-center">
+        <div class="mb-20 break-words text-center">
             <h2>Recruitments <span class="font-light">/ Edit recruitment for <span style="color: {{ $recruitment->role->color }};">{{ $recruitment->role->name }}</span></span></h2>
         </div>
 

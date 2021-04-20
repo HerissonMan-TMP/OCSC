@@ -8,6 +8,7 @@
     <div class="py-16 bg-gray-900">
         <form action="{{ route('login.authenticate') }}" method="POST">
             @csrf
+
             <div class="mx-auto w-3/4 md:w-1/4 shadow overflow-hidden rounded-md">
                 <div class="bg-gray-800 p-6">
 

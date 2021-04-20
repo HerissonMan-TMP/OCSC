@@ -4,7 +4,7 @@
 
 @section('content-staff')
     <div>
-        <div class="mb-20 text-center">
+        <div class="mb-20 break-words text-center">
             <h2>Staff Members <span class="font-light">/ {{ $user->name }}</span></h2>
         </div>
 
@@ -77,7 +77,7 @@
                     </div>
 
                     <div>
-                        <a href="{{ route('staff.website-settings.activity', ['by' => $user->name]) }}" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
+                        <a href="{{ route('staff.website-settings.activity', ['by' => $user->name]) }}" class="hidden md:block w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
                             See more
                         </a>
                     </div>
@@ -86,8 +86,8 @@
                 <div class="grid grid-flow-row gap-2">
                     @can('see-activity')
                         @forelse($latestActivities as $activity)
-                            <div class="grid grid-cols-8 gap-6 p-4 rounded-full bg-gray-200 text-sm text-gray-800 items-center">
-                                <div class="col-span-1">
+                            <div class="grid grid-flow-col md:grid-cols-8 auto-cols-max md:auto-cols-auto gap-6 p-4 overflow-x-auto rounded-full bg-gray-200 text-sm text-gray-800 items-center">
+                                <div class="md:col-span-1">
                                     <i class="fas fa-user fa-fw"></i>
                                     @if($activity->causer)
                                         <span class="font-bold">{{ $activity->causer->name }}</span>
@@ -95,22 +95,22 @@
                                         <span>Anonymous</span>
                                     @endif
                                 </div>
-                                <div class="col-span-2 font-bold">
+                                <div class="md:col-span-2 font-bold">
                                     <span class="inline-block w-full p-2 rounded-md capitalize {{ $activity->type->color }} text-gray-200 text-center"><i class="{{ $activity->type->icon }} fa-fw"></i> {{ $activity->type->name }}</span>
                                 </div>
-                                <div class="col-span-2 font-bold">
+                                <div class="md:col-span-2 font-bold">
                                     @if($activity->subject)
                                         <i class="{{ $activity->subject_icon }} fa-fw"></i> {{ $activity->subject }}
                                     @endif
                                 </div>
-                                <div class="col-span-2">
+                                <div class="md:col-span-2">
                                     @if($activity->description)
                                         <i class="fas fa-comment-dots fa-fw"></i> {{ $activity->description }}
                                     @else
                                         <i class="fas fa-comment-dots fa-fw"></i> <span class="italic">No description.</span>
                                     @endif
                                 </div>
-                                <div class="col-span-1 text-right">
+                                <div class="md:col-span-1 text-right">
                                     <i class="fas fa-clock fa-fw"></i> {{ $activity->created_at->format('d M H:i') }}
                                 </div>
                             </div>
@@ -124,6 +124,10 @@
                         </div>
                     @endcan
                 </div>
+
+                <a href="{{ route('staff.website-settings.activity', ['by' => $user->name]) }}" class="block md:hidden mt-4 w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:text-gray-700 hover:bg-primary-dark focus:outline-none">
+                    See more
+                </a>
             </div>
 
             <div class="col-span-full bg-gray-800 rounded-md px-4 py-5 md:p-6 shadow overflow-hidden">
@@ -220,7 +224,7 @@
                                 @csrf
 
                                 <input type="hidden" name="password" value="{{ $temporaryPassword }}">
-                                <button type="submit" class="transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:bg-primary-dark focus:outline-none">
+                                <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-700 bg-primary hover:bg-primary-dark focus:outline-none">
                                     Reset temporary password
                                 </button>
                                 @error('password')
@@ -239,7 +243,7 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <button type="submit" class="transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-200 bg-red-500 hover:bg-red-600 focus:outline-none">
+                                <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-gray-200 bg-red-500 hover:bg-red-600 focus:outline-none">
                                     Delete the user
                                 </button>
                             </form>

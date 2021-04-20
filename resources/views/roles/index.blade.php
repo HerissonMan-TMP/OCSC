@@ -4,7 +4,7 @@
 
 @section('content-staff')
     <div>
-        <div class="mb-20 text-center">
+        <div class="mb-20 break-words text-center">
             <h2>Roles</h2>
         </div>
 
@@ -15,7 +15,7 @@
 
                     <div class="grid grid-cols-4 gap-6">
                         @foreach($group->roles as $role)
-                            <div class="col-span-1">
+                            <div class="col-span-full md:col-span-1">
                                 <div class="border rounded-md overflow-hidden" style="border-color: {{ $role->color }};">
                                     <div class="p-4 font-bold" style="background-color: {{ $role->color }}; color: {{ $role->contrast_color }};">
                                         <i class="{{ $role->icon_name }} fa-fw"></i> {{ $role->name }}
@@ -42,7 +42,7 @@
                                             </a>
                                         @else
                                             <a class="w-full transition duration-200 text-left py-2 px-4 border border-transparent shadow-sm text-sm font-bold cursor-not-allowed select-none opacity-40" style="background-color: {{ $role->color }}; color: {{ $role->contrast_color }};">
-                                                <i class="fas fa-user-tag fa-fw"></i> Edit permissions
+                                                <i class="fas fa-shield-alt fa-fw"></i> Edit permissions
                                             </a>
                                         @endcan
                                     </div>

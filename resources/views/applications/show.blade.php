@@ -4,7 +4,7 @@
 
 @section('content-staff')
     <div>
-        <div class="mb-20 text-center">
+        <div class="mb-20 break-words text-center">
             <h2>Recruitment for <span style="color: {{ $application->recruitment->role->color }};">{{ $application->recruitment->role->name }}</span> <span class="font-light">/ Application from {{ $application->discord }}</span></h2>
         </div>
 
@@ -61,13 +61,13 @@
             <div class="col-span-4"></div>
             @switch($application->status)
                 @case('new')
-                <form class="col-span-1" action="{{ route('staff.applications.decline', $application) }}" method="POST">
+                <form class="col-span-full md:col-span-1" action="{{ route('staff.applications.decline', $application) }}" method="POST">
                     @csrf
                     <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-red-200 bg-red-700 hover:text-red-300 hover:bg-red-800 focus:outline-none">
                         Decline
                     </button>
                 </form>
-                <form class="col-span-1" action="{{ route('staff.applications.accept', $application) }}" method="POST">
+                <form class="col-span-full md:col-span-1" action="{{ route('staff.applications.accept', $application) }}" method="POST">
                     @csrf
                     <button type="submit" class="w-full transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md text-green-200 bg-green-700 hover:text-green-300 hover:bg-green-800 focus:outline-none">
                         Accept

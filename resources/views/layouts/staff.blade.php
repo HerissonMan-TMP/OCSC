@@ -571,7 +571,8 @@
             </div>
         </div>
     </div>
-    <div class="fixed bottom-5 right-5 z-50">
+
+    <div class="fixed bottom-5 right-5 z-50 block md:hidden">
         <button id="responsive-staff-menu-button" class="rounded-full h-14 w-14 bg-primary text-gray-700 focus:outline-none">
             <i class="fas fa-bars"></i>
         </button>

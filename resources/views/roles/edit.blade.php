@@ -4,7 +4,7 @@
 
 @section('content-staff')
     <div>
-        <div class="mb-20 text-center">
+        <div class="mb-20 break-words text-center">
             <h2>Roles <span class="font-light">/ Edit <span style="color: {{ $role->color }};">{{ $role->name }} <i class="{{ $role->icon_name }} fa-fw"></i></span></span></h2>
         </div>
 
@@ -71,7 +71,7 @@
             </div>
 
             <div class="mt-6 text-right">
-                <button type="submit" class="transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md hover:opacity-80 focus:outline-none" style="background-color: {{ $role->color }}; color: {{ $role->contrast_color }};">
+                <button type="submit" class="w-full md:w-auto transition duration-200 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-bold rounded-md hover:opacity-80 focus:outline-none" style="background-color: {{ $role->color }}; color: {{ $role->contrast_color }};">
                     Edit
                 </button>
             </div>

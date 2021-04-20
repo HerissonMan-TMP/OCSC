@@ -4,7 +4,7 @@
 
 @section('content-staff')
     <div>
-        <div class="mb-20 text-center">
+        <div class="mb-20 break-words text-center">
             <h2>Website Settings <span class="font-light">/ Maintenance Mode</span></h2>
         </div>
 
@@ -17,7 +17,7 @@
                     Anyone who wants to access the website while it is in maintenance mode should navigate to the URL
                     below:
                     <br><br>
-                    <pre><span class="opacity-50">{{ config('app.url') }}</span>/your-bypass-token</pre>
+                    <pre class="whitespace-normal"><span class="opacity-50">{{ config('app.url') }}</span>/your-bypass-token</pre>
                     <br><br>
                     A maintenance mode bypass cookie will be issued to the user's browser.
                     He will then be redirected to the homepage of the website. Once the cookie has been issued to his
