@@ -6,58 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/applications/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/applications/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/applications/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/applications/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/applications/success-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/applications/success-page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/articles/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/articles/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/articles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/articles/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/news.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/articles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/articles/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact-messages/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/contact-messages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact-messages/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/contact-messages/success-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact-messages/success-page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/convoy-rules/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoy-rules/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/convoy-rules/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoy-rules/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/convoys/convoys.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoys/convoys.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/convoys/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoys/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/convoys/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoys/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/convoys/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoys/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/downloads/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/downloads/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/downloads/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/downloads/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/downloads/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/downloads/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/edit-temporary-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/edit-temporary-password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/global-requirements/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-requirements/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/global-requirements/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-requirements/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/hub.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/hub.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/staff.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/staff.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/legal-notice/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/legal-notice/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/legal-notice/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/legal-notice/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pictures/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pictures/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pictures/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pictures/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pictures/gallery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pictures/gallery.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pictures/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pictures/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/privacy-policy/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/privacy-policy/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/privacy-policy/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/privacy-policy/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile-settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile-settings.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/recruitments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recruitments/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitments/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/roles/edit-permissions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/roles/edit-permissions.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/roles/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/roles/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/roles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/roles/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/subscribers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/subscribers/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/website-settings/activity.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website-settings/activity.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/website-settings/error-logs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website-settings/error-logs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website-settings/maintenance-mode.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website-settings/maintenance-mode.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/website-settings/statistics.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/website-settings/statistics.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -325,7 +277,7 @@
       <workItem from="1618761716454" duration="7674000" />
       <workItem from="1618815450848" duration="14743000" />
       <workItem from="1618834716257" duration="23718000" />
-      <workItem from="1618899828719" duration="14647000" />
+      <workItem from="1618899828719" duration="15407000" />
     </task>
     <servers />
   </component>

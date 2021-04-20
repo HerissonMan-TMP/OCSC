@@ -8,6 +8,11 @@
             <h2>Website Settings <span class="font-light">/ Error logs</span></h2>
         </div>
 
+        <div class="mb-2 p-4 rounded-md bg-blue-500 text-sm">
+            <i class="fas fa-info-circle fa-fw"></i>
+            Errors logs from more than 1 week ago are automatically deleted.
+        </div>
+
         <form action="" method="GET" class="mb-10 p-6 bg-gray-800 rounded-md grid grid-cols-10 gap-4">
             <div class="col-span-full md:col-span-2">
                 <input type="text" name="statusCode" class="text-gray-300 bg-gray-700 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="Status code" value="{{ request('statusCode') }}">

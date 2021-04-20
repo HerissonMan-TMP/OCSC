@@ -8,6 +8,11 @@
             <h2>Recruitments</h2>
         </div>
 
+        <div class="mb-2 p-4 rounded-md bg-blue-500 text-sm">
+            <i class="fas fa-info-circle fa-fw"></i>
+            To comply with the GDPR, please delete the recruitment sessions after they are closed, since applications contain personal data.
+        </div>
+
         <div class="shadow overflow-x-auto rounded-lg">
             <table class="min-w-full divide-y divide-gray-700 border-none">
                 <thead class="bg-gray-700">
