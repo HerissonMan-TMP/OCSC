@@ -10,7 +10,7 @@
 
         <div class="mb-2 p-4 rounded-md bg-blue-500 text-sm">
             <i class="fas fa-info-circle fa-fw"></i>
-            Activity from more than 1 week ago are automatically deleted.
+            Activities from more than 1 week ago are automatically deleted.
         </div>
 
         <form action="" method="GET" class="mb-10 p-6 bg-gray-800 rounded-md grid grid-cols-10 gap-4">
