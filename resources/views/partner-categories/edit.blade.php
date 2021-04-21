@@ -34,6 +34,14 @@
                         Set null
                     </button>
                 </div>
+
+                <div class="col-span-full">
+                    <label for="description-field" class="block text-sm font-medium text-gray-300">Description <span class="text-red-500 font-bold">*</span></label>
+                    <input type="text" name="description" id="description-field" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ old('description') ?? $partnerCategory->description }}" required>
+                    @error('description')
+                        <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
+                    @enderror
+                </div>
             </div>
 
             <div class="mt-6 text-right">

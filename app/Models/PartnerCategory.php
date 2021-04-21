@@ -16,7 +16,8 @@ class PartnerCategory extends Model
      */
     protected $fillable = [
         'name',
-        'opening_at'
+        'description',
+        'opening_at',
     ];
 
     protected $dates = [

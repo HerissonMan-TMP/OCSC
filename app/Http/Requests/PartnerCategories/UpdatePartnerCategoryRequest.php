@@ -30,6 +30,10 @@ class UpdatePartnerCategoryRequest extends FormRequest
                 'required',
                 'max:30',
             ],
+            'description' => [
+                'required',
+                'max:300',
+            ],
             'opening_at' => [
                 'nullable',
                 'date',
@@ -47,6 +51,9 @@ class UpdatePartnerCategoryRequest extends FormRequest
         return [
             'name.required' => 'A name is required for the partner category.',
             'name.max' => 'The partner category name cannot be longer than :max characters.',
+
+            'description.required' => 'A description is required for the partner category.',
+            'description.max' => 'The partner category description cannot be longer than :max characters.',
 
             'opening_at.date' => 'The "Opening at" field must have a date format.',
         ];

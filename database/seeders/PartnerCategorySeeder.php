@@ -19,11 +19,13 @@ class PartnerCategorySeeder extends Seeder
 
         PartnerCategory::create([
             'name' => 'VTC Partnership',
+            'description' => 'Description for the VTC partnership...',
             'opening_at' => now()->addDays(30),
         ]);
 
         PartnerCategory::create([
             'name' => 'Community Partnership',
+            'description' => 'Description for the community partnership...',
             'opening_at' => null,
         ]);
     }
