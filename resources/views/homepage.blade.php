@@ -95,7 +95,7 @@
 </div>
 <section id="partners" class="w-full h-1/4">
     <div class="max-w-7xl px-4 py-5 p-6 mx-auto my-16 swiper-container">
-        @isset($partners)
+        @if($partners->isNotEmpty())
         <div class="items-center swiper-wrapper">
             @foreach($partners as $partner)
                 <div class="swiper-slide">
@@ -105,7 +105,7 @@
         </div>
         @else
             <span class="text-sm text-gray-300 italic">No partners yet...</span>
-        @endisset
+        @endif
     </div>
 </section>
 @endsection
