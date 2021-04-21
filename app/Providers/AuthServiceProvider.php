@@ -83,6 +83,28 @@ class AuthServiceProvider extends ServiceProvider
         });
 
 
+        //Partners.
+        $ability = 'manage-partners';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to manage partners.');
+        });
+
+        $ability = 'edit-partnership-conditions-and-info';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to edit the partnership conditions & information.');
+        });
+
+        $ability = 'manage-partner-categories';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to manage the partner categories.');
+        });
+
         //Gallery.
         $ability = 'manage-pictures';
         Gate::define($ability, function (User $user) use ($ability) {

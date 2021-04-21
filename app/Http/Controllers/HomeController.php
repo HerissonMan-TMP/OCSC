@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Convoy;
+use App\Models\Partner;
 
 /**
  * Class HomeController
@@ -18,8 +19,10 @@ class HomeController extends Controller
     public function homepage()
     {
         $convoys = Convoy::take(3)->upcoming()->oldest('meetup_date')->get();
+        $partners = Partner::inRandomOrder()->get();
 
         return view('homepage')
-                ->with(compact('convoys'));
+            ->with(compact('convoys'))
+            ->with(compact('partners'));
     }
 }

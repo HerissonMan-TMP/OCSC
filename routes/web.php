@@ -9,6 +9,9 @@ use App\Http\Controllers\ConvoyRulesController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ErrorController;
 use App\Http\Controllers\HubController;
+use App\Http\Controllers\PartnerCategoryController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\PartnershipConditionsController;
 use App\Http\Controllers\PictureController;
 use App\Http\Controllers\GlobalRequirementsController;
 use App\Http\Controllers\HomeController;
@@ -42,6 +45,8 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
     Route::resource('articles', ArticleController::class)->only([
         'show'
     ]);
+
+    Route::get('partners', [PartnerController::class, 'partners'])->name('partners');
 
     //Public: Convoy & Convoy rules.
     Route::get('convoys', [ConvoyController::class, 'convoys'])->name('convoys');
@@ -91,7 +96,23 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
         ]);
 
         //Partnership.
-        Route::view('partnership-management', '')->name('partnership-management');
+        Route::resource('partners', PartnerController::class)->except(
+            'show',
+        );
+        Route::get('partnership-conditions/create', [PartnershipConditionsController::class, 'create'])
+            ->name('partnership-conditions.create');
+        Route::post('partnership-conditions', [PartnershipConditionsController::class, 'store'])
+            ->name('partnership-conditions.store');
+        Route::get('partner-categories', [PartnerCategoryController::class, 'index'])
+            ->name('partner-categories.index');
+        Route::post('partner-categories', [PartnerCategoryController::class, 'store'])
+            ->name('partner-categories.store');
+        Route::get('partner-categories/{partnerCategory}/edit', [PartnerCategoryController::class, 'edit'])
+            ->name('partner-categories.edit');
+        Route::patch('partner-categories/{partnerCategory}', [PartnerCategoryController::class, 'update'])
+            ->name('partner-categories.update');
+        Route::delete('partner-categories/{partnerCategory}', [PartnerCategoryController::class, 'destroy'])
+            ->name('partner-categories.destroy');
 
         //Convoys & Convoy rules.
         Route::resource('convoys', ConvoyController::class)->except([

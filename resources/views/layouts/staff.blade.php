@@ -92,10 +92,24 @@
                     </div>
                     <div class="staff-menu-dropdown-items pl-20 hidden text-gray-400">
                         <div class="py-1">
-                            <a href="" class="transition duration-200 hover:text-primary">All partners</a>
+                            <a href="{{ route('staff.partners.index') }}" class="transition duration-200 hover:text-primary">All partners</a>
                         </div>
                         <div class="py-1">
-                            <a href="" class="transition duration-200 hover:text-primary">Add a new partner</a>
+                            @can('manage-partners')
+                                <a href="{{ route('staff.partners.create') }}" class="transition duration-200 hover:text-primary">Add a new partner</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Add a new partner</a>
+                            @endcan
+                        </div>
+                        <div class="py-1">
+                            @can('edit-partnership-conditions-and-info')
+                                <a href="{{ route('staff.partnership-conditions.create') }}" class="transition duration-200 hover:text-primary">Edit partnership conditions & info</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Edit partnership conditions & info</a>
+                            @endcan
+                        </div>
+                        <div class="py-1">
+                            <a href="{{ route('staff.partner-categories.index') }}" class="transition duration-200 hover:text-primary">Partner categories</a>
                         </div>
                     </div>
 
@@ -366,10 +380,24 @@
                 </div>
                 <div class="staff-menu-dropdown-items pl-20 hidden text-gray-400">
                     <div class="py-1">
-                        <a href="" class="transition duration-200 hover:text-primary">All partners</a>
+                        <a href="{{ route('staff.partners.index') }}" class="transition duration-200 hover:text-primary">All partners</a>
                     </div>
                     <div class="py-1">
-                        <a href="" class="transition duration-200 hover:text-primary">Add a new partner</a>
+                        @can('manage-partners')
+                            <a href="{{ route('staff.partners.create') }}" class="transition duration-200 hover:text-primary">Add a new partner</a>
+                        @else
+                            <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Add a new partner</a>
+                        @endcan
+                    </div>
+                    <div class="py-1">
+                        @can('edit-partnership-conditions-and-info')
+                            <a href="{{ route('staff.partnership-conditions.create') }}" class="transition duration-200 hover:text-primary">Edit partnership conditions & info</a>
+                        @else
+                            <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Edit partnership conditions & info</a>
+                        @endcan
+                    </div>
+                    <div class="py-1">
+                        <a href="{{ route('staff.partner-categories.index') }}" class="transition duration-200 hover:text-primary">Partner categories</a>
                     </div>
                 </div>
 

@@ -40,7 +40,10 @@ class DatabaseSeeder extends Seeder
             PrivacyPolicySeeder::class,
             LegalNoticeSeeder::class,
             GlobalRequirementsSeeder::class,
-            ConvoyRulesSeeder::class
+            ConvoyRulesSeeder::class,
+            PartnerCategorySeeder::class,
+            PartnerSeeder::class,
+            PartnershipConditionsSeeder::class,
         ]);
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1');

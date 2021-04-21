@@ -94,16 +94,38 @@
     </div>
 </div>
 <section id="partners" class="w-full h-1/4">
-    <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16 grid grid-cols-3 gap-16 md:gap-20">
-        <div class="col-span-full md:col-span-1 mx-auto">
-            <img width="200" height="200" src="{{ asset('img/ocsc_logo.png') }}" alt="" class="rounded-full">
+    <div class="max-w-7xl px-4 py-5 p-6 mx-auto my-16 swiper-container">
+        @isset($partners)
+        <div class="items-center swiper-wrapper">
+            @foreach($partners as $partner)
+                <div class="swiper-slide">
+                    <img width="200" height="200" src="{{ $partner->logo }}" alt="{{ $partner->name }} Logo" class="rounded-full mx-auto">
+                </div>
+            @endforeach
         </div>
-        <div class="col-span-full md:col-span-1 mx-auto">
-            <img width="200" height="200" src="{{ asset('img/ocsc_logo.png') }}" alt="" class="rounded-full">
-        </div>
-        <div class="col-span-full md:col-span-1 mx-auto">
-            <img width="200" height="200" src="{{ asset('img/ocsc_logo.png') }}" alt="" class="rounded-full">
-        </div>
+        @else
+            <span class="text-sm text-gray-300 italic">No partners yet...</span>
+        @endisset
     </div>
 </section>
 @endsection
+
+@push('scripts')
+    <script>
+        $(function () {
+            //Partners slider
+            var swiper =new Swiper('.swiper-container', {
+                spaceBetween: 50,
+                slidesPerView: 3,
+                centeredSlides: true,
+                loop: true,
+                slideNextClass:'eswiper-slide-next',
+                slidePrevClass:'eswiper-slide-prev',
+            });
+
+            setInterval(function() {
+                swiper.slideNext(500);
+            }, 2000);
+        });
+    </script>
+@endpush

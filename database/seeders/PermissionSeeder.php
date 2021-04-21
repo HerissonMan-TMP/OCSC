@@ -54,6 +54,32 @@ class PermissionSeeder extends Seeder
         $permission->save();
         $permission->roles()->attach(4);
 
+        //Permission: Manage Partners.
+        $permission = Permission::create([
+             'name' => 'Manage partners',
+             'slug' => 'manage-partners'
+         ]);
+        $permission->category()->associate(4);
+        $permission->save();
+        $permission->roles()->attach(4);
+
+        //Permission: Edit partnership conditions & information.
+        $permission = Permission::create([
+            'name' => 'Edit partnership conditions & information',
+            'slug' => 'edit-partnership-conditions-and-info'
+        ]);
+        $permission->category()->associate(4);
+        $permission->save();
+        $permission->roles()->attach(4);
+
+        //Permission: Manage partner categories.
+        $permission = Permission::create([
+         'name' => 'Manage partner categories',
+         'slug' => 'manage-partner-categories'
+     ]);
+        $permission->category()->associate(4);
+        $permission->save();
+
         //Permission: Manage the pictures.
         $permission = Permission::create([
             'name' => 'Manage pictures',
