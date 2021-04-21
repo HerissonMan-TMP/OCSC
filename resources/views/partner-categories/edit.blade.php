@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="col-span-full md:col-span-3">
-                    <label for="opening-at-field" class="block text-sm font-medium text-gray-300">Opening at (UTC) <span class="font-normal">/ Current: {{ $partnerCategory->opening_at->format('d M Y H:i') }}</span></label>
+                    <label for="opening-at-field" class="block text-sm font-medium text-gray-300">Opening at (UTC) <span class="font-normal">/ Current: {{ $partnerCategory->opening_at?->format('d M Y H:i') }}</span></label>
                     <input type="datetime-local" name="opening_at" id="opening-at-field" class="flatpickr text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" required>
                     @error('opening_at')
                         <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
