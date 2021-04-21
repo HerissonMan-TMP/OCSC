@@ -13,11 +13,11 @@
     <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16">
         <div class="grid grid-flow-row gap-16 bg-gray-800 p-6 rounded-md">
             @foreach($partnerCategories as $category)
-                <div class="col-span-full flex flex-col items-center">
+                <div class="col-span-full flex flex-col items-center text-center">
                     <h2>{{ $category->name }}</h2>
                     <div class="grid grid-cols-4 gap-6 mt-5 w-full">
                         @forelse($category->partners as $partner)
-                            <div class="col-span-1 text-center">
+                            <div class="col-span-full md:col-span-1 text-center">
                                 <img src="{{ $partner->logo }}" alt="{{ $partner->name }} Logo" class="p-4 w-3/4 mx-auto">
 
                                 <span class="font-bold">{{ $partner->name }}</span>
@@ -65,9 +65,9 @@
         <div class="text-center">
             <h2 class="mb-10">Want to be partner?</h2>
 
-            <div class="flex justify-center gap-6">
+            <div class="flex flex-wrap justify-center gap-6">
                 @foreach($partnerCategories as $category)
-                    <div class="w-1/3 rounded-md bg-gray-800">
+                    <div class="w-full md:w-1/3 rounded-md bg-gray-800">
                         <div class="p-6">
                             <h4 class="m-0">{{ $category->name }}</h4>
 
