@@ -71,7 +71,7 @@
                         <div class="p-6">
                             <h4 class="m-0">{{ $category->name }}</h4>
 
-                            <p class="text-sm mt-6">Description...</p>
+                            <p class="text-sm mt-6">{{ $category->description }}</p>
                         </div>
 
                         <div class="p-6 rounded-b-md @if($category->opening_at && $category->opening_at < now()) bg-green-500 @else bg-red-500 @endif">
