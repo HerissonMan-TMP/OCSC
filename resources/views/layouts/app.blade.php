@@ -523,7 +523,7 @@
                     </div>
 
                     <div class="col-span-full md:col-span-1">
-                        <img class="mx-auto" width="50%" src="{{ asset('img/ocsc_logo.png') }}" alt="">
+                        <img class="scroll-to-top cursor-pointer mx-auto" width="50%" src="{{ asset('img/ocsc_logo.png') }}" alt="">
                     </div>
 
                     <div class="col-span-full md:col-span-1">
@@ -644,22 +644,27 @@
                 $.ajax({
                     url: "{{ route('api.twitch.stream', config('twitch.channel_name')) }}"
                 }).done(function(data) {
-                        if (data['stream'] === null) {
-                            $('#twitch-dot').addClass('text-red-500');
-                            $('#twitch-text').html('Live offline');
-                        } else {
-                            $('#twitch-dot').addClass('text-green-500');
-                            $('#twitch-text').html('Live online');
+                    if (data['stream'] === null) {
+                        $('#twitch-dot').addClass('text-red-500');
+                        $('#twitch-text').html('Live offline');
+                    } else {
+                        $('#twitch-dot').addClass('text-green-500');
+                        $('#twitch-text').html('Live online');
 
-                            setInterval(blinkTwitchStatus, 1000);
+                        setInterval(blinkTwitchStatus, 1000);
 
-                            $('#see-stream').show();
-                            $('#see-stream').click(function () {
-                                $('#stream-box').slideToggle();
-                                $(this).children('i').eq(0).toggleClass('fa-angle-down fa-angle-up');
-                            });
-                        }
-                    });
+                        $('#see-stream').show();
+                        $('#see-stream').click(function () {
+                            $('#stream-box').slideToggle();
+                            $(this).children('i').eq(0).toggleClass('fa-angle-down fa-angle-up');
+                        });
+                    }
+                });
+
+                $('.scroll-to-top').click(function () {
+                    document.body.scrollTop = 0; // For Safari
+                    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                });
 
             });
         </script>
