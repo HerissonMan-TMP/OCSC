@@ -44,6 +44,7 @@ class DatabaseSeeder extends Seeder
             PartnerCategorySeeder::class,
             PartnerSeeder::class,
             PartnershipConditionsSeeder::class,
+            GuideSeeder::class,
         ]);
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1');

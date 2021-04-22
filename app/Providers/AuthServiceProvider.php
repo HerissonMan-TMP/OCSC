@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Convoy;
 use App\Models\Download;
+use App\Models\Guide;
 use App\Models\Permission;
 use App\Models\Picture;
 use App\Models\Recruitment;
@@ -142,6 +143,22 @@ class AuthServiceProvider extends ServiceProvider
             return Download::accessible()->get()->contains($download) || $user->hasPermission('manage-downloads')
                 ? Response::allow()
                 : Response::deny('You are not allowed to download this file.');
+        });
+
+
+        //Guides.
+        $ability = 'manage-guides';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to manage guides.');
+        });
+
+        $ability = 'read-guide';
+        Gate::define($ability, function (User $user, Guide $guide) use ($ability) {
+            return Guide::accessible()->get()->contains($guide) || $user->can('manage-guides')
+                ? Response::allow()
+                : Response::deny('You are not allowed to read this guide.');
         });
 
 

@@ -198,5 +198,13 @@ class PermissionSeeder extends Seeder
         ]);
         $permission->category()->associate(12);
         $permission->save();
+
+        //Permission: Manage guides.
+        $permission = Permission::create([
+             'name' => 'Manage guides',
+             'slug' => 'manage-guides'
+         ]);
+        $permission->category()->associate(14);
+        $permission->save();
     }
 }

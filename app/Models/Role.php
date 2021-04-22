@@ -76,6 +76,16 @@ class Role extends Model
     }
 
     /**
+     * Get the guides the role is allowed to see.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function guides()
+    {
+        return $this->belongsToMany(Guide::class);
+    }
+
+    /**
      * Scope a query to only include roles that can be recruited.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query

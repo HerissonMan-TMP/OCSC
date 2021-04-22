@@ -155,6 +155,27 @@
                         </div>
                     </div>
 
+                    <div class="staff-menu-item staff-menu-dropdown">
+                        <span>
+                            <i class="fas fa-book fa-fw"></i> Guides
+                        </span>
+                        <span>
+                            <i class="fas fa-chevron-down fa-fw text-sm"></i>
+                        </span>
+                    </div>
+                    <div class="staff-menu-dropdown-items pl-20 hidden text-gray-400">
+                        <div class="py-1">
+                            <a href="{{ route('staff.guides.index') }}" class="transition duration-200 hover:text-primary">All available guides</a>
+                        </div>
+                        <div class="py-1">
+                            @can('manage-guides')
+                                <a href="{{ route('staff.guides.create') }}" class="transition duration-200 hover:text-primary">Create a new guide</a>
+                            @else
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Create a new guide</a>
+                            @endcan
+                        </div>
+                    </div>
+
                     @can('manage-contact-messages')
                         <a class="staff-menu-item" href="{{ route('staff.contact-messages.index') }}">
                             <span>
@@ -439,6 +460,27 @@
                             <a href="{{ route('staff.downloads.create') }}" class="transition duration-200 hover:text-primary">Add a new download</a>
                         @else
                             <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Add a new download</a>
+                        @endcan
+                    </div>
+                </div>
+
+                <div class="staff-menu-item staff-menu-dropdown">
+                        <span>
+                            <i class="fas fa-book fa-fw"></i> Guides
+                         </span>
+                        <span>
+                            <i class="fas fa-chevron-down fa-fw text-sm"></i>
+                        </span>
+                </div>
+                <div class="staff-menu-dropdown-items pl-20 hidden text-gray-400">
+                    <div class="py-1">
+                        <a href="{{ route('staff.guides.index') }}" class="transition duration-200 hover:text-primary">All available guides</a>
+                    </div>
+                    <div class="py-1">
+                        @can('manage-guides')
+                            <a href="{{ route('staff.guides.create') }}" class="transition duration-200 hover:text-primary">Create a new guide</a>
+                        @else
+                            <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Create a new guide</a>
                         @endcan
                     </div>
                 </div>

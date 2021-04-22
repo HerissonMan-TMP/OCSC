@@ -8,6 +8,7 @@ use App\Http\Controllers\ConvoyController;
 use App\Http\Controllers\ConvoyRulesController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ErrorController;
+use App\Http\Controllers\GuideController;
 use App\Http\Controllers\HubController;
 use App\Http\Controllers\PartnerCategoryController;
 use App\Http\Controllers\PartnerController;
@@ -183,6 +184,9 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
             'show'
         );
         Route::get('downloads/{download}/download', [DownloadController::class, 'download'])->name('downloads.download');
+
+        //Guides.
+        Route::resource('guides', GuideController::class);
 
         //Website Settings
         Route::prefix('website-settings')->name('website-settings.')->group(function () {
