@@ -59,14 +59,18 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
     //Public: Recruitments & Global requirements.
     Route::get('recruitments/{recruitment}', [RecruitmentController::class, 'show'])->name('recruitments.show');
     Route::post('recruitments/{recruitment}/applications', [ApplicationController::class, 'store'])
-        ->name('recruitments.applications.store');
+        ->name('recruitments.applications.store')->middleware(['throttle:2,60']);
     Route::view('applications/success', 'applications.success-page')->name('applications.success-page');
     Route::get('global-requirements', [GlobalRequirementsController::class, 'show'])->name('global-requirements.show');
 
     //Public: Contact messages.
-    Route::view('contact/success', 'contact-messages.success-page')->name('contact-messages.success-page');
-    Route::get('contact', [ContactMessageController::class, 'create'])->name('contact-messages.create');
-    Route::post('contact', [ContactMessageController::class, 'store'])->name('contact-messages.store');
+    Route::view('contact/success', 'contact-messages.success-page')
+        ->name('contact-messages.success-page');
+    Route::get('contact', [ContactMessageController::class, 'create'])
+        ->name('contact-messages.create');
+    Route::post('contact', [ContactMessageController::class, 'store'])
+        ->name('contact-messages.store')
+        ->middleware(['throttle:2,60']);
 
     //Public: Legal notice & Privacy policy.
     Route::get('legal-notice', [LegalNoticeController::class, 'show'])->name('legal-notice.show');
@@ -74,8 +78,11 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
 
     //Public (without Staff): Login.
     Route::middleware(['guest'])->group(function () {
-        Route::view('login', 'login')->name('login.show-form');
-        Route::post('login', [LoginController::class, 'authenticate'])->name('login.authenticate');
+        Route::view('login', 'login')
+            ->name('login.show-form');
+        Route::post('login', [LoginController::class, 'authenticate'])
+            ->name('login.authenticate')
+            ->middleware(['throttle:2,60']);
     });
 
     //Staff: Temporary password.
