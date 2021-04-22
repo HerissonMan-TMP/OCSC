@@ -32,9 +32,10 @@ class StoreDownloadRequest extends FormRequest
                 'required',
                 'max:100'
             ],
-            'link' => [
+            'file' => [
                 'required',
-                'url'
+                'file',
+                'max:15000',
             ],
             'roles' => [
                 'required',
@@ -55,8 +56,9 @@ class StoreDownloadRequest extends FormRequest
             'name.required' => 'A name is required.',
             'name.max' => 'The name cannot be longer than :max characters.',
 
-            'link.required' => 'A link is required.',
-            'link.url' => 'The link format is not valid. It must be an URL.',
+            'file.required' => 'A link is required.',
+            'file.file' => 'The file is not valid.',
+            'file.max' => 'The file size cannot be greater than :max KB.',
 
             'roles.required' => 'At least one role must be able to see a download.',
             'roles.array' => 'The roles must be sent in an array format.',

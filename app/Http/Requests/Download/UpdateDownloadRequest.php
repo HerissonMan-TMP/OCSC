@@ -32,10 +32,6 @@ class UpdateDownloadRequest extends FormRequest
                 'required',
                 'max:100'
             ],
-            'link' => [
-                'required',
-                'url'
-            ],
             'roles' => [
                 'required',
                 'array',
@@ -54,9 +50,6 @@ class UpdateDownloadRequest extends FormRequest
         return [
             'name.required' => 'A name is required.',
             'name.max' => 'The name cannot be longer than :max characters.',
-
-            'link.required' => 'A link is required.',
-            'link.url' => 'The link format is not valid. It must be an URL.',
 
             'roles.required' => 'At least one role must be able to see a download.',
             'roles.array' => 'The roles must be sent in an array format.',

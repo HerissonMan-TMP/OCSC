@@ -8,6 +8,7 @@ use App\Models\ActivityType;
 use App\Models\Download;
 use App\Models\Role;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class DownloadController
@@ -26,6 +27,20 @@ class DownloadController extends Controller
         return view('downloads.index')
                 ->with(compact('downloads'))
                 ->with(compact('roles'));
+    }
+
+    /**
+     * Download a file.
+     *
+     * @param Download $download
+     * @return \Symfony\Component\HttpFoundation\StreamedResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function download(Download $download)
+    {
+        Gate::authorize('download-file', $download);
+
+        return Storage::download('downloads/' . $download->path, $download->original_file_name);
     }
 
     /**
@@ -55,7 +70,14 @@ class DownloadController extends Controller
     {
         Gate::authorize('manage-downloads');
 
-        $download = Download::create($request->validated());
+        $download = new Download();
+        $download->name = $request->name;
+        $download->original_file_name = $request->file->getClientOriginalName();
+
+        $path = $request->file->store('downloads');
+        $download->path = basename($path);
+
+        $download->save();
         $download->roles()->attach($request->roles);
 
         activity(ActivityType::CREATED)
@@ -108,7 +130,7 @@ class DownloadController extends Controller
 
         flash("You have successfully updated the download '{$download->name}'!")->success();
 
-        return back();
+        return redirect()->route('staff.downloads.index');
     }
 
     /**
@@ -123,6 +145,7 @@ class DownloadController extends Controller
         Gate::authorize('manage-downloads');
 
         $download->delete();
+        Storage::delete('downloads/' . $download->path);
 
         activity(ActivityType::DELETED)
             ->subject('fas fa-download', "Download #{$download->id}")

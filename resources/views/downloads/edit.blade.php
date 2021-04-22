@@ -13,18 +13,10 @@
             @method('PATCH')
 
             <div class="mb-5 grid grid-cols-6 gap-6">
-                <div class="col-span-full md:col-span-2">
+                <div class="col-span-full">
                     <label for="name" class="block text-sm font-medium text-gray-300">Name <span class="text-red-500 font-bold">*</span></label>
                     <input type="text" name="name" id="name" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" required value="{{ old('name') ?? $download->name }}">
                     @error('name')
-                        <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="col-span-full md:col-span-4">
-                    <label for="link" class="block text-sm font-medium text-gray-300">Link <span class="text-red-500 font-bold">*</span></label>
-                    <input type="text" name="link" id="link" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" required value="{{ old('link') ?? $download->link }}">
-                    @error('link')
                         <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>

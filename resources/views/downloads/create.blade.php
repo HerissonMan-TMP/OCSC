@@ -8,9 +8,9 @@
             <h2>Downloads <span class="font-light">/ Create</span></h2>
         </div>
 
-        <form action="{{ route('staff.downloads.store') }}" method="POST">
+        <form action="{{ route('staff.downloads.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="mb-5 grid grid-cols-6 gap-6">
+            <div class="mb-5 grid grid-cols-6 gap-6 items-end">
                 <div class="col-span-full md:col-span-2">
                     <label for="name" class="block text-sm font-medium text-gray-300">Name <span class="text-red-500 font-bold">*</span></label>
                     <input type="text" name="name" id="name" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" required>
@@ -20,9 +20,9 @@
                 </div>
 
                 <div class="col-span-full md:col-span-4">
-                    <label for="link" class="block text-sm font-medium text-gray-300">Link <span class="text-red-500 font-bold">*</span></label>
-                    <input type="text" name="link" id="link" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" required>
-                    @error('link')
+                    <label for="file-field" class="block text-sm font-medium text-gray-300">File <span class="text-red-500 font-bold">*</span></label>
+                    <input id="file-field" name="file" type="file" class="">
+                    @error('file')
                         <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
                     @enderror
                 </div>

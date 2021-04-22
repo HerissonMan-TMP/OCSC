@@ -182,6 +182,7 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
         Route::resource('downloads', DownloadController::class)->except(
             'show'
         );
+        Route::get('downloads/{download}/download', [DownloadController::class, 'download'])->name('downloads.download');
 
         //Website Settings
         Route::prefix('website-settings')->name('website-settings.')->group(function () {

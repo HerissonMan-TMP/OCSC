@@ -18,7 +18,8 @@ class Download extends Model
      */
     protected $fillable = [
         'name',
-        'link'
+        'original_file_name',
+        'path',
     ];
 
     /**
@@ -41,7 +42,7 @@ class Download extends Model
     {
         $user = Auth::user();
 
-        return $user->hasPermission('has-admin-rights')
+        return $user->can('manage-downloads')
             ? $query
             : $query->whereHas('roles', function (Builder $q) {
                   $q->whereIn('role_id', Auth::user()->roles->pluck('id')->toArray());

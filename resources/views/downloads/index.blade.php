@@ -46,10 +46,11 @@
                             {{ $download->name }}
                         </td>
                         <td class="border-none px-6 py-4 whitespace-nowrap text-sm">
-                            <a href="{{ $download->link }}" class="transition duration-200 text-primary hover:text-primary-dark focus:outline-none">
+                            <a href="{{ route('staff.downloads.download', $download) }}" class="transition duration-200 text-primary hover:text-primary-dark focus:outline-none">
                                 Click to download
                             </a>
                         </td>
+                        @can('manage-downloads')
                         <td class="border-none px-6 py-4 whitespace-nowrap text-sm text-right">
                             <a href="{{ route('staff.downloads.edit', $download) }}" class="mr-4 transition duration-200 text-primary hover:text-primary-dark focus:outline-none">
                                 <i class="flex-shrink-0 fas fa-pen fa-fw"></i>
@@ -65,6 +66,9 @@
                                 </button>
                             </form>
                         </td>
+                        @else
+                            <td class="border-none px-6 py-4 whitespace-nowrap text-sm text-right italic">You cannot manage the downloads</td>
+                        @endcan
                     </tr>
                 @empty
                     <tr>

@@ -6,9 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partners/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partners/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partners/partners.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partners/partners.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DownloadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DownloadController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Cors.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Cors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Download/StoreDownloadRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Download/StoreDownloadRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Download/UpdateDownloadRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Download/UpdateDownloadRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Download.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Download.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DownloadSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DownloadSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/downloads/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/downloads/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/downloads/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/downloads/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/downloads/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/downloads/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +286,7 @@
       <workItem from="1618834716257" duration="23718000" />
       <workItem from="1618899828719" duration="34373000" />
       <workItem from="1618989864425" duration="20043000" />
-      <workItem from="1619073026295" duration="4372000" />
+      <workItem from="1619073026295" duration="14657000" />
     </task>
     <servers />
   </component>
