@@ -21,12 +21,10 @@ class DownloadController extends Controller
      */
     public function index()
     {
-        $downloads = Download::accessible()->with('roles')->get();
-        $roles = Role::orderBy('order')->get();
+        $downloads = Download::accessible()->get();
 
         return view('downloads.index')
-                ->with(compact('downloads'))
-                ->with(compact('roles'));
+                ->with(compact('downloads'));
     }
 
     /**

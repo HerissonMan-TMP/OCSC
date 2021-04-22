@@ -8,16 +8,6 @@
             <h2>Downloads</h2>
         </div>
 
-        @if ($errors->any())
-            <div class="my-10 p-6 text-gray-200 font-bold bg-red-500 rounded-md">
-                <ul class="m-0">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <div class="shadow overflow-x-auto rounded-lg">
             <table class="min-w-full divide-y divide-gray-800 border-none">
                 <thead class="bg-gray-700">
