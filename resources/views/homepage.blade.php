@@ -99,7 +99,9 @@
         <div class="items-center swiper-wrapper">
             @foreach($partners as $partner)
                 <div class="swiper-slide">
-                    <img width="200" height="200" src="{{ $partner->logo }}" alt="{{ $partner->name }} Logo" class="rounded-full mx-auto">
+                    <a href="{{ $partner->website_link }}" target="_blank">
+                        <img width="200" height="200" src="{{ $partner->logo }}" alt="{{ $partner->name }} Logo" class="rounded-full mx-auto">
+                    </a>
                 </div>
             @endforeach
         </div>

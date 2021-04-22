@@ -15,7 +15,7 @@
                     <div class="grid grid-cols-4 gap-6 mt-5 w-full">
                         @forelse($category->partners as $partner)
                             <div class="col-span-full md:col-span-1 text-center">
-                                <img src="{{ $partner->logo }}" alt="{{ $partner->name }} Logo" class="p-4 w-3/4 mx-auto">
+                                <img width="200" height="200" src="{{ $partner->logo }}" alt="{{ $partner->name }} Logo" class="rounded-full p-4 mx-auto">
 
                                 <span class="font-bold">{{ $partner->name }}</span>
 
