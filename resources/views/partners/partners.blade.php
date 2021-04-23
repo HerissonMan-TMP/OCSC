@@ -67,7 +67,7 @@
 
             <div class="flex flex-wrap justify-center gap-6">
                 @foreach($partnerCategories as $category)
-                    <div class="w-full md:w-1/3 text-center rounded-md bg-gray-800">
+                    <div class="w-full flex flex-col justify-between md:w-1/3 text-center rounded-md bg-gray-800">
                         <div class="p-6">
                             <h4 class="m-0">{{ $category->name }}</h4>
 
