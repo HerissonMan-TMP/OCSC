@@ -232,4 +232,6 @@ return [
 
     ],
 
+    'default_banner' => 'https://cdn.discordapp.com/attachments/824978783051448340/835160001563066409/ets2_20210417_214420_00.png',
+
 ];

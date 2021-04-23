@@ -4,7 +4,7 @@
 
 @section("content")
 
-    <div class="flex flex-col justify-center items-center bg-fixed bg-cover bg-center px-2 md:px-0 py-52" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/kZ3YjwR.png');">
+    <div class="flex flex-col justify-center items-center bg-fixed bg-cover bg-center px-2 md:px-0 py-52" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ config('app.default_banner') }}');">
         <div class="text-center grid gap-4">
             <h1 class="text-5xl m-0 capitalize"><i class="flex-shrink-0 fas fa-handshake fa-fw"></i> Partners</h1>
         </div>

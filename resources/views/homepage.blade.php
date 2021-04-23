@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
-<div class="bg-fixed w-full h-screen overflow-hidden" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ asset('img/background_placeholder.png') }});">
+<div class="bg-fixed w-full h-screen overflow-hidden" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ asset('https://cdn.discordapp.com/attachments/824978783051448340/835146191456174110/ets2_20210418_173547_00.png') }});">
     <div class="w-full h-full text-center text-gray-300 flex flex-col justify-center items-center">
         <div class="font-semibold text-6xl">
             OCSC Event
@@ -36,7 +36,7 @@
     </div>
 </section>
 
-<div class="bg-fixed bg-cover py-20" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.discordapp.com/attachments/785605081449103371/801489516585156678/Second_Affiinity_Photos_Edits.png');">
+<div class="bg-fixed bg-cover py-20" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.discordapp.com/attachments/824978783051448340/835160092910551080/ets2_20210417_214902_00.png');">
     <div class="text-center uppercase text-4xl font-bold">
         Upcoming convoys
     </div>
@@ -88,7 +88,7 @@
     </div>
 </section>
 
-<div class="bg-fixed bg-cover py-20" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/7DyEQdi.jpeg');">
+<div class="bg-fixed bg-cover py-20" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.discordapp.com/attachments/824978783051448340/835160193813184552/ets2_20210417_214810_00.png');">
     <div class="text-center uppercase text-4xl font-bold">
         Our partners
     </div>
