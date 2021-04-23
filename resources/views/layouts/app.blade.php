@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="force--consent c_darkmode" style="scroll-behavior: smooth;">
+<html lang="en" class="c_darkmode" style="scroll-behavior: smooth;">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -585,7 +585,7 @@
                         en : {
                             consent_modal : {
                                 title :  "We use cookies",
-                                description :  'We and selected partners use cookies or similar technologies as specified in the cookie policy (click on the Settings button to read it).',
+                                description :  'We and selected partners use cookies or similar technologies as specified in the cookie policy (click on the Settings button to read it). By clicking on "Accept", you also confirm having read and accepted our Legal Notice: {{ route('legal-notice.show') }}.',
                                 primary_btn: {
                                     text: 'Accept',
                                     role: 'accept_all'  //'accept_selected' or 'accept_all'
