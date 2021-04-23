@@ -1962,6 +1962,18 @@ document.addEventListener('DOMContentLoaded', function () {
   responsiveButtonCloseNav.addEventListener('click', function () {
     responsiveMenu.classList.replace('block', 'hidden');
   });
+  $('#ocsc-event-dropdown-responsive').click(function () {
+    $('#ocsc-event-dropdown-content-responsive').slideToggle();
+    $(this).find('i').toggleClass('fa-angle-up', 'fa-angle-down');
+  });
+  $('#convoys-dropdown-responsive').click(function () {
+    $('#convoys-dropdown-content-responsive').slideToggle();
+    $(this).find('i').toggleClass('fa-angle-up', 'fa-angle-down');
+  });
+  $('#recruitment-dropdown-responsive').click(function () {
+    $('#recruitment-dropdown-content-responsive').slideToggle();
+    $(this).find('i').toggleClass('fa-angle-up', 'fa-angle-down');
+  });
 });
 
 /***/ }),
