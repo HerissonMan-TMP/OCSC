@@ -571,6 +571,7 @@
 
                 cookieconsent.run({
                     current_lang : 'en',
+                    cookie_expiration: 182,
                     auto_language: true,
                     onAccept : function(){
                         if (cookieconsent.allowedCategory('functionality_cookies')) {
