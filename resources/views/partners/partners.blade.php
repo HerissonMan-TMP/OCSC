@@ -62,12 +62,12 @@
 
         <hr class="my-16">
 
-        <div class="text-center">
-            <h2 class="mb-10">Want to be partner?</h2>
+        <div>
+            <h2 class="mb-10 text-center">Want to be partner?</h2>
 
             <div class="flex flex-wrap justify-center gap-6">
                 @foreach($partnerCategories as $category)
-                    <div class="w-full md:w-1/3 rounded-md bg-gray-800">
+                    <div class="w-full md:w-1/3 text-center rounded-md bg-gray-800">
                         <div class="p-6">
                             <h4 class="m-0">{{ $category->name }}</h4>
 
@@ -91,13 +91,13 @@
                 @endforeach
             </div>
 
-            <p class="my-20 text-sm">
+            <p class="my-20 text-center text-sm">
                 Being a partner of OCSC Event means opting for a serious and committed relationship. <br>
                 We are therefore looking for reliable partners, having for values, trust and respect.
             </p>
 
             <div class="p-6 rounded-md bg-gray-800">
-                <h2 class="m-0">Partnership conditions & information</h2>
+                <h2 class="m-0 text-center">Partnership conditions & information</h2>
 
                 <div class="mt-10">
                     @isset($partnershipConditions)
