@@ -23,9 +23,9 @@ class Question extends Model
 
     const MULTILINE = 'multiline';
 
-    const MULTILINE_MIN_LENGTH = 0;
+    const MULTILINE_MIN_LENGTH = 200;
 
-    const MULTILINE_MAX_LENGTH = 200;
+    const MULTILINE_MAX_LENGTH = 5000;
 
     /**
      * The attributes that are mass assignable.
