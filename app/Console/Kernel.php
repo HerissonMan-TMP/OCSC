@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Models\Activity;
+use App\Models\Error;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -27,6 +28,10 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function () {
             Activity::where('created_at', '<', now()->subWeek())->delete();
+        })->everySixHours();
+
+        $schedule->call(function () {
+            Error::where('created_at', '<', now()->subWeek())->delete();
         })->everySixHours();
     }
 
