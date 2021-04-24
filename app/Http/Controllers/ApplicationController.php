@@ -10,7 +10,6 @@ use App\Models\Application;
 use App\Models\Recruitment;
 use Illuminate\Support\Facades\Gate;
 
-
 /**
  * Class ApplicationController
  * @package App\Http\Controllers
@@ -69,7 +68,7 @@ class ApplicationController extends Controller
         $application = $recruitment->applications()->create($request->validated());
 
         foreach ($recruitment->questions as $index => $question) {
-            $answer = new Answer;
+            $answer = new Answer();
 
             $answer->text = $request->questions[$index];
 

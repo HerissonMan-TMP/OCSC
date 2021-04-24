@@ -18,7 +18,7 @@ class RecruitmentSeeder extends Seeder
         DB::table('recruitments')->truncate();
 
         //(#1) Planned recruitment for Media Team.
-        $recruitment = new Recruitment;
+        $recruitment = new Recruitment();
         $recruitment->fill([
             'start_at' => now()->addDays(20),
             'end_at' => now()->addDays(40)
@@ -28,7 +28,7 @@ class RecruitmentSeeder extends Seeder
         $recruitment->save();
 
         //(#2) Open recruitment for Convoy Control Team.
-        $recruitment = new Recruitment;
+        $recruitment = new Recruitment();
         $recruitment->fill([
             'start_at' => now(),
             'end_at' => now()->addDays(15),
@@ -39,7 +39,7 @@ class RecruitmentSeeder extends Seeder
         $recruitment->save();
 
         //(#3) Open recruitment for Translation Team.
-        $recruitment = new Recruitment;
+        $recruitment = new Recruitment();
         $recruitment->fill([
             'start_at' => now(),
             'end_at' => now()->addDays(18),
@@ -50,7 +50,7 @@ class RecruitmentSeeder extends Seeder
         $recruitment->save();
 
         //(#4) Closed recruitment for Event Team.
-        $recruitment = new Recruitment;
+        $recruitment = new Recruitment();
         $recruitment->fill([
             'start_at' => now()->subDays(40),
             'end_at' => now()->subDays(20)

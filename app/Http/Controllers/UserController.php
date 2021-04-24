@@ -91,7 +91,7 @@ class UserController extends Controller
     {
         Gate::authorize('create-new-users');
 
-        $user = new User;
+        $user = new User();
 
         $user->fill($request->only('email', 'name', 'password'));
         $user->temporary_password_without_hash = $request->password;

@@ -40,15 +40,14 @@ class PartnerSeeder extends Seeder
         $partner->save();
 
         $partner = new Partner();
-       $partner->name = 'Instant Gaming';
-       $partner->logo = 'https://www.instant-gaming.com/themes/igv1/images/opengraph-banner.png';
-       $partner->truckersmp_link = null;
-       $partner->trucksbook_link = null;
-       $partner->website_link = 'https://www.instant-gaming.com/?igr=ocsc-officiel';
-       $partner->twitter_link = null;
-       $partner->instagram_link = null;
+        $partner->name = 'Instant Gaming';
+        $partner->logo = 'https://www.instant-gaming.com/themes/igv1/images/opengraph-banner.png';
+        $partner->truckersmp_link = null;
+        $partner->trucksbook_link = null;
+        $partner->website_link = 'https://www.instant-gaming.com/?igr=ocsc-officiel';
+        $partner->twitter_link = null;
+        $partner->instagram_link = null;
         $partner->category()->associate(2);
         $partner->save();
-
     }
 }

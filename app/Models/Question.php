@@ -15,17 +15,17 @@ class Question extends Model
 {
     use HasFactory;
 
-    const INLINE = 'inline';
+    public const INLINE = 'inline';
 
-    const INLINE_MIN_LENGTH = 0;
+    public const INLINE_MIN_LENGTH = 0;
 
-    const INLINE_MAX_LENGTH = 200;
+    public const INLINE_MAX_LENGTH = 200;
 
-    const MULTILINE = 'multiline';
+    public const MULTILINE = 'multiline';
 
-    const MULTILINE_MIN_LENGTH = 200;
+    public const MULTILINE_MIN_LENGTH = 200;
 
-    const MULTILINE_MAX_LENGTH = 5000;
+    public const MULTILINE_MAX_LENGTH = 5000;
 
     /**
      * The attributes that are mass assignable.

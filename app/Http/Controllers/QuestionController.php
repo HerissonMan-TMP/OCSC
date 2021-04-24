@@ -27,7 +27,7 @@ class QuestionController extends Controller
     {
         Gate::authorize('manage-recruitments');
 
-        $question = new Question;
+        $question = new Question();
 
         $question->fill($request->validated());
 

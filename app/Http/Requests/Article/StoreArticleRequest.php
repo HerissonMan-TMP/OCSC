@@ -34,7 +34,7 @@ class StoreArticleRequest extends FormRequest
                 'nullable',
                 'url'
             ],
-            'content' =>[
+            'content' => [
                 'required',
                 'max:5000'
             ]

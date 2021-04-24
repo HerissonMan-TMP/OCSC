@@ -46,8 +46,10 @@ class AuthServiceProvider extends ServiceProvider
             'delete-user'
         ];
         Gate::before(function (User $user, $ability) use ($abilitiesWithoutBypass) {
-            if (!in_array($ability, $abilitiesWithoutBypass)
-                && $user->hasPermission('has-admin-rights')) {
+            if (
+                !in_array($ability, $abilitiesWithoutBypass)
+                && $user->hasPermission('has-admin-rights')
+            ) {
                 return true;
             }
         });

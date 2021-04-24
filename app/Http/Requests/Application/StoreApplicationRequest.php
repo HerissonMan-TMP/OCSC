@@ -69,7 +69,7 @@ class StoreApplicationRequest extends FormRequest
         $questions = request()->route('recruitment')->questions;
         $counter = 0;
 
-        foreach($questions as $question) {
+        foreach ($questions as $question) {
             $rules["questions.{$counter}"] = [
                 'required',
                 "between:{$question->min_length},{$question->max_length}"
@@ -117,7 +117,7 @@ class StoreApplicationRequest extends FormRequest
         $questions = request()->route('recruitment')->questions;
         $counter = 0;
 
-        foreach($questions as $question) {
+        foreach ($questions as $question) {
             $messages["questions.{$counter}" . '.required'] =
                 'You must answer the question.';
 

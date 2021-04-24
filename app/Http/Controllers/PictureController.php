@@ -69,7 +69,7 @@ class PictureController extends Controller
     {
         Gate::authorize('add-pictures-to-gallery');
 
-        $picture = new Picture;
+        $picture = new Picture();
 
         $picture->name = $request->name;
         $picture->description = $request->description;

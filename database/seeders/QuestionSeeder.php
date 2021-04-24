@@ -18,7 +18,7 @@ class QuestionSeeder extends Seeder
         DB::table('questions')->truncate();
 
         //(#1) Inline question for recruitment 1 (Media Team): "How old are you?".
-        $question = new Question;
+        $question = new Question();
         $question->fill([
             'name' => 'How old are you?',
             'type' => 'inline',
@@ -29,7 +29,7 @@ class QuestionSeeder extends Seeder
         $question->save();
 
         //(#2) Multiline question for recruitment 1 (Media Team): "Describe yourself".
-        $question = new Question;
+        $question = new Question();
         $question->fill([
             'name' => 'Describe yourself',
             'type' => 'multiline',
@@ -40,7 +40,7 @@ class QuestionSeeder extends Seeder
         $question->save();
 
         //(#3) Inline question for recruitment 2 (Convoy Control Team): "How old are you?".
-        $question = new Question;
+        $question = new Question();
         $question->fill([
             'name' => 'How old are you?',
             'type' => 'inline',
@@ -51,7 +51,7 @@ class QuestionSeeder extends Seeder
         $question->save();
 
         //(#4) Multiline question for recruitment 2 (Convoy Control Team): "Describe yourself".
-        $question = new Question;
+        $question = new Question();
         $question->fill([
             'name' => 'Describe yourself',
             'type' => 'multiline',
@@ -62,7 +62,7 @@ class QuestionSeeder extends Seeder
         $question->save();
 
         //(#5) Inline question for recruitment 2 (Convoy Control Team): "How much time can you devote per week for OCSC Event?".
-        $question = new Question;
+        $question = new Question();
         $question->fill([
             'name' => 'How much time can you devote per week for OCSC Event?',
             'type' => 'inline',
@@ -73,7 +73,7 @@ class QuestionSeeder extends Seeder
         $question->save();
 
         //(#6) Inline question for recruitment 3 (Translation Team): "Which languages do you know very well?".
-        $question = new Question;
+        $question = new Question();
         $question->fill([
             'name' => 'Which languages do you know very well?',
             'type' => 'inline',

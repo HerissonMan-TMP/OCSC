@@ -46,6 +46,6 @@ class Download extends Model
             ? $query
             : $query->whereHas('roles', function (Builder $q) {
                   $q->whereIn('role_id', Auth::user()->roles->pluck('id')->toArray());
-              });
+            });
     }
 }

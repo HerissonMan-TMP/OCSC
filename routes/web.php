@@ -86,7 +86,7 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
     });
 
     //Staff: Temporary password.
-    Route::middleware(['auth', 'temporary-password'])->group(function() {
+    Route::middleware(['auth', 'temporary-password'])->group(function () {
         Route::view('staff/temporary-password/edit', 'edit-temporary-password')
             ->name('staff.temporary-password.edit');
         Route::post('staff/temporary-password/update', [UserController::class, 'updateTemporaryPassword'])
@@ -152,14 +152,14 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
             'show'
         );
         Route::resource('recruitments.questions', QuestionController::class)->only(
-            'store', 'update', 'destroy'
+            ['store','update', 'destroy']
         )->shallow();
         Route::post('applications/{application}/accept', [ApplicationController::class, 'accept'])
             ->name('applications.accept');
         Route::post('applications/{application}/decline', [ApplicationController::class, 'decline'])
             ->name('applications.decline');
         Route::resource('recruitments.applications', ApplicationController::class)->only(
-            'index', 'show'
+            ['index', 'show']
         )->shallow();
         Route::get('global-requirements', [GlobalRequirementsController::class, 'create'])
             ->name('global-requirements.create');
@@ -177,7 +177,7 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
 
         //Users.
         Route::resource('users', UserController::class)->except(
-            'edit', 'update'
+            ['edit', 'update']
         );
         Route::patch('users/{user}/name', [UserController::class, 'updateName'])->name('users.name.update');
         Route::patch('users/{user}/email', [UserController::class, 'updateEmail'])->name('users.email.update');

@@ -57,7 +57,7 @@ class Activity
 
     public function log()
     {
-        $activity = new ActivityModel;
+        $activity = new ActivityModel();
 
         $activity->fill([
             'subject_icon' => $this->subjectIcon,

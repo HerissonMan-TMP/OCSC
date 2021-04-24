@@ -18,7 +18,7 @@ class AnswerSeeder extends Seeder
         DB::table('answers')->truncate();
 
         //(#1) Answer to "How old are you?" in Convoy Control Team application.
-        $answer = new Answer;
+        $answer = new Answer();
         $answer->fill([
             'text' => '16',
         ]);
@@ -27,7 +27,7 @@ class AnswerSeeder extends Seeder
         $answer->save();
 
         //(#2) Answer to "Describe yourself" in Convoy Control Team application.
-        $answer = new Answer;
+        $answer = new Answer();
         $answer->fill([
             'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -40,7 +40,7 @@ class AnswerSeeder extends Seeder
         $answer->save();
 
         //(#3) Answer to "How old are you?" in Convoy Control Team application.
-        $answer = new Answer;
+        $answer = new Answer();
         $answer->fill([
             'text' => 'I\'m 19',
         ]);
@@ -49,7 +49,7 @@ class AnswerSeeder extends Seeder
         $answer->save();
 
         //(#4) Answer to "Describe yourself" in Convoy Control Team application.
-        $answer = new Answer;
+        $answer = new Answer();
         $answer->fill([
             'text' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -62,7 +62,7 @@ class AnswerSeeder extends Seeder
         $answer->save();
 
         //(#5) Answer to "Which languages do you know very well?" in Translation Team application.
-        $answer = new Answer;
+        $answer = new Answer();
         $answer->fill([
             'text' => 'English, as well as German',
         ]);
@@ -71,7 +71,7 @@ class AnswerSeeder extends Seeder
         $answer->save();
 
         //(#6) Answer to "How much time can you devote per week for OCSC Event?" in Convoy Control Team application.
-        $answer = new Answer;
+        $answer = new Answer();
         $answer->fill([
             'text' => '20 hours',
         ]);

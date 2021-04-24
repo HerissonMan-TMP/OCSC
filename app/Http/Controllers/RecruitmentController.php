@@ -82,7 +82,7 @@ class RecruitmentController extends Controller
     {
         Gate::authorize('manage-recruitments');
 
-        $recruitment = new Recruitment;
+        $recruitment = new Recruitment();
 
         $recruitment->fill($request->validated());
         $recruitment->user()->associate(Auth::user());

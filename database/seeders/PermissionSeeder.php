@@ -76,7 +76,7 @@ class PermissionSeeder extends Seeder
         $permission = Permission::create([
          'name' => 'Manage partner categories',
          'slug' => 'manage-partner-categories'
-     ]);
+        ]);
         $permission->category()->associate(4);
         $permission->save();
 

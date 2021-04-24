@@ -19,7 +19,7 @@ class RoleSeeder extends Seeder
         DB::table('role_user')->truncate();
 
         //(#1) Chief Executive Officer.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 1,
             'name' => 'Chief Executive Officer',
@@ -34,7 +34,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach(1);
 
         //(#2) Chief Operating Officer.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 2,
             'name' => 'Chief Operating Officer',
@@ -49,7 +49,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach(2);
 
         //(#3) Developer.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 3,
             'name' => 'Developer',
@@ -64,7 +64,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach(3);
 
         //(#4) Community Manager.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 4,
             'name' => 'Community Manager',
@@ -79,7 +79,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach(4);
 
         //(#5) Event Manager.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 5,
             'name' => 'Event Manager',
@@ -94,7 +94,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach(5);
 
         //(#6) Support Manager.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 6,
             'name' => 'Support Manager',
@@ -109,7 +109,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach(6);
 
         //(#7) Translation Manager.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 7,
             'name' => 'Translation Manager',
@@ -124,7 +124,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach(7);
 
         //(#8) Media Manager.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 8,
             'name' => 'Media Manager',
@@ -139,7 +139,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach(8);
 
         //(#9) Leader Convoy Control.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 9,
             'name' => 'Leader Convoy Control',
@@ -154,7 +154,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach(9);
 
         //(#10) Convoy Control Team.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 10,
             'name' => 'Convoy Control Team',
@@ -169,7 +169,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach([10, 11, 12]);
 
         //(#11) Convoy Control Trainee.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 11,
             'name' => 'Convoy Control Trainee',
@@ -184,7 +184,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach([13, 14, 21]);
 
         //(#12) Event Team.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 12,
             'name' => 'Event Team',
@@ -199,7 +199,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach([15, 16]);
 
         //(#13) Support Team.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 13,
             'name' => 'Support Team',
@@ -214,7 +214,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach(17);
 
         //(#14) Translation Team.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 14,
             'name' => 'Translation Team',
@@ -229,7 +229,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach(18);
 
         //(#15) Media Team.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 15,
             'name' => 'Media Team',
@@ -244,7 +244,7 @@ class RoleSeeder extends Seeder
         $role->users()->attach(19);
 
         //(#16) Official Streamer.
-        $role = new Role;
+        $role = new Role();
         $role->fill([
             'order' => 16,
             'name' => 'Official Streamer',

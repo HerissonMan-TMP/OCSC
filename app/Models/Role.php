@@ -102,7 +102,8 @@ class Role extends Model
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeCurrentlyRecruiting($query) {
+    public function scopeCurrentlyRecruiting($query)
+    {
         return $query->whereHas('recruitments', function (Builder $query) {
             $query->open();
         });
@@ -114,7 +115,8 @@ class Role extends Model
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeNotCurrentlyRecruiting($query) {
+    public function scopeNotCurrentlyRecruiting($query)
+    {
         return $query->whereDoesntHave('recruitments', function (Builder $query) {
             $query->open();
         });

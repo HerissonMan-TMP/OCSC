@@ -18,7 +18,7 @@ class ContactMessageSeeder extends Seeder
         DB::table('contact_messages')->truncate();
 
         //(#1) Unread contact message from HerissonMan#8014 in the "Question" category.
-        $contactMessage = new ContactMessage;
+        $contactMessage = new ContactMessage();
         $contactMessage->fill([
             'truckersmp_id' => '900597',
             'vtc' => 'Forza Logistics',
@@ -30,7 +30,7 @@ class ContactMessageSeeder extends Seeder
         $contactMessage->save();
 
         //(#2) Unread contact message from RootKiller#1111 in the "Privacy / Personal data" category.
-        $contactMessage = new ContactMessage;
+        $contactMessage = new ContactMessage();
         $contactMessage->fill([
             'truckersmp_id' => '1',
             'vtc' => null,
@@ -42,7 +42,7 @@ class ContactMessageSeeder extends Seeder
         $contactMessage->save();
 
         //(#3) Read contact message from Julien417#0000 in the "Report a Bug (Website / Discord)" category.
-        $contactMessage = new ContactMessage;
+        $contactMessage = new ContactMessage();
         $contactMessage->fill([
             'truckersmp_id' => '12345',
             'vtc' => null,
@@ -55,7 +55,7 @@ class ContactMessageSeeder extends Seeder
         $contactMessage->save();
 
         //(#4) Read contact message from someone@example.com in the "I want OCSC to supervise my convoy" category.
-        $contactMessage = new ContactMessage;
+        $contactMessage = new ContactMessage();
         $contactMessage->fill([
             'truckersmp_id' => '99999',
             'vtc' => null,

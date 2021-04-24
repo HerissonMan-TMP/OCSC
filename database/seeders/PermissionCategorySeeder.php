@@ -84,7 +84,7 @@ class PermissionCategorySeeder extends Seeder
 
         //(#14) "Guides" category.
         PermissionCategory::create([
-           'name' => 'Guides'
-       ]);
+            'name' => 'Guides'
+        ]);
     }
 }

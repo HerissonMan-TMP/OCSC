@@ -43,11 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let responsiveButtonCloseNav = document.getElementById('responsive-button-close-nav');
     let responsiveMenu = document.getElementById('responsive-menu');
 
-    responsiveButtonOpenNav.addEventListener('click', function() {
+    responsiveButtonOpenNav.addEventListener('click', function () {
         responsiveMenu.classList.replace('hidden', 'block');
     });
 
-    responsiveButtonCloseNav.addEventListener('click', function() {
+    responsiveButtonCloseNav.addEventListener('click', function () {
         responsiveMenu.classList.replace('block', 'hidden');
     });
 

@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Builder::macro('whereLike', function ($columns, $search) {
             $this->where(function ($query) use ($columns, $search) {
-                foreach($columns as $column) {
+                foreach ($columns as $column) {
                     $query->orWhere($column, 'LIKE', "%{$search}%");
                 }
             });
