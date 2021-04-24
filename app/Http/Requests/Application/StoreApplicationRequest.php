@@ -39,15 +39,17 @@ class StoreApplicationRequest extends FormRequest
             'email' => [
                 'required',
                 'email',
-                'max:300'
+                'max:200'
             ],
             'steam_profile' => [
                 'required',
                 'url',
+                'max:200',
             ],
             'trucksbook_profile' => [
                 'required',
                 'url',
+                'max:200',
             ],
             'age' => [
                 'required',

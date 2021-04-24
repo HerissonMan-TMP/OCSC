@@ -46,7 +46,7 @@ class StoreContactMessageRequest extends FormRequest
             ],
             'email' => [
                 'required_without:discord',
-                'max:300'
+                'max:200'
             ],
             'message' => [
                 'required',
