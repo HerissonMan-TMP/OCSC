@@ -554,7 +554,7 @@
                 <div class="text-center mt-16 text-gray-300 text-sm">
                     ©2021 by {{ config('app.name') }}. All rights reserved.
                     <div class="mt-2">
-                        <a href="{{ route('legal-notice.show') }}" class="underline">Legal Notice</a>
+                        <a href="{{ route('legal-notice.show') }}" class="underline">Legal Notice & Terms and Conditions</a>
                         <a href="{{ route('privacy-policy.show') }}" class="underline">Privacy Policy</a>
                     </div>
                 </div>
@@ -585,7 +585,7 @@
                         en : {
                             consent_modal : {
                                 title :  "We use cookies",
-                                description :  'We and selected partners use cookies or similar technologies as specified in the cookie policy (click on the Settings button to read it). By clicking on "Accept", you also confirm having read and accepted our Legal Notice: {{ route('legal-notice.show') }}.',
+                                description :  'We and selected partners use cookies or similar technologies as specified in the cookie policy (click on the Settings button to read it). By clicking on "Accept", you also confirm having read and accepted our Legal Notice & Terms and Conditions ({{ route('legal-notice.show') }}) and Privacy Policy ({{ route('privacy-policy.show') }}). If you disagree with any of these, please discontinue using the website.',
                                 primary_btn: {
                                     text: 'Accept',
                                     role: 'accept_all'  //'accept_selected' or 'accept_all'
