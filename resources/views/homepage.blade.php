@@ -99,7 +99,7 @@
         <div class="items-center swiper-wrapper">
             @foreach($partners as $partner)
                 <div class="swiper-slide">
-                    <a href="{{ $partner->website_link }}" target="_blank">
+                    <a @isset($partner->website_link) href="{{ $partner->website_link }}" @endisset target="_blank">
                         <img width="200" height="200" src="{{ $partner->logo }}" alt="{{ $partner->name }} Logo" class="rounded-full mx-auto">
                     </a>
                 </div>
