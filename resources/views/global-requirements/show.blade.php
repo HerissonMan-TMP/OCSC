@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16">
+    <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16 break-words">
         @isset($globalRequirements)
             @markdown($globalRequirements->content)
         @else
