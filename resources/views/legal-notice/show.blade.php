@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16 text-justify">
+    <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16">
         @isset($legalNotice)
             @markdown($legalNotice->content)
         @else
