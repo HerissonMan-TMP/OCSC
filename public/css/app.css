@@ -32814,7 +32814,9 @@ blockquote {
 
 ul {
   list-style-position: inside;
-  margin-bottom: 1.5rem
+  margin-bottom: 1.5rem;
+  --tw-text-opacity: 1;
+  color: rgba(209, 213, 219, var(--tw-text-opacity))
 }
 
 li {

@@ -53,7 +53,7 @@ blockquote {
 }
 
 ul {
-    @apply mb-6 list-inside
+    @apply mb-6 list-inside text-gray-300
 }
 
 li {
