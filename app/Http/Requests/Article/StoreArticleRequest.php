@@ -28,16 +28,16 @@ class StoreArticleRequest extends FormRequest
         return [
             'title' => [
                 'required',
-                'max:50'
+                'max:50',
             ],
             'banner_url' => [
                 'nullable',
-                'url'
+                'url',
             ],
             'content' => [
                 'required',
-                'max:5000'
-            ]
+                'max:5000',
+            ],
         ];
     }
 

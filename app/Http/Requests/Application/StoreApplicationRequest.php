@@ -39,7 +39,7 @@ class StoreApplicationRequest extends FormRequest
             'email' => [
                 'required',
                 'email',
-                'max:200'
+                'max:200',
             ],
             'steam_profile' => [
                 'required',
@@ -74,7 +74,7 @@ class StoreApplicationRequest extends FormRequest
         foreach ($questions as $question) {
             $rules["questions.{$counter}"] = [
                 'required',
-                "between:{$question->min_length},{$question->max_length}"
+                "between:{$question->min_length},{$question->max_length}",
             ];
 
             $counter++;

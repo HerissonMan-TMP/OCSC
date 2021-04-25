@@ -32,7 +32,7 @@ class UpdateUserRolesRequest extends FormRequest
                 'required',
                 'array',
                 Rule::in(Role::all()->pluck('id')->toArray()),
-            ]
+            ],
         ];
     }
 

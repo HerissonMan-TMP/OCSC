@@ -31,7 +31,7 @@ class DestroyManyPicturesRequest extends FormRequest
             'pictures' => [
                 'array',
                 Rule::in(Picture::all()->pluck('id')->toArray()),
-            ]
+            ],
         ];
     }
 

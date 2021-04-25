@@ -30,7 +30,7 @@ class StoreDownloadRequest extends FormRequest
         return [
             'name' => [
                 'required',
-                'max:100'
+                'max:100',
             ],
             'file' => [
                 'required',
@@ -40,8 +40,8 @@ class StoreDownloadRequest extends FormRequest
             'roles' => [
                 'required',
                 'array',
-                Rule::in(Role::all()->pluck('id')->toArray())
-            ]
+                Rule::in(Role::all()->pluck('id')->toArray()),
+            ],
         ];
     }
 

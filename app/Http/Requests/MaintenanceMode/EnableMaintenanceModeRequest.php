@@ -28,8 +28,8 @@ class EnableMaintenanceModeRequest extends FormRequest
         return [
             'secret' => [
                 'required',
-                'between:5,50'
-            ]
+                'between:5,50',
+            ],
         ];
     }
 
@@ -42,7 +42,7 @@ class EnableMaintenanceModeRequest extends FormRequest
     {
         return [
             'secret.required' => 'A bypass token is required.',
-            'secret.between' => 'The bypass token must have between :min and :max characters.'
+            'secret.between' => 'The bypass token must have between :min and :max characters.',
         ];
     }
 

@@ -30,7 +30,7 @@ class UpdateEmailRequest extends FormRequest
                 'required',
                 'email',
                 'unique:users',
-                'max:300'
+                'max:300',
             ],
         ];
     }

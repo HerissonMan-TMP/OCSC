@@ -32,21 +32,21 @@ class StoreUserRequest extends FormRequest
                 'required',
                 'email',
                 'unique:users',
-                'max:300'
+                'max:300',
             ],
             'name' => [
                 'required',
                 'string',
-                'between:2,15'
+                'between:2,15',
             ],
             'password' => [
                 'required',
                 'size:8',
-                'alpha_num'
+                'alpha_num',
             ],
             'role_id' => [
-                Rule::in(Role::pluck('id')->toArray())
-            ]
+                Rule::in(Role::pluck('id')->toArray()),
+            ],
         ];
     }
 
@@ -57,13 +57,16 @@ class StoreUserRequest extends FormRequest
             'email.email' => 'The provided Email address is not valid.',
             'email.unique' => 'The provided Email address is already used by someone else.',
             'email.max' => 'The Email address must not be longer than :max characters.',
+
             'name.required' => 'A name is required.',
             'name.string' => 'The name must be a string.',
             'name.between' => 'The name length must be between :min and :max characters.',
+
             'password.required' => 'A temporary password is required.',
             'password.size' => 'The temporary password must have :size characters.',
             'password.alpha_num' => 'The temporary password must only have alphanumeric characters.',
-            'role_id.in' => 'This role does not exist.'
+
+            'role_id.in' => 'This role does not exist.',
         ];
     }
 

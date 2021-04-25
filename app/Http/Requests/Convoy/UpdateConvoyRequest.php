@@ -33,31 +33,31 @@ class UpdateConvoyRequest extends FormRequest
             ],
             'title' => [
                 'required',
-                'max:50'
+                'max:50',
             ],
             'banner_url' => [
                 'nullable',
-                'url'
+                'url',
             ],
             'location' => [
                 'required',
-                'max:20'
+                'max:20',
             ],
             'distance' => [
                 'nullable',
-                'numeric'
+                'numeric',
             ],
             'destination' => [
                 'required',
-                'max:20'
+                'max:20',
             ],
             'server' => [
                 'required',
-                'max:20'
+                'max:20',
             ],
             'meetup_date' => [
                 'required',
-                'date'
+                'date',
             ],
         ];
     }

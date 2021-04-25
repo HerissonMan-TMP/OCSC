@@ -29,8 +29,8 @@ class UpdateTemporaryPasswordRequest extends FormRequest
             'password' => [
                 'required',
                 'confirmed',
-                'min:8'
-            ]
+                'min:8',
+            ],
         ];
     }
 
@@ -44,7 +44,7 @@ class UpdateTemporaryPasswordRequest extends FormRequest
         return [
             'password.required' => 'You must enter a password.',
             'password.confirmed' => 'The passwords does not match.',
-            'password.min' => 'The password length must be :min characters or more.'
+            'password.min' => 'The password length must be :min characters or more.',
         ];
     }
 

@@ -33,8 +33,8 @@ class StoreQuestionRequest extends FormRequest
                 'max:60'
             ],
             'type' => [
-                Rule::in(['inline', 'multiline'])
-            ]
+                Rule::in(['inline', 'multiline']),
+            ],
         ];
     }
 
@@ -49,7 +49,8 @@ class StoreQuestionRequest extends FormRequest
             'name.required' => 'You must enter a question.',
             'name.string' => 'The question must be a string.',
             'name.max' => 'The question length must not exceed :max characters.',
-            'type.in' => 'The type of the question is not valid'
+
+            'type.in' => 'The type of the question is not valid',
         ];
     }
 

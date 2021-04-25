@@ -29,7 +29,7 @@ class UpdateNameRequest extends FormRequest
             'name' => [
                 'required',
                 'string',
-                'between:2,15'
+                'between:2,15',
             ],
         ];
     }

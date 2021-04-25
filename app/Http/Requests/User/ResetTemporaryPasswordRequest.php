@@ -29,8 +29,8 @@ class ResetTemporaryPasswordRequest extends FormRequest
             'password' => [
                 'required',
                 'size:8',
-                'alpha_num'
-            ]
+                'alpha_num',
+            ],
         ];
     }
 

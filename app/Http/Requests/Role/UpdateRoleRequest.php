@@ -28,10 +28,10 @@ class UpdateRoleRequest extends FormRequest
         return [
             'name' => [
                 'required',
-                'max:30'
+                'max:30',
             ],
             'icon_name' => [
-                'required'
+                'required',
             ],
             'color' => [
                 'required',
@@ -43,11 +43,11 @@ class UpdateRoleRequest extends FormRequest
             ],
             'description' => [
                 'required',
-                'max:100'
+                'max:100',
             ],
             'recruitment_enabled' => [
-                'boolean'
-            ]
+                'boolean',
+            ],
         ];
     }
 
@@ -73,7 +73,7 @@ class UpdateRoleRequest extends FormRequest
             'description.required' => 'A description is required.',
             'description.max' => 'The description cannot be longer than :max characters.',
 
-            'recruitment_enabled.boolean' => 'The value for the "recruitment enabled" checkbox is not valid.'
+            'recruitment_enabled.boolean' => 'The value for the "recruitment enabled" checkbox is not valid.',
         ];
     }
 

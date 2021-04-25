@@ -35,8 +35,8 @@ class UpdateDownloadRequest extends FormRequest
             'roles' => [
                 'required',
                 'array',
-                Rule::in(Role::all()->pluck('id')->toArray())
-            ]
+                Rule::in(Role::all()->pluck('id')->toArray()),
+            ],
         ];
     }
 

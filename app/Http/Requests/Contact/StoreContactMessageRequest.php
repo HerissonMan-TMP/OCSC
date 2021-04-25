@@ -35,10 +35,10 @@ class StoreContactMessageRequest extends FormRequest
             ],
             'vtc' => [
                 'nullable',
-                'max:30'
+                'max:30',
             ],
             'category_id' => [
-                Rule::in(ContactCategory::pluck('id')->toArray())
+                Rule::in(ContactCategory::pluck('id')->toArray()),
             ],
             'discord' => [
                 'required_without:email',
@@ -46,11 +46,11 @@ class StoreContactMessageRequest extends FormRequest
             ],
             'email' => [
                 'required_without:discord',
-                'max:200'
+                'max:200',
             ],
             'message' => [
                 'required',
-                'max:5000'
+                'max:5000',
             ],
             'consent' => [
                 'accepted',
@@ -68,14 +68,20 @@ class StoreContactMessageRequest extends FormRequest
         return [
             'truckersmp_id.numeric' => 'The TruckersMP ID must be a number.',
             'truckersmp_id.digits_between' => 'The TruckersMP ID must not exceed :max numbers.',
+
             'vtc.max' => 'The VTC name must not exceed :max characters.',
+
             'category_id.in' => 'The category is not valid.',
+
             'discord.required_without' => 'The Discord username is required if the Email address is not filled.',
             'discord.max' => 'The Discord username must not exceed :max characters.',
+
             'email.required_without' => 'The Email address is required if the Discord username is not filled.',
             'email.max' => 'The Email address must not exceed :max characters.',
+
             'message.required' => 'A message is required.',
             'message.max' => 'The message must not exceed :max characters.',
+
             'consent.accepted' => 'You must agree to the processing of your data in accordance with the privacy policy.',
         ];
     }
