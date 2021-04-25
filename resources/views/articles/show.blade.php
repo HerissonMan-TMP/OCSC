@@ -32,7 +32,7 @@
             <div>
                 @forelse($latestArticles as $latestArticle)
                 <div class="mt-8">
-                    <div class="h-52 text-sm mb-2 bg-cover bg-center" style="background-image: url({{ $article->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }});">
+                    <div class="h-52 text-sm mb-2 bg-cover bg-center" style="background-image: url({{ $latestArticle->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }});">
                     </div>
 
                     <a href="{{ route('articles.show', $latestArticle) }}">
