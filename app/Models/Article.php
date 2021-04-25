@@ -22,6 +22,11 @@ class Article extends Model
         'content',
     ];
 
+    /**
+     * Get the user who posted the article.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function postedByUser()
     {
         return $this->belongsTo(User::class, 'posted_by');

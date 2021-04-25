@@ -16,6 +16,16 @@ class Permission extends Model
     use HasFactory;
 
     /**
+     * Get the category the permission belongs to.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(PermissionCategory::class, 'category_id');
+    }
+
+    /**
      * Get the roles having the permission.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -23,10 +33,5 @@ class Permission extends Model
     public function roles()
     {
         return $this->belongsToMany(Role::class);
-    }
-
-    public function category()
-    {
-        return $this->belongsTo(PermissionCategory::class, 'category_id');
     }
 }

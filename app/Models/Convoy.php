@@ -24,11 +24,11 @@ class Convoy extends Model
         'distance',
         'destination',
         'server',
-        'meetup_date'
+        'meetup_date',
     ];
 
     protected $dates = [
-        'meetup_date'
+        'meetup_date',
     ];
 
     /**

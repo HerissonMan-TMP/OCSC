@@ -6,12 +6,6 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class Recruitment
- *
- * @package App\Models
- * @mixin \Eloquent
- */
 class Recruitment extends Model
 {
     use HasFactory;
@@ -25,13 +19,33 @@ class Recruitment extends Model
         'start_at',
         'end_at',
         'note',
-        'specific_requirements'
+        'specific_requirements',
     ];
 
     protected $dates = [
         'start_at',
         'end_at',
     ];
+
+    /**
+     * Get the applications sent for the recruitment session.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function applications()
+    {
+        return $this->hasMany(Application::class);
+    }
+
+    /**
+     * Get the the recruitment session's questions.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 
     /**
      * Get the role the recruitment session is for.
@@ -51,26 +65,6 @@ class Recruitment extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Get the the recruitment session's questions.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function questions()
-    {
-        return $this->hasMany(Question::class);
-    }
-
-    /**
-     * Get the applications sent for the recruitment session.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function applications()
-    {
-        return $this->hasMany(Application::class);
     }
 
     public function getIsOpenAttribute(): bool

@@ -6,12 +6,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class Role
- *
- * @package App\Models
- * @mixin \Eloquent
- */
 class Role extends Model
 {
     use HasFactory;
@@ -27,23 +21,39 @@ class Role extends Model
         'color',
         'contrast_color',
         'description',
-        'recruitment_enabled'
+        'recruitment_enabled',
     ];
 
     /**
-     * Get the users having the role.
+     * Get the downloads the role is allowed to access.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function users()
+    public function downloads()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(Download::class);
     }
 
+    /**
+     * Get the group of the role.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function group()
     {
         return $this->belongsTo(Group::class);
     }
+
+    /**
+     * Get the guides the role is allowed to read.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function guides()
+    {
+        return $this->belongsToMany(Guide::class);
+    }
+
 
     /**
      * Get the permissions the role has.
@@ -66,23 +76,13 @@ class Role extends Model
     }
 
     /**
-     * Get the downloads the role is allowed to see.
+     * Get the users having the role.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function downloads()
+    public function users()
     {
-        return $this->belongsToMany(Download::class);
-    }
-
-    /**
-     * Get the guides the role is allowed to see.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function guides()
-    {
-        return $this->belongsToMany(Guide::class);
+        return $this->belongsToMany(User::class);
     }
 
     /**
@@ -110,21 +110,33 @@ class Role extends Model
     }
 
     /**
-     * Scope a query to only include roles that doesn't have recruitments open.
+     * Get the current recruitment session for the role.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return mixed
      */
-    public function scopeNotCurrentlyRecruiting($query)
+    public function getOpenRecruitment()
     {
-        return $query->whereDoesntHave('recruitments', function (Builder $query) {
-            $query->open();
-        });
+        return $this->recruitments->first();
     }
 
+    /**
+     * Test if the role is recruiting.
+     *
+     * @return bool
+     */
+    public function isRecruiting()
+    {
+        return $this->getOpenRecruitment() !== null;
+    }
+
+    /**
+     * Test if the role has the given permission.
+     *
+     * @param $permission
+     * @return bool
+     */
     public function hasPermission($permission)
     {
-
         if (gettype($permission) === 'string') {
             $permissions = [];
             foreach (app('roles')->find($this->id)->permissions as $permissionItem) {
@@ -136,15 +148,5 @@ class Role extends Model
             $permissionId = $permission->id;
         }
         return $this->permissions->contains($permissionId);
-    }
-
-    public function getOpenRecruitment()
-    {
-        return $this->recruitments->first();
-    }
-
-    public function isRecruiting()
-    {
-        return $this->getOpenRecruitment() !== null;
     }
 }

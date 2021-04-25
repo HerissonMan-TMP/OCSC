@@ -9,6 +9,11 @@ class Group extends Model
 {
     use HasFactory;
 
+    /**
+     * Get the group's roles.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function roles()
     {
         return $this->hasMany(Role::class);

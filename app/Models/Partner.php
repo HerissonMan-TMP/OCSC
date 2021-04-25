@@ -25,6 +25,11 @@ class Partner extends Model
         'instagram_link',
     ];
 
+    /**
+     * Get the category the partner belongs to.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function category()
     {
         return $this->belongsTo(PartnerCategory::class, 'category_id');

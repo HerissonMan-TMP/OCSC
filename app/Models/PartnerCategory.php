@@ -24,6 +24,11 @@ class PartnerCategory extends Model
         'opening_at',
     ];
 
+    /**
+     * Get the partners of the category.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function partners()
     {
         return $this->hasMany(Partner::class, 'category_id');

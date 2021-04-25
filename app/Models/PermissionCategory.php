@@ -15,9 +15,14 @@ class PermissionCategory extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
     ];
 
+    /**
+     * Get the permissions of the category.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function permissions()
     {
         return $this->hasMany(Permission::class, 'category_id');

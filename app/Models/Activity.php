@@ -22,11 +22,21 @@ class Activity extends Model
         'description',
     ];
 
+    /**
+     * Get the user who caused the activity.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function causer()
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Get the type of the activity.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function type()
     {
         return $this->belongsTo(ActivityType::class);

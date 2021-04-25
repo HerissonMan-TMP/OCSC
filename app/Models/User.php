@@ -10,12 +10,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-/**
- * Class User
- *
- * @package App\Models
- * @mixin \Eloquent
- */
 class User extends Authenticatable
 {
     use HasFactory;
@@ -31,7 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'has_temporary_password'
+        'has_temporary_password',
     ];
 
     /**
@@ -53,19 +47,34 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function setPasswordAttribute($value)
+    /**
+     * Get the activities of the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function activities()
     {
-        $this->attributes['password'] = Hash::make($value);
+        return $this->hasMany(Activity::class, 'causer_id');
     }
 
     /**
-     * Get if the user has a temporary password.
+     * Get the articles posted by the user.
      *
-     * @return bool
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function getHasTemporaryPasswordAttribute()
+    public function articles()
     {
-        return $this->temporary_password_without_hash !== null;
+        return $this->hasMany(Article::class, 'posted_by');
+    }
+
+    /**
+     * Get the recruitment sessions created by the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function recruitments()
+    {
+        return $this->hasMany(Recruitment::class);
     }
 
     /**
@@ -79,20 +88,31 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the recruitment sessions created by the user.
+     * Set the user's password.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @param $value
      */
-    public function recruitments()
+    public function setPasswordAttribute($value)
     {
-        return $this->hasMany(Recruitment::class);
+        $this->attributes['password'] = Hash::make($value);
     }
 
-    public function articles()
+    /**
+     * Test if the user has a temporary password.
+     *
+     * @return bool
+     */
+    public function getHasTemporaryPasswordAttribute()
     {
-        return $this->hasMany(Article::class, 'posted_by');
+        return $this->temporary_password_without_hash !== null;
     }
 
+    /**
+     * Test if the user has the given permission.
+     *
+     * @param $permission
+     * @return bool
+     */
     public function hasPermission($permission)
     {
         foreach (app('users')->find($this->id)->roles as $role) {
@@ -103,23 +123,14 @@ class User extends Authenticatable
         return false;
     }
 
+    /**
+     * Test if the user has the given role.
+     *
+     * @param $role
+     * @return bool
+     */
     public function hasRole($role)
     {
         return $this->roles->contains($role->id);
-    }
-
-    public function highestGroup()
-    {
-        return Auth::user()->roles()->first()->group;
-    }
-
-    public function activities()
-    {
-        return $this->hasMany(Activity::class, 'causer_id');
-    }
-
-    public function errors()
-    {
-        return $this->hasMany(Error::class);
     }
 }

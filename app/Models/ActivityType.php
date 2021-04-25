@@ -33,6 +33,11 @@ class ActivityType extends Model
 
     public const DISABLED = 'disabled';
 
+    /**
+     * Get the activities of the type.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function activities()
     {
         return $this->hasMany(Activity::class);

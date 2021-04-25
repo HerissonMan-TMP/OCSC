@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="" />
+    <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Activity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ActivityType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ActivityType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Application.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Application.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ContactCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ContactCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ContactMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ContactMessage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Convoy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Convoy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Error.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Error.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Group.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Guide.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Guide.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Partner.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Partner.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/PartnerCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PartnerCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Permission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/PermissionCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PermissionCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Picture.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Picture.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Question.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Recruitment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Recruitment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Subscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Subscriber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -176,7 +198,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -277,6 +299,7 @@
       <workItem from="1619171022083" duration="13007000" />
       <workItem from="1619252728446" duration="7065000" />
       <workItem from="1619352385132" duration="300000" />
+      <workItem from="1619371853527" duration="2052000" />
     </task>
     <servers />
   </component>

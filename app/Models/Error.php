@@ -19,11 +19,6 @@ class Error extends Model
     protected $fillable = [
         'ip_address',
         'status_code',
-        'uri'
+        'uri',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

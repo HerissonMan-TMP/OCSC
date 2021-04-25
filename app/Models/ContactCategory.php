@@ -9,6 +9,11 @@ class ContactCategory extends Model
 {
     use HasFactory;
 
+    /**
+     * Get the contact messages of the given category.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function messages()
     {
         return $this->hasMany(ContactMessage::class, 'category_id');

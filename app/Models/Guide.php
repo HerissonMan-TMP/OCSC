@@ -22,6 +22,11 @@ class Guide extends Model
         'banner_url',
     ];
 
+    /**
+     * Get the roles that are allowed to read the guide.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function roles()
     {
         return $this->belongsToMany(Role::class);

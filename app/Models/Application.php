@@ -38,16 +38,6 @@ class Application extends Model
     ];
 
     /**
-     * Get the recruitment session the application belongs to.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function recruitment()
-    {
-        return $this->belongsTo(Recruitment::class);
-    }
-
-    /**
      * Get the application's answers.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -58,13 +48,13 @@ class Application extends Model
     }
 
     /**
-     * Get the answer for the application's question.
+     * Get the recruitment session the application belongs to.
      *
-     * @param Question $question
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function answerForQuestion(Question $question)
+    public function recruitment()
     {
-        return $this->answers()->where('question_id', $question->id)->first();
+        return $this->belongsTo(Recruitment::class);
     }
 
     /**
@@ -76,5 +66,16 @@ class Application extends Model
     public function scopeNew($query)
     {
         return $query->where('status', 'new');
+    }
+
+    /**
+     * Get the answer for the application's question.
+     *
+     * @param Question $question
+     * @return Model|\Illuminate\Database\Eloquent\Relations\HasMany|object|null
+     */
+    public function answerForQuestion(Question $question)
+    {
+        return $this->answers()->where('question_id', $question->id)->first();
     }
 }

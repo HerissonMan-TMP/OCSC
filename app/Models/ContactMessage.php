@@ -29,6 +29,11 @@ class ContactMessage extends Model
         'status',
     ];
 
+    /**
+     * Get the category the contact message belongs to.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function category()
     {
         return $this->belongsTo(ContactCategory::class);
