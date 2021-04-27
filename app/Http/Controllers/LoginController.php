@@ -44,13 +44,13 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        activity(ActivityType::LOGGED_OUT)
-                ->log();
-
         Auth::logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
+        activity(ActivityType::LOGGED_OUT)
+            ->log();
 
         return redirect()->route('homepage');
     }
