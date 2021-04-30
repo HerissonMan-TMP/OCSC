@@ -36,9 +36,7 @@ class ArticleTest extends TestCase
         $article = Article::factory()->create();
 
         $response = $this->get(
-            route(
-                'articles.show', $article
-            )
+            route('articles.show', $article)
         );
 
         $response->assertStatus(200);

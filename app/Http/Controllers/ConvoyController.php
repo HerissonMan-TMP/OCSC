@@ -7,7 +7,9 @@ use App\Http\Requests\Convoy\StoreConvoyRequest;
 use App\Http\Requests\Convoy\UpdateConvoyRequest;
 use App\Models\ActivityType;
 use App\Models\Convoy;
+use Illuminate\Http\Client\Pool;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Http;
 
 /**
  * Class ConvoyController
@@ -23,7 +25,18 @@ class ConvoyController extends Controller
      */
     public function index(ConvoyFilters $filters)
     {
-        $convoys = Convoy::filter($filters)->paginate(12);
+        $convoyModels = Convoy::filter($filters)->get();
+
+        $responses = Http::pool(function (Pool $pool) use ($convoyModels) {
+            $responses = [];
+
+            foreach ($convoyModels as $convoyModel) {
+                $url = 'https://api.truckersmp.com/v2/events/';
+                array_push($responses, $pool->get($url . $convoyModel->id));
+            }
+
+            return $responses;
+        });
 
         return view('convoys.index')
                 ->with(compact('convoys'));
