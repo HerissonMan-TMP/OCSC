@@ -174,7 +174,7 @@
 
                                 <div class="col-span-full md:col-span-4">
                                     <label for="name-field" class="block text-sm font-medium text-gray-300">Name <span class="text-red-500 font-bold">*</span></label>
-                                    <input type="text" name="name" id="name-field" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ old('name') ?? $authUser->name }}" required>
+                                    <input type="text" name="name" id="name-field" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ old('name') ?? $user->name }}" required>
                                 </div>
 
                                 <div class="col-span-full md:col-span-1">
@@ -200,7 +200,7 @@
 
                                 <div class="col-span-full md:col-span-4">
                                     <label for="email-field" class="block text-sm font-medium text-gray-300">Email <span class="text-red-500 font-bold">*</span></label>
-                                    <input type="text" name="email" id="email-field" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ old('email') ?? $authUser->email }}" required>
+                                    <input type="text" name="email" id="email-field" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ old('email') ?? $user->email }}" required>
                                 </div>
 
                                 <div class="col-span-full md:col-span-1">
