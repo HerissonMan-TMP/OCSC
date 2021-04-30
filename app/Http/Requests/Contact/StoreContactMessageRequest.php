@@ -38,6 +38,7 @@ class StoreContactMessageRequest extends FormRequest
                 'max:30',
             ],
             'category_id' => [
+                'required',
                 Rule::in(ContactCategory::pluck('id')->toArray()),
             ],
             'discord' => [
@@ -71,6 +72,7 @@ class StoreContactMessageRequest extends FormRequest
 
             'vtc.max' => 'The VTC name must not exceed :max characters.',
 
+            'category_id.required' => 'A category is required.',
             'category_id.in' => 'The category is not valid.',
 
             'discord.required_without' => 'The Discord username is required if the Email address is not filled.',

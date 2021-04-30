@@ -8,34 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/TTFR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TTFR.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactMessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactMessageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ConvoyRulesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ConvoyRulesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DownloadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DownloadController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GlobalRequirementsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GlobalRequirementsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GuideController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GuideController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LegalNoticeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LegalNoticeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PartnershipConditionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PartnershipConditionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PictureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PictureController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PrivacyPolicyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PrivacyPolicyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Download/StoreDownloadRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Download/StoreDownloadRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Download/UpdateDownloadRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Download/UpdateDownloadRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Guides/StoreGuideRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Guides/StoreGuideRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Guides/UpdateGuideRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Guides/UpdateGuideRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Group.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Permission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Contact/StoreContactMessageRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Contact/StoreContactMessageRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Partners/StorePartnerRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Partners/StorePartnerRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/GuideFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/GuideFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/PictureFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PictureFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_19_171547_delete_user_id_from_recruitments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_19_171547_delete_user_id_from_recruitments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/ActivityTypeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ActivityTypeSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PictureSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PictureSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/CreatesApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CreatesApplication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,6 +165,7 @@
       <path value="$PROJECT_DIR$/vendor/garygreen/pretty-routes" />
       <path value="$PROJECT_DIR$/vendor/davidbadura/faker-markdown-generator" />
       <path value="$PROJECT_DIR$/vendor/davidbadura/markdown-builder" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
     </include_path>
   </component>
   <component name="ProjectId" id="1p6YDBYL3Y3S9kmyGf9YbXMIcr8" />
@@ -326,7 +302,7 @@
       <workItem from="1619530443051" duration="5514000" />
       <workItem from="1619627802413" duration="9682000" />
       <workItem from="1619686951319" duration="18547000" />
-      <workItem from="1619765597852" duration="11074000" />
+      <workItem from="1619765597852" duration="12217000" />
     </task>
     <servers />
   </component>
