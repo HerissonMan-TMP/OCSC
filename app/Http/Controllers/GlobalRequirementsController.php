@@ -62,6 +62,6 @@ class GlobalRequirementsController extends Controller
 
         flash("You have successfully updated the global requirements!")->success();
 
-        return back();
+        return redirect()->route('global-requirements.show');
     }
 }

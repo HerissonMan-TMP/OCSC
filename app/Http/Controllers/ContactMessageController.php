@@ -152,6 +152,6 @@ class ContactMessageController extends Controller
 
         flash("You have successfully deleted the message!")->success();
 
-        return redirect()->route('staff.hub');
+        return redirect()->route('staff.contact-messages.index');
     }
 }

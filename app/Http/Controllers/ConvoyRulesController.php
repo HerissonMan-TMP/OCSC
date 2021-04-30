@@ -59,6 +59,6 @@ class ConvoyRulesController extends Controller
 
         flash("You have successfully updated the convoy rules!")->success();
 
-        return back();
+        return redirect()->route('convoy-rules.show');
     }
 }

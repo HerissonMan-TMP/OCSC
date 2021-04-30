@@ -126,6 +126,8 @@
       <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
       <path value="$PROJECT_DIR$/vendor/laracasts/flash" />
       <path value="$PROJECT_DIR$/vendor/garygreen/pretty-routes" />
+      <path value="$PROJECT_DIR$/vendor/davidbadura/faker-markdown-generator" />
+      <path value="$PROJECT_DIR$/vendor/davidbadura/markdown-builder" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />

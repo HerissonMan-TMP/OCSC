@@ -165,7 +165,8 @@ class PictureController extends Controller
             $response = Gate::inspect('manage-picture', Picture::find($pictureId));
 
             if (!$response->allowed()) {
-                return back()->withErrors(['select_mode' => 'You selected some pictures you cannot manage.']);
+                return redirect()->route('staff.pictures.index')
+                    ->withErrors(['select_mode' => 'You selected some pictures you cannot manage.']);
             }
         }
 

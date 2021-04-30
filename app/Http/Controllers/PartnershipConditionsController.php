@@ -46,6 +46,6 @@ class PartnershipConditionsController extends Controller
 
         flash("You have successfully updated the partnership conditions & information!")->success();
 
-        return redirect()->route('staff.partners.index');
+        return redirect()->route('partners');
     }
 }

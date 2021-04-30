@@ -15,7 +15,7 @@ class ActivityTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('activity_types')->truncate();
+
 
         //(#1) Type: "Created".
         ActivityType::create([

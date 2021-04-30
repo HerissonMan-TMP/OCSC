@@ -119,7 +119,7 @@ class AuthServiceProvider extends ServiceProvider
 
         $ability = 'add-pictures-to-gallery';
         Gate::define($ability, function (User $user) use ($ability) {
-            return $user->hasPermission($ability)
+            return $user->hasPermission($ability) || $user->can('manage-pictures')
                 ? Response::allow()
                 : Response::deny('You are not allowed to add pictures to the gallery.');
         });

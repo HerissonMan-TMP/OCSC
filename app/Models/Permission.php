@@ -16,6 +16,16 @@ class Permission extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'slug',
+    ];
+
+    /**
      * Get the category the permission belongs to.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

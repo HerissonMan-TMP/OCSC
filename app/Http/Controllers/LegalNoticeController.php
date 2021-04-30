@@ -62,6 +62,6 @@ class LegalNoticeController extends Controller
 
         flash("You have successfully updated the legal notice!")->success();
 
-        return back();
+        return redirect()->route('legal-notice.show');
     }
 }

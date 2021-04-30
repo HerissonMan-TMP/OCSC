@@ -41,7 +41,7 @@ class UpdateGuideRequest extends FormRequest
                 'max:10000',
             ],
             'roles' => [
-                'required',
+                'nullable',
                 'array',
                 Rule::in(Role::all()->pluck('id')->toArray()),
             ],
@@ -65,7 +65,6 @@ class UpdateGuideRequest extends FormRequest
             'content.required' => 'A content is required.',
             'content.max' => 'The content cannot be longer than :max characters.',
 
-            'roles.required' => 'At least one role must be able to see a guide.',
             'roles.array' => 'The roles must be sent in an array format.',
             'roles.in' => 'The roles are not valid.',
         ];

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Guide;
+use App\Models\Download;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class GuideFactory extends Factory
+class DownloadFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Guide::class;
+    protected $model = Download::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,9 @@ class GuideFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(3, false),
-            'content' => $this->faker->text(1000),
-            'banner_url' => $this->faker->imageUrl(1920, 1080),
+            'name' => $this->faker->sentence(3, false),
+            'original_file_name' => $this->faker->sentence(2, false) . $this->faker->fileExtension(),
+            'path' => $this->faker->filePath(),
         ];
     }
 }

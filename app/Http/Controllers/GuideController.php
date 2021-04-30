@@ -56,7 +56,7 @@ class GuideController extends Controller
 
         flash("You have successfully created a new guide!")->success();
 
-        return redirect()->route('staff.guides.index');
+        return redirect()->route('staff.guides.show', $guide);
     }
 
     public function edit(Guide $guide)
@@ -85,7 +85,7 @@ class GuideController extends Controller
 
         flash("You have successfully updated the guide \"{$guide->title}\"!")->success();
 
-        return redirect()->route('staff.guides.index');
+        return redirect()->route('staff.guides.show', $guide);
     }
 
     public function destroy(Guide $guide)

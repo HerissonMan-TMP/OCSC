@@ -152,6 +152,6 @@ class DownloadController extends Controller
 
         flash("You have successfully deleted the download '{$download->name}'!")->success();
 
-        return back();
+        return redirect()->route('staff.downloads.index');
     }
 }

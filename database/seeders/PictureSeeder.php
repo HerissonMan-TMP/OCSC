@@ -19,7 +19,7 @@ class PictureSeeder extends Seeder
     {
         DB::table('pictures')->truncate();
 
-        $files =   Storage::allFiles('gallery');
+        $files = Storage::allFiles('gallery');
         Storage::delete($files);
 
         //6 users having posted 5 pictures each.

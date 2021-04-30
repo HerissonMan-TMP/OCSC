@@ -38,7 +38,7 @@ class StoreDownloadRequest extends FormRequest
                 'max:15000',
             ],
             'roles' => [
-                'required',
+                'nullable',
                 'array',
                 Rule::in(Role::all()->pluck('id')->toArray()),
             ],
@@ -60,7 +60,6 @@ class StoreDownloadRequest extends FormRequest
             'file.file' => 'The file is not valid.',
             'file.max' => 'The file size cannot be greater than :max KB.',
 
-            'roles.required' => 'At least one role must be able to see a download.',
             'roles.array' => 'The roles must be sent in an array format.',
             'roles.in' => 'The roles are not valid.',
         ];

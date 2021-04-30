@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
 
+        DB::table('activity_types')->truncate();
+
         $this->call([
             UserSeeder::class,
             GroupSeeder::class,

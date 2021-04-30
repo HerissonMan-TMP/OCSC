@@ -14,7 +14,7 @@ class DeleteUserIdFromRecruitmentsTable extends Migration
     public function up()
     {
         Schema::table('recruitments', function (Blueprint $table) {
-            //$table->dropConstrainedForeignId('user_id');
+            $table->dropConstrainedForeignId('user_id');
         });
     }
 

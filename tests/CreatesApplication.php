@@ -17,6 +17,10 @@ trait CreatesApplication
 
         $app->make(Kernel::class)->bootstrap();
 
+        \Artisan::call('db:seed', [
+            '--class' => 'ActivityTypeSeeder',
+        ]);
+
         return $app;
     }
 }

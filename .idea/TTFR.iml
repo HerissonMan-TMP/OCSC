@@ -133,6 +133,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpspec/prophecy" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laracasts/flash" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/garygreen/pretty-routes" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/davidbadura/faker-markdown-generator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/davidbadura/markdown-builder" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

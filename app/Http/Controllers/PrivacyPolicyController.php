@@ -62,6 +62,6 @@ class PrivacyPolicyController extends Controller
 
         flash("You have successfully updated the privacy policy!")->success();
 
-        return back();
+        return redirect()->route('privacy-policy.show');
     }
 }
