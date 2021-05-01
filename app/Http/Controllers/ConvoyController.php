@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Filters\ConvoyFilters;
 use App\Http\Requests\Convoy\StoreConvoyRequest;
 use App\Http\Requests\Convoy\UpdateConvoyRequest;
 use App\Models\ActivityType;
 use App\Models\Convoy;
+use App\Services\ArrayCollectionPaginator;
+use App\Services\TruckersMP;
 use Illuminate\Http\Client\Pool;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Http;
 
@@ -20,23 +22,18 @@ class ConvoyController extends Controller
     /**
      * Display all the convoys.
      *
-     * @param ConvoyFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index(ConvoyFilters $filters)
+    public function index()
     {
-        $convoyModels = Convoy::filter($filters)->get();
+        $convoyIds = Convoy::all()->pluck('truckersmp_event_id')->toArray();
 
-        $responses = Http::pool(function (Pool $pool) use ($convoyModels) {
-            $responses = [];
+        $convoys = TruckersMP::events($convoyIds);
 
-            foreach ($convoyModels as $convoyModel) {
-                $url = 'https://api.truckersmp.com/v2/events/';
-                array_push($responses, $pool->get($url . $convoyModel->id));
-            }
-
-            return $responses;
-        });
+        $convoys = ArrayCollectionPaginator::paginate(
+            collect($convoys)->sortBy('response.start_at')
+        )
+        ->withPath(request()->getPathInfo());
 
         return view('convoys.index')
                 ->with(compact('convoys'));
@@ -45,12 +42,18 @@ class ConvoyController extends Controller
     /**
      * Display the convoys (Public side).
      *
-     * @param ConvoyFilters $filters
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function convoys(ConvoyFilters $filters)
+    public function convoys()
     {
-        $convoys = Convoy::filter($filters)->paginate(12);
+        $convoyIds = Convoy::all()->pluck('truckersmp_event_id')->toArray();
+
+        $convoys = TruckersMP::events($convoyIds);
+
+        $convoys = ArrayCollectionPaginator::paginate(
+            collect($convoys)->sortBy('response.start_at')
+        )
+            ->withPath(request()->getPathInfo());
 
         return view('convoys.convoys')
                 ->with(compact('convoys'));
@@ -82,51 +85,14 @@ class ConvoyController extends Controller
 
         $convoy = Convoy::create($request->validated());
 
+        Cache::forget('convoys');
+
         activity(ActivityType::CREATED)
             ->subject('fas fa-truck', "Convoy #{$convoy->id}")
             ->description("Name: {$convoy->title}")
             ->log();
 
         flash("You have successfully posted a new convoy!")->success();
-
-        return redirect()->route('staff.convoys.index');
-    }
-
-    /**
-     * Display the form to edit the given convoy.
-     *
-     * @param Convoy $convoy
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     * @throws \Illuminate\Auth\Access\AuthorizationException
-     */
-    public function edit(Convoy $convoy)
-    {
-        Gate::authorize('manage-convoys');
-
-        return view('convoys.edit')
-                ->with(compact('convoy'));
-    }
-
-    /**
-     * Update the given convoy.
-     *
-     * @param Convoy $convoy
-     * @param UpdateConvoyRequest $request
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Illuminate\Auth\Access\AuthorizationException
-     */
-    public function update(Convoy $convoy, UpdateConvoyRequest $request)
-    {
-        Gate::authorize('manage-convoys');
-
-        $convoy->update($request->validated());
-
-        activity(ActivityType::UPDATED)
-            ->subject('fas fa-truck', "Convoy #{$convoy->id}")
-            ->description("Name: {$convoy->title}")
-            ->log();
-
-        flash("You have successfully updated the convoy '{$convoy->name}'!")->success();
 
         return redirect()->route('staff.convoys.index');
     }
@@ -144,13 +110,19 @@ class ConvoyController extends Controller
 
         $convoy->delete();
 
+        Cache::forget('convoys');
+
         activity(ActivityType::DELETED)
-            ->subject('fas fa-truck', "Convoy #{$convoy->id}")
-            ->description("Name: {$convoy->title}")
+            ->subject('fas fa-truck', "Convoy (TMP ID {$convoy->truckersmp_event_id})")
             ->log();
 
-        flash("You have successfully deleted the convoy '{$convoy->name}'!")->success();
+        flash("You have successfully deleted the convoy!")->success();
 
         return redirect()->route('staff.convoys.index');
+    }
+
+    public function edit(Convoy $convoy)
+    {
+        dd($convoy);
     }
 }

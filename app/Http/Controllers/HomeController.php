@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Convoy;
 use App\Models\Partner;
+use App\Services\TruckersMP;
+use Carbon\Carbon;
 
 /**
  * Class HomeController
@@ -18,7 +20,21 @@ class HomeController extends Controller
      */
     public function homepage()
     {
-        $convoys = Convoy::take(3)->upcoming()->oldest('meetup_date')->get();
+        //$convoys = Convoy::take(3)->upcoming()->oldest('meetup_date')->get();
+
+        $convoyIds = Convoy::all()->pluck('truckersmp_event_id')->toArray();
+
+        $convoys = TruckersMP::events($convoyIds);
+
+        $convoys = collect($convoys)
+            ->sortBy('response.start_at')
+            ->filter(function ($value, $key) {
+                if (!$value['error']) {
+                    return Carbon::parse($value['response']['start_at'])->isFuture();
+                }
+            })
+            ->take(3);
+
         $partners = Partner::inRandomOrder()->get();
 
         return view('homepage')

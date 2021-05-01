@@ -44,46 +44,44 @@
 <section id="next-convoys" class="w-full h-1/4">
     <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16 grid grid-cols-3 gap-16 md:gap-20">
         @forelse($convoys as $convoy)
-        <div class="col-span-full md:col-span-1 bg-gray-800 rounded-md overflow-hidden">
-            <div class="text-sm mb-6">
-                <img class="max-w-full h-auto" src="{{ $convoy->banner_url ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }}" alt="Convoy Banner">
-            </div>
-
-            <div class="h-16 mx-6">
-                <h3 class="font-semibold text-xl m-0 text-gray-200">
-                    {{ $convoy->title }}
-                </h3>
-            </div>
-
-            <div class="mx-6 mb-6">
-                <div class="flex justify-between">
-                    <div>
-                        <i class="fas fa-map-marker-alt fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $convoy->location }}</span>
+            @if(!$convoy['error'])
+                <div class="col-span-full md:col-span-1 bg-gray-800 rounded-md overflow-hidden">
+                    <div class="h-24 text-sm mb-6 bg-cover bg-center" style="background-image: url({{ $convoy['response']['banner'] ?? 'https://static.truckersmp.com/images/bg/ets.jpg' }});">
                     </div>
-                    <div>
-                        <span class="mr-2 text-sm">{{ $convoy->destination }}</span> <i class="fas fa-map-marker-alt fa-fw fa-sm"></i>
+
+                    <div class="h-20 mx-6">
+                        <h3 class="font-semibold text-xl m-0 text-gray-200">
+                            {{ $convoy['response']['name'] }}
+                        </h3>
+                    </div>
+
+                    <div class="mx-6 mb-6">
+                        <div class="flex justify-between">
+                            <div>
+                                <i class="fas fa-map-marker-alt fa-fw fa-sm"></i> <span class="ml-2 text-sm">{{ $convoy['response']['departure']['city'] }}</span>
+                            </div>
+                            <div>
+                                <span class="mr-2 text-sm">{{ $convoy['response']['arrive']['city'] }}</span> <i class="fas fa-map-marker-alt fa-fw fa-sm"></i>
+                            </div>
+                        </div>
+                        <div>
+                            @if($convoy['response']['server']['name'] === 'Event Server')
+                                <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm text-primary font-bold uppercase">Event server</span>
+                            @else
+                                <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm @if($convoy['response']['server']['name'] === 'To be determined') italic @endif">{{ $convoy['response']['server']['name'] }}</span>
+                            @endif
+                        </div>
+                        <div>
+                            <i class="fas fa-calendar fa-fw fa-sm"></i> <span class="ml-2 text-sm capitalize">{{ \Carbon\Carbon::parse($convoy['response']['start_at'])->diffForHumans(['options' => \Carbon\Carbon::ONE_DAY_WORDS]) }} ({{ \Carbon\Carbon::parse($convoy['response']['start_at'])->format('d M H:i') }} UTC)</span>
+                        </div>
+                        <a href="{{ 'https://truckersmp.com/events/' . $convoy['response']['id'] }}" target="_blank" class="mt-4 transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
+                            Register on TruckersMP
+                        </a>
                     </div>
                 </div>
-                <div>
-                    <i class="fas fa-route fa-fw fa-sm"></i> @if($convoy->distance !== null) <span class="ml-2 text-sm"> {{ $convoy->distance }} km</span> @else <span class="ml-2 text-sm italic"> Not set yet</span> @endif
-                </div>
-                <div>
-                    @if($convoy->server === 'Event Server')
-                        <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm text-primary font-bold uppercase">Event server</span>
-                    @else
-                        <i class="fas fa-server fa-fw fa-sm"></i> <span class="ml-2 text-sm @if($convoy->server === 'To be determined') italic @endif">{{ $convoy->server }}</span>
-                    @endif
-                </div>
-                <div>
-                    <i class="fas fa-calendar fa-fw fa-sm"></i> <span class="ml-2 text-sm capitalize">{{ $convoy->meetup_date->diffForHumans(['options' => \Carbon\Carbon::ONE_DAY_WORDS]) }} ({{ $convoy->meetup_date->format('d M H:i') }} UTC)</span>
-                </div>
-                <a href="{{ 'https://truckersmp.com/events/' . $convoy->truckersmp_event_id }}" target="_blank" class="mt-4 transition duration-200 w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-700 bg-primary hover:text-gray-800 hover:bg-primary-dark">
-                    Register on TruckersMP
-                </a>
-            </div>
-        </div>
+            @endif
         @empty
-        <span class="text-sm italic text-gray-300">No convoys registered on the website yet...</span>
+            <span class="text-sm italic text-gray-300">No convoys registered on the website yet...</span>
         @endforelse
     </div>
 </section>

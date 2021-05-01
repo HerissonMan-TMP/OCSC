@@ -123,8 +123,9 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
             ->name('partner-categories.destroy');
 
         //Convoys & Convoy rules.
-        Route::resource('convoys', ConvoyController::class)->except([
-            'show'
+        Route::delete('convoys/{convoy:truckersmp_event_id}', [ConvoyController::class, 'destroy'])->name('convoys.destroy');
+        Route::resource('convoys', ConvoyController::class)->only([
+            'index', 'create', 'store'
         ]);
         Route::get('convoy-rules/create', [ConvoyRulesController::class, 'create'])
             ->name('convoy-rules.create');

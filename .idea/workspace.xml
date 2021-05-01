@@ -6,7 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Filters/ConvoyFilters.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ConvoyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ConvoyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Convoy/StoreConvoyRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Convoy/StoreConvoyRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Convoy/UpdateConvoyRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Convoy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Convoy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/ConvoySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ConvoySeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/convoys/convoys.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoys/convoys.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/convoys/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoys/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/convoys/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/convoys/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/convoys/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,7 +315,8 @@
       <workItem from="1619627802413" duration="9682000" />
       <workItem from="1619686951319" duration="18547000" />
       <workItem from="1619765597852" duration="14890000" />
-      <workItem from="1619794952643" duration="361000" />
+      <workItem from="1619794952643" duration="1667000" />
+      <workItem from="1619854069995" duration="15533000" />
     </task>
     <servers />
   </component>
