@@ -22,7 +22,7 @@ class ContactMessageFactory extends Factory
     public function definition()
     {
         return [
-            'truckersmp_id' => $this->faker->numberBetween(0,4999999),
+            'truckersmp_id' => $this->faker->numberBetween(0, 4999999),
             'vtc' => $this->faker->word(),
             'discord' => $this->faker->word() . '#' . $this->faker->numberBetween(0, 9999),
             'email' => $this->faker->safeEmail(),
