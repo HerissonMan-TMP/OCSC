@@ -88,8 +88,7 @@ class ConvoyController extends Controller
         Cache::forget('convoys');
 
         activity(ActivityType::CREATED)
-            ->subject('fas fa-truck', "Convoy #{$convoy->id}")
-            ->description("Name: {$convoy->title}")
+            ->subject('fas fa-truck', "Convoy #{$convoy->truckersmp_event_id}")
             ->log();
 
         flash("You have successfully posted a new convoy!")->success();
