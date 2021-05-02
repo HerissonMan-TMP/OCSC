@@ -12,7 +12,7 @@ class TruckersMP
 
     public static function events(array $ids): array
     {
-        return Cache::remember('convoys', 5 * 60, function () use ($ids) {
+        return Cache::remember('convoys', 10 * 60, function () use ($ids) {
             $responses = Http::pool(function (Pool $pool) use ($ids) {
                 $responses = [];
 

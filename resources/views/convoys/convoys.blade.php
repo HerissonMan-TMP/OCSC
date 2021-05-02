@@ -12,7 +12,7 @@
     <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto my-16">
         <div class="my-4 p-4 rounded-md bg-blue-500 text-sm">
             <i class="fas fa-info-circle fa-fw"></i>
-            Convoys data is updated thanks to the <span class="font-bold">TruckersMP API</span> every 5 minutes.
+            Convoys data is updated thanks to the <span class="font-bold">TruckersMP API</span> every 10 minutes.
         </div>
 
         <div class="grid grid-cols-3 gap-20">
