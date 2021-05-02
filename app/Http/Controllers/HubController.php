@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Convoy;
 use App\Models\User;
+use App\Services\TruckersMP;
+use Carbon\Carbon;
 
 /**
  * Class HubController
@@ -23,7 +25,22 @@ class HubController extends Controller
         $counters['articles'] = Article::count();
         $counters['users'] = User::count();
 
+        $latestArticle = Article::latest()->first();
+
+        $convoyIds = Convoy::all()->pluck('truckersmp_event_id')->toArray();
+
+        $convoys = TruckersMP::events($convoyIds);
+
+        $convoys = collect($convoys)
+            ->sortBy('response.start_at')
+            ->filter(function ($value, $key) {
+                if (!$value['error']) {
+                    return Carbon::parse($value['response']['start_at'])->isFuture();
+                }
+            })
+            ->take(2);
+
         return view('hub')
-                ->with(compact('counters'));
+                ->with(compact('counters', 'latestArticle', 'convoys'));
     }
 }
