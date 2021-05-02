@@ -59,7 +59,7 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
     //Public: Recruitments & Global requirements.
     Route::get('recruitments/{recruitment}', [RecruitmentController::class, 'show'])->name('recruitments.show');
     Route::post('recruitments/{recruitment}/applications', [ApplicationController::class, 'store'])
-        ->name('recruitments.applications.store')->middleware(['throttle:2,60']);
+        ->name('recruitments.applications.store');
     Route::view('applications/success', 'applications.success-page')->name('applications.success-page');
     Route::get('global-requirements', [GlobalRequirementsController::class, 'show'])->name('global-requirements.show');
 
@@ -69,8 +69,7 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
     Route::get('contact', [ContactMessageController::class, 'create'])
         ->name('contact-messages.create');
     Route::post('contact', [ContactMessageController::class, 'store'])
-        ->name('contact-messages.store')
-        ->middleware(['throttle:2,60']);
+        ->name('contact-messages.store');
 
     //Public: Legal notice & Privacy policy.
     Route::get('legal-notice', [LegalNoticeController::class, 'show'])->name('legal-notice.show');
@@ -81,8 +80,7 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
         Route::view('login', 'login')
             ->name('login.show-form');
         Route::post('login', [LoginController::class, 'authenticate'])
-            ->name('login.authenticate')
-            ->middleware(['throttle:2,60']);
+            ->name('login.authenticate');
     });
 
     //Staff: Temporary password.
