@@ -46,24 +46,16 @@
                         <div class="h-full p-4 rounded-md bg-gray-800">
                             <div class="mb-8">
                                 <h3 class="mt-0 mb-2">Website Changelog</h3>
-                                <span class="text-sm text-gray-400">Latest changelog: <span class="font-bold">01/05/2021 13:00</span></span>
+                                <span class="text-sm text-gray-400">Latest changelog: <span class="font-bold">02/05/2021 09:15 UTC</span></span>
                             </div>
 
                             <div class="grid grid-cols-2 gap-6">
                                 <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-yellow-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-star fa-fw"></i>
+                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-thumbs-up fa-fw"></i>
                                     </div>
 
-                                    <span class="text-sm">Convoys data is now directly fetched from to the TruckersMP API.</span>
-                                </div>
-
-                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-red-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-bug fa-fw"></i>
-                                    </div>
-
-                                    <span class="text-sm">Fixing incorrect default values in some inputs when attempting to edit a user's name & email.</span>
+                                    <span class="text-sm">Revamping the Staff Hub homepage.</span>
                                 </div>
 
                                 <div class="col-span-full md:col-span-1 flex items-center gap-4">
@@ -71,7 +63,7 @@
                                         <i class="fas fa-thumbs-up fa-fw"></i>
                                     </div>
 
-                                    <span class="text-sm">Adding a lot of feature tests (used for testing if the website features are working correctly).</span>
+                                    <span class="text-sm">Increasing the duration before the convoys cache is refreshed (from 5 to 10 minutes).</span>
                                 </div>
 
                                 <div class="col-span-full md:col-span-1 flex items-center gap-4">
@@ -79,7 +71,7 @@
                                         <i class="fas fa-thumbs-up fa-fw"></i>
                                     </div>
 
-                                    <span class="text-sm">Cleaning code.</span>
+                                    <span class="text-sm">Removing some too severe rate limiting (numbers of requests / second limitation).</span>
                                 </div>
                             </div>
                         </div>
