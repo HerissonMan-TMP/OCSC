@@ -24,16 +24,7 @@ class HomeController extends Controller
 
         $convoyIds = Convoy::all()->pluck('truckersmp_event_id')->toArray();
 
-        $convoys = TruckersMP::events($convoyIds);
-
-        $convoys = collect($convoys)
-            ->sortBy('response.start_at')
-            ->filter(function ($value, $key) {
-                if (!$value['error']) {
-                    return Carbon::parse($value['response']['start_at'])->isFuture();
-                }
-            })
-            ->take(3);
+        $convoys = TruckersMP::events($convoyIds, true)->take(3);
 
         $partners = Partner::inRandomOrder()->get();
 

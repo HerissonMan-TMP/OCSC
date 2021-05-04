@@ -29,16 +29,7 @@ class HubController extends Controller
 
         $convoyIds = Convoy::all()->pluck('truckersmp_event_id')->toArray();
 
-        $convoys = TruckersMP::events($convoyIds);
-
-        $convoys = collect($convoys)
-            ->sortBy('response.start_at')
-            ->filter(function ($value, $key) {
-                if (!$value['error']) {
-                    return Carbon::parse($value['response']['start_at'])->isFuture();
-                }
-            })
-            ->take(2);
+        $convoys = TruckersMP::events($convoyIds, true)->take(2);
 
         return view('hub')
                 ->with(compact('counters', 'latestArticle', 'convoys'));
