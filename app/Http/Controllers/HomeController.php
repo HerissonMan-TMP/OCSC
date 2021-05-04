@@ -20,8 +20,6 @@ class HomeController extends Controller
      */
     public function homepage()
     {
-        //$convoys = Convoy::take(3)->upcoming()->oldest('meetup_date')->get();
-
         $convoyIds = Convoy::all()->pluck('truckersmp_event_id')->toArray();
 
         $convoys = TruckersMP::events($convoyIds, true)->take(3);
@@ -29,7 +27,6 @@ class HomeController extends Controller
         $partners = Partner::inRandomOrder()->get();
 
         return view('homepage')
-            ->with(compact('convoys'))
-            ->with(compact('partners'));
+            ->with(compact('convoys', 'partners'));
     }
 }

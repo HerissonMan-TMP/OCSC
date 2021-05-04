@@ -27,8 +27,7 @@ class RoleController extends Controller
         $groups = Group::with('roles')->get();
 
         return view('roles.index')
-                ->with(compact('roles'))
-                ->with(compact('groups'));
+            ->with(compact('roles', 'groups'));
     }
 
     /**
@@ -43,7 +42,7 @@ class RoleController extends Controller
         Gate::authorize('update-roles');
 
         return view('roles.edit')
-                ->with(compact('role'));
+            ->with(compact('role'));
     }
 
     /**
@@ -84,8 +83,7 @@ class RoleController extends Controller
         $permissionCategories = PermissionCategory::with('permissions')->get();
 
         return view('roles.edit-permissions')
-                ->with(compact('role'))
-                ->with(compact('permissionCategories'));
+            ->with(compact('role', 'permissionCategories'));
     }
 
     /**

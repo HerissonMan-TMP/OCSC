@@ -28,7 +28,7 @@ class PictureController extends Controller
         $pictures = Picture::filter($filters)->with('user.roles')->paginate(12);
 
         return view('pictures.gallery')
-                ->with(compact('pictures'));
+            ->with(compact('pictures'));
     }
 
     /**
@@ -103,7 +103,7 @@ class PictureController extends Controller
         Gate::authorize('manage-picture', $picture);
 
         return view('pictures.edit')
-                ->with(compact('picture'));
+            ->with(compact('picture'));
     }
 
     /**

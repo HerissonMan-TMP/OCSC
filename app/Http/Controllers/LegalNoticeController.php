@@ -39,7 +39,7 @@ class LegalNoticeController extends Controller
         $legalNotice = LegalNotice::latest()->first();
 
         return view('legal-notice.create')
-                ->with(compact('legalNotice'));
+            ->with(compact('legalNotice'));
     }
 
     /**

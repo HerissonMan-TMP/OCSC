@@ -27,15 +27,15 @@ class RecruitmentController extends Controller
         Gate::authorize('manage-recruitments');
 
         $recruitments = Recruitment::latest()
-                                    ->with([
-                                        'role',
-                                        'user',
-                                        'user.roles'
-                                    ])
-                                    ->withCount('applications')->get();
+            ->with([
+                'role',
+                'user',
+                'user.roles'
+            ])
+            ->withCount('applications')->get();
 
         return view('recruitments.index')
-                    ->with(compact('recruitments'));
+            ->with(compact('recruitments'));
     }
 
     /**
@@ -52,7 +52,7 @@ class RecruitmentController extends Controller
         $recruitment = $recruitment->load(['role', 'questions']);
 
         return view('recruitments.show')
-                    ->with(compact('recruitment'));
+            ->with(compact('recruitment'));
     }
 
     /**
@@ -68,7 +68,7 @@ class RecruitmentController extends Controller
         $roles = Role::recruitable()->notCurrentlyRecruiting()->get();
 
         return view('recruitments.create')
-                    ->with('recruitableRolesNotCurrentlyRecruiting', $roles);
+            ->with('recruitableRolesNotCurrentlyRecruiting', $roles);
     }
 
     /**
@@ -114,7 +114,7 @@ class RecruitmentController extends Controller
         $recruitment = $recruitment->load(['role', 'questions', 'user.roles']);
 
         return view('recruitments.edit')
-                ->with(compact('recruitment'));
+            ->with(compact('recruitment'));
     }
 
     /**

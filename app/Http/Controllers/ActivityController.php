@@ -28,7 +28,6 @@ class ActivityController extends Controller
         $activities = Activity::filter($filters)->with(['causer', 'type'])->paginate(20);
 
         return view('website-settings.activity')
-                ->with(compact('activityTypes'))
-                ->with(compact('activities'));
+            ->with(compact('activityTypes', 'activities'));
     }
 }

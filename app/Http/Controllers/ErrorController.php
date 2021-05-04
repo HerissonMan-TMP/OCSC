@@ -26,6 +26,6 @@ class ErrorController extends Controller
         $errors = Error::filter($filters)->paginate(20);
 
         return view('website-settings.error-logs')
-                ->with(compact('errors'));
+            ->with(compact('errors'));
     }
 }

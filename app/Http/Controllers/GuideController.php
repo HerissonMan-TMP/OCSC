@@ -67,8 +67,7 @@ class GuideController extends Controller
         $roles = Role::orderBy('order')->get();
 
         return view('guides.edit')
-            ->with(compact('guide'))
-            ->with(compact('roles'));
+            ->with(compact('guide', 'roles'));
     }
 
     public function update(Guide $guide, UpdateGuideRequest $request)

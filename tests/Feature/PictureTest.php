@@ -229,13 +229,14 @@ class PictureTest extends TestCase
      */
     public function testAnAuthorizedUserCanSeeTheEditionPage()
     {
-        $user = User::factory()->create();
+        $user = User::factory()
+            ->hasAttached(
+                Role::factory()->for(Group::factory())
+            )->create();
 
         $picture = Picture::factory()
             ->for($user)
             ->create();
-
-        dump($picture);
 
         $response = $this->actingAs($user)->get(
             route('staff.pictures.edit', $picture)

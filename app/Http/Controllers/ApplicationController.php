@@ -32,8 +32,7 @@ class ApplicationController extends Controller
         $applications = $recruitment->applications()->filter($filters)->get();
 
         return view('applications.index')
-                    ->with(compact('recruitment'))
-                    ->with(compact('applications'));
+            ->with(compact('recruitment', 'applications'));
     }
 
     /**
@@ -50,7 +49,7 @@ class ApplicationController extends Controller
         $application = $application->load(['recruitment.role', 'recruitment.questions']);
 
         return view('applications.show')
-                    ->with(compact('application'));
+            ->with(compact('application'));
     }
 
     /**

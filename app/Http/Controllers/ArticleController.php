@@ -26,7 +26,7 @@ class ArticleController extends Controller
         $articles = Article::filter($filters)->with('postedByUser.roles')->paginate(12);
 
         return view('articles.news')
-                ->with(compact('articles'));
+            ->with(compact('articles'));
     }
 
     /**
@@ -40,7 +40,7 @@ class ArticleController extends Controller
         $articles = Article::filter($filters)->with('postedByUser.roles')->paginate(12);
 
         return view('articles.index')
-                ->with(compact('articles'));
+            ->with(compact('articles'));
     }
 
     /**
@@ -91,8 +91,7 @@ class ArticleController extends Controller
         $latestArticles = Article::latest()->take(3)->with('postedByUser.roles')->get();
 
         return view('articles.show')
-                ->with(compact('article'))
-                ->with(compact('latestArticles'));
+            ->with(compact('article', 'latestArticles'));
     }
 
     /**
@@ -109,7 +108,7 @@ class ArticleController extends Controller
         $article = $article->load('postedByUser.roles');
 
         return view('articles.edit')
-                ->with(compact('article'));
+            ->with(compact('article'));
     }
 
     /**

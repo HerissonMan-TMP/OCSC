@@ -36,8 +36,7 @@ class UserController extends Controller
         $roles = Role::all();
 
         return view('users.index')
-                ->with(compact('users'))
-                ->with(compact('roles'));
+            ->with(compact('users', 'roles'));
     }
 
     /**
@@ -54,10 +53,7 @@ class UserController extends Controller
         $temporaryPassword = TemporaryPasswordService::generate();
 
         return view('users.show')
-                ->with(compact('user'))
-                ->with(compact('roles'))
-                ->with(compact('latestActivities'))
-                ->with(compact('temporaryPassword'));
+            ->with(compact('user', 'roles', 'latestActivities', 'temporaryPassword'));
     }
 
     /**
@@ -71,13 +67,14 @@ class UserController extends Controller
     {
         Gate::authorize('create-new-users');
 
+        $email = $request->email;
+
         $temporaryPassword = TemporaryPasswordService::generate();
+
         $roles = Role::orderBy('order')->get();
 
         return view('users.create')
-                    ->with('email', $request->email)
-                    ->with(compact('temporaryPassword'))
-                    ->with(compact('roles'));
+            ->with(compact('email', 'temporaryPassword', 'roles'));
     }
 
     /**

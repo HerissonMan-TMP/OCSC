@@ -32,6 +32,6 @@ class HubController extends Controller
         $convoys = TruckersMP::events($convoyIds, true)->take(2);
 
         return view('hub')
-                ->with(compact('counters', 'latestArticle', 'convoys'));
+            ->with(compact('counters', 'latestArticle', 'convoys'));
     }
 }

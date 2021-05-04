@@ -102,8 +102,7 @@ class DownloadController extends Controller
         $roles = Role::orderBy('order')->get();
 
         return view('downloads.edit')
-            ->with(compact('download'))
-            ->with(compact('roles'));
+            ->with(compact('download', 'roles'));
     }
 
     /**

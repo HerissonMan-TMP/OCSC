@@ -29,7 +29,7 @@ class ContactMessageController extends Controller
         $contactMessages = ContactMessage::filter($filters)->with('category')->paginate(20);
 
         return view('contact-messages.index')
-                ->with(compact('contactMessages'));
+            ->with(compact('contactMessages'));
     }
 
     /**
@@ -46,7 +46,7 @@ class ContactMessageController extends Controller
         $contactMessage = $contactMessage->load('category');
 
         return view('contact-messages.show')
-                ->with(compact('contactMessage'));
+            ->with(compact('contactMessage'));
     }
 
     /**
@@ -59,7 +59,7 @@ class ContactMessageController extends Controller
         $categories = ContactCategory::all();
 
         return view('contact-messages.create')
-                ->with(compact('categories'));
+            ->with(compact('categories'));
     }
 
     /**

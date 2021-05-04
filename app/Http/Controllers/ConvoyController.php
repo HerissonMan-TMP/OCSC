@@ -32,7 +32,7 @@ class ConvoyController extends Controller
             ->withPath(request()->getPathInfo());
 
         return view('convoys.index')
-                ->with(compact('convoys'));
+            ->with(compact('convoys'));
     }
 
     /**
@@ -48,7 +48,7 @@ class ConvoyController extends Controller
             ->withPath(request()->getPathInfo());
 
         return view('convoys.convoys')
-                ->with(compact('convoys'));
+            ->with(compact('convoys'));
     }
 
     /**

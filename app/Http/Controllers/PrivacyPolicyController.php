@@ -23,7 +23,7 @@ class PrivacyPolicyController extends Controller
         $privacyPolicy = PrivacyPolicy::latest()->first();
 
         return view('privacy-policy.show')
-                ->with(compact('privacyPolicy'));
+            ->with(compact('privacyPolicy'));
     }
 
     /**
