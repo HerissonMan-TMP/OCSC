@@ -31,4 +31,13 @@ class RoleFactory extends Factory
             'recruitment_enabled' => $this->faker->boolean(),
         ];
     }
+
+    public function recruitable()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'recruitment_enabled' => true,
+            ];
+        });
+    }
 }

@@ -82,4 +82,15 @@ class Recruitment extends Model
     {
         return $query->where([['start_at', '<=', now()], ['end_at', '>', now()]]);
     }
+
+    /**
+     * Scope a query to only include closed recruitment sessions.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeClosed($query)
+    {
+        return $query->where([['start_at', '<', now()], ['end_at', '<', now()]])->orWhere([['start_at', '>', now()], ['end_at', '>', now()]]);
+    }
 }

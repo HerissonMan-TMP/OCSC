@@ -38,4 +38,14 @@ class RecruitmentFactory extends Factory
             ];
         });
     }
+
+    public function inTheFuture()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'start_at' => now()->addDays($this->faker->numberBetween(1, 20)),
+                'end_at' => now()->addDays($this->faker->numberBetween(20, 40)),
+            ];
+        });
+    }
 }

@@ -110,6 +110,19 @@ class Role extends Model
     }
 
     /**
+     * Scope a query to only include roles having recruitments closed.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeNotCurrentlyRecruiting($query)
+    {
+        return $query->whereHas('recruitments', function (Builder $query) {
+            $query->closed();
+        })->orDoesntHave('recruitments');
+    }
+
+    /**
      * Get the current recruitment session for the role.
      *
      * @return mixed

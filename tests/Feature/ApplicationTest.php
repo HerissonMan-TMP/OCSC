@@ -4,8 +4,6 @@ namespace Tests\Feature;
 
 use App\Models\Activity;
 use App\Models\Application;
-use App\Models\ContactCategory;
-use App\Models\ContactMessage;
 use App\Models\Group;
 use App\Models\Permission;
 use App\Models\Recruitment;
@@ -17,42 +15,7 @@ use Tests\TestCase;
 
 class ApplicationTest extends TestCase
 {
-    use RefreshDatabase;
-
-    /**
-     * Test that an open recruitment page is accessible by everyone.
-     */
-    public function testOpenRecruitmentPageIsAccessible()
-    {
-        $recruitment = Recruitment::factory()
-            ->open()
-            ->for(Role::factory()->for(Group::factory()))
-            ->for(User::factory())
-            ->create();
-
-        $response = $this->get(
-            route('recruitments.show', $recruitment)
-        );
-
-        $response->assertStatus(200);
-    }
-
-    /**
-     * Test that a closed recruitment page is not accessible.
-     */
-    public function testClosedRecruitmentPageIsNotAccessible()
-    {
-        $recruitment = Recruitment::factory()
-            ->for(Role::factory()->for(Group::factory()))
-            ->for(User::factory())
-            ->create();
-
-        $response = $this->get(
-            route('recruitments.show', $recruitment)
-        );
-
-        $response->assertStatus(403);
-    }
+    //use RefreshDatabase;
 
     /**
      * Test that a visitor can send an application.
