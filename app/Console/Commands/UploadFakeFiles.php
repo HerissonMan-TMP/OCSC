@@ -17,8 +17,7 @@ class UploadFakeFiles extends Command
      */
     protected $signature = 'fake-files:upload
                             {--D|downloads : upload fake download files}
-                            {--P|pictures : upload fake picture files}
-                            {--A|--all : upload all fake file types}';
+                            {--P|pictures : upload fake picture files}';
 
     /**
      * The console command description.
