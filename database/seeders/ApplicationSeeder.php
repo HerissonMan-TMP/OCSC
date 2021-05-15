@@ -21,8 +21,8 @@ class ApplicationSeeder extends Seeder
         //8 applications for Convoy Control Team recruitment: 3 new, 1 accepted, 4 declined.
         $recruitment = Recruitment::find(2);
         Application::factory(3)
-                    ->for($recruitment)
-                    ->create();
+            ->for($recruitment)
+            ->create();
         Application::factory(1)
             ->for($recruitment)
             ->accepted()
