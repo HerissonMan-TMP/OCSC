@@ -6,6 +6,7 @@ use App\Models\GlobalRequirements;
 use App\Models\PermissionCategory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,19 +14,26 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      *
      * @return void
+     * @throws \Doctrine\DBAL\Exception
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        Schema::disableForeignKeyConstraints();
 
-        DB::table('activity_types')->truncate();
+        $tableNames = Schema::getConnection()->getDoctrineSchemaManager()->listTableNames();
+        foreach ($tableNames as $name) {
+            if ($name === 'migrations') {
+                continue;
+            }
+            DB::table($name)->truncate();
+        }
 
         $this->call([
-            UserSeeder::class,
             GroupSeeder::class,
             RoleSeeder::class,
             PermissionCategorySeeder::class,
             PermissionSeeder::class,
+            UserSeeder::class,
             RecruitmentSeeder::class,
             QuestionSeeder::class,
             ApplicationSeeder::class,
@@ -49,6 +57,6 @@ class DatabaseSeeder extends Seeder
             GuideSeeder::class,
         ]);
 
-        DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        Schema::enableForeignKeyConstraints();
     }
 }
