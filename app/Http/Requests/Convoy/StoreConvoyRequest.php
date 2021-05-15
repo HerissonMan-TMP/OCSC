@@ -30,6 +30,7 @@ class StoreConvoyRequest extends FormRequest
                 'required',
                 'numeric',
                 'digits_between:1,8',
+                'unique:convoys',
             ],
         ];
     }
@@ -45,6 +46,7 @@ class StoreConvoyRequest extends FormRequest
             'truckersmp_event_id.required' => 'The TruckersMP Event ID is required.',
             'truckersmp_event_id.numeric' => 'The TruckersMP Event ID must be a number.',
             'truckersmp_event_id.digits_between' => 'The TruckersMP Event ID must not exceed :max numbers.',
+            'truckersmp_event_id.unique' => 'A convoy with that TruckersMP Event ID is already added on the website.',
         ];
     }
 
