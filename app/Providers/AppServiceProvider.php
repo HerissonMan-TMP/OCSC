@@ -48,15 +48,5 @@ class AppServiceProvider extends ServiceProvider
                 }
             });
         });
-
-        //3 latest news articles
-        $latestArticles = Article::latest()->take(3)->get();
-        View::share('latestArticles', $latestArticles);
-
-        //Roles that can recruit people.
-        $roles = Role::recruitable()->with(['recruitments' => function ($query) {
-            return $query->open();
-        }])->get();
-        View::share('recruitableRoles', $roles);
     }
 }
