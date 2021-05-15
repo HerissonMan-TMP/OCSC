@@ -82,7 +82,9 @@ class UploadFakeFiles extends Command
             $this->newLine();
 
             $this->info("Download files have been successfully uploaded using the \"" . config('filesystems.default') . "\" driver!");
-        } elseif ($this->option('pictures')) {
+        }
+
+        if ($this->option('pictures')) {
             $files = Storage::allFiles('downloads');
             Storage::delete($files);
 
@@ -112,8 +114,6 @@ class UploadFakeFiles extends Command
             $this->newLine();
 
             $this->info("Picture files have been successfully uploaded using the \"" . config('filesystems.default') . "\" driver!");
-        } else {
-            $this->error('You must specify which type of files you want to upload.');
         }
 
         return 0;
