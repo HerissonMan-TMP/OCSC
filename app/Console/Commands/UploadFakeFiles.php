@@ -85,7 +85,7 @@ class UploadFakeFiles extends Command
         }
 
         if ($this->option('pictures')) {
-            $files = Storage::allFiles('downloads');
+            $files = Storage::allFiles('pictures');
             Storage::delete($files);
 
             $this->withProgressBar(Picture::all(), function ($picture) {
