@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="56d4c3fd-f109-4a4c-99f5-b9a5c258e407" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/UploadFakeFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/UploadFakeFiles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ActivityType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ActivityType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ContactCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ContactCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Permission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/ActivityTypeSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ActivityTypeSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/ContactCategorySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ContactCategorySeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/GroupSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/GroupSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PartnerCategorySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PartnerCategorySeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionCategorySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionCategorySeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/RoleSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/RoleSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,7 +321,7 @@
       <workItem from="1620749111651" duration="548000" />
       <workItem from="1620832550877" duration="8373000" />
       <workItem from="1621021548395" duration="1119000" />
-      <workItem from="1621061883812" duration="3879000" />
+      <workItem from="1621061883812" duration="13832000" />
     </task>
     <servers />
   </component>

@@ -34,6 +34,17 @@ class ActivityType extends Model
     public const DISABLED = 'disabled';
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'icon',
+        'color',
+    ];
+
+    /**
      * Get the activities of the type.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

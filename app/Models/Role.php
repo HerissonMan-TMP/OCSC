@@ -16,6 +16,8 @@ class Role extends Model
      * @var array
      */
     protected $fillable = [
+        'group_id',
+        'order',
         'name',
         'icon_name',
         'color',

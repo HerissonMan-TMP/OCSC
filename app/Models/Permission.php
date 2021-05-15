@@ -23,6 +23,7 @@ class Permission extends Model
     protected $fillable = [
         'name',
         'slug',
+        'category_id',
     ];
 
     /**
