@@ -19,9 +19,6 @@ class PictureSeeder extends Seeder
     {
         DB::table('pictures')->truncate();
 
-        $files = Storage::allFiles('gallery');
-        Storage::delete($files);
-
         //6 users having posted 5 pictures each.
         for ($i = 0; $i < 6; $i++) {
             $user = User::inRandomOrder()->first();
