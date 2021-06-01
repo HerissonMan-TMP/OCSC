@@ -77,7 +77,7 @@
                         <div class="p-6 rounded-b-md @if($category->opening_at && $category->opening_at < now()) bg-green-500 @else bg-red-500 @endif">
                             @if($category->opening_at && $category->opening_at < now())
                                 <span class="font-bold uppercase text-2xl text-green-800">Open</span>
-                                <span class="block text-xs text-gray-800">Contact us on Discord.</span>
+                                <span class="block text-xs text-gray-800">Contact us here: <a class="text-gray-800 hover:text-gray-800 font-normal" href="{{ route('contact-messages.create') }}">{{ route('contact-messages.create') }}</a>.</span>
                             @else
                                 <span class="font-bold uppercase text-2xl text-red-800">Closed</span>
                                 @isset($category->opening_at)
