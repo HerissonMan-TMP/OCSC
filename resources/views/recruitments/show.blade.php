@@ -23,12 +23,12 @@
                 <i style="color: {{ $recruitment->role->color }}" class="flex-shrink-0 text-primary fas fa-{{ $recruitment->role->icon_name }} fa-fw fa-2x"></i>
             </div>
 
-            @if(setting('global-requirements') || $recruitment->specific_requirements)
+            @if($globalRequirements || $recruitment->specific_requirements)
             <div class="mb-10">
                 <h4 class="font-bold text-gray-300 mt-2 mb-6">Requirements</h4>
-                @if(setting('global-requirements'))
+                @if($globalRequirements)
                 <p>
-                    @markdown(setting('global-requirements'))
+                    @markdown($globalRequirements->content)
                 </p>
                 @endif
                 @if($recruitment->specific_requirements)

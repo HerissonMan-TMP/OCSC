@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Recruitment\StoreRecruitmentRequest;
 use App\Http\Requests\Recruitment\UpdateRecruitmentRequest;
 use App\Models\ActivityType;
+use App\Models\GlobalRequirements;
 use App\Models\Recruitment;
 use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
@@ -51,8 +52,11 @@ class RecruitmentController extends Controller
 
         $recruitment = $recruitment->load(['role', 'questions']);
 
+        $globalRequirements = GlobalRequirements::latest()->first();
+
         return view('recruitments.show')
-            ->with(compact('recruitment'));
+            ->with(compact('recruitment'))
+            ->with(compact('globalRequirements'));
     }
 
     /**
