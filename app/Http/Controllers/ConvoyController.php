@@ -44,8 +44,11 @@ class ConvoyController extends Controller
     {
         $convoyIds = Convoy::all()->pluck('truckersmp_event_id')->toArray();
 
-        $convoys = ArrayCollectionPaginator::paginate(TruckersMP::events($convoyIds))
-            ->withPath(request()->getPathInfo());
+        $convoys = ArrayCollectionPaginator::paginate(
+            TruckersMP::events($convoyIds)->reject(function ($value, $key) {
+                return strtotime($value['response']['start_at']) < time();
+            })
+        )->withPath(request()->getPathInfo());
 
         return view('convoys.convoys')
             ->with(compact('convoys'));
