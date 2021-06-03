@@ -32,8 +32,10 @@ class TruckersMP
             return collect($convoys)
                 ->sortBy('response.start_at')
                 ->filter(function ($value, $key) {
-                    if (!$value['error']) {
-                        return true;
+                    if ($value) {
+                        if (!$value['error']) {
+                            return true;
+                        }
                     }
                 });
         });
