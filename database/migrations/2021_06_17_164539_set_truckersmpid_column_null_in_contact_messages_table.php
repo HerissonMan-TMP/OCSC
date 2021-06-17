@@ -26,7 +26,7 @@ class SetTruckersmpidColumnNullInContactMessagesTable extends Migration
     public function down()
     {
         Schema::table('contact_messages', function (Blueprint $table) {
-            $table->integer('truckersmp_id')->change();
+            $table->integer('truckersmp_id')->nullable(false)->change();
         });
     }
 }

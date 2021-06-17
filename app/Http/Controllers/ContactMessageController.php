@@ -7,6 +7,7 @@ use App\Http\Requests\Contact\StoreContactMessageRequest;
 use App\Models\ActivityType;
 use App\Models\ContactCategory;
 use App\Models\ContactMessage;
+use App\Services\DiscordEmbed;
 use Illuminate\Support\Facades\Gate;
 
 /**
@@ -70,7 +71,22 @@ class ContactMessageController extends Controller
      */
     public function store(StoreContactMessageRequest $request)
     {
-        $contactMessage = ContactCategory::find($request->category_id)->messages()->create($request->validated());
+        $contactCategory = ContactCategory::find($request->category_id);
+        $contactMessage = $contactCategory->messages()->create($request->validated());
+
+        (new DiscordEmbed())
+            ->webhook(config('discord_webhooks.contact_messages'))
+            ->username('OCSC Event - Postman')
+            ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
+            ->color(hexdec('FFFFFF'))
+            ->thumbnail(config('app.url') . '/img/ocsc_logo.png')
+            ->title('✉️ - Contact message received')
+            ->description($request->discord ?? $request->email . ' just sent a contact message on the website.')
+            ->addField('Category', $contactCategory->name, false)
+            ->addField('Read the message', config('app.url') . '/staff/contact-messages/' . $contactMessage->id, false)
+            ->image('https://media.discordapp.net/attachments/824978783051448340/849887295611994152/ets2_20210515_230820_00.png?width=1246&height=701')
+            ->footer(config('app.url'), asset('img/ocsc_logo.png'))
+            ->send();
 
         activity(ActivityType::CREATED)
             ->subject("fas fa-envelope", "Contact Message #{$contactMessage->id}")

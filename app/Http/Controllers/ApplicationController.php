@@ -8,6 +8,7 @@ use App\Models\ActivityType;
 use App\Models\Answer;
 use App\Models\Application;
 use App\Models\Recruitment;
+use App\Services\DiscordEmbed;
 use Illuminate\Support\Facades\Gate;
 
 /**
@@ -76,6 +77,19 @@ class ApplicationController extends Controller
 
             $answer->save();
         }
+
+        (new DiscordEmbed())
+            ->webhook(config('discord_webhooks.applications'))
+            ->username('OCSC Event - Recruiter')
+            ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
+            ->color(hexdec(ltrim($recruitment->load('role')->role->color, '#')))
+            ->thumbnail(config('app.url') . '/img/ocsc_logo.png')
+            ->title('📁 - Application received')
+            ->description($request->discord . ' (TMP ID: ' . $request->truckersmp_id . ') just sent an application on the website!')
+            ->addField('Role', $recruitment->role->name, false)
+            ->image('https://media.discordapp.net/attachments/824978783051448340/849887295611994152/ets2_20210515_230820_00.png?width=1246&height=701')
+            ->footer(config('app.url'), asset('img/ocsc_logo.png'))
+            ->send();
 
         $role = $recruitment->role()->first();
         activity(ActivityType::APPLIED_FOR)
