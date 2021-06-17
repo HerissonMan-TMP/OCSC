@@ -46,32 +46,24 @@
                         <div class="h-full p-4 rounded-md bg-gray-800">
                             <div class="mb-8">
                                 <h3 class="mt-0 mb-2">Website Changelog</h3>
-                                <span class="text-sm text-gray-400">Latest changelog: <span class="font-bold">01/06/2021 07:55 UTC</span></span>
+                                <span class="text-sm text-gray-400">Latest changelog: <span class="font-bold">17/06/2021 20:40 UTC</span></span>
                             </div>
 
                             <div class="grid grid-cols-2 gap-6">
                                 <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-thumbs-up fa-fw"></i>
+                                    <div class="w-10 h-10 p-4 bg-yellow-500 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-star fa-fw"></i>
                                     </div>
 
-                                    <span class="text-sm">Changing the text displayed when a partnership category is open.</span>
+                                    <span class="text-sm">A Discord message is now sent when a user send a contact message or apply for a role.</span>
                                 </div>
 
                                 <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-thumbs-up fa-fw"></i>
+                                    <div class="w-10 h-10 p-4 bg-red-500 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-bug fa-fw"></i>
                                     </div>
 
-                                    <span class="text-sm">Displaying only upcoming convoys on the public Convoys page.</span>
-                                </div>
-
-                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-thumbs-up fa-fw"></i>
-                                    </div>
-
-                                    <span class="text-sm">Fixing displaying the global requirements on every recruitment page.</span>
+                                    <span class="text-sm">Preventing a 500 Error happening when submitting a contact message without typing the TruckersMP ID.</span>
                                 </div>
                             </div>
                         </div>
