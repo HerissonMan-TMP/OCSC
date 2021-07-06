@@ -168,7 +168,7 @@
                     </div>
                     <div class="p-4">
                         @can('update-name-of-user', $user)
-                            <form action="{{ route('staff.users.name.update', Auth::user()) }}" method="POST" class="grid grid-cols-5 gap-5 items-end mb-4">
+                            <form action="{{ route('staff.users.name.update', $user) }}" method="POST" class="grid grid-cols-5 gap-5 items-end mb-4">
                                 @csrf
                                 @method('PATCH')
 
