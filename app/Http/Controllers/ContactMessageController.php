@@ -85,7 +85,7 @@ class ContactMessageController extends Controller
             ->addField('Category', $contactCategory->name, false)
             ->addField('Read the message', config('app.url') . '/staff/contact-messages/' . $contactMessage->id, false)
             ->image('https://media.discordapp.net/attachments/824978783051448340/849887295611994152/ets2_20210515_230820_00.png?width=1246&height=701')
-            ->footer(config('app.url'), asset('img/ocsc_logo.png'))
+            ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'))
             ->send();
 
         activity(ActivityType::CREATED)
