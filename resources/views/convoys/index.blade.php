@@ -13,6 +13,17 @@
             Convoys data is updated thanks to the <span class="font-bold">TruckersMP API</span> every 10 minutes.
         </div>
 
+        @can('manage-convoys')
+        <div class="mb-4">
+            <form action="{{ route('staff.convoys.destroy-past') }}" method="POST">
+                @csrf
+                @method('DELETE')
+
+                <button type="Submit" class="transition duration-200 flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-semibold text-gray-200 bg-red-500 hover:text-gray-300 hover:bg-red-600 focus:outline-none"><i class="fas fa-trash-alt fa-fw mr-1"></i> Delete past convoys</button>
+            </form>
+        </div>
+        @endcan
+
         <div class="grid grid-cols-4 gap-10">
             @forelse($convoys as $convoy)
                 <div class="col-span-full md:col-span-1 rounded-md bg-gray-800 overflow-hidden @if(\Carbon\Carbon::parse($convoy['response']['start_at'])->isPast()) transition duration-200 opacity-50 hover:opacity-100 @endif">

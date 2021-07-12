@@ -9,6 +9,7 @@ use App\Models\Convoy;
 use App\Services\ArrayCollectionPaginator;
 use App\Services\TruckersMP;
 use Illuminate\Http\Client\Pool;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Http;
@@ -111,6 +112,26 @@ class ConvoyController extends Controller
             ->log();
 
         flash("You have successfully deleted the convoy!")->success();
+
+        return redirect()->route('staff.convoys.index');
+    }
+
+    public function destroyPast()
+    {
+        Gate::authorize('manage-convoys');
+
+        $convoyIds = Convoy::all()->pluck('truckersmp_event_id')->toArray();
+        $convoys = TruckersMP::events($convoyIds);
+
+        foreach ($convoys as $convoy) {
+            $convoy = $convoy['response'];
+            $startAt = Carbon::createFromFormat('Y-m-d H:i:s', $convoy['start_at']);
+            if ($startAt->isPast()) {
+                Convoy::where('truckersmp_event_id', $convoy['id'])->firstOrFail()->delete();
+            }
+        }
+
+        Cache::forget('convoys');
 
         return redirect()->route('staff.convoys.index');
     }
