@@ -128,6 +128,9 @@ class ConvoyController extends Controller
             $startAt = Carbon::createFromFormat('Y-m-d H:i:s', $convoy['start_at']);
             if ($startAt->isPast()) {
                 Convoy::where('truckersmp_event_id', $convoy['id'])->firstOrFail()->delete();
+                activity(ActivityType::DELETED)
+                    ->subject('fas fa-truck', "Convoy (TMP ID {$convoy['id']})")
+                    ->log();
             }
         }
 
