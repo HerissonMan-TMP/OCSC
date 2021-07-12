@@ -74,7 +74,6 @@ class MaintenanceModeController extends Controller
             ->thumbnail(config('app.url') . '/img/ocsc_logo.png')
             ->title('🛠 - Maintenance Mode')
             ->description('The website\'s maintenance mode has just been **disabled**. You can browse our website again!')
-            ->image('https://media.discordapp.net/attachments/824978783051448340/849887295611994152/ets2_20210515_230820_00.png?width=1246&height=701')
             ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'))
             ->send();
 
