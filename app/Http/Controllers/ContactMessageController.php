@@ -57,10 +57,10 @@ class ContactMessageController extends Controller
      */
     public function create()
     {
-        $categories = ContactCategory::all();
+        $categoryGroups = ContactCategory::where('hidden', false)->get()->groupBy('label');
 
         return view('contact-messages.create')
-            ->with(compact('categories'));
+            ->with(compact('categoryGroups'));
     }
 
     /**

@@ -40,8 +40,12 @@
                 <div class="col-span-full md:col-span-full">
                     <label for="category" class="block text-sm font-medium text-gray-300">Category <span class="text-red-500 font-bold">*</span></label>
                     <select id="category" name="category_id" class="text-gray-300 bg-gray-700 mt-1 block w-full py-2 px-3 border border-gray-600 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-dark focus:border-primary-dark md:text-sm">
-                        @foreach($categories as $category)
-                        <option @if(old('category_id') == $category->id) selected @endif value="{{ $category->id }}">{{ $category->name }}</option>
+                        @foreach($categoryGroups as $label => $categories)
+                            <optgroup label="{{ $label }}">
+                                @foreach($categories as $category)
+                                    <option @if(old('category_id') == $category->id) selected @endif value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </optgroup>
                         @endforeach
                     </select>
                     @error('category_id')
