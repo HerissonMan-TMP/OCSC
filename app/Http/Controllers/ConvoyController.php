@@ -135,9 +135,4 @@ class ConvoyController extends Controller
 
         return redirect()->route('staff.convoys.index');
     }
-
-    public function edit(Convoy $convoy)
-    {
-        dd($convoy);
-    }
 }
