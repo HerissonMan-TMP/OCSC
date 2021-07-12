@@ -200,11 +200,11 @@
                     </div>
                     <div class="staff-menu-dropdown-items pl-20 hidden text-gray-400">
                         <div class="py-1">
-                            @can('manage-recruitments')
+                            @canany(['manage-recruitments', 'manage-applications'])
                                 <a href="{{ route('staff.recruitments.index') }}" class="transition duration-200 hover:text-primary">All recruitment sessions</a>
                             @else
                                 <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">All recruitment sessions</a>
-                            @endcan
+                            @endcanany
                         </div>
                         <div class="py-1">
                             @can('manage-recruitments')
@@ -235,7 +235,7 @@
                             <a href="{{ route('staff.users.index') }}" class="transition duration-200 hover:text-primary">All staff members</a>
                         </div>
                         <div class="py-1">
-                            @can('create-new-users')
+                            @can('add-staff-members')
                                 <a href="{{ route('staff.users.create') }}" class="transition duration-200 hover:text-primary">Add a new staff member</a>
                             @else
                                 <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Add a new staff member</a>
@@ -509,11 +509,11 @@
                 </div>
                 <div class="staff-menu-dropdown-items pl-20 hidden text-gray-400">
                     <div class="py-1">
-                        @can('manage-recruitments')
+                        @canany(['manage-recruitments', 'manage-applications'])
                             <a href="{{ route('staff.recruitments.index') }}" class="transition duration-200 hover:text-primary">All recruitment sessions</a>
                         @else
                             <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">All recruitment sessions</a>
-                        @endcan
+                        @endcanany
                     </div>
                     <div class="py-1">
                         @can('manage-recruitments')
@@ -544,7 +544,7 @@
                         <a href="{{ route('staff.users.index') }}" class="transition duration-200 hover:text-primary">All staff members</a>
                     </div>
                     <div class="py-1">
-                        @can('create-new-users')
+                        @can('add-staff-members')
                             <a href="{{ route('staff.users.create') }}" class="transition duration-200 hover:text-primary">Add a new staff member</a>
                         @else
                             <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Add a new staff member</a>

@@ -27,7 +27,7 @@ class ApplicationController extends Controller
      */
     public function index(Recruitment $recruitment, ApplicationFilters $filters)
     {
-        Gate::authorize('manage-recruitments');
+        Gate::authorize('manage-applications');
 
         $recruitment = $recruitment->load('role');
         $applications = $recruitment->applications()->filter($filters)->get();
@@ -45,7 +45,7 @@ class ApplicationController extends Controller
      */
     public function show(Application $application)
     {
-        Gate::authorize('manage-recruitments');
+        Gate::authorize('manage-applications');
 
         $application = $application->load(['recruitment.role', 'recruitment.questions']);
 
@@ -125,7 +125,7 @@ class ApplicationController extends Controller
      */
     public function accept(Application $application)
     {
-        Gate::authorize('manage-recruitments');
+        Gate::authorize('manage-applications');
 
         $application->update([
             'status' => Application::ACCEPTED,
@@ -153,7 +153,7 @@ class ApplicationController extends Controller
      */
     public function decline(Application $application)
     {
-        Gate::authorize('manage-recruitments');
+        Gate::authorize('manage-applications');
 
         $application->update([
             'status' => Application::DECLINED,

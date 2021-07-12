@@ -65,7 +65,7 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
-        Gate::authorize('create-new-users');
+        Gate::authorize('add-staff-members');
 
         $email = $request->email;
 
@@ -86,7 +86,7 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        Gate::authorize('create-new-users');
+        Gate::authorize('add-staff-members');
 
         $user = new User();
 

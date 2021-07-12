@@ -77,7 +77,9 @@
                             <a href="{{ route('staff.recruitments.applications.index', $recruitment) }}" class="text-gray-300 hover:text-gray-400">See applications</a> ({{ $recruitment->applications_count }})
                         </td>
                         <td class="border-none px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a href="{{ route('staff.recruitments.edit', $recruitment) }}" class="transition duration-200 text-primary hover:text-primary-dark">Edit</a>
+                            @can('manage-recruitments')
+                                <a href="{{ route('staff.recruitments.edit', $recruitment) }}" class="transition duration-200 text-primary hover:text-primary-dark">Edit</a>
+                            @endcan
                         </td>
                     </tr>
                 @empty

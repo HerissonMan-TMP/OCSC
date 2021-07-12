@@ -181,6 +181,13 @@ class AuthServiceProvider extends ServiceProvider
                 : Response::deny('You are not allowed to manage recruitments.');
         });
 
+        $ability = 'manage-applications';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission($ability)
+                ? Response::allow()
+                : Response::deny('You are not allowed to manage applications.');
+        });
+
         $ability = 'edit-global-requirements';
         Gate::define($ability, function (User $user) use ($ability) {
             return $user->hasPermission($ability)
@@ -196,11 +203,11 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         //Staff members.
-        $ability = 'create-new-users';
+        $ability = 'add-staff-members';
         Gate::define($ability, function (User $user) use ($ability) {
-            return $user->can('has-admin-rights')
+            return $user->hasPermission('add-staff-members')
                 ? Response::allow()
-                : Response::deny('You are not allowed to add a new Staff member.');
+                : Response::deny('You are not allowed to add new Staff members.');
         });
 
         $ability = 'delete-user';

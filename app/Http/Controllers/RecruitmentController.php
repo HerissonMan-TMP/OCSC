@@ -10,6 +10,7 @@ use App\Models\Recruitment;
 use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Response;
 
 /**
  * Class RecruitmentController
@@ -25,7 +26,9 @@ class RecruitmentController extends Controller
      */
     public function index()
     {
-        Gate::authorize('manage-recruitments');
+        if (!Gate::allows('manage-recruitments') && !Gate::allows('manage-applications')) {
+            Response::deny('You are not allowed to see the index page.');
+        }
 
         $recruitments = Recruitment::latest()
             ->with([
