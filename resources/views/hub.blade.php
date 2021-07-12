@@ -46,16 +46,16 @@
                         <div class="h-full p-4 rounded-md bg-gray-800">
                             <div class="mb-8">
                                 <h3 class="mt-0 mb-2">Website Changelog</h3>
-                                <span class="text-sm text-gray-400">Latest changelog: <span class="font-bold">06/07/2021 19:35 UTC</span></span>
+                                <span class="text-sm text-gray-400">Latest changelog: <span class="font-bold">12/07/2021 18:25 UTC</span></span>
                             </div>
 
                             <div class="grid grid-cols-2 gap-6">
                                 <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-red-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-bug fa-fw"></i>
+                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-thumbs-up fa-fw"></i>
                                     </div>
 
-                                    <span class="text-sm">Preventing the authenticated user's name to be modified when attempting to edit another user's name</span>
+                                    <span class="text-sm">Adding a button to delete all past convoys on the website.</span>
                                 </div>
 
                                 <div class="col-span-full md:col-span-1 flex items-center gap-4">
@@ -63,7 +63,31 @@
                                         <i class="fas fa-thumbs-up fa-fw"></i>
                                     </div>
 
-                                    <span class="text-sm">Replacing "http" by "https" in the Discord embeds' footer</span>
+                                    <span class="text-sm">Discord notifications regarding applications are now sent in 2 different channels.</span>
+                                </div>
+
+                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
+                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-thumbs-up fa-fw"></i>
+                                    </div>
+
+                                    <span class="text-sm">Contact categories have been split into multiple submenus.</span>
+                                </div>
+
+                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
+                                    <div class="w-10 h-10 p-4 bg-yellow-500 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-star fa-fw"></i>
+                                    </div>
+
+                                    <span class="text-sm">Adding Discord notifications when toggling the maintenance mode.</span>
+                                </div>
+
+                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
+                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-thumbs-up fa-fw"></i>
+                                    </div>
+
+                                    <span class="text-sm">Creating a permission to deal only with applications (without having the permission to manage recruitment sessions).</span>
                                 </div>
                             </div>
                         </div>
