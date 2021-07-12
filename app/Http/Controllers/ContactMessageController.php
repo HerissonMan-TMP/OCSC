@@ -75,7 +75,7 @@ class ContactMessageController extends Controller
         $contactMessage = $contactCategory->messages()->create($request->validated());
 
         (new DiscordEmbed())
-            ->webhook(config('discord_webhooks.contact_messages'))
+            ->webhook(config('discord_webhooks.staff-only'))
             ->username('OCSC Event - Postman')
             ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
             ->color(hexdec('FFFFFF'))

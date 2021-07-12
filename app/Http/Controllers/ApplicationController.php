@@ -79,7 +79,20 @@ class ApplicationController extends Controller
         }
 
         (new DiscordEmbed())
-            ->webhook(config('discord_webhooks.applications'))
+            ->webhook(config('discord_webhooks.general'))
+            ->username('OCSC Event - Recruiter')
+            ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
+            ->color(hexdec(ltrim($recruitment->load('role')->role->color, '#')))
+            ->thumbnail(config('app.url') . '/img/ocsc_logo.png')
+            ->title('📁 - Application received')
+            ->description($request->discord . ' (TMP ID: ' . $request->truckersmp_id . ') just sent an application on the website!')
+            ->addField('Role', $recruitment->role->name, false)
+            ->image('https://media.discordapp.net/attachments/824978783051448340/849887295611994152/ets2_20210515_230820_00.png?width=1246&height=701')
+            ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'))
+            ->send();
+
+        (new DiscordEmbed())
+            ->webhook(config('discord_webhooks.staff-only'))
             ->username('OCSC Event - Recruiter')
             ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
             ->color(hexdec(ltrim($recruitment->load('role')->role->color, '#')))
