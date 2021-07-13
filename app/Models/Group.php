@@ -25,6 +25,6 @@ class Group extends Model
      */
     public function roles()
     {
-        return $this->hasMany(Role::class);
+        return $this->hasMany(Role::class)->orderBy('order');
     }
 }
