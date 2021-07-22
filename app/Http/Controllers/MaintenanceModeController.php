@@ -31,17 +31,7 @@ class MaintenanceModeController extends Controller
         ]);
 
         (new DiscordEmbed())
-            ->webhook(config('discord_webhooks.general'))
-            ->username('OCSC Event - Worker')
-            ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
-            ->color(1096065)
-            ->thumbnail(config('app.url') . '/img/ocsc_logo.png')
-            ->title('🛠 - Maintenance Mode')
-            ->description('The website\'s maintenance mode has just been **enabled**.
-                You will be notified when it will become available again.
-                Thank you for your patience!'
-            )
-            ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'))
+            ->maintenanceEnabledEmbed()
             ->send();
 
         activity(ActivityType::ENABLED)
@@ -66,14 +56,7 @@ class MaintenanceModeController extends Controller
         Artisan::call('up');
 
         (new DiscordEmbed())
-            ->webhook(config('discord_webhooks.general'))
-            ->username('OCSC Event - Worker')
-            ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
-            ->color(15680580)
-            ->thumbnail(config('app.url') . '/img/ocsc_logo.png')
-            ->title('🛠 - Maintenance Mode')
-            ->description('The website\'s maintenance mode has just been **disabled**. You can browse our website again!')
-            ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'))
+            ->maintenanceDisabledEmbed()
             ->send();
 
         activity(ActivityType::DISABLED)

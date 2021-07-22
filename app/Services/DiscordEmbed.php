@@ -129,4 +129,72 @@ class DiscordEmbed
             ]
         ]);
     }
+
+    public function applicationEmbed($recruitment, $request)
+    {
+        $this
+            ->webhook(config('discord_webhooks.general'))
+            ->username('OCSC Event - Recruiter')
+            ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
+            ->color(hexdec(ltrim($recruitment->load('role')->role->color, '#')))
+            ->thumbnail(config('app.url') . '/img/ocsc_logo.png')
+            ->title('📁 - Application received')
+            ->description($request->discord . ' (TMP ID: ' . $request->truckersmp_id . ') just sent an application on the website!')
+            ->addField('Role', $recruitment->role->name, false)
+            ->image('https://media.discordapp.net/attachments/824978783051448340/849887295611994152/ets2_20210515_230820_00.png?width=1246&height=701')
+            ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'));
+
+        return $this;
+    }
+
+    public function contactMessageEmbed($contactCategory, $contactMessage, $request)
+    {
+        $this
+            ->webhook(config('discord_webhooks.staff-only'))
+            ->username('OCSC Event - Postman')
+            ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
+            ->color(hexdec('FFFFFF'))
+            ->thumbnail(config('app.url') . '/img/ocsc_logo.png')
+            ->title('✉️ - Contact message received')
+            ->description(($request->discord ?? $request->email) . ' just sent a contact message on the website.')
+            ->addField('Category', $contactCategory->label . ' - ' . $contactCategory->name, false)
+            ->addField('Read the message', config('app.url') . '/staff/contact-messages/' . $contactMessage->id, false)
+            ->image('https://media.discordapp.net/attachments/824978783051448340/849887295611994152/ets2_20210515_230820_00.png?width=1246&height=701')
+            ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'));
+
+        return $this;
+    }
+
+    public function maintenanceEnabledEmbed()
+    {
+        $this
+            ->webhook(config('discord_webhooks.general'))
+            ->username('OCSC Event - Worker')
+            ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
+            ->color(1096065)
+            ->thumbnail(config('app.url') . '/img/ocsc_logo.png')
+            ->title('🛠 - Maintenance Mode')
+            ->description('The website\'s maintenance mode has just been **enabled**.
+                You will be notified when it will become available again.
+                Thank you for your patience!'
+            )
+            ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'));
+
+        return $this;
+    }
+
+    public function maintenanceDisabledEmbed()
+    {
+        $this
+            ->webhook(config('discord_webhooks.general'))
+            ->username('OCSC Event - Worker')
+            ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
+            ->color(15680580)
+            ->thumbnail(config('app.url') . '/img/ocsc_logo.png')
+            ->title('🛠 - Maintenance Mode')
+            ->description('The website\'s maintenance mode has just been **disabled**. You can browse our website again!')
+            ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'));
+
+        return $this;
+    }
 }
