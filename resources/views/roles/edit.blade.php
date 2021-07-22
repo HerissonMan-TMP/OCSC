@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="col-span-full md:col-span-3">
-                    <label for="icon-name-field" class="block text-sm font-medium text-gray-300">Icon name <span class="text-red-500 font-bold">*</span></label>
+                    <label for="icon-name-field" class="block text-sm font-medium text-gray-300">Icon name (available icons: <a href="https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=solid&m=free" target="_blank">Font Awesome</a>) <span class="text-red-500 font-bold">*</span></label>
                     <input type="text" name="icon_name" id="icon-name-field" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ old('icon_name') ?? $role->icon_name }}">
                     @error('icon_name')
                     <span class="pt-2 text-sm text-red-500">
