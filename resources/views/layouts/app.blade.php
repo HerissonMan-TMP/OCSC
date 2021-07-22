@@ -50,8 +50,7 @@
                         <div class="flex justify-start lg:w-0 lg:flex-1">
                             <a href="{{ route('homepage') }}">
                                 <span class="sr-only">{{ config('app.name') }}</span>
-                                <img class="max-h-16 hidden lg:block rounded-lg" src="{{ asset('img/ocsc_extended_logo.png') }}" alt="">
-                                <img class="max-h-16 block lg:hidden rounded-lg" src="{{ asset('img/ocsc_logo.png') }}" alt="">
+                                <img class="max-h-16 rounded-lg" src="{{ asset('img/ocsc_logo.png') }}" alt="">
                             </a>
                         </div>
 

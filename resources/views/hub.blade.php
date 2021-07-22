@@ -55,39 +55,7 @@
                                         <i class="fas fa-thumbs-up fa-fw"></i>
                                     </div>
 
-                                    <span class="text-sm">Adding a button to delete all past convoys on the website.</span>
-                                </div>
-
-                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-thumbs-up fa-fw"></i>
-                                    </div>
-
-                                    <span class="text-sm">Discord notifications regarding applications are now sent in 2 different channels.</span>
-                                </div>
-
-                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-thumbs-up fa-fw"></i>
-                                    </div>
-
-                                    <span class="text-sm">Contact categories have been split into multiple submenus.</span>
-                                </div>
-
-                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-yellow-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-star fa-fw"></i>
-                                    </div>
-
-                                    <span class="text-sm">Adding Discord notifications when toggling the maintenance mode.</span>
-                                </div>
-
-                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-thumbs-up fa-fw"></i>
-                                    </div>
-
-                                    <span class="text-sm">Creating a permission to deal only with applications (without having the permission to manage recruitment sessions).</span>
+                                    <span class="text-sm">Replacing the OCSC extended logo by the smaller logo in the website header.</span>
                                 </div>
                             </div>
                         </div>
