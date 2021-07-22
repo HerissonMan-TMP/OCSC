@@ -229,7 +229,7 @@
                                             @forelse($recruitableRoles->sortBy('order') as $role)
                                             <a @if($role->isRecruiting()) href="{{ route('recruitments.show', $role->getOpenRecruitment()) }}" @endif class="@if(!$role->isRecruiting()) select-none @endif transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                 <!-- Heroicon name: outline/chart-bar -->
-                                                <i class="flex-shrink-0 text-primary fas fa-{{ $role->icon_name }} fa-fw fa-lg mt-2" style="color: {{ $role->color }};"></i>
+                                                <i class="flex-shrink-0 text-primary {{ $role->icon_name }} fa-fw fa-lg mt-2" style="color: {{ $role->color }};"></i>
                                                 <div class="w-full ml-4">
                                                     <div class="flex justify-between">
                                                         <p class="mb-0 text-base font-bold" style="color: {{ $role->color }};">
@@ -428,7 +428,7 @@
                                                 @forelse($recruitableRoles->sortBy('order') as $role)
                                                     <a @if($role->isRecruiting()) href="{{ route('recruitments.show', $role->getOpenRecruitment()) }}" @endif class="@if(!$role->isRecruiting()) select-none @endif transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                         <!-- Heroicon name: outline/chart-bar -->
-                                                        <i class="flex-shrink-0 text-primary fas fa-{{ $role->icon_name }} fa-fw fa-lg mt-2" style="color: {{ $role->color }};"></i>
+                                                        <i class="flex-shrink-0 text-primary {{ $role->icon_name }} fa-fw fa-lg mt-2" style="color: {{ $role->color }};"></i>
                                                         <div class="w-full ml-4">
                                                             <div class="flex justify-between">
                                                                 <p class="mb-0 text-base font-bold" style="color: {{ $role->color }};">

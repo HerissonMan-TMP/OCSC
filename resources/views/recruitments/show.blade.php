@@ -5,7 +5,7 @@
 @section('content')
 <div class="flex flex-col justify-center items-center bg-fixed bg-cover bg-center px-2 md:px-0 py-52" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ config('app.default_banner') }}');">
     <div class="text-center grid gap-4">
-        <h1 class="text-5xl m-0 capitalize">Recruitment - <i class="flex-shrink-0 fas fa-{{ $recruitment->role->icon_name }} fa-fw" style="color: {{ $recruitment->role->color }}"></i> <span style="color: {{ $recruitment->role->color }}">{{ $recruitment->role->name }}</span></h1>
+        <h1 class="text-5xl m-0 capitalize">Recruitment - <i class="flex-shrink-0 {{ $recruitment->role->icon_name }} fa-fw" style="color: {{ $recruitment->role->color }}"></i> <span style="color: {{ $recruitment->role->color }}">{{ $recruitment->role->name }}</span></h1>
         <div>
             <p class="inline-block mb-0 rounded px-2 text-sm text-gray-200 bg-green-500 uppercase">
                 Open until <span class="font-bold">{{ $recruitment->end_at->format('d M H:i') }} UTC</span>
@@ -20,7 +20,7 @@
             @csrf
             <div class="flex justify-between items-center">
                 <h3 class="font-bold text-2xl text-gray-300 mt-2 mb-6">Recruitment #{{ $recruitment->id }} - Apply for <span style="color: {{ $recruitment->role->color }}">{{ $recruitment->role->name }}</span></h3>
-                <i style="color: {{ $recruitment->role->color }}" class="flex-shrink-0 text-primary fas fa-{{ $recruitment->role->icon_name }} fa-fw fa-2x"></i>
+                <i style="color: {{ $recruitment->role->color }}" class="flex-shrink-0 text-primary {{ $recruitment->role->icon_name }} fa-fw fa-2x"></i>
             </div>
 
             @if($globalRequirements || $recruitment->specific_requirements)

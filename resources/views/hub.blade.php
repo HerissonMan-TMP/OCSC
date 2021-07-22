@@ -73,6 +73,14 @@
 
                                     <span class="text-sm">Adding a link to the available icons for a role on the role creation / edition pages.</span>
                                 </div>
+
+                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
+                                    <div class="w-10 h-10 p-4 bg-red-500 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-bug fa-fw"></i>
+                                    </div>
+
+                                    <span class="text-sm">Fixing some role icons which weren't displayed and adding a new one (at the top of the staff menu, at the left of the role name).</span>
+                                </div>
                             </div>
                         </div>
                     </div>

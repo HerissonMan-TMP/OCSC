@@ -12,7 +12,10 @@
                     </div>
                     <div class="py-3">
                         @foreach($authUser->roles as $role)
-                            <div class="inline-block px-2 py-1 rounded-md text-sm font-bold" style="background-color: {{ $role->color }}; color: {{ $role->contrast_color }}">{{ $role->name }}</div>
+                            <div class="inline-block px-2 py-1 rounded-md text-sm font-bold" style="background-color: {{ $role->color }}; color: {{ $role->contrast_color }}">
+                                <i class="{{ $role->icon_name }} fa-fw"></i>
+                                {{ $role->name }}
+                            </div>
                         @endforeach
                     </div>
                     <div class="text-sm">
