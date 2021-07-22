@@ -58,6 +58,9 @@
                             Email address
                         </th>
                         <th scope="col" class="border-none px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                            Label
+                        </th>
+                        <th scope="col" class="border-none px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
                             Sent at (UTC)
                         </th>
                         <th scope="col" class="border-none px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
@@ -79,6 +82,9 @@
                         </td>
                         <td class="border-none px-6 py-4 whitespace-nowrap text-sm">
                             {{ $contactMessage->email }}
+                        </td>
+                        <td class="border-none px-6 py-4 whitespace-nowrap text-sm">
+                            {{ $contactMessage->category->label }}
                         </td>
                         <td class="border-none px-6 py-4 whitespace-nowrap text-sm">
                             {{ $contactMessage->created_at->format('d M H:i') }}

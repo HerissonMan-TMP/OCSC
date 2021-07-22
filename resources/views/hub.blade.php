@@ -57,6 +57,14 @@
 
                                     <span class="text-sm">Replacing the OCSC extended logo by the smaller logo in the website header.</span>
                                 </div>
+
+                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
+                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-thumbs-up fa-fw"></i>
+                                    </div>
+
+                                    <span class="text-sm">Displaying the category of the contact message on the contact message index page.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
