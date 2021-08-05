@@ -17,6 +17,8 @@ class Application extends Model
     use HasFactory;
     use Filterable;
 
+    public const NEW = 'new';
+
     public const DECLINED = 'declined';
 
     public const ACCEPTED = 'accepted';

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Recruitment\StoreRecruitmentRequest;
 use App\Http\Requests\Recruitment\UpdateRecruitmentRequest;
 use App\Models\ActivityType;
+use App\Models\Application;
 use App\Models\GlobalRequirements;
 use App\Models\Recruitment;
 use App\Models\Role;
@@ -37,6 +38,10 @@ class RecruitmentController extends Controller
                 'user.roles'
             ])
             ->withCount('applications')->get();
+
+        foreach ($recruitments as $recruitment) {
+            $recruitment->new_applications_count = $recruitment->applications->where('status', Application::NEW)->count();
+        }
 
         return view('recruitments.index')
             ->with(compact('recruitments'));

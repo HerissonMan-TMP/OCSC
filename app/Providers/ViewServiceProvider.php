@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Application;
 use App\Models\Article;
+use App\Models\ContactMessage;
 use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
@@ -47,6 +49,11 @@ class ViewServiceProvider extends ServiceProvider
             if (Auth::check()) {
                 $view->with('authUser', Auth::user()->load('roles'));
             }
+        });
+
+        View::composer(['layouts/staff'], function ($view) {
+            $view->with('contactMessagesCount', ContactMessage::where('status', ContactMessage::UNREAD)->count());
+            $view->with('applicationsCount', Application::where('status', Application::NEW)->count());
         });
     }
 }

@@ -75,6 +75,9 @@
                         </td>
                         <td class="border-none px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                             <a href="{{ route('staff.recruitments.applications.index', $recruitment) }}" class="text-gray-300 hover:text-gray-400">See applications</a> ({{ $recruitment->applications_count }})
+                            @if($recruitment->new_applications_count > 0)
+                                <span class="ml-2 p-1 bg-red-500 rounded-full text-xs text-gray-100 font-bold w-6 h-6 inline-flex justify-center">{{ $recruitment->new_applications_count }}</span>
+                            @endif
                         </td>
                         <td class="border-none px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             @can('manage-recruitments')

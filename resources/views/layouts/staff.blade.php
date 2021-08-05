@@ -183,6 +183,9 @@
                         <a class="staff-menu-item" href="{{ route('staff.contact-messages.index') }}">
                             <span>
                                 <i class="fas fa-envelope fa-fw"></i> Contact Messages
+                                @if($contactMessagesCount > 0)
+                                    <span class="ml-2 p-1 bg-red-500 rounded-full text-xs text-gray-100 font-bold w-6 h-6 inline-flex justify-center">{{ $contactMessagesCount }}</span>
+                                @endif
                             </span>
                         </a>
                     @else
@@ -196,6 +199,9 @@
                     <div class="staff-menu-item staff-menu-dropdown">
                         <span>
                             <i class="fas fa-briefcase fa-fw"></i> Recruitments
+                            @if($applicationsCount > 0)
+                                <span class="ml-2 p-1 bg-red-500 rounded-full text-xs text-gray-100 font-bold w-6 h-6 inline-flex justify-center">{{ $applicationsCount }}</span>
+                            @endif
                         </span>
                         <span>
                             <i class="fas fa-chevron-down fa-fw text-sm"></i>
@@ -522,25 +528,31 @@
 
                 @can('manage-contact-messages')
                     <a class="staff-menu-item" href="{{ route('staff.contact-messages.index') }}">
-                            <span>
-                                <i class="fas fa-envelope fa-fw"></i> Contact Messages
-                            </span>
+                        <span>
+                            <i class="fas fa-envelope fa-fw"></i> Contact Messages
+                            @if($contactMessagesCount > 0)
+                                <span class="ml-2 p-1 bg-red-500 rounded-full text-xs text-gray-100 font-bold w-6 h-6 inline-flex justify-center">{{ $contactMessagesCount }}</span>
+                            @endif
+                        </span>
                     </a>
                 @else
                     <a class="staff-menu-item-disabled">
-                            <span>
-                                <i class="fas fa-envelope fa-fw"></i> Contact Messages
-                            </span>
+                        <span>
+                            <i class="fas fa-envelope fa-fw"></i> Contact Messages
+                        </span>
                     </a>
                 @endcan
 
                 <div class="staff-menu-item staff-menu-dropdown">
-                        <span>
-                            <i class="fas fa-briefcase fa-fw"></i> Recruitments
-                        </span>
                     <span>
-                            <i class="fas fa-chevron-down fa-fw text-sm"></i>
-                        </span>
+                        <i class="fas fa-briefcase fa-fw"></i> Recruitments
+                        @if($applicationsCount > 0)
+                            <span class="ml-2 p-1 bg-red-500 rounded-full text-xs text-gray-100 font-bold w-6 h-6 inline-flex justify-center">{{ $applicationsCount }}</span>
+                        @endif
+                    </span>
+                    <span>
+                        <i class="fas fa-chevron-down fa-fw text-sm"></i>
+                    </span>
                 </div>
                 <div class="staff-menu-dropdown-items pl-20 hidden text-gray-400">
                     <div class="py-1">
