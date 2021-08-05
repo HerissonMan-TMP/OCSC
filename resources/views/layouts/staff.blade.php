@@ -304,6 +304,38 @@
                             @endcan
                         </div>
                     </div>
+
+                    <div class="px-10">
+                        <hr>
+                    </div>
+
+                    @can('has-admin-rights')
+                        <a class="staff-menu-item" href="https://web41.lws-hosting.com/cpanel" target="_blank">
+                            <span>
+                                <i class="fab fa-cpanel fa-fw"></i> CPanel
+                            </span>
+                        </a>
+                    @else
+                        <a class="staff-menu-item-disabled">
+                            <span>
+                                <i class="fab fa-cpanel fa-fw"></i> CPanel
+                            </span>
+                        </a>
+                    @endcan
+
+                    @can('has-admin-rights')
+                        <a class="staff-menu-item" href="https://dash.cloudflare.com/login" target="_blank">
+                            <span>
+                                <i class="fab fa-cloudflare fa-fw"></i> Cloudflare
+                            </span>
+                        </a>
+                    @else
+                        <a class="staff-menu-item-disabled">
+                            <span>
+                                <i class="fab fa-cloudflare fa-fw"></i> Cloudflare
+                            </span>
+                        </a>
+                    @endcan
                 </div>
             </div>
         </div>
@@ -613,6 +645,36 @@
                         @endcan
                     </div>
                 </div>
+
+                <hr>
+
+                @can('has-admin-rights')
+                    <a class="staff-menu-item" href="https://web41.lws-hosting.com/cpanel" target="_blank">
+                        <span>
+                            <i class="fab fa-cpanel fa-fw"></i> CPanel
+                        </span>
+                    </a>
+                @else
+                    <a class="staff-menu-item-disabled">
+                        <span>
+                            <i class="fab fa-cpanel fa-fw"></i> CPanel
+                        </span>
+                    </a>
+                @endcan
+
+                @can('has-admin-rights')
+                    <a class="staff-menu-item" href="https://dash.cloudflare.com/login" target="_blank">
+                        <span>
+                            <i class="fab fa-cloudflare fa-fw"></i> Cloudflare
+                        </span>
+                    </a>
+                @else
+                    <a class="staff-menu-item-disabled">
+                        <span>
+                            <i class="fab fa-cloudflare fa-fw"></i> Cloudflare
+                        </span>
+                    </a>
+                @endcan
             </div>
         </div>
     </div>
