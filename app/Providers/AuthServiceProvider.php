@@ -265,10 +265,29 @@ class AuthServiceProvider extends ServiceProvider
 
 
         //Roles & Permissions.
+        $ability = 'assign-roles';
+        Gate::define($ability, function (User $user) use ($ability) {
+            return $user->hasPermission('assign-roles')
+                ? Response::allow()
+                : Response::deny('You are not allowed to assign roles.');
+        });
+
+        $ability = 'assign-role';
+        Gate::define($ability, function (User $user, Role $role) use ($ability) {
+            return $user->can('assign-roles')
+            && $user->roles->first()->group->id < $role->group->id
+                ? Response::allow()
+                : Response::deny('You are not allowed to assign that role.');
+        });
+
         $ability = 'assign-roles-to-user';
         Gate::define($ability, function (User $user, User $targetUser) use ($ability) {
-            return $user->can('has-admin-rights')
-                && !$targetUser->can('has-admin-rights')
+            return ($user->can('has-admin-rights')
+                || (
+                    $user->can('assign-roles')
+                    && $user->roles->first()->group->id < $targetUser->roles->first()->group->id
+                )
+                && !$targetUser->can('has-admin-rights'))
                 ? Response::allow()
                 : Response::deny('You are not allowed to assign roles for this user.');
         });

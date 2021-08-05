@@ -87,6 +87,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         Gate::authorize('add-staff-members');
+        Gate::authorize('assign-role', Role::find($request->role_id));
 
         $user = new User();
 
@@ -238,6 +239,10 @@ class UserController extends Controller
     public function updateRoles(User $user, UpdateUserRolesRequest $request)
     {
         Gate::authorize('assign-roles-to-user', $user);
+
+        foreach ($request->roles as $roleId) {
+            Gate::authorize('assign-role', Role::find($roleId));
+        }
 
         $user->roles()->sync($request->roles);
 

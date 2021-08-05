@@ -139,10 +139,17 @@
 
                         <label for="roles" class="mb-2 block text-sm font-medium text-gray-300">Roles <span class="text-red-500 font-bold">*</span></label>
                         @foreach($roles as $role)
-                            <div>
-                                <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 cursor-pointer" @if($user->hasRole($role)) checked @endif>
-                                <label for="role-{{ $role->id }}" style="color: {{ $role->color }}">{{ $role->name }}</label>
-                            </div>
+                            @can('assign-role', $role)
+                                <div>
+                                    <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 cursor-pointer" @if($user->hasRole($role)) checked @endif>
+                                    <label for="role-{{ $role->id }}" style="color: {{ $role->color }}">{{ $role->name }}</label>
+                                </div>
+                            @else
+                                <div class="opacity-50">
+                                    <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}" style="color: {{ $role->color }}" class="form-checkbox rounded-full border-none focus:ring-offset-0 focus:ring-0 cursor-not-allowed" @if($user->hasRole($role)) checked @endif disabled>
+                                    <label for="role-{{ $role->id }}" style="color: {{ $role->color }}">{{ $role->name }}</label>
+                                </div>
+                            @endcan
                         @endforeach
                         <div class="flex justify-between flex-wrap md:flex-nowrap items-end mt-6">
                             <div class="mb-2 md:mb-0">
