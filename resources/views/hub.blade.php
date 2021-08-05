@@ -46,40 +46,40 @@
                         <div class="h-full p-4 rounded-md bg-gray-800">
                             <div class="mb-8">
                                 <h3 class="mt-0 mb-2">Website Changelog</h3>
-                                <span class="text-sm text-gray-400">Latest changelog: <span class="font-bold">12/07/2021 18:25 UTC</span></span>
+                                <span class="text-sm text-gray-400">Latest changelog: <span class="font-bold">06/08/2021 22:00 UTC</span></span>
                             </div>
 
                             <div class="grid grid-cols-2 gap-6">
-                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-thumbs-up fa-fw"></i>
-                                    </div>
-
-                                    <span class="text-sm">Replacing the OCSC extended logo by the smaller logo in the website header.</span>
-                                </div>
-
-                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-thumbs-up fa-fw"></i>
-                                    </div>
-
-                                    <span class="text-sm">Displaying the category of the contact message on the contact message index page.</span>
-                                </div>
-
-                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-thumbs-up fa-fw"></i>
-                                    </div>
-
-                                    <span class="text-sm">Adding a link to the available icons for a role on the role creation / edition pages.</span>
-                                </div>
-
                                 <div class="col-span-full md:col-span-1 flex items-center gap-4">
                                     <div class="w-10 h-10 p-4 bg-red-500 rounded-md flex items-center justify-center">
                                         <i class="fas fa-bug fa-fw"></i>
                                     </div>
 
-                                    <span class="text-sm">Fixing some role icons which weren't displayed and adding a new one (at the top of the staff menu, at the left of the role name).</span>
+                                    <span class="text-sm">Adding "Assign role" permission to fix a bug with HR Manager not being able to add a new staff member.</span>
+                                </div>
+
+                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
+                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-thumbs-up fa-fw"></i>
+                                    </div>
+
+                                    <span class="text-sm">Adding 3 big icons on the homepage.</span>
+                                </div>
+
+                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
+                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-thumbs-up fa-fw"></i>
+                                    </div>
+
+                                    <span class="text-sm">Adding links to CPanel & Cloudflare login page on Staff Hub.</span>
+                                </div>
+
+                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
+                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-thumbs-up fa-fw"></i>
+                                    </div>
+
+                                    <span class="text-sm">Adding number badges showing how many contact messages are not read / applications are not dealt with yet.</span>
                                 </div>
                             </div>
                         </div>
