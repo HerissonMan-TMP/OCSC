@@ -16,18 +16,21 @@
 <section id="our-services" class="w-full py-28">
     <div class="max-w-7xl px-4 py-5 md:p-6 mx-auto grid grid-cols-3 gap-16 md:gap-20">
         <div class="col-span-full md:col-span-1 text-justify">
+            <i class="fas fa-map-marked text-primary fa-5x"></i>
             <h3 class="text-xl font-bold text-primary uppercase">Creation of Convoys</h3>
             <p class="mt-6">
                 We create your convoy from A to Z; we choose the appropriate route, we deal with convoy advertisement, and more.
             </p>
         </div>
         <div class="col-span-full md:col-span-1 text-justify">
+            <i class="fas fa-parking text-primary fa-5x"></i>
             <h3 class="text-xl font-bold text-primary uppercase">VTC & Parking Management</h3>
             <p class="mt-6">
                 We carry out the placement of the VTCs and choose the best order of departure.
             </p>
         </div>
         <div class="col-span-full md:col-span-1 text-justify">
+            <i class="fas fa-eye text-primary fa-5x"></i>
             <h3 class="text-xl font-bold text-primary uppercase">Supervision</h3>
             <p class="mt-6">
                 Thanks to our several saves, we can supervise your convoy efficiently, with professionalism.
