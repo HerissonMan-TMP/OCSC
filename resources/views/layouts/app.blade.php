@@ -538,14 +538,21 @@
 
                     <!-- Discord Server -->
                     <div class="col-span-full md:col-span-1">
-                        <h4 class="mt-0 mb-1 font-bold">Our Discord server</h4>
+                        <h4 class="mt-0 mb-1 font-bold">Social Media</h4>
                         <p class="mb-4 text-justify">
-                            We have a Discord server which is the main place for us to be in touch with the community.
-                            If you are not on the server yet, feel free to join us!
+                            We are on Social Media; feel free to follow us on Twitter, Instagram and join our Discord server!
                         </p>
-                        <a href="https://discord.gg/abB2wCm8Ed" target="_blank" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-bold text-gray-300 bg-discord hover:text-gray-300 hover:bg-discord-dark">
-                            <i class="fab fa-discord mr-2"></i> Join our Discord server
-                        </a>
+                        <div class="mt-10">
+                            <a href="https://twitter.com/OCSC_Officiel" target="_blank" class="mr-4">
+                                <i class="fab fa-twitter fa-lg"></i>
+                            </a>
+                            <a href="https://www.instagram.com/ocsc_officiel/?hl=fr" target="_blank" class="mr-4">
+                                <i class="fab fa-instagram fa-lg"></i>
+                            </a>
+                            <a href="https://discord.gg/abB2wCm8Ed" target="_blank" class="mr-4">
+                                <i class="fab fa-discord fa-lg"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
