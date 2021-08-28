@@ -73,6 +73,14 @@
 
                                     <span class="text-sm">Changing the engine for partners slider at the bottom of the homepage.</span>
                                 </div>
+
+                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
+                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-thumbs-up fa-fw"></i>
+                                    </div>
+
+                                    <span class="text-sm">Renaming Partners to Supporters.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
