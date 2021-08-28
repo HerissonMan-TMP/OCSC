@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
 
 class DiscordEmbed
@@ -126,7 +127,7 @@ class DiscordEmbed
             'content' => $this->content,
             'embeds' => [
                 $this->embed
-            ]
+            ],
         ]);
     }
 
@@ -193,6 +194,40 @@ class DiscordEmbed
             ->thumbnail(config('app.url') . '/img/ocsc_logo.png')
             ->title('🛠 - Maintenance Mode')
             ->description('The website\'s maintenance mode has just been **disabled**. You can browse our website again!')
+            ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'));
+
+        return $this;
+    }
+
+    public function event($convoy)
+    {
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', $convoy['response']['start_at'])->format('l F jS');
+        $time = Carbon::createFromFormat('Y-m-d H:i:s', $convoy['response']['start_at'])->format('H:i');
+        $server = $convoy['response']['server']['name'];
+        $url = 'https://truckersmp.com/' . $convoy['response']['url'];
+
+        $this
+            ->webhook(config('discord_webhooks.events_of_the_week'))
+            ->username('OCSC Event - Events of the week')
+            ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
+            ->color(2544047)
+            ->thumbnail(asset('img/ocsc_logo.png'))
+            ->title($convoy['response']['name'])
+            ->url('https://truckersmp.com/' . $convoy['response']['url'])
+            ->description("
+            __:clock1: Start date & time:__
+            **${date}**, at ${time} UTC
+
+            __:globe_with_meridians: Server:__
+            ${server}
+
+            __:notepad_spiral: Additional information:__
+            - From **{$convoy['response']['departure']['city']}** to **{$convoy['response']['arrive']['city']}**
+            - Map [here]({$convoy['response']['map']})
+
+            To attend this event, [register on TruckersMP](${url}) by clicking on \"I will be there!\".
+            ")
+            ->image($convoy['response']['banner'])
             ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'));
 
         return $this;
