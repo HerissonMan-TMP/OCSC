@@ -207,7 +207,6 @@ class DiscordEmbed
         $url = 'https://truckersmp.com/' . $convoy['response']['url'];
 
         $this
-            ->webhook(config('discord_webhooks.events_of_the_week'))
             ->username('OCSC Event - Events of the week')
             ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
             ->color(2544047)

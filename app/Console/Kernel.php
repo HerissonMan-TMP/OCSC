@@ -69,7 +69,10 @@ class Kernel extends ConsoleKernel
                 ->sortBy('response.start_at');
 
             foreach ($upcomingConvoysInTheWeek as $convoy) {
-                (new DiscordEmbed())->event($convoy)->send();
+                (new DiscordEmbed())
+                    ->webhook(config('discord_webhooks.events_of_the_week'))
+                    ->event($convoy)
+                    ->send();
             }
         })->weeklyOn(7, '16:00');
 
@@ -103,7 +106,11 @@ class Kernel extends ConsoleKernel
                 ->sortBy('response.start_at');
 
             foreach ($upcomingConvoys as $convoy) {
-                (new DiscordEmbed())->event($convoy)->content('A convoy is starting soon!')->send();
+                (new DiscordEmbed())
+                    ->webhook(config('discord_webhooks.ocsc_news'))
+                    ->event($convoy)
+                    ->content('A convoy is starting soon!')
+                    ->send();
             }
         })->dailyAt('7:00');
     }
