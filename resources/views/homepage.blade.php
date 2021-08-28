@@ -93,20 +93,20 @@
     </div>
 </div>
 <section id="partners" class="w-full h-1/4">
-    <div class="max-w-7xl px-4 py-5 p-6 mx-auto my-16 swiper-container">
-        @if($partners->isNotEmpty())
-        <div class="items-center swiper-wrapper">
-            @foreach($partners as $partner)
-                <div class="swiper-slide">
-                    <a @isset($partner->website_link) href="{{ $partner->website_link }}" @endisset target="_blank">
-                        <img width="200" height="200" src="{{ $partner->logo }}" alt="{{ $partner->name }} Logo" class="rounded-full mx-auto">
-                    </a>
+    <div class="max-w-7xl px-4 py-5 p-6 mx-auto my-16">
+        <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+                <div class="glide__slides">
+                    @foreach($partners as $partner)
+                        <div class="glide__slide">
+                            <a @isset($partner->website_link) href="{{ $partner->website_link }}" @endisset target="_blank">
+                                <img width="200" height="200" src="{{ $partner->logo }}" alt="{{ $partner->name }} Logo" class="rounded-full mx-auto">
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
-            @endforeach
+            </div>
         </div>
-        @else
-            <span class="text-sm text-gray-300 italic">No partners yet...</span>
-        @endif
     </div>
 </section>
 @endsection
@@ -115,18 +115,12 @@
     <script>
         $(function () {
             //Partners slider
-            var swiper =new Swiper('.swiper-container', {
-                spaceBetween: 50,
-                slidesPerView: 3,
-                centeredSlides: true,
-                loop: true,
-                slideNextClass:'eswiper-slide-next',
-                slidePrevClass:'eswiper-slide-prev',
-            });
-
-            setInterval(function() {
-                swiper.slideNext(500);
-            }, 2000);
+            new Glide('.glide', {
+                type: 'carousel',
+                perView: 3,
+                autoplay: 2000,
+                animationDuration: 500,
+            }).mount()
         });
     </script>
 @endpush
