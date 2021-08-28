@@ -40,11 +40,11 @@ class PartnershipConditionsController extends Controller
         $partnershipConditions = PartnershipConditions::create($request->validated());
 
         activity(ActivityType::UPDATED)
-            ->subject('fas fa-handshake', 'Partnership conditions & info')
+            ->subject('fas fa-handshake', 'Supporters conditions & info')
             ->description("Version N°{$partnershipConditions->id}")
             ->log();
 
-        flash("You have successfully updated the partnership conditions & information!")->success();
+        flash("You have successfully updated the supporters conditions & information!")->success();
 
         return redirect()->route('partners');
     }

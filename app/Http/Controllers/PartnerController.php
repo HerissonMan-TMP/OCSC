@@ -48,11 +48,11 @@ class PartnerController extends Controller
         $partner = PartnerCategory::find($request->category_id)->partners()->create($request->validated());
 
         activity(ActivityType::CREATED)
-            ->subject("fas fa-handshake", "Partner #{$partner->id}")
+            ->subject("fas fa-handshake", "Supporter #{$partner->id}")
             ->description("Name: {$partner->name}")
             ->log();
 
-        flash("You have successfully added a new partner!")->success();
+        flash("You have successfully added a new Supporter!")->success();
 
         return redirect()->route('staff.partners.index');
     }
@@ -75,11 +75,11 @@ class PartnerController extends Controller
         $partner->update($request->validated());
 
         activity(ActivityType::UPDATED)
-            ->subject("fas fa-handshake", "Partner #{$partner->id}")
+            ->subject("fas fa-handshake", "Supporter #{$partner->id}")
             ->description("Name: {$partner->name}")
             ->log();
 
-        flash("You have successfully edited the partner \"{$partner->name}\"!")->success();
+        flash("You have successfully edited the Supporter \"{$partner->name}\"!")->success();
 
         return redirect()->route('staff.partners.index');
     }
@@ -91,11 +91,11 @@ class PartnerController extends Controller
         $partner->delete();
 
         activity(ActivityType::DELETED)
-            ->subject("fas fa-handshake", "Partner #{$partner->id}")
+            ->subject("fas fa-handshake", "Supporter #{$partner->id}")
             ->description("Name: {$partner->name}")
             ->log();
 
-        flash("You have successfully deleted the partner \"{$partner->name}\"!")->success();
+        flash("You have successfully deleted the Supporter \"{$partner->name}\"!")->success();
 
         return redirect()->route('staff.partners.index');
     }

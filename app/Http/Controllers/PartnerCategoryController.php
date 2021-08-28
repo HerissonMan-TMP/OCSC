@@ -34,11 +34,11 @@ class PartnerCategoryController extends Controller
         $partnerCategory = PartnerCategory::create($request->validated());
 
         activity(ActivityType::CREATED)
-            ->subject("fas fa-handshake", "Partner Category #{$partnerCategory->id}")
+            ->subject("fas fa-handshake", "Supporters Category #{$partnerCategory->id}")
             ->description("Name: {$partnerCategory->name}")
             ->log();
 
-        flash("You have successfully created the partner category \"{$partnerCategory->name}\"!")->success();
+        flash("You have successfully created the supporters category \"{$partnerCategory->name}\"!")->success();
 
         return redirect()->route('staff.partner-categories.index');
     }
@@ -50,11 +50,11 @@ class PartnerCategoryController extends Controller
         $partnerCategory->update($request->validated());
 
         activity(ActivityType::UPDATED)
-            ->subject("fas fa-handshake", "Partner Category #{$partnerCategory->id}")
+            ->subject("fas fa-handshake", "Supporters Category #{$partnerCategory->id}")
             ->description("Name: {$partnerCategory->name}")
             ->log();
 
-        flash("You have successfully updated the partner category \"{$partnerCategory->name}\"!")->success();
+        flash("You have successfully updated the supporters category \"{$partnerCategory->name}\"!")->success();
 
         return redirect()->route('staff.partner-categories.index');
     }
@@ -66,11 +66,11 @@ class PartnerCategoryController extends Controller
         $partnerCategory->delete();
 
         activity(ActivityType::DELETED)
-            ->subject("fas fa-handshake", "Partner Category #{$partnerCategory->id}")
+            ->subject("fas fa-handshake", "Supporters Category #{$partnerCategory->id}")
             ->description("Name: {$partnerCategory->name}")
             ->log();
 
-        flash("You have successfully deleted the partner category \"{$partnerCategory->name}\"!")->success();
+        flash("You have successfully deleted the supporters category \"{$partnerCategory->name}\"!")->success();
 
         return redirect()->route('staff.partner-categories.index');
     }

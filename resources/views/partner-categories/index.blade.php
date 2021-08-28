@@ -1,11 +1,11 @@
 @extends('layouts.staff')
 
-@section('title', 'Partner Categories - Staff')
+@section('title', 'Supporters Categories - Staff')
 
 @section('content-staff')
     <div>
         <div class="mb-20 break-words text-center">
-            <h2>Partner Categories</h2>
+            <h2>Supporters Categories</h2>
         </div>
 
         <div class="shadow overflow-x-auto rounded-lg">
@@ -63,7 +63,7 @@
 
         @can('manage-partner-categories')
             <div class="mt-10">
-                <h4>Create another partner category</h4>
+                <h4>Create another Supporters category</h4>
 
                 <form action="{{ route('staff.partner-categories.store') }}" method="POST">
                     @csrf

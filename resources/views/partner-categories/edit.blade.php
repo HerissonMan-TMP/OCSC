@@ -1,11 +1,11 @@
 @extends('layouts.staff')
 
-@section('title', "Edit #{$partnerCategory->id} - Partner Categories - Staff")
+@section('title', "Edit #{$partnerCategory->id} - Supporters Categories - Staff")
 
 @section('content-staff')
     <div>
         <div class="mb-20 break-words text-center">
-            <h2>Partner Categories <span class="font-light">/ Edit "{{ $partnerCategory->name }}"</span></h2>
+            <h2>Supporters Categories <span class="font-light">/ Edit "{{ $partnerCategory->name }}"</span></h2>
         </div>
 
         <form action="{{ route('staff.partner-categories.update', $partnerCategory) }}" method="POST">

@@ -1,11 +1,11 @@
 @extends('layouts.staff')
 
-@section('title', 'Partners - Staff')
+@section('title', 'Supporters - Staff')
 
 @section('content-staff')
     <div>
         <div class="mb-20 break-words text-center">
-            <h2>Partners</h2>
+            <h2>Supporters</h2>
         </div>
 
         <div class="grid grid-flow-row gap-16">
@@ -65,7 +65,7 @@
                             </div>
                         @empty
                             <div class="col-span-full mt-5 text-center">
-                                <span class="text-sm italic text-gray-300">No partners for this category yet...</span>
+                                <span class="text-sm italic text-gray-300">No supporters for this category yet...</span>
                             </div>
                         @endforelse
                     </div>

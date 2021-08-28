@@ -6,7 +6,7 @@
 
     <div class="flex flex-col justify-center items-center bg-fixed bg-cover bg-center px-2 md:px-0 py-52" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ config('app.default_banner') }}');">
         <div class="text-center grid gap-4">
-            <h1 class="text-5xl m-0 capitalize"><i class="flex-shrink-0 fas fa-handshake fa-fw"></i> Partners</h1>
+            <h1 class="text-5xl m-0 capitalize"><i class="flex-shrink-0 fas fa-handshake fa-fw"></i> Supporters</h1>
         </div>
     </div>
 
@@ -63,7 +63,7 @@
         <hr class="my-16">
 
         <div>
-            <h2 class="mb-10 text-center">Want to be partner?</h2>
+            <h2 class="mb-10 text-center">Want to be a Supporter?</h2>
 
             <div class="flex flex-wrap justify-center gap-6">
                 @foreach($partnerCategories as $category)
@@ -92,18 +92,18 @@
             </div>
 
             <p class="my-20 text-center text-sm">
-                Being a partner of OCSC Event means opting for a serious and committed relationship. <br>
-                We are therefore looking for reliable partners, having for values, trust and respect.
+                Being a Supporter of OCSC Event means opting for a serious and committed relationship. <br>
+                We are therefore looking for reliable Supporters, having for values, trust and respect.
             </p>
 
             <div class="p-6 rounded-md bg-gray-800">
-                <h2 class="m-0 text-center">Partnership conditions & information</h2>
+                <h2 class="m-0 text-center">Conditions to become Supporter & information</h2>
 
                 <div class="mt-10">
                     @isset($partnershipConditions)
                         @markdown($partnershipConditions->content)
                     @else
-                        <span class="text-sm text-gray-300 italic">No partnership conditions & information yet...</span>
+                        <span class="text-sm text-gray-300 italic">No information & conditions to become Supporter yet...</span>
                     @endisset
                 </div>
             </div>

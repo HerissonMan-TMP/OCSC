@@ -47,7 +47,7 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
         'show'
     ]);
 
-    Route::get('partners', [PartnerController::class, 'partners'])->name('partners');
+    Route::get('supporters', [PartnerController::class, 'partners'])->name('partners');
 
     //Public: Convoy & Convoy rules.
     Route::get('convoys', [ConvoyController::class, 'convoys'])->name('convoys');
@@ -101,23 +101,28 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
             'show',
         ]);
 
-        //Partnership.
-        Route::resource('partners', PartnerController::class)->except(
-            'show',
-        );
-        Route::get('partnership-conditions/create', [PartnershipConditionsController::class, 'create'])
+        //supporters.
+        Route::get('supporters', [PartnerController::class, 'index'])->name('partners.index');
+        Route::get('supporters/create', [PartnerController::class, 'create'])->name('partners.create');
+        Route::post('supporters/store', [PartnerController::class, 'store'])->name('partners.store');
+        Route::get('supporters/{partner}/edit', [PartnerController::class, 'edit'])->name('partners.edit');
+        Route::patch('supporters/{partner}/update', [PartnerController::class, 'update'])->name('partners.update');
+        Route::delete('supporters/{partner}', [PartnerController::class, 'destroy'])->name('partners.destroy');
+
+
+        Route::get('supporters-conditions/create', [PartnershipConditionsController::class, 'create'])
             ->name('partnership-conditions.create');
-        Route::post('partnership-conditions', [PartnershipConditionsController::class, 'store'])
+        Route::post('supporters-conditions', [PartnershipConditionsController::class, 'store'])
             ->name('partnership-conditions.store');
-        Route::get('partner-categories', [PartnerCategoryController::class, 'index'])
+        Route::get('supporters-categories', [PartnerCategoryController::class, 'index'])
             ->name('partner-categories.index');
-        Route::post('partner-categories', [PartnerCategoryController::class, 'store'])
+        Route::post('supporters-categories', [PartnerCategoryController::class, 'store'])
             ->name('partner-categories.store');
-        Route::get('partner-categories/{partnerCategory}/edit', [PartnerCategoryController::class, 'edit'])
+        Route::get('supporters-categories/{partnerCategory}/edit', [PartnerCategoryController::class, 'edit'])
             ->name('partner-categories.edit');
-        Route::patch('partner-categories/{partnerCategory}', [PartnerCategoryController::class, 'update'])
+        Route::patch('supporters-categories/{partnerCategory}', [PartnerCategoryController::class, 'update'])
             ->name('partner-categories.update');
-        Route::delete('partner-categories/{partnerCategory}', [PartnerCategoryController::class, 'destroy'])
+        Route::delete('supporters-categories/{partnerCategory}', [PartnerCategoryController::class, 'destroy'])
             ->name('partner-categories.destroy');
 
         //Convoys & Convoy rules.

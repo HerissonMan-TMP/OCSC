@@ -133,10 +133,10 @@
                                                 <i class="flex-shrink-0 text-primary fas fa-handshake fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
                                                     <p class="mb-0 text-base font-medium text-gray-200">
-                                                        Partnership
+                                                        Supporters
                                                     </p>
                                                     <p class="mb-0 mt-1 text-sm text-gray-400">
-                                                        All of OCSC's partners. We are very proud to have them and we are looking forward to work with them.
+                                                        All of OCSC's supporters. We are very proud to have them and we are looking forward to work with them.
                                                     </p>
                                                 </div>
                                             </a>

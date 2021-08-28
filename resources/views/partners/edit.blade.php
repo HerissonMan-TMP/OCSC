@@ -1,11 +1,11 @@
 @extends('layouts.staff')
 
-@section('title', "Edit #{$partner->id} - Partners - Staff")
+@section('title', "Edit #{$partner->id} - Supporters - Staff")
 
 @section('content-staff')
     <div>
         <div class="mb-20 break-words text-center">
-            <h2>Partners <span class="font-light">/ Edit "{{ $partner->name }}"</span></h2>
+            <h2>Supporters <span class="font-light">/ Edit "{{ $partner->name }}"</span></h2>
         </div>
 
         <form action="{{ route('staff.partners.update', $partner) }}" method="POST">
@@ -14,7 +14,7 @@
 
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-full md:col-span-3">
-                    <label for="name-field" class="block text-sm font-medium text-gray-300">Partner name <span class="text-red-500 font-bold">*</span></label>
+                    <label for="name-field" class="block text-sm font-medium text-gray-300">Supporters name <span class="text-red-500 font-bold">*</span></label>
                     <input type="text" name="name" id="name-field" class="text-gray-300 bg-gray-800 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-700 rounded-md" value="{{ old('name') ?? $partner->name }}">
                     @error('name')
                         <span class="pt-2 text-sm text-red-500">{{ $message }}</span>

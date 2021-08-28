@@ -87,7 +87,7 @@
 
                     <div class="staff-menu-item staff-menu-dropdown">
                         <span>
-                            <i class="fas fa-handshake fa-fw"></i> Partnership
+                            <i class="fas fa-handshake fa-fw"></i> Supporters
                         </span>
                         <span>
                             <i class="fas fa-chevron-down fa-fw text-sm"></i>
@@ -95,24 +95,24 @@
                     </div>
                     <div class="staff-menu-dropdown-items pl-20 hidden text-gray-400">
                         <div class="py-1">
-                            <a href="{{ route('staff.partners.index') }}" class="transition duration-200 hover:text-primary">All partners</a>
+                            <a href="{{ route('staff.partners.index') }}" class="transition duration-200 hover:text-primary">All Supporters</a>
                         </div>
                         <div class="py-1">
                             @can('manage-partners')
-                                <a href="{{ route('staff.partners.create') }}" class="transition duration-200 hover:text-primary">Add a new partner</a>
+                                <a href="{{ route('staff.partners.create') }}" class="transition duration-200 hover:text-primary">Add a new Supporter</a>
                             @else
-                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Add a new partner</a>
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Add a new Supporter</a>
                             @endcan
                         </div>
                         <div class="py-1">
                             @can('edit-partnership-conditions-and-info')
-                                <a href="{{ route('staff.partnership-conditions.create') }}" class="transition duration-200 hover:text-primary">Edit partnership conditions & info</a>
+                                <a href="{{ route('staff.partnership-conditions.create') }}" class="transition duration-200 hover:text-primary">Edit Supporters conditions & info</a>
                             @else
-                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Edit partnership conditions & info</a>
+                                <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Edit Supporters conditions & info</a>
                             @endcan
                         </div>
                         <div class="py-1">
-                            <a href="{{ route('staff.partner-categories.index') }}" class="transition duration-200 hover:text-primary">Partner categories</a>
+                            <a href="{{ route('staff.partner-categories.index') }}" class="transition duration-200 hover:text-primary">Supporters categories</a>
                         </div>
                     </div>
 
@@ -434,7 +434,7 @@
 
                 <div class="staff-menu-item staff-menu-dropdown">
                         <span>
-                            <i class="fas fa-handshake fa-fw"></i> Partnership
+                            <i class="fas fa-handshake fa-fw"></i> Supporters
                         </span>
                     <span>
                             <i class="fas fa-chevron-down fa-fw text-sm"></i>
@@ -442,24 +442,24 @@
                 </div>
                 <div class="staff-menu-dropdown-items pl-20 hidden text-gray-400">
                     <div class="py-1">
-                        <a href="{{ route('staff.partners.index') }}" class="transition duration-200 hover:text-primary">All partners</a>
+                        <a href="{{ route('staff.partners.index') }}" class="transition duration-200 hover:text-primary">All Supporters</a>
                     </div>
                     <div class="py-1">
                         @can('manage-partners')
-                            <a href="{{ route('staff.partners.create') }}" class="transition duration-200 hover:text-primary">Add a new partner</a>
+                            <a href="{{ route('staff.partners.create') }}" class="transition duration-200 hover:text-primary">Add a new Supporter</a>
                         @else
-                            <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Add a new partner</a>
+                            <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Add a new Supporter</a>
                         @endcan
                     </div>
                     <div class="py-1">
                         @can('edit-partnership-conditions-and-info')
-                            <a href="{{ route('staff.partnership-conditions.create') }}" class="transition duration-200 hover:text-primary">Edit partnership conditions & info</a>
+                            <a href="{{ route('staff.partnership-conditions.create') }}" class="transition duration-200 hover:text-primary">Edit Supporters conditions & info</a>
                         @else
-                            <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Edit partnership conditions & info</a>
+                            <a class="opacity-40 select-none cursor-not-allowed hover:text-primary">Edit Supporters conditions & info</a>
                         @endcan
                     </div>
                     <div class="py-1">
-                        <a href="{{ route('staff.partner-categories.index') }}" class="transition duration-200 hover:text-primary">Partner categories</a>
+                        <a href="{{ route('staff.partner-categories.index') }}" class="transition duration-200 hover:text-primary">Supporters categories</a>
                     </div>
                 </div>
 
