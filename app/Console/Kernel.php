@@ -98,7 +98,7 @@ class Kernel extends ConsoleKernel
                 $startAt = Carbon::createFromFormat('Y-m-d H:i:s', $convoy['response']['start_at']);
 
                 if ($startAt->greaterThan(Carbon::now()) && $startAt->lessThan(Carbon::now()->addHours(14))) {
-                    array_push($upcomingConvoy, $convoy);
+                    array_push($upcomingConvoys, $convoy);
                 }
             }
 
