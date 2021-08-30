@@ -66,7 +66,14 @@ class Kernel extends ConsoleKernel
             }
 
             $upcomingConvoysInTheWeek = collect($upcomingConvoysInTheWeek)
-                ->sortBy('response.start_at');
+                ->sortBy('response.start_at')
+                ->filter(function ($value, $key) {
+                    if ($value) {
+                        if (!$value['error']) {
+                            return true;
+                        }
+                    }
+                });
 
             foreach ($upcomingConvoysInTheWeek as $convoy) {
                 (new DiscordEmbed())
@@ -103,7 +110,14 @@ class Kernel extends ConsoleKernel
             }
 
             $upcomingConvoys = collect($upcomingConvoys)
-                ->sortBy('response.start_at');
+                ->sortBy('response.start_at')
+                ->filter(function ($value, $key) {
+                    if ($value) {
+                        if (!$value['error']) {
+                            return true;
+                        }
+                    }
+                });
 
             foreach ($upcomingConvoys as $convoy) {
                 (new DiscordEmbed())
@@ -112,7 +126,7 @@ class Kernel extends ConsoleKernel
                     ->content('A convoy is starting soon!')
                     ->send();
             }
-        })->dailyAt('7:00');
+        })->everyMinute();
     }
 
     /**
