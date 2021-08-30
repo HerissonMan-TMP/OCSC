@@ -58,22 +58,17 @@ class Kernel extends ConsoleKernel
 
             $upcomingConvoysInTheWeek = [];
             foreach ($convoys as $convoy) {
-                $startAt = Carbon::createFromFormat('Y-m-d H:i:s', $convoy['response']['start_at']);
+                if ($convoy['error'] === false) {
+                    $startAt = Carbon::createFromFormat('Y-m-d H:i:s', $convoy['response']['start_at']);
 
-                if ($startAt->greaterThan(Carbon::now()->addHours(5)) && $startAt->lessThan(Carbon::now()->addWeek()->addHours(5))) {
-                    array_push($upcomingConvoysInTheWeek, $convoy);
+                    if ($startAt->greaterThan(Carbon::now()->addHours(5)) && $startAt->lessThan(Carbon::now()->addWeek()->addHours(5))) {
+                        array_push($upcomingConvoysInTheWeek, $convoy);
+                    }
                 }
             }
 
             $upcomingConvoysInTheWeek = collect($upcomingConvoysInTheWeek)
-                ->sortBy('response.start_at')
-                ->filter(function ($value, $key) {
-                    if ($value) {
-                        if (!$value['error']) {
-                            return true;
-                        }
-                    }
-                });
+                ->sortBy('response.start_at');
 
             foreach ($upcomingConvoysInTheWeek as $convoy) {
                 (new DiscordEmbed())
@@ -81,7 +76,7 @@ class Kernel extends ConsoleKernel
                     ->event($convoy)
                     ->send();
             }
-        })->weeklyOn(7, '16:00');
+        })->everyMinute();
 
         $schedule->call(function () {
             $ids = Convoy::all()->pluck('truckersmp_event_id');
@@ -102,22 +97,17 @@ class Kernel extends ConsoleKernel
 
             $upcomingConvoys = [];
             foreach ($convoys as $convoy) {
-                $startAt = Carbon::createFromFormat('Y-m-d H:i:s', $convoy['response']['start_at']);
+                if ($convoy['error'] === false) {
+                    $startAt = Carbon::createFromFormat('Y-m-d H:i:s', $convoy['response']['start_at']);
 
-                if ($startAt->greaterThan(Carbon::now()) && $startAt->lessThan(Carbon::now()->addHours(14))) {
-                    array_push($upcomingConvoys, $convoy);
+                    if ($startAt->greaterThan(Carbon::now()) && $startAt->lessThan(Carbon::now()->addHours(14))) {
+                        array_push($upcomingConvoys, $convoy);
+                    }
                 }
             }
 
             $upcomingConvoys = collect($upcomingConvoys)
-                ->sortBy('response.start_at')
-                ->filter(function ($value, $key) {
-                    if ($value) {
-                        if (!$value['error']) {
-                            return true;
-                        }
-                    }
-                });
+                ->sortBy('response.start_at');
 
             foreach ($upcomingConvoys as $convoy) {
                 (new DiscordEmbed())
@@ -126,7 +116,7 @@ class Kernel extends ConsoleKernel
                     ->content('A convoy is starting soon!')
                     ->send();
             }
-        })->everyMinute();
+        })->dailyAt('7:00');
     }
 
     /**
