@@ -556,6 +556,7 @@
                                 <i class="fab fa-discord fa-lg"></i>
                             </a>
                         </div>
+                        <a href="https://www.patreon.com/bePatron?u=54692823" data-patreon-widget-type="become-patron-button">Support us by becoming a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js%22%3E</script>
                     </div>
                 </div>
 
