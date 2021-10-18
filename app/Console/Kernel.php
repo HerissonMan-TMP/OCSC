@@ -75,6 +75,8 @@ class Kernel extends ConsoleKernel
                     ->webhook(config('discord_webhooks.events_of_the_week'))
                     ->event($convoy)
                     ->send();
+
+                sleep(1);
             }
         })->everyMinute();
 
@@ -115,6 +117,8 @@ class Kernel extends ConsoleKernel
                     ->event($convoy)
                     ->content('A convoy is starting soon!')
                     ->send();
+
+                sleep(1);
             }
         })->dailyAt('7:00');
     }

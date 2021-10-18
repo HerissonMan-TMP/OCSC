@@ -142,7 +142,7 @@ class DiscordEmbed
             ->title('📁 - Application received')
             ->description($request->discord . ' (TMP ID: ' . $request->truckersmp_id . ') just sent an application on the website!')
             ->addField('Role', $recruitment->role->name, false)
-            ->image('https://media.discordapp.net/attachments/824978783051448340/849887295611994152/ets2_20210515_230820_00.png?width=1246&height=701')
+            ->image('https://cdn.discordapp.com/attachments/819698398872731729/894909102306783262/ets2_20210906_153815_00.png')
             ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'));
 
         return $this;
