@@ -571,6 +571,13 @@
             </div>
         </footer>
 
+        @if(app()->isDownForMaintenance())
+            <div class="fixed bottom-0 left-0 right-0 flex justify-center items-center p-6 bg-yellow-500 text-yellow-100 text-lg font-semibold">
+                <i class="fas fa-wrench fa-2x mr-4"></i>
+                <span class="text-center">You are browsing the website while the maintenance mode is active.</span>
+            </div>
+        @endif
+
         <script src="{{ asset('js/app.js') }}"></script>
 
         <script>

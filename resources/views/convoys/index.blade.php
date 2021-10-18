@@ -53,6 +53,9 @@
                             @endif
                         </div>
                         <div>
+                            <i class="fas fa-users fa-fw fa-sm"></i> <span class="ml-2 text-sm"><span class="text-blue-500">{{ $convoy['response']['attendances']['confirmed'] }}</span> <span class="text-yellow-500">({{ $convoy['response']['attendances']['unsure'] }} unsure)</span></span>
+                        </div>
+                        <div>
                             <i class="fas fa-calendar fa-fw fa-sm"></i> <span class="ml-2 text-sm capitalize">{{ \Carbon\Carbon::parse($convoy['response']['start_at'])->diffForHumans(['options' => \Carbon\Carbon::ONE_DAY_WORDS]) }} ({{ \Carbon\Carbon::parse($convoy['response']['start_at'])->format('d M H:i') }} UTC)</span>
                         </div>
                         <div class="grid grid-cols-6 gap-2 mt-4">
