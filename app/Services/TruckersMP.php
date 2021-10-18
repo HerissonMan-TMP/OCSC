@@ -7,6 +7,7 @@ use Illuminate\Http\Client\Pool;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class TruckersMP
 {
@@ -24,6 +25,8 @@ class TruckersMP
 
                 return $responses;
             });
+
+            Log::info('Convoys response', $responses);
 
             $convoys = array_map(function ($response) {
                 return $response->json();
