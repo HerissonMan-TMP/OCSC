@@ -61,7 +61,7 @@ class Kernel extends ConsoleKernel
                 if ($convoy['error'] === false) {
                     $startAt = Carbon::createFromFormat('Y-m-d H:i:s', $convoy['response']['start_at']);
 
-                    if ($startAt->greaterThan(Carbon::now()->addHours(5)) && $startAt->lessThan(Carbon::now()->addWeek()->addHours(5))) {
+                    if ($startAt->greaterThan(Carbon::now()->addHours(7)) && $startAt->lessThan(Carbon::now()->addWeek()->addHours(7))) {
                         array_push($upcomingConvoysInTheWeek, $convoy);
                     }
                 }
@@ -78,7 +78,7 @@ class Kernel extends ConsoleKernel
 
                 sleep(1);
             }
-        })->everyMinute();
+        })->weeklyOn(7, '16:00');
 
         $schedule->call(function () {
             $ids = Convoy::all()->pluck('truckersmp_event_id');
