@@ -226,7 +226,7 @@ class DiscordEmbed
 
             To attend this event, [register on TruckersMP](${url}) by clicking on \"I will be there!\".
             ")
-            ->image($convoy['response']['banner'])
+            ->image($convoy['response']['banner'] || 'https://media.discordapp.net/attachments/824978783051448340/849887295611994152/ets2_20210515_230820_00.png?width=1246&height=701')
             ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'));
 
         return $this;
