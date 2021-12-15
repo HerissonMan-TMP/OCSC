@@ -268,7 +268,9 @@ class UserController extends Controller
     {
         Gate::authorize('delete-users');
 
-        $user->recruitments()->delete();
+        foreach($user->recruitments() as $recruitment) {
+            $recruitment->user()->dissociate();
+        }
         $user->roles()->detach();
         $user->delete();
 
