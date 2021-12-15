@@ -21,7 +21,8 @@
         "laracasts/flash": "^3.2",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "matthewbdaly/laravel-azure-storage": "^1.6"
+        "matthewbdaly/laravel-azure-storage": "^1.6",
+        "yish/imgur": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.9",

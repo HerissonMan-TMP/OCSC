@@ -230,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Twitch' => App\Facades\Twitch::class,
         'Activity' => App\Facades\Activity::class,
+        'Imgur' => Yish\Imgur\Facades\Upload::class,
 
     ],
 

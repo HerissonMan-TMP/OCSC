@@ -10,6 +10,7 @@ use App\Models\ActivityType;
 use App\Models\Picture;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Imgur;
 
 /**
  * Class PictureController
@@ -76,8 +77,9 @@ class PictureController extends Controller
 
         $picture->user()->associate(Auth::user()->id);
 
-        $path = $request->picture_file->store('gallery');
-        $picture->path = basename($path);
+        $img = Imgur::upload($request->picture_file);
+
+        $picture->path = $img->link();
 
         $picture->save();
 
