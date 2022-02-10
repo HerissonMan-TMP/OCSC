@@ -93,6 +93,18 @@
                                                 </div>
                                             </a>
 
+                                            <a href="" target="_blank" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
+                                                <i class="flex-shrink-0 text-primary fas fa-bell-concierge fa-fw fa-lg mt-2"></i>
+                                                <div class="w-full ml-4">
+                                                    <p class="mb-0 text-base font-medium text-gray-200">
+                                                        Our services
+                                                    </p>
+                                                    <p class="mb-0 mt-1 text-sm text-gray-400">
+                                                        All the services offered by OCSC Event.
+                                                    </p>
+                                                </div>
+                                            </a>
+
                                             <a href="https://truckersmp.com/vtc/39908" target="_blank" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                 <i class="flex-shrink-0 text-primary fas fa-truck fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
