@@ -535,7 +535,7 @@
                             <a href="https://twitter.com/OCSC_Officiel" target="_blank" class="mr-4">
                                 <i class="fab fa-twitter fa-lg"></i>
                             </a>
-                            <a href="https://www.instagram.com/ocsc_officiel/?hl=fr" target="_blank" class="mr-4">
+                            <a href="https://www.instagram.com/ocsc_official/" target="_blank" class="mr-4">
                                 <i class="fab fa-instagram fa-lg"></i>
                             </a>
                             <a href="https://discord.gg/abB2wCm8Ed" target="_blank" class="mr-4">
