@@ -22,7 +22,7 @@ return [
     |
     */
 
-    'channel_name' => 'ocsc_officiel',
+    'channel_name' => env('TWITCH_CHANNEL_NAME', 'ocsc_official'),
 
     /*
     |--------------------------------------------------------------------------

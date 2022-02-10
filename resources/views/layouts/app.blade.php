@@ -97,10 +97,10 @@
                                                 <i class="flex-shrink-0 text-primary fas fa-truck fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
                                                     <p class="mb-0 text-base font-medium text-gray-200">
-                                                        OCSC VTC
+                                                        OCSC on TruckersMP
                                                     </p>
                                                     <p class="mb-0 mt-1 text-sm text-gray-400">
-                                                        Our official TruckersMP VTC page.
+                                                        Our official TruckersMP page.
                                                     </p>
                                                 </div>
                                             </a>
@@ -318,7 +318,7 @@
                                                     <i class="flex-shrink-0 text-primary fas fa-truck fa-fw fa-lg mt-2"></i>
                                                     <div class="w-full ml-4">
                                                         <p class="mb-0 text-base font-medium text-gray-200">
-                                                            OCSC VTC
+                                                            OCSC on TruckersMP
                                                         </p>
                                                         <p class="mb-0 mt-1 text-sm text-gray-400">
                                                             Our official TruckersMP VTC page.
