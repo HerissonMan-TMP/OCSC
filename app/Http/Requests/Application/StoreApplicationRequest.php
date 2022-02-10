@@ -54,7 +54,7 @@ class StoreApplicationRequest extends FormRequest
             'age' => [
                 'required',
                 'numeric',
-                'between:16,99',
+                'between:12,99',
             ],
             'pc_configuration' => [
                 'required',

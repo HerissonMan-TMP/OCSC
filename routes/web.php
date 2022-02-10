@@ -3,6 +3,7 @@
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\ConvoyController;
 use App\Http\Controllers\ConvoyRulesController;
@@ -48,6 +49,9 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
     ]);
 
     Route::get('supporters', [PartnerController::class, 'partners'])->name('partners');
+
+    Route::get('bookings/create', [BookingController::class, 'create'])->name('bookings.create');
+    Route::post('bookings', [BookingController::class, 'store'])->name('bookings.store');
 
     //Public: Convoy & Convoy rules.
     Route::get('convoys', [ConvoyController::class, 'convoys'])->name('convoys');

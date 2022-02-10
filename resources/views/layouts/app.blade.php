@@ -93,18 +93,6 @@
                                                 </div>
                                             </a>
 
-                                            <a href="https://forum.ocsc.fr" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
-                                                <i class="flex-shrink-0 text-primary fas fa-comments fa-fw fa-lg mt-2"></i>
-                                                <div class="w-full ml-4">
-                                                    <p class="mb-0 text-base font-medium text-gray-200">
-                                                        Forum
-                                                    </p>
-                                                    <p class="mb-0 mt-1 text-sm text-gray-400">
-                                                        Forum of {{ config('app.name') }}.
-                                                    </p>
-                                                </div>
-                                            </a>
-
                                             <a href="https://truckersmp.com/vtc/39908" target="_blank" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                 <i class="flex-shrink-0 text-primary fas fa-truck fa-fw fa-lg mt-2"></i>
                                                 <div class="w-full ml-4">
@@ -165,6 +153,10 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <a href="{{ route('bookings.create') }}" class="text-base font-medium text-gray-200 hover:text-gray-300">
+                                Bookings <span class="ml-1 p-1 rounded-md text-xs font-bold bg-red-600 text-white">New!</span>
+                            </a>
 
                             <div id="convoys" class="relative">
                                 <button id="convoys-dropdown" type="button" class="text-gray-200 group rounded-md inline-flex items-center text-base font-medium hover:text-gray-300 focus:outline-none" aria-expanded="false">
@@ -322,18 +314,6 @@
                                                     </div>
                                                 </a>
 
-                                                <a href="https://forum.ocsc.fr" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
-                                                    <i class="flex-shrink-0 text-primary fas fa-comments fa-fw fa-lg mt-2"></i>
-                                                    <div class="w-full ml-4">
-                                                        <p class="mb-0 text-base font-medium text-gray-200">
-                                                            Forum
-                                                        </p>
-                                                        <p class="mb-0 mt-1 text-sm text-gray-400">
-                                                            Forum of {{ config('app.name') }}.
-                                                        </p>
-                                                    </div>
-                                                </a>
-
                                                 <a href="https://truckersmp.com/vtc/39908" target="_blank" class="transition duration-200 -m-3 p-3 flex items-start rounded-lg hover:bg-gray-800">
                                                     <i class="flex-shrink-0 text-primary fas fa-truck fa-fw fa-lg mt-2"></i>
                                                     <div class="w-full ml-4">
@@ -372,6 +352,12 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <a href="{{ route('bookings.create') }}" class="px-5 flex items-center rounded-md hover:bg-gray-800">
+                                        <span class="my-6 text-base font-medium text-gray-200">
+                                            Bookings <span class="ml-1 p-1 rounded-md text-xs font-bold bg-red-600 text-white">New!</span>
+                                        </span>
+                                    </a>
 
                                     <!-- Convoys (responsive) -->
                                     <button id="convoys-dropdown-responsive" type="button" class="my-4 px-5 flex justify-between items-center rounded-md font-medium text-base text-gray-200 hover:text-gray-300 focus:outline-none">
@@ -578,7 +564,30 @@
             </div>
         @endif
 
+        <!-- Information Message -->
+        <div id="information-message" data-information-message-id="1" class="z-50 hidden fixed bottom-0 left-1/2 transform -translate-x-1/2 rounded-lg mb-10 shadow-2xl bg-blue-600 text-gray-200 w-11/12 md:w-2/5">
+            <div class="relative bg-blue-800 p-2 text-center rounded-t-lg font-bold">
+                <span><i class="fas fa-info fa-fw mr-1"></i> New Feature: Bookings</span>
+                <div id="information-message-close" class="absolute top-1/2 right-6 transform -translate-y-1/2 flex items-center cursor-pointer">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto flex justify-between gap-10 px-4 sm:px-6 py-6">
+                <div class="flex items-center">
+                    <span class="font-semibold text-sm">
+                        You can now use our new booking system.
+                        <br>
+                        See our availabilities, book a convoy by giving us some information about it and that's done!
+                        <br><br>
+                        Feel free to <a href="">book here.</a></span>
+                </div>
+            </div>
+        </div>
+
         <script src="{{ asset('js/app.js') }}"></script>
+
+        <!-- Cookie manipulation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <script>
             $(function () {
@@ -596,6 +605,9 @@
                         } else {
                             $('#twitch-iframe-box iframe').remove();
                         }
+                    },
+                    onChange: function() {
+                        location.reload();
                     },
 
                     languages : {
@@ -697,6 +709,26 @@
                     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
                 });
 
+                //New feature bar
+                $('.scroll-to-top').click(function () {
+                    document.body.scrollTop = 0; // For Safari
+                    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                });
+
+                //Information message
+                let informationMessage = $('#information-message')
+                let informationMessageId = informationMessage.attr('data-information-message-id')
+
+                if (Cookies.get('information-message-closed') != informationMessageId) {
+                    informationMessage.delay(1000).fadeIn()
+                }
+
+                $('#information-message-close').click(e => {
+                    if (cookieconsent.allowedCategory('functionality_cookies')) {
+                        Cookies.set('information-message-closed', informationMessageId)
+                    }
+                    informationMessage.fadeOut()
+                })
             });
         </script>
 

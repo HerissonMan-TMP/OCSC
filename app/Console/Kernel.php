@@ -78,7 +78,7 @@ class Kernel extends ConsoleKernel
 
                 sleep(1);
             }
-        })->weeklyOn(7, '16:00');
+        })->weeklyOn(7, '15:00');
 
         $schedule->call(function () {
             $ids = Convoy::all()->pluck('truckersmp_event_id');
