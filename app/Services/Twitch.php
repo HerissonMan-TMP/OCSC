@@ -25,24 +25,31 @@ class Twitch
 
     public function call(string $method, string $endpoint, array $parameters = [])
     {
-        if (!$this->methodIsValid(strtolower($method))) {
+        try {
+            $response = Http::retry(3, 200)
+                ->post('https://id.twitch.tv/oauth2/token?client_id=ffoer4pyc71hmfm3q47ojnvw5gq091&client_secret=v6dmvaak3g2xb3qcfqfve29a2my3c5&grant_type=client_credentials');
+        } catch (\Exception $e) {
             return response()->json([
                 'error' => true,
-                'message' => 'The request method is not valid.',
+                'message' => '1Something went wrong when connecting to the Twitch API.',
             ]);
         }
 
+        $accessToken = $response->json()['access_token'];
+
+        //v6dmvaak3g2xb3qcfqfve29a2my3c5
         try {
             $response = Http::retry(3, 200)
                 ->withHeaders([
                     'Accept' => 'application/vnd.twitchtv.v5+json',
+                    'Authorization' => 'Bearer ' . $accessToken,
                     'Client-ID' => $this->client_id,
                 ])
                 ->{$method}(config('twitch.url') . $endpoint, $parameters);
         } catch (\Exception $e) {
             return response()->json([
                 'error' => true,
-                'message' => 'Something went wrong when connecting to the Twitch API.',
+                'message' => '2Something went wrong when connecting to the Twitch API.',
             ]);
         }
 
@@ -74,14 +81,14 @@ class Twitch
             [
                 'login' => $name
             ]
-        )['users']['0'];
+        )['data']['0'];
     }
 
     public function stream(string $name): array
     {
         return $this->call(
             'GET',
-            'streams/' . $this->user($name)['_id'],
+            'streams/' . $this->user($name)['id'],
         );
     }
 }

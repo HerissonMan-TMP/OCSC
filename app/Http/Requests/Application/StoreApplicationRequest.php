@@ -47,7 +47,7 @@ class StoreApplicationRequest extends FormRequest
                 'max:200',
             ],
             'trucksbook_profile' => [
-                'required',
+                'nullable',
                 'url',
                 'max:200',
             ],

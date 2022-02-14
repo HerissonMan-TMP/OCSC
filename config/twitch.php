@@ -33,6 +33,6 @@ return [
     |
     */
 
-    'url' => 'https://api.twitch.tv/kraken/',
+    'url' => 'https://api.twitch.tv/helix/',
 
 ];

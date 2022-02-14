@@ -42,6 +42,8 @@ Route::middleware(['throttle:web', 'cors'])->group(function () {
     //Public: Homepage.
     Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 
+    Route::view('services', 'services')->name('services');
+
     //Public: Articles.
     Route::get('news', [ArticleController::class, 'news'])->name('news');
     Route::resource('articles', ArticleController::class)->only([
