@@ -46,32 +46,16 @@
                         <div class="h-full p-4 rounded-md bg-gray-800">
                             <div class="mb-8">
                                 <h3 class="mt-0 mb-2">Website Changelog</h3>
-                                <span class="text-sm text-gray-400">Latest changelog: <span class="font-bold">18/10/2021 20:10 UTC</span></span>
+                                <span class="text-sm text-gray-400">Latest changelog: <span class="font-bold">14/01/2023 15:20 UTC</span></span>
                             </div>
 
                             <div class="grid grid-cols-2 gap-6">
                                 <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-thumbs-up fa-fw"></i>
+                                    <div class="w-10 h-10 p-4 bg-yellow-500 rounded-md flex items-center justify-center">
+                                        <i class="fas fa-star fa-fw"></i>
                                     </div>
 
-                                    <span class="text-sm">Fixing the order of convoy messages sent on Discord.</span>
-                                </div>
-
-                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-thumbs-up fa-fw"></i>
-                                    </div>
-
-                                    <span class="text-sm">Adding users counter attending to the convoy on the website.</span>
-                                </div>
-
-                                <div class="col-span-full md:col-span-1 flex items-center gap-4">
-                                    <div class="w-10 h-10 p-4 bg-green-500 rounded-md flex items-center justify-center">
-                                        <i class="fas fa-thumbs-up fa-fw"></i>
-                                    </div>
-
-                                    <span class="text-sm">Adding a banner on the website when the maintenance mode is active and a user is browsing on it.</span>
+                                    <span class="text-sm">Reopening of the website!</span>
                                 </div>
                             </div>
                         </div>
