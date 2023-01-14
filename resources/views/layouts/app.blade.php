@@ -167,9 +167,11 @@
                             </div>
 
                             <!--add href at launch-->
+                            <!--
                             <a class="text-base font-medium text-gray-200 hover:text-gray-200 opacity-50 cursor-not-allowed">
                                 Bookings <span class="ml-1 p-1 rounded-md text-xs font-bold bg-red-600 text-white">Soon!</span>
                             </a>
+                            -->
 
                             <div id="convoys" class="relative">
                                 <button id="convoys-dropdown" type="button" class="text-gray-200 group rounded-md inline-flex items-center text-base font-medium hover:text-gray-300 focus:outline-none" aria-expanded="false">
@@ -379,11 +381,13 @@
                                     </div>
 
                                     <!--add href at launch-->
+                                    <!--
                                     <a class="px-5 flex items-center rounded-md hover:bg-gray-800 opacity-50 cursor-not-allowed">
                                         <span class="my-6 text-base font-medium text-gray-200">
                                             Bookings <span class="ml-1 p-1 rounded-md text-xs font-bold bg-red-600 text-white">Soon!</span>
                                         </span>
                                     </a>
+                                    -->
 
                                     <!-- Convoys (responsive) -->
                                     <button id="convoys-dropdown-responsive" type="button" class="my-4 px-5 flex justify-between items-center rounded-md font-medium text-base text-gray-200 hover:text-gray-300 focus:outline-none">
