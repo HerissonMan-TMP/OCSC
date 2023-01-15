@@ -234,6 +234,6 @@ return [
 
     ],
 
-    'default_banner' => 'https://cdn.discordapp.com/attachments/824978783051448340/835160001563066409/ets2_20210417_214420_00.png',
+    'default_banner' => 'https://cdn.discordapp.com/attachments/881862877638709278/1064194412088918096/oJfV4AA_1.png',
 
 ];
