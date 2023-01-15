@@ -578,7 +578,7 @@
 
                 <!-- Mentions & Legal -->
                 <div class="text-center mt-16 text-gray-300 text-sm">
-                    ©2021 by {{ config('app.name') }}. All rights reserved.
+                    ©2023 by {{ config('app.name') }}. All rights reserved.
                     <div class="mt-2">
                         <a href="{{ route('legal-notice.show') }}" class="underline">Legal Notice & Terms and Conditions</a>
                         <a href="{{ route('privacy-policy.show') }}" class="underline">Privacy Policy</a>
