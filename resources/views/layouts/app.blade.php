@@ -662,7 +662,7 @@
                                 blocks : [
                                     {
                                         title : "Cookie Policy",
-                                        description: "<iframe allowtransparency='true' src='{{ asset('cookie-policy.txt') }}' width='100%' style='background-color: #F3F4F6;'></iframe><p style='margin-top: 2em; font-weight: bold;'>Please refresh the page after updating the cookie preferences.</p>"
+                                        description: "<iframe allowtransparency='true' src='{{ asset('cookie-policy.txt') }}' width='100%' style='background-color: #F3F4F6;'></iframe>"
                                     },{
                                         title : "Necessary cookies",
                                         description: 'These trackers are used for activities that are strictly necessary to operate or deliver the service you requested from us and, therefore, do not require you to consent.',
