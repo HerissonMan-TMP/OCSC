@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
-<div class="bg-fixed bg-cover bg-center w-full h-screen overflow-hidden" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url({{ asset('https://cdn.discordapp.com/attachments/881862877638709278/1064193863515897926/double_ocsc.png') }});">
+<div class="bg-fixed bg-cover bg-center w-full h-screen overflow-hidden" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url({{ asset('https://i.imgur.com/1vbfhLF.jpg') }});">
     <div class="w-full h-full text-center text-gray-300 flex flex-col justify-center items-center">
         <div class="font-semibold text-6xl">
             OCSC Event
