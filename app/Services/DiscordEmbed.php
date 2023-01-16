@@ -13,7 +13,7 @@ class DiscordEmbed
 
     protected $username = 'OCSC Event';
 
-    protected $avatarUrl = 'https://ocsc.fr/img/ocsc_logo.png';
+    protected $avatarUrl = 'https://ocsc-event.com/img/ocsc_logo.png';
 
     protected $content = '';
 
@@ -134,7 +134,7 @@ class DiscordEmbed
     public function applicationEmbed($recruitment, $request)
     {
         $this
-            ->webhook(config('discord_webhooks.general'))
+            ->webhook(config('discord_webhooks.applications'))
             ->username('OCSC Event - Recruiter')
             ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
             ->color(hexdec(ltrim($recruitment->load('role')->role->color, '#')))
@@ -143,7 +143,7 @@ class DiscordEmbed
             ->description($request->discord . ' (TMP ID: ' . $request->truckersmp_id . ') just sent an application on the website!')
             ->addField('Role', $recruitment->role->name, false)
             ->image('https://cdn.discordapp.com/attachments/819698398872731729/894909102306783262/ets2_20210906_153815_00.png')
-            ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'));
+            ->footer(config('app.url'), asset('img/ocsc_logo.png'));
 
         return $this;
     }
@@ -151,7 +151,7 @@ class DiscordEmbed
     public function contactMessageEmbed($contactCategory, $contactMessage, $request)
     {
         $this
-            ->webhook(config('discord_webhooks.staff-only'))
+            ->webhook(config('discord_webhooks.support'))
             ->username('OCSC Event - Postman')
             ->author('OCSC Event', config('app.url'), asset('img/ocsc_logo.png'))
             ->color(hexdec('FFFFFF'))
@@ -161,7 +161,7 @@ class DiscordEmbed
             ->addField('Category', $contactCategory->label . ' - ' . $contactCategory->name, false)
             ->addField('Read the message', config('app.url') . '/staff/contact-messages/' . $contactMessage->id, false)
             ->image('https://media.discordapp.net/attachments/824978783051448340/849887295611994152/ets2_20210515_230820_00.png?width=1246&height=701')
-            ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'));
+            ->footer(config('app.url'), asset('img/ocsc_logo.png'));
 
         return $this;
     }
@@ -179,7 +179,7 @@ class DiscordEmbed
                 You will be notified when it will become available again.
                 Thank you for your patience!'
             )
-            ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'));
+            ->footer(config('app.url'), asset('img/ocsc_logo.png'));
 
         return $this;
     }
@@ -194,7 +194,7 @@ class DiscordEmbed
             ->thumbnail(config('app.url') . '/img/ocsc_logo.png')
             ->title('🛠 - Maintenance Mode')
             ->description('The website\'s maintenance mode has just been **disabled**. You can browse our website again!')
-            ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'));
+            ->footer(config('app.url'), asset('img/ocsc_logo.png'));
 
         return $this;
     }
@@ -227,7 +227,7 @@ class DiscordEmbed
             To attend this event, [register on TruckersMP](${url}) by clicking on \"I will be there!\".
             ")
             ->image($convoy['response']['banner'] || 'https://media.discordapp.net/attachments/824978783051448340/849887295611994152/ets2_20210515_230820_00.png?width=1246&height=701')
-            ->footer('https://ocsc.fr', asset('img/ocsc_logo.png'));
+            ->footer(config('app.url'), asset('img/ocsc_logo.png'));
 
         return $this;
     }

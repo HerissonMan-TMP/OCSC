@@ -84,7 +84,7 @@ class ApplicationController extends Controller
 
         (new DiscordEmbed())
             ->applicationEmbed($recruitment, $request)
-            ->webhook(config('discord_webhooks.staff-only'))
+            ->webhook(config('discord_webhooks.general'))
             ->send();
 
         $role = $recruitment->role()->first();
