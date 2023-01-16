@@ -64,7 +64,17 @@ class QuestionController extends Controller
     {
         Gate::authorize('manage-recruitments');
 
-        $question->update($request->validated());
+        $question->fill($request->validated());
+
+        if ($request->type === Question::INLINE) {
+            $question->min_length = Question::INLINE_MIN_LENGTH;
+            $question->max_length = Question::INLINE_MAX_LENGTH;
+        } else {
+            $question->min_length = Question::MULTILINE_MIN_LENGTH;
+            $question->max_length = Question::MULTILINE_MAX_LENGTH;
+        }
+
+        $question->save();
 
         activity(ActivityType::UPDATED)
             ->subject("fas fa-question-circle", "Question #{$question->id}")
