@@ -85,7 +85,7 @@
 
                 <div class="col-span-full md:col-span-3">
                     <label for="trucksbook-profile" class="block font-medium text-gray-300">Trucksbook profile link</label>
-                    <input type="text" name="trucksbook_profile" id="trucksbook-profile" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="https://trucksbook.eu/profile/176697" value="{{ old('trucksbook_profile') }}" required>
+                    <input type="text" name="trucksbook_profile" id="trucksbook-profile" class="text-gray-300 bg-gray-700 mt-1 focus:ring-primary-dark focus:border-primary-dark block w-full shadow-sm md:text-sm border-gray-600 rounded-md" placeholder="https://trucksbook.eu/profile/176697" value="{{ old('trucksbook_profile') }}">
                     @error('trucksbook_profile')
                         <span class="pt-2 text-sm text-red-500">{{ $message }}</span>
                     @enderror

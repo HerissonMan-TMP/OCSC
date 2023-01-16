@@ -104,7 +104,6 @@ class StoreApplicationRequest extends FormRequest
             'steam_profile.required' => 'A Steam profile is required.',
             'steam_profile.url' => 'The Steam profile must be a link.',
 
-            'trucksbook_profile.required' => 'A Trucksbook is required.',
             'trucksbook_profile.url' => 'The Trucksbook profile must be a link.',
 
             'age.required' => 'Your age is required.',
