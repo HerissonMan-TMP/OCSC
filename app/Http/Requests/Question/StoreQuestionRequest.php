@@ -30,7 +30,7 @@ class StoreQuestionRequest extends FormRequest
             'name' => [
                 'required',
                 'string',
-                'max:60'
+                'max:100'
             ],
             'type' => [
                 Rule::in(['inline', 'multiline']),
