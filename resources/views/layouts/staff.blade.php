@@ -316,15 +316,15 @@
                     </div>
 
                     @can('has-admin-rights')
-                        <a class="staff-menu-item" href="https://web41.lws-hosting.com/cpanel" target="_blank">
+                        <a class="staff-menu-item" href="https://saturne.hebergnity.com:8443" target="_blank">
                             <span>
-                                <i class="fab fa-cpanel fa-fw"></i> CPanel
+                                <i class="fas fa-server fa-fw"></i> Hebergnity (Plesk)
                             </span>
                         </a>
                     @else
                         <a class="staff-menu-item-disabled">
                             <span>
-                                <i class="fab fa-cpanel fa-fw"></i> CPanel
+                                <i class="fas fa-server fa-fw"></i> Hebergnity (Plesk)
                             </span>
                         </a>
                     @endcan
@@ -661,15 +661,15 @@
                 <hr>
 
                 @can('has-admin-rights')
-                    <a class="staff-menu-item" href="https://web41.lws-hosting.com/cpanel" target="_blank">
+                    <a class="staff-menu-item" href="https://saturne.hebergnity.com:8443" target="_blank">
                         <span>
-                            <i class="fab fa-cpanel fa-fw"></i> CPanel
+                            <i class="fas fa-server fa-fw"></i> Hebergnity (Plesk)
                         </span>
                     </a>
                 @else
                     <a class="staff-menu-item-disabled">
                         <span>
-                            <i class="fab fa-cpanel fa-fw"></i> CPanel
+                            <i class="fas fa-server fa-fw"></i> Hebergnity (Plesk)
                         </span>
                     </a>
                 @endcan
