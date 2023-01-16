@@ -13,6 +13,8 @@ return [
 
     'client_id' => env('TWITCH_CLIENT_ID', 0),
 
+    'client_secret' => env('TWITCH_CLIENT_SECRET', 0),
+
     /*
     |--------------------------------------------------------------------------
     | Twitch Channel Name

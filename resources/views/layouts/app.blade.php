@@ -515,7 +515,7 @@
                                 <span id="twitch-text"></span>
                             </span>
                             <a id="see-stream" role="button" tabindex="0" class="link" style="display: none;">
-                                See the Stream <i class="fas fa-angle-down"></i>
+                                Watch the stream <i class="fas fa-angle-down"></i>
                             </a>
                         </div>
 
@@ -717,7 +717,7 @@
                 $.ajax({
                     url: "{{ route('api.twitch.stream', config('twitch.channel_name')) }}"
                 }).done(function(data) {
-                    if (data['stream'] === null) {
+                    if (data['data'].length === 0) {
                         $('#twitch-dot').addClass('text-red-500');
                         $('#twitch-text').html('Live offline');
                     } else {

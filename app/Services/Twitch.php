@@ -18,6 +18,8 @@ class Twitch
     {
         $this->client_id = config('twitch.client_id');
 
+        $this->client_secret = config('twitch.client_secret');
+
         $this->channel_name = config('twitch.channel_name');
 
         $this->url = config('twitch.url');
@@ -27,7 +29,7 @@ class Twitch
     {
         try {
             $response = Http::retry(3, 200)
-                ->post('https://id.twitch.tv/oauth2/token?client_id=ffoer4pyc71hmfm3q47ojnvw5gq091&client_secret=v6dmvaak3g2xb3qcfqfve29a2my3c5&grant_type=client_credentials');
+                ->post('https://id.twitch.tv/oauth2/token?client_id=' . $this->client_id . '&client_secret=' . $this->client_secret . '&grant_type=client_credentials');
         } catch (\Exception $e) {
             return response()->json([
                 'error' => true,
@@ -43,7 +45,7 @@ class Twitch
                 ->withHeaders([
                     'Accept' => 'application/vnd.twitchtv.v5+json',
                     'Authorization' => 'Bearer ' . $accessToken,
-                    'Client-ID' => $this->client_id,
+                    'Client-Id' => $this->client_id,
                 ])
                 ->{$method}(config('twitch.url') . $endpoint, $parameters);
         } catch (\Exception $e) {
@@ -88,7 +90,10 @@ class Twitch
     {
         return $this->call(
             'GET',
-            'streams/' . $this->user($name)['id'],
+            'streams',
+            [
+                'user_login' => $this->channel_name,
+            ]
         );
     }
 }
