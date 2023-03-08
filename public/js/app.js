@@ -1844,7 +1844,7 @@ window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! ./nav */ "./resources/js/nav.js");
 __webpack_require__(/*! ./flatpickr */ "./resources/js/flatpickr.js");
-__webpack_require__(/*! ./load_truckersmp_event_data */ "./resources/js/load_truckersmp_event_data.js");
+//require('./load_truckersmp_event_data');
 
 /***/ }),
 
@@ -1893,27 +1893,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 flatpickr('.flatpickr', {
   enableTime: true,
   time_24hr: true
-});
-
-/***/ }),
-
-/***/ "./resources/js/load_truckersmp_event_data.js":
-/*!****************************************************!*\
-  !*** ./resources/js/load_truckersmp_event_data.js ***!
-  \****************************************************/
-/***/ (() => {
-
-$(".button-load-data").click(function () {
-  var eventId = $("#truckersmp_event_id").val();
-  var url = "https://api.truckersmp.com/v2/events/" + eventId;
-  $.get(url, function (data) {
-    $("#title").val(data.response.name);
-    $("#banner_url").val(data.response.banner);
-    $("#location").val(data.response.departure.city);
-    $("#destination").val(data.response.arrive.city);
-    $("#server").val(data.response.server.name);
-    $("#meetup_date").val(data.response.start_at);
-  });
 });
 
 /***/ }),
