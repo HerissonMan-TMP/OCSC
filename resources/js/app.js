@@ -1,4 +1,4 @@
-//window.$ = require('jquery');
+window.$ = require('jquery');
 //require('./bootstrap');
 //require('./nav');
 //require('./flatpickr');
