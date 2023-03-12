@@ -621,7 +621,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha512-Meww2sXqNHxI1+5Dyh/9KAtvI9RZSA4c1K2k5iL02oiPO/RH3Q30L3M1albtqMg50u4gRTYdV4EXOQqXEI336A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <script>
-            $(function () {
+            $(document).ready(function () {
 
                 //Cookie Consent Management
                 var cookieconsent = initCookieConsent();

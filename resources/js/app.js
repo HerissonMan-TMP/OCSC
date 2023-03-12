@@ -1,4 +1,6 @@
-window.$ = require('jquery');
+import $ from 'jquery';
+window.jQuery = $;
+window.$ = $;
 //require('./bootstrap');
 //require('./nav');
 //require('./flatpickr');
