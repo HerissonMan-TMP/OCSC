@@ -115,12 +115,14 @@
     <script>
         $(function () {
             //Partners slider
+            /*
             new Glide('.glide', {
                 type: 'carousel',
                 perView: 3,
                 autoplay: 2000,
                 animationDuration: 500,
             }).mount()
+            */
         });
     </script>
 @endpush
