@@ -6,7 +6,7 @@
 ![](https://img.shields.io/maintenance/yes/2021?style=flat-square)
 # OCSC Event Website
 
-OCSC Event Website repository. Live website available at: https://ocsc.fr.
+OCSC Event Website repository. The website is no longer online due the closure of OCSC, that is why the code is now public.
 
 ## How to install?
 
@@ -74,7 +74,7 @@ To test the website, use the following command:
 
 ## Project information
 
-The project is still maintained and new features will be added in the future.
+The project is no longer maintained. There are no plans to add new features.
 
 #### Versions
 - PHP: ^8.0  
