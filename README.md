@@ -2,7 +2,7 @@
     <img width="50%" src="https://static.wixstatic.com/media/a27d24_744f4c5834dd4925bdf15e0e5dc99054~mv2.png">
 </p>
 
-![](https://img.shields.io/website?down_color=red&down_message=offline&style=flat-square&up_color=brightgreen&up_message=online&url=https%3A%2F%2Focsc-event.com)
+![](https://img.shields.io/website?down_color=red&down_message=offline&style=flat-square&up_color=brightgreen&up_message=online&url=https%3A%2F%2Focsc.fr)
 ![](https://img.shields.io/maintenance/yes/2023?style=flat-square)
 # OCSC Event Website
 
