@@ -37,7 +37,7 @@ You need to generate an encryption key if you want to navigate on the website. T
 
 It will automatically set the APP_KEY value in your .env file.
 
-#### 5. Migrate & seed
+#### 6. Migrate & seed
 Now you must add the required tables for the website to work with the database.
 
 You can run the following command:
@@ -54,7 +54,7 @@ Or you can seed these required data + fake data for other resources, such as new
 
 `php artisan db:seed`
 
-#### 6. Upload some fake files
+#### 7. Upload some fake files
 *This part is only required if you executed `php artisan db:seed` at the previous step.*
 
 When you seeded fake data, it didn't upload fake files. For example, you may have some records in the pictures table, however no real picture files will be attached to these records.
@@ -63,7 +63,7 @@ Therefore, if you want to upload fake files for downloads and pictures, use the 
 
 `php artisan fake-files:upload -D -P` ⚠️ This command is no longer working, because the domain of the service used to generate fake images (placeholder.com) is now owned by another company for a different purpose.
 
-#### 7. Run the website
+#### 8. Run the website
 From there, you can start browsing the website by executing the `php artisan serve` command and `npm run dev` to compile the assets.
 The URL to browse the website is `localhost:8000`.
 
