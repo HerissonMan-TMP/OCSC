@@ -22,7 +22,7 @@ In order to install the required dependencies, use the following commands:
 
 `npm install`
 
-### 3. Create a database
+#### 3. Create a database
 You need to create a MySQL database (in a PhpMyAdmin interface, for example). The collation for the database should be utf8mb4_unicode_ci.
 
 #### 4. Update the .env file
@@ -63,7 +63,7 @@ Therefore, if you want to upload fake files for downloads and pictures, use the 
 
 `php artisan fake-files:upload -D -P` ⚠️ This command is no longer working, because the domain of the service used to generate fake images (placeholder.com) is now owned by another company for a different purpose.
 
-### 7. Run the website
+#### 7. Run the website
 From there, you can start browsing the website by executing the `php artisan serve` command and `npm run dev` to compile the assets.
 The URL to browse the website is `localhost:8000`.
 
